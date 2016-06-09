@@ -1,7 +1,7 @@
 <!-- footer content -->
         <footer style="margin-left: 0px;">
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            Kerja Praktik - <a href="http://www.bi.go.id/">Bank Indonesia</a>
           </div>
           <div class="clearfix"></div>
         </footer>

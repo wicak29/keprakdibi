@@ -4,7 +4,7 @@
   <div class="nav_menu">
     <nav class="" role="navigation">
       <div class="nav toggle">
-        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+        <a id="menu_toggle"><i class="fa fa-thumbs-o-up"></i></a>
       </div>
       <ul class="nav navbar-nav navbar-left">
         <li class="active"><a href="#">Home</a></li>
@@ -17,6 +17,7 @@
             <li><a href="<?php echo base_url('C_apbd/viewLihatStatistik');?>">Statistik</a></li>
           </ul>
         </li>
+        <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>">PIC</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="">

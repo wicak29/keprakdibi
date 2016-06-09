@@ -1,7 +1,7 @@
 <!-- footer content -->
         <footer style="margin-left: 0px;">
           <div class="pull-right">
-            Kerja Praktik - <a href="http://www.bi.go.id/com">Bank Indonesia</a>
+            Kerja Praktik - <a href="http://www.bi.go.id/">Bank Indonesia</a>
           </div>
           <div class="clearfix"></div>
         </footer>
