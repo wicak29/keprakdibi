@@ -11,10 +11,10 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">APBD <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo base_url('C_apbd/importExcel');?>">Import Excel</a></li>
-            <li><a href="<?php echo base_url('C_apbd/rekapAPBD');?>">Rekap APBD</a></li>
-            <li><a href="<?php echo base_url('C_apbd/cariTable');?>">Cari Data</a></li>
-            <li><a href="<?php echo base_url('C_apbd/lihatStatistik');?>">Statistik</a></li>
+            <li><a href="<?php echo base_url('C_apbd/viewImportExcel');?>">Import Excel</a></li>
+            <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
+            <li><a href="<?php echo base_url('C_apbd/viewCariTable');?>">Cari Data</a></li>
+            <li><a href="<?php echo base_url('C_apbd/viewLihatStatistik');?>">Statistik</a></li>
           </ul>
         </li>
       </ul>

@@ -15,9 +15,7 @@ class M_apbd extends CI_Model
         for($i=0;$i<count($dataarray);$i++)
         {
             $data = array(
-
-                //'nama'=>$dataarray[$i]['nama'],
-                'URAIAN'=>$dataarray[$i][0]
+                'uraian'=>$dataarray[$i][0]
             );
             $this->db->insert('apbd', $data);
         }
