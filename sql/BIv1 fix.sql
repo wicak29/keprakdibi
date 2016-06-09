@@ -19,20 +19,21 @@ drop table if exists USER;
 /*==============================================================*/
 create table APBD
 (
-   ID_APBD              int not null,
+   ID_APBD              int not null AUTO_INCREMENT,
    URAIAN               varchar(60) not null,
    primary key (ID_APBD)
-);
+)ENGINE = InnoDB;
+
 
 /*==============================================================*/
 /* Table: DAERAH                                                */
 /*==============================================================*/
 create table DAERAH
 (
-   ID_DAERAH            int not null,
+   ID_DAERAH            int not null AUTO_INCREMENT,
    NAMA_DAERAH          varchar(25) not null,
    primary key (ID_DAERAH)
-);
+)ENGINE = InnoDB;
 
 /*==============================================================*/
 /* Table: DATA_APBD                                             */
@@ -52,7 +53,7 @@ create table DATA_APBD
 /*==============================================================*/
 create table KONTAK
 (
-   ID_KONTAK            int not null,
+   ID_KONTAK            int not null AUTO_INCREMENT,
    NAMA_INSTANSI        varchar(50) not null,
    NO_TELEPON           varchar(15),
    EMAIL                varchar(30),
@@ -60,19 +61,19 @@ create table KONTAK
    PIC                  varchar(50),
    PREFERRED_CONTACT    varchar(50),
    primary key (ID_KONTAK)
-);
+)ENGINE = InnoDB;
 
 /*==============================================================*/
 /* Table: USER                                                  */
 /*==============================================================*/
 create table USER
 (
-   ID_USER              int not null,
+   ID_USER              int not null AUTO_INCREMENT,
    USERNAME             varchar(20) not null,
    PASSWORD             varchar(40) not null,
    LEVEL                varchar(20) not null,
    primary key (ID_USER)
-);
+)ENGINE = InnoDB;
 
 alter table DATA_APBD add constraint FK_DAERAH_APBD foreign key (ID_APBD)
       references APBD (ID_APBD) on delete restrict on update restrict;

@@ -57,7 +57,7 @@ class M_apbd extends CI_Model
 
             );
 
-            $this->db->insert('jangcuk', $data);
+            $this->db->insert('melody', $data);
 
         }
         //echo $data['dump'];
