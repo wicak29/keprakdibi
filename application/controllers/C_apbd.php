@@ -6,6 +6,7 @@ class C_apbd extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper("file");
         $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
         $this->load->model('M_apbd');
     }
@@ -59,7 +60,7 @@ class C_apbd extends CI_Controller
     {
         $fileName = time().$_FILES['file']['name'];
          
-        $config['upload_path'] = './assets/'; //buat folder dengan nama assets di root folder
+        $config['upload_path'] = './temp_upload/'; //buat folder dengan nama assets di root folder
         $config['file_name'] = $fileName;
         $config['allowed_types'] = 'xls|xlsx|csv';
         $config['max_size'] = 10000;
@@ -71,7 +72,7 @@ class C_apbd extends CI_Controller
         $this->upload->display_errors();
              
         $media = $this->upload->data('file');
-        $inputFileName = './assets/'.$media['file_name'];
+        $inputFileName = './temp_upload/'.$media['file_name'];
          
         try {
                 $inputFileType = IOFactory::identify($inputFileName);
@@ -94,13 +95,9 @@ class C_apbd extends CI_Controller
                                                 TRUE,
                                                 FALSE);
 
-               //echo $row;
-               //var_dump($rowData);
-            //$this->load->model('M_apbd');
                 $this->M_apbd->tambahNilai($rowData);
             }
-            // $this->load->model("M_APBD.php");
-            //var_dump($rowData);
+        delete_files('./temp_upload/');
         redirect(base_url('C_apbd/viewImportExcel'));
     }
 }
