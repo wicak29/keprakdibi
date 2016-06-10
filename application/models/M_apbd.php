@@ -10,6 +10,26 @@ class M_apbd extends CI_Model
         $this->load->database();
     }
 
+    public function getUraian()
+    {
+        $this->db->select('URAIAN');
+        $result = $this->db->get('apbd')->result_array();   
+        return $result;
+    }
+
+    public function getNilai($tahun)
+    {
+        $this->db->select('NILAI');
+        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_APBD'=>1))->result_array();
+        $listNilai = array();
+        foreach ($result as $listApbd) 
+        {
+            # code...
+            array_push($listNilai, $listApbd);
+        }
+        return $result;
+    }
+
     public function tambahUraian($dataarray)
     {
         for($i=0;$i<count($dataarray);$i++)

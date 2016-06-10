@@ -207,4 +207,17 @@ class C_apbd extends CI_Controller
             // $this->load->model("M_APBD.php");
             //var_dump($rowData);
     }
+
+    public function getUraian()
+    {
+        $result = $this->M_apbd->getUraian();
+        print_r($result);
+    }
+
+    public function getNilaiByTahun($tahun)
+    {
+        $result = $this->M_apbd->getNilai($tahun);
+        header('Content-Type: application/json');
+        echo json_encode($result);
+    }
 }
