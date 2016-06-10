@@ -16,4 +16,10 @@ class M_pic extends CI_Model
         return $query;
     }
 
+    public function getPic()
+    {
+        $this->db->select('ID_KONTAK, PIC');
+        $result = $this->db->get('kontak');
+        return $result;
+    }
 }

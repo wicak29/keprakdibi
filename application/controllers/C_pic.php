@@ -14,7 +14,7 @@ class C_pic extends CI_Controller
     	$this->load->view('V_head');
     	$this->load->view('V_sidebar');
     	$this->load->view('V_topNav');
-        $this->load->view('pic/V_tambahPIC');
+        $this->load->view('pic/V_tambahPic');
         $this->load->view('V_footer');
     }
 }
