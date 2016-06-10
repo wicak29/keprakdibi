@@ -208,16 +208,26 @@ class C_apbd extends CI_Controller
             //var_dump($rowData);
     }
 
-    public function getUraian()
+    public function getUraian($id)
     {
-        $result = $this->M_apbd->getUraian();
+        $result = $this->M_apbd->getUraian($id);
         print_r($result);
     }
 
     public function getNilaiByTahun($tahun)
     {
-        $result = $this->M_apbd->getNilai($tahun);
+        $listNilai = array();
+        for ($i = 1; $i <= 61; $i++) 
+        {
+            $uraian = $this->M_apbd->getUraian($i);
+            $result = $this->M_apbd->getNilai($tahun, $i);
+            array_push($result, $uraian);
+            array_push($listNilai, $result);
+        }
+        // print_r($listNilai);
+        // return;
+        // $result = $this->M_apbd->getNilai($tahun);
         header('Content-Type: application/json');
-        echo json_encode($result);
+        echo json_encode($listNilai);
     }
 }

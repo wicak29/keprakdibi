@@ -61,6 +61,8 @@
         <script>
         function showApbd(tahun) 
         {
+          $('#datatable').dataTable();
+
           var request = $.ajax(
           {
             url: "<?php echo base_url('C_apbd/getNilaiByTahun'); ?>/"+tahun,
@@ -71,13 +73,22 @@
           {
             var arrLength=list_data.length;
             $("#tabelApbd").html("");
-            for(i=0;i<arrLength;i++)
+            for(i=0;i<61;i++)
             {
                 $( "#tabelApbd" ).append( 
                     "<tr>"+
-                    "<td>"+list_data[i][0]+"</td>"+
-                    "<td>"+list_data[i][1]+"</td>"+
-                    "</tr>" );             
+                    "<td>"+list_data[i][10]+"</td>"+
+                    "<td>"+list_data[i][0].NILAI+"</td>"+
+                    "<td>"+list_data[i][1].NILAI+"</td>"+
+                    "<td>"+list_data[i][2].NILAI+"</td>"+
+                    "<td>"+list_data[i][3].NILAI+"</td>"+
+                    "<td>"+list_data[i][4].NILAI+"</td>"+
+                    "<td>"+list_data[i][5].NILAI+"</td>"+
+                    "<td>"+list_data[i][6].NILAI+"</td>"+
+                    "<td>"+list_data[i][7].NILAI+"</td>"+
+                    "<td>"+list_data[i][8].NILAI+"</td>"+
+                    "<td>"+list_data[i][9].NILAI+"</td>"+
+                    "</tr>" );              
             }
           });
            
