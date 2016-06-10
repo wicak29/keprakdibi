@@ -55,11 +55,11 @@ class C_apbd extends CI_Controller
 
     public function viewLihatStatistik()
     {
-        $this->load->view('V_head');
+        $this->load->view('V_headCHart');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_cariTable');
-        $this->load->view('V_footer');  
+        $this->load->view('apbd/V_statistik');
+        $this->load->view('V_footerChart');  
     }
 
     public function importExcel()
@@ -159,10 +159,12 @@ class C_apbd extends CI_Controller
         $config['upload_path'] = './temp_upload/'; //buat folder dengan nama assets di root folder
         $config['file_name'] = $fileName;
         $config['allowed_types'] = 'xls|xlsx|csv';
-        $config['max_size'] = 10000;
+        $config['max_size'] = 1000000;
          
         $this->load->library('upload');
         $this->upload->initialize($config);
+        //tahun
+        $tahun = $this->input->post('tahun');
          
         if(! $this->upload->do_upload('file') )
         $this->upload->display_errors();
@@ -174,11 +176,13 @@ class C_apbd extends CI_Controller
                 $inputFileType = IOFactory::identify($inputFileName);
                 $objReader = IOFactory::createReader($inputFileType);
                 $objPHPExcel = $objReader->load($inputFileName);
+
             } catch(Exception $e) {
                 die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
             }
  
             $sheet = $objPHPExcel->getSheet(0);
+            $sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
             $highestRow = $sheet->getHighestRow();
             $highestColumn = $sheet->getHighestColumn();
             //echo $highestRow;
@@ -191,9 +195,16 @@ class C_apbd extends CI_Controller
                                                 TRUE,
                                                 FALSE);
 
-                $this->M_apbd->tambahUraian($rowData);
+               //echo $row;
+               //var_dump($rowData);
+                //$this->load->model('M_apbd');
+                $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
+                //echo 'INI ID APBD = '. $IDAPBD;
+                $this->M_apbd->tambahNilai($rowData,$tahun,$row-2);
             }
-        delete_files('./temp_upload/');
-        redirect(base_url('C_apbd/viewImportExcel'));
+            delete_files('./temp_upload/');
+            redirect(base_url('C_apbd/viewImportExcel'));
+            // $this->load->model("M_APBD.php");
+            //var_dump($rowData);
     }
 }

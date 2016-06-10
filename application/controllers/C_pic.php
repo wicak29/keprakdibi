@@ -6,7 +6,7 @@ class C_pic extends CI_Controller
 	public function __construct()
     {
         parent::__construct();
-        // $this->load->model('M_pic');
+        $this->load->model('M_pic');
     }
 
     public function viewTambahPic()
@@ -16,5 +16,20 @@ class C_pic extends CI_Controller
     	$this->load->view('V_topNav');
         $this->load->view('pic/V_tambahPic');
         $this->load->view('V_footer');
+    }
+
+    public function uploadKontak()
+    {
+        
+        $nama_instansi= $this->input->post('nama_instansi');
+        $no_telp= $this->input->post('no_telp');
+        $email= $this->input->post('email');
+        $alamat= $this->input->post('alamat');
+        $pic= $this->input->post('pic');
+        $prefer= $this->input->post('prefer');
+
+        $result = $this->M_pic->addKontak($nama_instansi,$no_telp,$email,$alamat,$pic,$prefer);
+
+        redirect('C_pic/viewTambahPic');
     }
 }

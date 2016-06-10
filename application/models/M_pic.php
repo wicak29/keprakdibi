@@ -10,16 +10,25 @@ class M_pic extends CI_Model
         $this->load->database();
     }
 
-    public function addPic($data)
-    {
-        $query = $this->db->insert('kontak', $data);
-        return $query;
-    }
-
     public function getPic()
     {
         $this->db->select('ID_KONTAK, PIC');
         $result = $this->db->get('kontak');
         return $result;
+    }
+
+    public function addKontak($nama_instansi,$no_telp,$email,$alamat,$pic,$prefer)
+    {
+        $data = array(
+            //'dump'=>$dataarray[$i][5],
+            'NAMA_INSTANSI'=>$nama_instansi,
+            'NO_TELEPON'=>$no_telp,
+            'EMAIL'=>$email,
+            'ALAMAT'=>$alamat,
+            'PIC'=>$pic,
+            'PREFERRED_CONTACT'=>$prefer,
+        );
+        $query = $this->db->insert('kontak', $data);
+        return $query;
     }
 }

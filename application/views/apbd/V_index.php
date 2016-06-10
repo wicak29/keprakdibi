@@ -83,12 +83,12 @@
                   </div>
                   <div class="x_content">
                     <br>
-                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                    <form action="<?php echo base_url();?>C_apbd/insertDataAPBD/" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
+                          <select class="form-control" name="id_kontak">
                             <option value="" selected disabled>Pilih PIC</option>
                             <?php
                               foreach ($list_pic as $pic) 
@@ -103,17 +103,15 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tahun <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control">
-                            <option>Pilih tahun</option>
-                            <option value="0">2000</option>
-                            <option value="1">2001</option>
-                            <option value="2">2002</option>
-                            <option value="3">2003</option>
-                            <option value="4">2004</option>
-                            <option value="5">2005</option>
-                            <option value="6">2006</option>
-                            <option value="7">2007</option>
-                            <option value="8">2008</option>
+                          <select class="form-control" name="tahun">
+                            <option value="" selected disabled>Pilih tahun</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
                           </select>
                         </div>
                       </div>

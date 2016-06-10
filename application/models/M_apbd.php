@@ -97,35 +97,25 @@ class M_apbd extends CI_Model
         //var_dump($dataarray);
         //echo $dataAPBD;
         //echo $tahun;
-       
+        //$j=10;
         for($i=0;$i<count($dataarray);$i++)
-        {
-            echo $dataAPBD;
-            //echo $tahun;
-            $dataBali = array(
+        {   
+            for($j=1;$j<=10;$j++)
+            {
+                echo $dataAPBD;
+                //echo $tahun;
+                $data = array(
+                    //'dump'=>$dataarray[$i][5],
+                    'ID_APBD'=>$dataAPBD,
+                    'ID_DAERAH'=>$j,
+                    'ID_KONTAK'=>1,
+                    'NILAI'=>$dataarray[$i][$j],
+                    'TAHUN'=>$tahun
+                );
+                $this->db->insert('data_apbd', $data);
 
-                //'dump'=>$dataarray[$i][5],
-                'ID_APBD'=>$dataAPBD,
-                'ID_DAERAH'=>1,
-                'ID_KONTAK'=>1,
-                'NILAI'=>$dataarray[$i][1],
-                'TAHUN'=>$tahun
+            }
 
-            );
-
-            $this->db->insert('data_apbd', $data);
-            $data = array(
-
-                //'dump'=>$dataarray[$i][5],
-                'ID_APBD'=>$dataAPBD,
-                'ID_DAERAH'=>1,
-                'ID_KONTAK'=>1,
-                'NILAI'=>$dataarray[$i][1],
-                'TAHUN'=>$tahun
-
-            );
-
-            $this->db->insert('data_apbd', $data);
 
         }        
 
