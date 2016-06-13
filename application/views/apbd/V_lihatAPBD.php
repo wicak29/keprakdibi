@@ -24,7 +24,6 @@
                             <option value="2016">2016</option>
                           </select>
                       </div>
-                      <button type="submit" class="btn btn-primary" style="margin:0 0 0 10px;;">Lihat Data</button>
                     </form>
                     <div class="ln_solid"></div>
                     <!-- <p class="text-muted font-13 m-b-30">
@@ -61,8 +60,6 @@
         <script>
         function showApbd(tahun) 
         {
-          $('#datatable').dataTable();
-
           var request = $.ajax(
           {
             url: "<?php echo base_url('C_apbd/getNilaiByTahun'); ?>/"+tahun,
