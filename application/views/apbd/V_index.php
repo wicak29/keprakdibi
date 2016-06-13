@@ -69,9 +69,20 @@
           </div>
         </div>
         <!-- /INSERT KE APBD -->
-
         <!-- INSERT KE DATA APBD -->
         <div class="right_col" role="main" style="margin-left: 0px;">
+
+          <!-- ALERTS -->
+          <div id="sukses-tambah" class="alert alert-success" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Berhasil!</strong> Barang sudah ditambahkan ke database.
+          </div>    
+          <div id="gagal-tambah" class="alert alert-danger" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Gagal!</strong> Terdapat data form yang belum terisi!
+          </div>
+          <!-- END ALERTS -->
+
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
@@ -83,15 +94,14 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    
                     <br>
-                    <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyProvinsi/" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                    <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyProvinsi/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                       <h3>Data APBD Provinsi Bali</h3>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="id_kontak">
+                          <select class="form-control" name="id_kontak" required="required">
                             <option value="" selected disabled>Pilih PIC</option>
                             <?php
                               foreach ($list_pic as $pic) 
@@ -107,7 +117,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pilih Bulan <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="bulan">
+                          <select class="form-control" name="bulan" required="required">
                             <option value="" selected disabled>Pilih Bulan</option>
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
@@ -129,7 +139,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tahun <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="tahun">
+                          <select class="form-control" name="tahun" required="required">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
                             <option value="2008">2008</option>
@@ -164,13 +174,13 @@
                         </div>
                     </form>
 
-                    <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyKabKota/" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                    <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyKabKota/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                       <h3>Data APBD Kab./Kota</h3>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="id_kontak">
+                          <select class="form-control" name="id_kontak" required="required">
                             <option value="" selected disabled>Pilih PIC</option>
                             <?php
                               foreach ($list_pic as $pic) 
@@ -186,7 +196,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pilih Triwulan <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="triwulan">
+                          <select class="form-control" name="triwulan" required="required">
                             <option value="" selected disabled>Pilih Triwulan</option>
                             <option value="Triwulan_1">Triwulan 1</option>
                             <option value="Triwulan_2">Triwulan 2</option>
@@ -200,7 +210,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tahun <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="tahun">
+                          <select class="form-control" name="tahun" required="required">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
                             <option value="2008">2008</option>
@@ -243,3 +253,16 @@
           </div>
         </div>
         <!-- /INSERT KE DATA APBD -->
+        <script type="text/javascript">
+        // $('#sukses-tambah').hide();
+        // $('#gagal-tambah').hide();
+
+        // $(document).ready(function()
+        // {
+        //   <?php if ($this->session->flashdata('notif')) 
+        //   { ?>
+        //     $('#sukses-tambah').show();
+        //     <?php
+        //   } ?>
+        // });
+        </script>

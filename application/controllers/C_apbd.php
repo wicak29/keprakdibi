@@ -200,9 +200,13 @@ class C_apbd extends CI_Controller
 
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
-                $this->M_apbd->tambahNilaiProvinsi($rowData, $tahun, $periode, $row-2, $pic);
+                $importFile = $this->M_apbd->tambahNilaiProvinsi($rowData, $tahun, $periode, $row-2, $pic);
             }
             delete_files('./temp_upload/');
+            if ($importFile)
+            {
+                $this->session->set_flashdata('notif', 1);
+            }
             redirect(base_url('C_apbd/viewImportExcel'));
     }
     public function insertDataAPBDbyKabKota()

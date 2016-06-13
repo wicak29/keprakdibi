@@ -4796,3 +4796,12 @@ ul.notifications {
   margin-left: 0px;
 }
 
+#sukses-tambah
+{
+    display: none;
+}
+
+#gagal-tambah
+{
+    display: none;
+}
