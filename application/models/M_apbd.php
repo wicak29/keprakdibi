@@ -130,8 +130,9 @@ class M_apbd extends CI_Model
                 'TAHUN'=>$tahun,
                 'PERIODE'=>$periode
             );
-            $this->db->insert('data_apbd', $data);
+            $query = $this->db->insert('data_apbd', $data);
         }        
+        return $query;
         //echo $data['dump'];
     }
     public function tambahNilaiKabKota($dataarray,$tahun,$triwulan,$dataAPBD, $pic)
