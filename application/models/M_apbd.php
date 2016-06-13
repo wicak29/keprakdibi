@@ -117,16 +117,60 @@ class M_apbd extends CI_Model
         // }
     }
 
-    public function tambahNilai($dataarray,$tahun,$dataAPBD)
+    public function tambahNilaiProvinsi($dataarray,$tahun,$bulan,$dataAPBD)
     {
         //$dataAPBD = getIDAPBD($dataarray[0][0]);
         //var_dump($dataarray);
         //echo $dataAPBD;
         //echo $tahun;
         //$j=10;
+        // if ($bulan == NULL){
+        //     $periode = $triwulan;
+        // }
+        // else{
+        //     $periode = $bulan;
+        // }
+        $periode = $bulan;
+        //$kategori = 'Provinsi';
         for($i=0;$i<count($dataarray);$i++)
         {   
-            for($j=1;$j<=10;$j++)
+            
+            //echo $dataAPBD;
+            //echo $tahun;
+            $data = array(
+                //'dump'=>$dataarray[$i][5],
+                'ID_APBD'=>$dataAPBD,
+                'ID_DAERAH'=>1,
+                'ID_KONTAK'=>1,
+                'NILAI'=>$dataarray[$i][1],
+                'TAHUN'=>$tahun,
+                'PERIODE'=>$periode
+            );
+            $this->db->insert('data_apbd', $data);
+
+
+        }        
+
+        //echo $data['dump'];
+    }
+    public function tambahNilaiKabKota($dataarray,$tahun,$triwulan,$dataAPBD)
+    {
+        //$dataAPBD = getIDAPBD($dataarray[0][0]);
+        //var_dump($dataarray);
+        //echo $dataAPBD;
+        //echo $tahun;
+        //$j=10;
+        // if ($bulan == NULL){
+        //     $periode = $triwulan;
+        // }
+        // else{
+        //     $periode = $bulan;
+        // }
+        //$kategori = 'Kabupaten/Kota';
+        $periode = $triwulan;
+        for($i=0;$i<count($dataarray);$i++)
+        {   
+            for($j=2;$j<=10;$j++)
             {
                 echo $dataAPBD;
                 //echo $tahun;
@@ -136,7 +180,8 @@ class M_apbd extends CI_Model
                     'ID_DAERAH'=>$j,
                     'ID_KONTAK'=>1,
                     'NILAI'=>$dataarray[$i][$j],
-                    'TAHUN'=>$tahun
+                    'TAHUN'=>$tahun,
+                    'PERIODE'=>$periode
                 );
                 $this->db->insert('data_apbd', $data);
 
