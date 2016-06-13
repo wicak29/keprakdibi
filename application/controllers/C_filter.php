@@ -36,7 +36,7 @@ class C_filter extends CI_Controller
         $this->load->view('V_head');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_lihatAPBDKab', $data);
+        $this->load->view('apbd/V_lihatAPBDProvinsi', $data);
         $this->load->view('V_footer');
     }
     public function viewDataKab()
@@ -46,7 +46,7 @@ class C_filter extends CI_Controller
         $this->load->view('V_head');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_pilihKategori', $data);
+        $this->load->view('apbd/V_lihatAPBDKab', $data);
         $this->load->view('V_footer');
     }
 
