@@ -3,10 +3,15 @@
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-8 col-sm-8 col-xs-12 center" style="margin-right:auto; margin-left:auto;float:none; ">
+              <div class="col-md-8 col-sm-8 col-xs-12 center" style="margin-right:auto; margin-left:auto;float:none;">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Lihat Tabel</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <a href="<?php echo base_url();?>C_filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                      </li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">

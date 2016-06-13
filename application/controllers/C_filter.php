@@ -69,11 +69,11 @@ class C_filter extends CI_Controller
         //print_r($data['uraian']);
         // return;
         //$data['hasil_filter'] = $this->M_filter->cariFilter();
-        $this->load->view('V_head');
+        $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBDProvinsi', $data);
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
             
     }
 
