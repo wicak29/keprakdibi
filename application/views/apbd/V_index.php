@@ -86,8 +86,8 @@
                     
                     <br>
                     <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyProvinsi/" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                      <h3>Data APBD Provinsi Bali</h3>
                       <div class="form-group">
-                        <h3>Data APBD Provinsi</h3>
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -165,8 +165,8 @@
                     </form>
 
                     <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyKabKota/" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                      <h3>Data APBD Kab./Kota</h3>
                       <div class="form-group">
-                        <h3>Data APBD Kab./Kota</h3>
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">

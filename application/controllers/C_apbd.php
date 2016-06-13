@@ -164,14 +164,10 @@ class C_apbd extends CI_Controller
          
         $this->load->library('upload');
         $this->upload->initialize($config);
-        //tahun
+        
         $tahun = $this->input->post('tahun');
-        //kategori
-        //$kategori = $this->input->post('kategori');
-        //bulan
-        $bulan = $this->input->post('bulan');
-        //triwulan
-        //$triwulan = $this->input->post('triwulan');
+        $periode = $this->input->post('bulan');
+        $pic = $this->input->post('id_kontak');
          
         if(! $this->upload->do_upload('file') )
         $this->upload->display_errors();
@@ -202,17 +198,12 @@ class C_apbd extends CI_Controller
                                                 TRUE,
                                                 FALSE);
 
-               //echo $row;
-               //var_dump($rowData);
-                //$this->load->model('M_apbd');
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
-                $this->M_apbd->tambahNilaiProvinsi($rowData,$tahun,$bulan,$row-2);
+                $this->M_apbd->tambahNilaiProvinsi($rowData, $tahun, $periode, $row-2, $pic);
             }
             delete_files('./temp_upload/');
             redirect(base_url('C_apbd/viewImportExcel'));
-            // $this->load->model("M_APBD.php");
-            //var_dump($rowData);
     }
     public function insertDataAPBDbyKabKota()
     {
@@ -225,14 +216,11 @@ class C_apbd extends CI_Controller
          
         $this->load->library('upload');
         $this->upload->initialize($config);
-        //tahun
+        
+        //GET INPUT VALUE
         $tahun = $this->input->post('tahun');
-        //kategori
-        //$kategori = $this->input->post('kategori');
-        //bulan
-        //$bulan = $this->input->post('bulan');
-        //triwulan
         $triwulan = $this->input->post('triwulan');
+        $pic = $this->input->post('id_kontak');
          
         if(! $this->upload->do_upload('file') )
         $this->upload->display_errors();
@@ -263,17 +251,12 @@ class C_apbd extends CI_Controller
                                                 TRUE,
                                                 FALSE);
 
-               //echo $row;
-               //var_dump($rowData);
-                //$this->load->model('M_apbd');
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
-                $this->M_apbd->tambahNilaiKabKota($rowData,$tahun,$triwulan,$row-2);
+                $this->M_apbd->tambahNilaiKabKota($rowData,$tahun,$triwulan,$row-2, $pic);
             }
             delete_files('./temp_upload/');
             redirect(base_url('C_apbd/viewImportExcel'));
-            // $this->load->model("M_APBD.php");
-            //var_dump($rowData);
     }
 
     public function getUraian($id)
