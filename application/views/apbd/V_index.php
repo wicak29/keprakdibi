@@ -73,13 +73,13 @@
         <div class="right_col" role="main" style="margin-left: 0px;">
 
           <!-- ALERTS -->
-          <div id="sukses-tambah" class="alert alert-success" style="margin-top:70px;">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Berhasil!</strong> Barang sudah ditambahkan ke database.
+          <div id="sukses-tambah" class="alert alert-success alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Berhasil!</strong> File berhasil disimpan ke database.
           </div>    
-          <div id="gagal-tambah" class="alert alert-danger" style="margin-top:70px;">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Gagal!</strong> Terdapat data form yang belum terisi!
+          <div id="gagal-tambah" class="alert alert-danger alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal!</strong> File gagal disimpan ke database!
           </div>
           <!-- END ALERTS -->
 
@@ -272,6 +272,11 @@
           { ?>
             $('#sukses-tambah').show();
             <?php
-          } ?>
+          } 
+          else if ($this->session->flashdata('notif')==2)
+          { ?>
+            $('#gagal-tambah').show();
+            <?php
+          }?>
         });
         </script>

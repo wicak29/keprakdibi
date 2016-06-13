@@ -87,11 +87,11 @@ class C_filter extends CI_Controller
         
         $data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);
 
-        $this->load->view('V_head');
+        $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBDKab', $data);
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
         
     }
 }

@@ -12,10 +12,11 @@
     <script src="<?php echo base_url('assets'); ?>/gentelella/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="<?php echo base_url('assets'); ?>/gentelella/vendors/nprogress/nprogress.js"></script>
-     <!-- ECharts -->
+    <!-- Custom Theme Scripts -->
+    <!-- ECharts -->
     <script src="<?php echo base_url('assets'); ?>/gentelella/vendors/echarts/dist/echarts.min.js"></script>
     <script src="<?php echo base_url('assets'); ?>/gentelella/vendors/echarts/map/js/world.js"></script>
-    <!-- Custom Theme Scripts -->
+    
     <script src="<?php echo base_url('assets'); ?>/gentelella/production/js/custom.js"></script>
     <script>
       var theme = {
