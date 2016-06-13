@@ -42,4 +42,34 @@ class M_filter extends CI_Model
 
         return $query;
     }
+    public function getDaerah($id)
+    {
+
+        $data = $this->db->query('SELECT NAMA_DAERAH FROM daerah WHERE ID_DAERAH ="'.$id.'" LIMIT 1');
+        $row = $data->row_array();
+        return $row['NAMA_DAERAH'];
+    }
+
+    public function getDatabyProvTahunPeriode($bulan, $tahun)
+    {
+        $query = $this->db->query('SELECT apbd.URAIAN as URAIAN, data_apbd.NILAI as NILAI 
+                                    FROM apbd, data_apbd 
+                                    WHERE data_apbd.ID_DAERAH =1 AND data_apbd.PERIODE ="'.$bulan.'" AND data_apbd.TAHUN ="'.$tahun.'" AND apbd.ID_APBD = data_apbd.ID_APBD
+                                    GROUP BY data_apbd.ID_APBD');
+
+        return $query->result_array();
+        
+    }
+
+    public function getDatabyKabTahunPeriode($kab, $periode, $tahun)
+    {
+
+        //$query = $this->db->query('SELECT NILAI FROM data_apbd WHERE ID_DAERAH ='.$kab.' AND PERIODE ="'.$periode.'" AND TAHUN ="'.$tahun.'"' );
+        $query = $this->db->query('SELECT apbd.URAIAN as URAIAN, data_apbd.NILAI as NILAI 
+                                    FROM apbd, data_apbd 
+                                    WHERE data_apbd.ID_DAERAH ='.$kab.' AND data_apbd.PERIODE ="'.$periode.'" AND data_apbd.TAHUN ="'.$tahun.'" AND apbd.ID_APBD = data_apbd.ID_APBD
+                                    GROUP BY data_apbd.ID_APBD
+                                 ' );
+        return $query->result_array();
+    }
 }
