@@ -13,7 +13,7 @@
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('C_apbd/viewImportExcel');?>">Import Excel</a></li>
             <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
-            <li><a href="<?php echo base_url('C_apbd/viewCariTable');?>">Cari Data</a></li>
+            <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li>
             <li><a href="<?php echo base_url('C_apbd/viewLihatStatistik');?>">Statistik</a></li>
           </ul>
         </li>
