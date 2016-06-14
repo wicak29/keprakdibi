@@ -1,5 +1,17 @@
         <!-- TAMBAH PIC -->
         <div class="right_col" role="main" style="margin-left: 0px;">
+
+          <!-- ALERTS -->
+          <div id="sukses-tambah" class="alert alert-success alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Berhasil!</strong> Kontak berhasil disimpan ke database.
+          </div>    
+          <div id="gagal-tambah" class="alert alert-danger alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal!</strong> Kontak gagal disimpan ke database!
+          </div>
+          <!-- END ALERTS -->
+
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
@@ -69,3 +81,20 @@
           </div>
         </div>
         <!-- /INSERT KE APBD -->
+
+        <!-- ALERT -->
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+          <?php if ($this->session->flashdata('notif')) 
+          { ?>
+            $('#sukses-tambah').show();
+            <?php
+          } 
+          else if ($this->session->flashdata('notif')==2)
+          { ?>
+            $('#gagal-tambah').show();
+            <?php
+          }?>
+        });
+        </script>

@@ -201,7 +201,7 @@ class C_apbd extends CI_Controller
 
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
-                $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $periode, $row-5, $pic);
+                $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $daerah, $periode, $row-5, $pic, $data['list_apbdp']);
             }
             if ($importFile)
             {
@@ -259,7 +259,7 @@ class C_apbd extends CI_Controller
 
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
-                $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $periode, $row-5, $pic);
+                $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $daerah, $periode, $row-5, $pic, $data['list_apbdp']);
             }
             if ($importFile)
             {

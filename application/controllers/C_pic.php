@@ -29,7 +29,14 @@ class C_pic extends CI_Controller
         $prefer= $this->input->post('prefer');
 
         $result = $this->M_pic->addKontak($nama_instansi,$no_telp,$email,$alamat,$pic,$prefer);
-
+        if ($result)
+        {
+            $this->session->set_flashdata('notif', 1);
+        }
+        else
+        {
+            $this->session->set_flashdata('notif', 2);   
+        }
         redirect('C_pic/viewTambahPic');
     }
 }
