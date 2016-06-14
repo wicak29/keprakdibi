@@ -25,12 +25,7 @@ class M_apbd extends CI_Model
     public function getNilaiKK($tahun, $id)
     {
         $this->db->select('NILAI');
-<<<<<<< HEAD
         $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_URAIAN'=>$id))->result_array();
-
-=======
-        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_APBD'=>$id))->result_array();
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
         return $result;
     }
 
@@ -121,7 +116,7 @@ class M_apbd extends CI_Model
     public function tambahNilaiDaerah($dataarray, $tahun, $periode, $dataAPBD, $pic)
     {
 
-        $data['list_apbdp']
+        $data['list_apbdp'];
 
         for($i=0;$i<count($dataarray);$i++)
         {   

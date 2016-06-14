@@ -19,8 +19,6 @@
                     <form class="form-inline">
                       <div class="form-group">
                         <label for="ex3">Pilih Tahun : </label>
-<<<<<<< HEAD
-=======
                         <select name="kabkota" class="form-control" tabindex="-1" style="margin-left:10px;">
                             <option value="" selected disabled>Pilih Kabupaten/Kota</option>
                             <option value="2">Badung</option>
@@ -33,7 +31,6 @@
                             <option value="9">Tabanan</option>
                             <option value="10">Kota Denpasar</option>
                           </select>
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                         <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
@@ -47,30 +44,14 @@
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                           </select>
-<<<<<<< HEAD
-                          <select name="periode" class="form-control" tabindex="-1" style="margin-left:10px;">
-=======
                           <!-- <select name="periode" class="form-control" tabindex="-1" style="margin-left:10px;">
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                             <option value="" selected disabled>Pilih Periode</option>
                             <option value="Triwulan_1">Triwulan 1</option>
                             <option value="Triwulan_2">Triwulan 2</option>
                             <option value="Triwulan_3">Triwulan 3</option>
-                            <option value="Triwulan_4">Triwulan 4</option>
-<<<<<<< HEAD
-                        
-                          </select>
-                           <select name="kabkota" class="form-control" tabindex="-1" style="margin-left:10px;">
-                            <option value="" selected disabled>Pilih Kabupaten/Kota</option>
-                            <option value="2">Badung</option>
-                            <option value="3">Bangli</option>
-                            
-                          </select>
-                        <input type="submit" class="btn btn-primary" value="Cari"/>
-=======
-                          </select> -->
+                            <option value="Triwulan_4">Triwulan 4</option>                  
+                          </select>-->
                           <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/>
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                       </div>
                     </form>
                     
@@ -81,12 +62,6 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-<<<<<<< HEAD
-                          <th>Uraian</th>
-                          <th><?php echo $kabkota ?></th>
-                          <!-- <th>Periode</th>
-                          <th>Tahun</th> -->
-=======
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
                           <!-- <th><?php echo $kabkota ?></th> -->
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
@@ -106,26 +81,14 @@
                           <th scope="col">Persentase</th>
                           <th scope="col">Nilai</th>
                           <th scope="col">Persentase</th>
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
                         <?php foreach ($data_apbd as $r) { ?>
-<<<<<<< HEAD
-                        <tbody>
-                            </tr>
-                                
-                                <td ><?php echo $r['URAIAN'] ?></td>
-                                <td ><?php echo $r['NILAI'] ?></td>
-                                
-                                </tr>
-                        </tbody>
-=======
                           <tr>
                             <td ><?php echo $r['URAIAN'] ?></td>
                             <td ><?php echo $r['NILAI'] ?></td>
                           </tr>
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                         <?php } ?>
                       </tbody>
                     </table>
@@ -136,9 +99,6 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-        <!-- /page content -->
-=======
         <!-- /page content -->
         <script>
       $(document).ready(function() {
@@ -187,4 +147,3 @@
       });
     </script>
     <!-- /Datatables -->
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3

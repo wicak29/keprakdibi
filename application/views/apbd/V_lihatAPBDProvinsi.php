@@ -16,7 +16,6 @@
                   </div>
                   <div class="x_content">
                     <form action="<?php echo base_url();?>C_filter/lihatFilterProvinsi/" method="post" enctype="multipart/form-data" class="form-inline">
-                    <form class="form-inline">
                       <div class="form-group">
                         <label for="ex3">Pilih Tahun : </label>
                         <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
@@ -47,11 +46,7 @@
                             <option value="November">November</option>
                             <option value="Desember">Desember</option>
                           </select>
-<<<<<<< HEAD
-                        <input type="submit" class="btn btn-primary" value="Cari"/>
-=======
                         <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/>
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                       </div>
                     </form>
                     
@@ -62,12 +57,6 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-<<<<<<< HEAD
-                          <th>Uraian</th>
-                          <th>Prov. Bali</th>
-                          <!-- <th>Periode</th>
-                          <th>Tahun</th> -->
-=======
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
@@ -76,27 +65,10 @@
                         <tr>
                           <th scope="col">Nilai</th>
                           <th scope="col">Persentase</th>
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
-                        <?php foreach ($uraian as $r) { ?>
-<<<<<<< HEAD
-                        <tbody>
-                            </tr>
-                                
-                                <td ><?php echo $r['URAIAN'] ?></td>
-                                <td ><?php echo $r['NILAI'] ?></td>
-                                
-                                </tr>
-                        </tbody>
-=======
-                          <tr>
-                            <td ><?php echo $r['URAIAN'] ?></td>
-                            <td ><?php echo $r['NILAI'] ?></td>
-                          </tr>
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
-                        <?php } ?>
+                        
                       </tbody>
                     </table>
                   </div>
@@ -107,8 +79,6 @@
           </div>
         </div>
         <!-- /page content -->
-<<<<<<< HEAD
-=======
 
         <!-- DATA TABLES-->
         <script>
@@ -158,5 +128,4 @@
       });
     </script>
     <!-- /Datatables -->
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
        

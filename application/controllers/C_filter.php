@@ -35,11 +35,7 @@ class C_filter extends CI_Controller
         //$data['list_tahun'] = $this->M_filter->getTahun();
         $data['kabkota'] = "nama_daerah";
         $data['data_apbd'] = array();
-<<<<<<< HEAD
-        $this->load->view('V_head');
-=======
         $this->load->view('V_head_table');
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBDKab', $data);
@@ -62,24 +58,6 @@ class C_filter extends CI_Controller
         }
       
     }
-<<<<<<< HEAD
-
-    public function lihatFilterProvinsi()
-    {
-        
-        $bulan= $this->input->post('bulan');
-        $tahun= $this->input->post('tahun');
-
-        $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
-        //print_r($data['uraian']);
-        // return;
-        //$data['hasil_filter'] = $this->M_filter->cariFilter();
-        $this->load->view('V_head');
-        $this->load->view('V_sidebar');
-        $this->load->view('V_topNav');
-        $this->load->view('apbd/V_lihatAPBDProvinsi', $data);
-        $this->load->view('V_footer');
-=======
 
     public function lihatFilterProvinsi()
     {
@@ -89,17 +67,14 @@ class C_filter extends CI_Controller
 
         if (!$bulan) $bulan = "Bulan";
 
-        $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
+        // $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
         $data['bulan'] = $bulan;
-        //print_r($data['uraian']);
-        // return;
-        //$data['hasil_filter'] = $this->M_filter->cariFilter();
+        
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBDProvinsi', $data);
         $this->load->view('V_footer_table');
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
             
     }
 
@@ -113,19 +88,10 @@ class C_filter extends CI_Controller
         
         $data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);
 
-<<<<<<< HEAD
-        $this->load->view('V_head');
-        $this->load->view('V_sidebar');
-        $this->load->view('V_topNav');
-        $this->load->view('apbd/V_lihatAPBDKab', $data);
-        $this->load->view('V_footer');
-=======
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBDKab', $data);
         $this->load->view('V_footer_table');
->>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
-        
     }
 }
