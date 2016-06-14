@@ -285,4 +285,119 @@ class C_apbd extends CI_Controller
         header('Content-Type: application/json');
         echo json_encode($listNilai);
     }
+
+    public function insertDataAPBDP()
+    {
+        $fileName = time().$_FILES['file']['name'];
+         
+        $config['upload_path'] = './temp_upload/'; //buat folder dengan nama assets di root folder
+        $config['file_name'] = $fileName;
+        $config['allowed_types'] = 'xls|xlsx|csv';
+        $config['max_size'] = 1000000;
+         
+        $this->load->library('upload');
+        $this->upload->initialize($config);
+        
+        $tahun = $this->input->post('tahun');
+        $daerah = $this->input->post('daerah');
+       
+         
+        if(! $this->upload->do_upload('file') )
+        $this->upload->display_errors();
+             
+        $media = $this->upload->data('file');
+        $inputFileName = './temp_upload/'.$media['file_name'];
+         
+        try {
+                $inputFileType = IOFactory::identify($inputFileName);
+                $objReader = IOFactory::createReader($inputFileType);
+                $objPHPExcel = $objReader->load($inputFileName);
+
+            } catch(Exception $e) {
+                die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+            }
+ 
+            $sheet = $objPHPExcel->getSheet(0);
+            $sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
+            $highestRow = $sheet->getHighestRow();
+            $highestColumn = $sheet->getHighestColumn();
+            //echo $highestRow;
+            //echo $highestColumn;
+            $rowData = array();
+            for ($row = 6; $row <= $highestRow; $row++)
+            {                  //  Read a row of data into an array                 
+                $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+                                                NULL,
+                                                TRUE,
+                                                FALSE);
+
+                $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
+                //echo 'INI ID APBD = '. $IDAPBD;
+                $importFile = $this->M_apbd->tambahNilaiAPBDPbyTahun($rowData, $tahun, $row-5, $daerah);
+            }
+            if ($importFile)
+            {
+                $this->session->set_flashdata('notif', 1);
+            }
+            delete_files('./temp_upload/');
+            redirect(base_url('C_apbd/viewImportExcel'));
+    }
+    public function insertDataAPBDbyDaerah()
+    {
+        $fileName = time().$_FILES['file']['name'];
+         
+        $config['upload_path'] = './temp_upload/'; //buat folder dengan nama assets di root folder
+        $config['file_name'] = $fileName;
+        $config['allowed_types'] = 'xls|xlsx|csv';
+        $config['max_size'] = 1000000;
+         
+        $this->load->library('upload');
+        $this->upload->initialize($config);
+        
+        $tahun = $this->input->post('tahun');
+        $periode = $this->input->post('periode');
+        $daerah = $this->input->post('daerah');
+        $pic = $this->input->post('id_kontak');
+        $data['list_apbdp'] = $this->M_apbd->getAPBDP($tahun,$daerah);
+         
+        if(! $this->upload->do_upload('file') )
+        $this->upload->display_errors();
+             
+        $media = $this->upload->data('file');
+        $inputFileName = './temp_upload/'.$media['file_name'];
+         
+        try {
+                $inputFileType = IOFactory::identify($inputFileName);
+                $objReader = IOFactory::createReader($inputFileType);
+                $objPHPExcel = $objReader->load($inputFileName);
+
+            } catch(Exception $e) {
+                die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+            }
+ 
+            $sheet = $objPHPExcel->getSheet(0);
+            $sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
+            $highestRow = $sheet->getHighestRow();
+            $highestColumn = $sheet->getHighestColumn();
+            //echo $highestRow;
+            //echo $highestColumn;
+            $rowData = array();
+            for ($row = 6; $row <= $highestRow; $row++)
+            {                  //  Read a row of data into an array                 
+                $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+                                                NULL,
+                                                TRUE,
+                                                FALSE);
+
+                $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
+                //echo 'INI ID APBD = '. $IDAPBD;
+                $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $periode, $row-5, $pic);
+            }
+            if ($importFile)
+            {
+                $this->session->set_flashdata('notif', 1);
+            }
+            delete_files('./temp_upload/');
+            redirect(base_url('C_apbd/viewImportExcel'));
+    }
 }
