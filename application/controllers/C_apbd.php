@@ -166,7 +166,9 @@ class C_apbd extends CI_Controller
         
         $tahun = $this->input->post('tahun');
         $periode = $this->input->post('bulan');
+        $daerah = 1;
         $pic = $this->input->post('id_kontak');
+        $data['list_apbdp'] = $this->M_apbd->getAPBDP($tahun,$daerah);
          
         if(! $this->upload->do_upload('file') )
         $this->upload->display_errors();
@@ -190,7 +192,7 @@ class C_apbd extends CI_Controller
             //echo $highestRow;
             //echo $highestColumn;
             $rowData = array();
-            for ($row = 3; $row <= $highestRow; $row++)
+            for ($row = 6; $row <= $highestRow; $row++)
             {                  //  Read a row of data into an array                 
                 $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
                                                 NULL,
@@ -199,16 +201,11 @@ class C_apbd extends CI_Controller
 
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
-                $importFile = $this->M_apbd->tambahNilaiProvinsi($rowData, $tahun, $periode, $row-2, $pic);
-                if ($importFile)
-                {
-                    $this->session->set_flashdata('notif', 1);
-                }
-                else 
-                {
-                    $this->session->set_flashdata('notif', 2);
-                    break;
-                }
+                $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $periode, $row-5, $pic);
+            }
+            if ($importFile)
+            {
+                $this->session->set_flashdata('notif', 1);
             }
             delete_files('./temp_upload/');
             redirect(base_url('C_apbd/viewImportExcel'));
@@ -225,10 +222,11 @@ class C_apbd extends CI_Controller
         $this->load->library('upload');
         $this->upload->initialize($config);
         
-        //GET INPUT VALUE
         $tahun = $this->input->post('tahun');
-        $triwulan = $this->input->post('triwulan');
+        $periode = $this->input->post('periode');
+        $daerah = $this->input->post('daerah');
         $pic = $this->input->post('id_kontak');
+        $data['list_apbdp'] = $this->M_apbd->getAPBDP($tahun,$daerah);
          
         if(! $this->upload->do_upload('file') )
         $this->upload->display_errors();
@@ -252,7 +250,7 @@ class C_apbd extends CI_Controller
             //echo $highestRow;
             //echo $highestColumn;
             $rowData = array();
-            for ($row = 3; $row <= $highestRow; $row++)
+            for ($row = 6; $row <= $highestRow; $row++)
             {                  //  Read a row of data into an array                 
                 $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
                                                 NULL,
@@ -260,16 +258,12 @@ class C_apbd extends CI_Controller
                                                 FALSE);
 
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
-                $importFile = $this->M_apbd->tambahNilaiKabKota($rowData,$tahun,$triwulan,$row-2, $pic);
-                if ($importFile)
-                {
-                    $this->session->set_flashdata('notif', 1);
-                }
-                else 
-                {
-                    $this->session->set_flashdata('notif', 2);
-                    break;
-                }
+                //echo 'INI ID APBD = '. $IDAPBD;
+                $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $periode, $row-5, $pic);
+            }
+            if ($importFile)
+            {
+                $this->session->set_flashdata('notif', 1);
             }
             delete_files('./temp_upload/');
             redirect(base_url('C_apbd/viewImportExcel'));
