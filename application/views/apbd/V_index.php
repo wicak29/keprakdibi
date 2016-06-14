@@ -259,7 +259,8 @@
                               </div>
                           </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade active in" id="tab-daerah" aria-labelledby="home-tab">
+
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-daerah" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyDaerah/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data APBD Provinsi Bali V2</h3>
                             <br>
@@ -365,7 +366,7 @@
                           </form>
                         </div>
                         
-                        <div role="tabpanel" class="tab-pane fade active in" id="tab-apbdp" aria-labelledby="home-tab">
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-apbdp" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDP/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data APBD P per Tahun</h3>
                             <br>
