@@ -12,9 +12,6 @@
     <script src="<?php echo base_url('assets'); ?>/gentelella/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="<?php echo base_url('assets'); ?>/gentelella/vendors/nprogress/nprogress.js"></script>
-    <!-- ECharts -->
-    <script src="<?php echo base_url('assets'); ?>/gentelella/vendors/echarts/dist/echarts.min.js"></script>
-    <script src="<?php echo base_url('assets'); ?>/gentelella/vendors/echarts/map/js/world.js"></script>
 
     <!-- bootstrap-daterangepicker -->
     <script src="<?php echo base_url('assets'); ?>/gentelella/production/js/moment/moment.min.js"></script>
@@ -59,94 +56,6 @@
         });
       });
     </script>
-    <!-- /Select2 -->
-
-    <script>
-    var echartLine = echarts.init(document.getElementById('echart_line'), theme);
-
-      echartLine.setOption({
-        title: {
-          text: 'Line Graph',
-          subtext: 'Subtitle'
-        },
-        tooltip: {
-          trigger: 'axis'
-        },
-        legend: {
-          x: 220,
-          y: 40,
-          data: ['Intent', 'Pre-order', 'Deal']
-        },
-        toolbox: {
-          show: true,
-          feature: {
-            magicType: {
-              show: true,
-              title: {
-                line: 'Line',
-                bar: 'Bar',
-                stack: 'Stack',
-                tiled: 'Tiled'
-              },
-              type: ['line', 'bar', 'stack', 'tiled']
-            },
-            restore: {
-              show: true,
-              title: "Restore"
-            },
-            saveAsImage: {
-              show: true,
-              title: "Save Image"
-            }
-          }
-        },
-        calculable: true,
-        xAxis: [{
-          type: 'category',
-          boundaryGap: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        }],
-        yAxis: [{
-          type: 'value'
-        }],
-        series: [{
-          name: 'Deal',
-          type: 'line',
-          smooth: true,
-          itemStyle: {
-            normal: {
-              areaStyle: {
-                type: 'default'
-              }
-            }
-          },
-          data: [10, 12, 21, 54, 260, 830, 710]
-        }, {
-          name: 'Pre-order',
-          type: 'line',
-          smooth: true,
-          itemStyle: {
-            normal: {
-              areaStyle: {
-                type: 'default'
-              }
-            }
-          },
-          data: [30, 182, 434, 791, 390, 30, 10]
-        }, {
-          name: 'Intent',
-          type: 'line',
-          smooth: true,
-          itemStyle: {
-            normal: {
-              areaStyle: {
-                type: 'default'
-              }
-            }
-          },
-          data: [1320, 1132, 601, 234, 120, 90, 20]
-        }]
-      });
-    </script>
+    <!-- /Select2 -->    
   </body>
 </html>

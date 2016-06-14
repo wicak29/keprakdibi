@@ -74,7 +74,7 @@
             {
                 $( "#tabelApbd" ).append( 
                     "<tr>"+
-                    "<td>"+list_data[i][10]+"</td>"+
+                    "<td>"+list_data[i][9]+"</td>"+
                     "<td>"+list_data[i][0].NILAI+"</td>"+
                     "<td>"+list_data[i][1].NILAI+"</td>"+
                     "<td>"+list_data[i][2].NILAI+"</td>"+

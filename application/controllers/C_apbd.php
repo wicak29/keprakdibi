@@ -44,7 +44,6 @@ class C_apbd extends CI_Controller
         $this->load->view('V_footer_table');	
     }
 
-
     public function viewCariTable()
     {
     	$this->load->view('V_head');
@@ -201,10 +200,15 @@ class C_apbd extends CI_Controller
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
                 $importFile = $this->M_apbd->tambahNilaiProvinsi($rowData, $tahun, $periode, $row-2, $pic);
-            }
-            if ($importFile)
-            {
-                $this->session->set_flashdata('notif', 1);
+                if ($importFile)
+                {
+                    $this->session->set_flashdata('notif', 1);
+                }
+                else 
+                {
+                    $this->session->set_flashdata('notif', 2);
+                    break;
+                }
             }
             delete_files('./temp_upload/');
             redirect(base_url('C_apbd/viewImportExcel'));
@@ -256,8 +260,16 @@ class C_apbd extends CI_Controller
                                                 FALSE);
 
                 $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
-                //echo 'INI ID APBD = '. $IDAPBD;
-                $this->M_apbd->tambahNilaiKabKota($rowData,$tahun,$triwulan,$row-2, $pic);
+                $importFile = $this->M_apbd->tambahNilaiKabKota($rowData,$tahun,$triwulan,$row-2, $pic);
+                if ($importFile)
+                {
+                    $this->session->set_flashdata('notif', 1);
+                }
+                else 
+                {
+                    $this->session->set_flashdata('notif', 2);
+                    break;
+                }
             }
             delete_files('./temp_upload/');
             redirect(base_url('C_apbd/viewImportExcel'));

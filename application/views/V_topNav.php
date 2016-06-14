@@ -14,10 +14,11 @@
             <li><a href="<?php echo base_url('C_apbd/viewImportExcel');?>">Import Excel</a></li>
             <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
             <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li>
+            <li><a href="">Bandingkan Data</a></li>
             <li><a href="<?php echo base_url('C_apbd/viewLihatStatistik');?>">Statistik</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>">PIC</a></li>
+        <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>">Tambah Kontak</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="">

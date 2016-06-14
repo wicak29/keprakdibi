@@ -3,10 +3,15 @@
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+              <div class="col-md-12 col-sm-12 col-xs-12 center" style="margin-right:auto; margin-left:auto;float:none;">
+                <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
                     <h2>Lihat Tabel</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                        <a href="<?php echo base_url();?>C_filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                      </li>
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -14,6 +19,21 @@
                     <form class="form-inline">
                       <div class="form-group">
                         <label for="ex3">Pilih Tahun : </label>
+<<<<<<< HEAD
+=======
+                        <select name="kabkota" class="form-control" tabindex="-1" style="margin-left:10px;">
+                            <option value="" selected disabled>Pilih Kabupaten/Kota</option>
+                            <option value="2">Badung</option>
+                            <option value="3">Bangli</option>                          
+                            <option value="4">Buleleng</option>
+                            <option value="5">Gianyar</option>
+                            <option value="6">Jembrana</option>
+                            <option value="7">Karangasem</option>
+                            <option value="8">Klungkung </option>
+                            <option value="9">Tabanan</option>
+                            <option value="10">Kota Denpasar</option>
+                          </select>
+>>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                         <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
@@ -27,12 +47,17 @@
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                           </select>
+<<<<<<< HEAD
                           <select name="periode" class="form-control" tabindex="-1" style="margin-left:10px;">
+=======
+                          <!-- <select name="periode" class="form-control" tabindex="-1" style="margin-left:10px;">
+>>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                             <option value="" selected disabled>Pilih Periode</option>
                             <option value="Triwulan_1">Triwulan 1</option>
                             <option value="Triwulan_2">Triwulan 2</option>
                             <option value="Triwulan_3">Triwulan 3</option>
                             <option value="Triwulan_4">Triwulan 4</option>
+<<<<<<< HEAD
                         
                           </select>
                            <select name="kabkota" class="form-control" tabindex="-1" style="margin-left:10px;">
@@ -42,6 +67,10 @@
                             
                           </select>
                         <input type="submit" class="btn btn-primary" value="Cari"/>
+=======
+                          </select> -->
+                          <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/>
+>>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                       </div>
                     </form>
                     
@@ -49,17 +78,40 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <table id="datatable" class="table table-striped table-bordered">
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
+<<<<<<< HEAD
                           <th>Uraian</th>
                           <th><?php echo $kabkota ?></th>
                           <!-- <th>Periode</th>
                           <th>Tahun</th> -->
+=======
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
+                          <!-- <th><?php echo $kabkota ?></th> -->
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                          <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 1</th>
+                          <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 2</th>
+                          <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 3</th>
+                          <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 4</th>
+                          <!-- <th>Periode</th>-->
+                        </tr>
+                        <tr>
+                          <th scope="col">Nilai</th>
+                          <th scope="col">Persentase</th>
+                          <th scope="col">Nilai</th>
+                          <th scope="col">Persentase</th>
+                          <th scope="col">Nilai</th>
+                          <th scope="col">Persentase</th>
+                          <th scope="col">Nilai</th>
+                          <th scope="col">Persentase</th>
+>>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
                         <?php foreach ($data_apbd as $r) { ?>
+<<<<<<< HEAD
                         <tbody>
                             </tr>
                                 
@@ -68,6 +120,12 @@
                                 
                                 </tr>
                         </tbody>
+=======
+                          <tr>
+                            <td ><?php echo $r['URAIAN'] ?></td>
+                            <td ><?php echo $r['NILAI'] ?></td>
+                          </tr>
+>>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
                         <?php } ?>
                       </tbody>
                     </table>
@@ -78,4 +136,55 @@
             </div>
           </div>
         </div>
+<<<<<<< HEAD
         <!-- /page content -->
+=======
+        <!-- /page content -->
+        <script>
+      $(document).ready(function() {
+        var handleDataTableButtons = function() {
+          if ($("#datatable-buttons").length) {
+            $("#datatable-buttons").DataTable({
+              dom: "Bfrtip",
+              buttons: [
+                {
+                  extend: "copy",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "csv",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "excel",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "pdfHtml5",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "print",
+                  className: "btn-sm"
+                },
+              ],
+              responsive: true,
+              order: [],
+              paging: false
+            });
+          }
+        };
+
+        TableManageButtons = function() {
+          "use strict";
+          return {
+            init: function() {
+              handleDataTableButtons();
+            }
+          };
+        }();
+        TableManageButtons.init();
+      });
+    </script>
+    <!-- /Datatables -->
+>>>>>>> 570bc33ec63e8398bad384bc858745e570be59d3
