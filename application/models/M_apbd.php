@@ -113,29 +113,28 @@ class M_apbd extends CI_Model
 
     }
 
-    public function tambahNilaiDaerah($dataarray, $tahun, $periode, $dataAPBD, $pic)
-    {
-
-        $data['list_apbdp'];
+    public function tambahNilaiDaerah($dataarray, $tahun, $daerah, $periode, $dataAPBD, $pic, $dataPlafon){
+        //echo $daerah;
+        //echo $dataPlafon[$dataAPBD]['APBD'];
 
         for($i=0;$i<count($dataarray);$i++)
         {   
-            // if($dataarray[$i][2]==NULL){
-            //     $data_persen = ($dataarray[$i][3]/$dataarray[$i][1])*100;
-            // }
-            // else{
-            //     $data_persen = ($dataarray[$i][3]/$dataarray[$i][2])*100;
-            // }
+            //echo $dataPlafon[$dataAPBD]['APBD_P'];
+            //echo $dataPlafon[$dataAPBD]['APBD'];
+            //print_r($dataarray[$i][1]);
+            if($dataPlafon[$i]['APBD_P']==NULL){
+                $data_persen = ($dataarray[$i][1]/$dataPlafon[$dataAPBD-1]['APBD'])*100;
+            }
+            else{
+                $data_persen = ($dataarray[$i][1]/$dataPlafon[$dataAPBD-1]['APBD_P'])*100;
+            }
 
-            //$data_persen = $dataarray[$i][]
             $data = array(
                 //'dump'=>$dataarray[$i][5],
                 'ID_URAIAN'=>$dataAPBD,
-                'ID_DAERAH'=>1,
+                'ID_DAERAH'=>$daerah,
                 'ID_KONTAK'=>$pic,
-                'PLAFON_ANGGARAN'=>$dataarray[$i][1],
-                'PLAFON_ANGGARAN_P'=>$dataarray[$i][2],
-                'NILAI_REALISASI'=>$dataarray[$i][3],
+                'NILAI_REALISASI'=>$dataarray[$i][1],
                 'PERSEN_REALISASI'=>$data_persen,
                 'TAHUN'=>$tahun,
                 'PERIODE'=>$periode
