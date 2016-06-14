@@ -227,7 +227,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Triwulan <span class="required">*</span>
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control" name="triwulan" required="required">
+                                <select class="form-control" name="periode" required="required">
                                   <option value="" selected disabled>Pilih Triwulan</option>
                                   <option value="Triwulan_1">Triwulan 1</option>
                                   <option value="Triwulan_2">Triwulan 2</option>
