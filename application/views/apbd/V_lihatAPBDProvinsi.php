@@ -58,10 +58,14 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>Uraian</th>
-                          <th>Prov. Bali</th>
-                          <!-- <th>Periode</th>
-                          <th>Tahun</th> -->
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                          <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $bulan?></th>
+                        </tr>
+                        <tr>
+                          <th scope="col">Nilai</th>
+                          <th scope="col">Persentase</th>
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">

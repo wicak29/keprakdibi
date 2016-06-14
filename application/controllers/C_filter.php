@@ -35,11 +35,11 @@ class C_filter extends CI_Controller
         //$data['list_tahun'] = $this->M_filter->getTahun();
         $data['kabkota'] = "nama_daerah";
         $data['data_apbd'] = array();
-        $this->load->view('V_head');
+        $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBDKab', $data);
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function pindahKeFilter()
@@ -62,10 +62,13 @@ class C_filter extends CI_Controller
     public function lihatFilterProvinsi()
     {
         
-        $bulan= $this->input->post('bulan');
+        $bulan= $this->input->post('bulan');        
         $tahun= $this->input->post('tahun');
 
+        if (!$bulan) $bulan = "Bulan";
+
         $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
+        $data['bulan'] = $bulan;
         //print_r($data['uraian']);
         // return;
         //$data['hasil_filter'] = $this->M_filter->cariFilter();
