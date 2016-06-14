@@ -46,7 +46,7 @@
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="col-md-3 col-sm-3 col-xs-6">
                       <p style="padding: 5px;">
-                        <input type="checkbox" name="tahun[]" value="2007" data-parsley-maxcheck="5" required class="flat" /> 2007
+                        <input type="checkbox" name="tahun[]" value="2007" class="flat" /> 2007
                         <br />
                         <input type="checkbox" name="tahun[]" value="2008" class="flat" /> 2008
                         <br />
@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                       <p style="padding: 5px;">
-                      <input type="checkbox" name="tahun[]" value="2008" class="flat" /> 2016
+                      <input type="checkbox" name="tahun[]" value="2008" class="flat" data-parsley-maxcheck="5" required/> 2016
                         <br />
                       <!-- <p style="padding: 5px;">
                         <input type="checkbox" name="tahun[]" value="2007" class="flat" /> 2007
