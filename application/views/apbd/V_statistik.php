@@ -217,36 +217,32 @@
                   }?>
                 </tr>
                 <tr>
-                  <th scope="col">Nilai</th>
-                  <th scope="col">Persentase</th>
-                  <th scope="col">Nilai</th>
-                  <th scope="col">Persentase</th>
-                  <th scope="col">Nilai</th>
-                  <th scope="col">Persentase</th>
-                  <th scope="col">Nilai</th>
-                  <th scope="col">Persentase</th>
+                  <?php foreach ($tahun as $t) 
+                  { ?>
+                    <th scope="col">Nilai</th>
+                    <th scope="col">Persentase</th>
+                  <?php
+                  }?>
                 </tr>
               </thead>
               <tbody id="tabelApbd">
                 <tr>
                   <td>Uraian</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
+                  <td>APBD</td>
+                  <td>APBDP</td>
+                  <?php foreach ($tahun as $t) 
+                  { ?>
+                    <td scope="col">1</td>
+                    <td scope="col">2</td>
+                  <?php
+                  }?>
                 </tr>
-                <?php foreach ($data_apbd as $r) { ?>
+                <!--<?php foreach ($data_apbd as $r) { ?>
                   <tr>
                     <td ><?php echo $r['URAIAN'] ?></td>
                     <td ><?php echo $r['NILAI'] ?></td>
                   </tr>
-                <?php } ?> 
+                <?php } ?> -->
               </tbody>
             </table>
           </div>
@@ -263,8 +259,15 @@
 //        this.checked = false;
 //    }
 // });
-$('input[type=checkbox]').on('change', function (e) {
-    if ($('input[type=checkbox]:checked').length > 5) {
+$('input[class=single-checkbox]').on('change', function (e) {
+    if ($('input[class=single-checkbox]:checked').length > 5) {
+        $(this).prop('checked', false);
+        alert("Maksimal Pilih 5");
+    }
+});
+
+$('input[class=uraian-checkbox]').on('change', function (e) {
+    if ($('input[class=uraian-checkbox]:checked').length > 5) {
         $(this).prop('checked', false);
         alert("Maksimal Pilih 5");
     }
