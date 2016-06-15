@@ -34,9 +34,9 @@ class M_apbd extends CI_Model
         for($i=0;$i<count($dataarray);$i++)
         {
             $data = array(
-                'uraian'=>$dataarray[$i][0]
+                'URAIAN'=>$dataarray[$i][0]
             );
-            $this->db->insert('apbd', $data);
+            $this->db->insert('uraian_apbd', $data);
         }
     }
     public function tambahDaerah($dataarray)
