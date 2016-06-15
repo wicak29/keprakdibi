@@ -221,10 +221,10 @@ class C_apbd extends CI_Controller
             }
  
             $sheet = $objPHPExcel->getSheet(0);
-            $sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
+            //$sheet->getStyle('B3:J33')->getNumberFormat()->setFormatCode('text');
             $highestRow = $sheet->getHighestRow();
             $highestColumn = $sheet->getHighestColumn();
-            //echo $highestRow;
+            print_r($highestRow);
             //echo $highestColumn;
             $rowData = array();
             for ($row = 6; $row <= $highestRow; $row++)
@@ -234,8 +234,9 @@ class C_apbd extends CI_Controller
                                                 TRUE,
                                                 FALSE);
 
-                $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
+                //$IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
+                //print_r($rowData);
                 $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $daerah, $periode, $row-5, $pic, $data['list_apbdp']);
             }
             if ($importFile)
@@ -279,7 +280,7 @@ class C_apbd extends CI_Controller
             }
  
             $sheet = $objPHPExcel->getSheet(0);
-            $sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
+            //$sheet->getStyle('B3:J')->getNumberFormat()->setFormatCode('text');
             $highestRow = $sheet->getHighestRow();
             $highestColumn = $sheet->getHighestColumn();
             //echo $highestRow;
@@ -292,7 +293,7 @@ class C_apbd extends CI_Controller
                                                 TRUE,
                                                 FALSE);
 
-                $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
+                //$IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
                 $importFile = $this->M_apbd->tambahNilaiDaerah($rowData, $tahun, $daerah, $periode, $row-5, $pic, $data['list_apbdp']);
             }
@@ -359,7 +360,7 @@ class C_apbd extends CI_Controller
             }
  
             $sheet = $objPHPExcel->getSheet(0);
-            $sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
+            //$sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
             $highestRow = $sheet->getHighestRow();
             $highestColumn = $sheet->getHighestColumn();
             //echo $highestRow;
@@ -372,7 +373,7 @@ class C_apbd extends CI_Controller
                                                 TRUE,
                                                 FALSE);
 
-                $IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
+                //$IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
                 //echo 'INI ID APBD = '. $IDAPBD;
                 $importFile = $this->M_apbd->tambahNilaiAPBDPbyTahun($rowData, $tahun, $row-5, $daerah);
             }
@@ -417,7 +418,7 @@ class C_apbd extends CI_Controller
             }
  
             $sheet = $objPHPExcel->getSheet(0);
-            $sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
+            //$sheet->getStyle('B3:J63')->getNumberFormat()->setFormatCode('text');
             $highestRow = $sheet->getHighestRow();
             $highestColumn = $sheet->getHighestColumn();
             //echo $highestRow;
