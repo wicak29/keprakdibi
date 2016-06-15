@@ -67,8 +67,9 @@ class C_filter extends CI_Controller
 
         if (!$bulan) $bulan = "Bulan";
 
-        // $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
+        $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
         $data['bulan'] = $bulan;
+        if(!$data['uraian']) $data['uraian'] = array();
         
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
