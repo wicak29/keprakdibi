@@ -94,4 +94,31 @@ class C_filter extends CI_Controller
         $this->load->view('apbd/V_lihatAPBDKab', $data);
         $this->load->view('V_footer_table');
     }
+
+    public function statistik()
+    {
+        //$this->load->model('M_filter');
+        $kabkota = $this->input->post('kabkota');
+        $data['periode'] = $this->input->post('periode');
+        //$data['tahun'] = $this->input->post('tahun');
+        $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
+        
+        //$tahun = substr(implode(', ', $this->input->post('tahun')), 0);
+        $tahun = array();
+        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
+        echo sizeof($tahun);
+        var_dump($tahun);
+
+        //$data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);
+
+        //$this->load->view('V_head_table');
+        // $this->load->view('V_sidebar');
+        // $this->load->view('V_topNav');
+        // $this->load->view('apbd/V_lihatAPBDKab', $data);
+        // $this->load->view('V_footer_table');
+    }
 }

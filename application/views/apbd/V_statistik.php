@@ -11,7 +11,7 @@
           </div>
           <div class="x_content">
             <div style="margin-bottom:50px;">
-              <form id="demo-form" action="" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+              <form id="demo-form" action="<?php echo base_url();?>C_filter/statistik" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ex3">Daerah :</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -58,19 +58,19 @@
                       <p style="padding: 5px;">
                         <input type="checkbox" name="tahun[]" value="2010" class="flat" /> 2010
                         <br />
-                        <input type="checkbox" name="tahun[]" value="2007" class="flat" /> 2011
+                        <input type="checkbox" name="tahun[]" value="2011" class="flat" /> 2011
                         <br />
-                        <input type="checkbox" name="tahun[]" value="2008" class="flat" /> 2012
+                        <input type="checkbox" name="tahun[]" value="2012" class="flat" /> 2012
                         <br />
                       </p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                       <p style="padding: 5px;">
-                        <input type="checkbox" name="tahun[]" value="2009" class="flat" /> 2013
+                        <input type="checkbox" name="tahun[]" value="2013" class="flat" /> 2013
                         <br />
-                        <input type="checkbox" name="tahun[]" value="2010" class="flat" /> 2014
+                        <input type="checkbox" name="tahun[]" value="2014" class="flat" /> 2014
                         <br />
-                        <input type="checkbox" name="tahun[]" value="2007" class="flat" /> 2015
+                        <input type="checkbox" name="tahun[]" value="2015" class="flat" /> 2015
                         <br />
                         <!-- <input type="checkbox" name="tahun[]" value="2009" class="flat" /> 2009
                         <br />
@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                       <p style="padding: 5px;">
-                      <input type="checkbox" name="tahun[]" value="2008" class="flat" data-parsley-maxcheck="5" required/> 2016
+                      <input type="checkbox" name="tahun[]" value="2016" class="flat" data-parsley-maxcheck="5" required/> 2016
                         <br />
                       <!-- <p style="padding: 5px;">
                         <input type="checkbox" name="tahun[]" value="2007" class="flat" /> 2007
@@ -112,6 +112,15 @@
   </div>
 </div>
 <!-- /INSERT KE DATA APBD -->
+<script>
+var limit = 5;
+$('input.flat').on('change', function(evt) {
+   if($(this).siblings(':checked').length >= limit) {
+       this.checked = false;
+   }
+});
+</script>
+Chat Conversation End
 
 <script>
       var theme = {
