@@ -53,14 +53,6 @@ class C_apbd extends CI_Controller
         $this->load->view('V_footer');	
     }
 
-    public function viewLihatStatistik()
-    {
-        $this->load->view('V_headChart');
-        $this->load->view('V_sidebar');
-        $this->load->view('V_topNav');
-        $this->load->view('apbd/V_statistik');
-        $this->load->view('V_footerChart');  
-    }
     public function insertUraian()
     {
         $fileName = time().$_FILES['file']['name'];

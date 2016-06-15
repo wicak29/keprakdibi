@@ -21,7 +21,7 @@
                 <li><a href="">Kabupaten/Kota</a></li>
               </ul>
             </li>
-            <li><a href="<?php echo base_url('C_apbd/viewLihatStatistik');?>">Statistik</a></li>
+            <li><a href="<?php echo base_url('C_filter/viewLihatStatistik');?>">Grafik</a></li>
           </ul>
         </li>
         <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>">Tambah Kontak</a></li>

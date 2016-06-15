@@ -98,7 +98,7 @@ class C_filter extends CI_Controller
     }
 
 
-    public function statistik()
+    public function viewLihatStatistik()
     {
         $kabkota = $this->input->post('kabkota');
         $periode = $this->input->post('periode');
@@ -108,20 +108,20 @@ class C_filter extends CI_Controller
         //$tahun = substr(implode(', ', $this->input->post('tahun')), 0);
         $data['tahun'] = array();
         $data['tahun'] = $this->input->post('tahun');
-        $data['tahun'] = $this->input->post('tahun');
-        $data['tahun'] = $this->input->post('tahun');
-        $data['tahun'] = $this->input->post('tahun');
-        $data['tahun'] = $this->input->post('tahun');
         $data['ukuran_checkbox'] = sizeof($data['tahun']);
+        print_r($data['tahun']);
+        print_r($data['ukuran_checkbox']);
 
         if (!$data['tahun']) $data['tahun'] = array();
         else
         {
             $data['compare'] = $this->M_filter->getCompareDaerah($data['tahun'],$kabkota,$periode);
-            print_r($data['compare']);
+            // print_r($data['compare']);
         }
-
-        //$data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);
+ 
+        $data['uraian'] = array();
+        $data['uraian'] = $this->input->post('uraian');
+        print_r($data['uraian']);
 
         $this->load->view('V_headChart');
         $this->load->view('V_sidebar');

@@ -11,7 +11,7 @@
           </div>
           <div class="x_content">
             <div style="margin-bottom:50px;">
-              <form id="demo-form" action="<?php echo base_url();?>C_filter/statistik" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+              <form id="demo-form" action="<?php echo base_url();?>C_filter/viewLihatStatistik" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ex3">Daerah :</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
