@@ -72,4 +72,22 @@ class M_filter extends CI_Model
                                  ' );
         return $query->result_array();
     }
+    public function getCompareDaerah($tahun,$kabkota,$periode)
+    {
+        $hasil=array();
+        for($i=0;$i<sizeof($tahun);$i++){
+            
+            $query = $this->db->query('SELECT TAHUN FROM `data_apbd` WHERE TAHUN ="'.$tahun[$i].'" AND ID_DAERAH ='.$kabkota.' AND PERIODE="'.$periode.'"
+                                 ' );
+            array_push($hasil, $query->result_array());
+            //array_push($listNilai, $result);
+            //$hasil= $query->result_array();
+        }
+
+        //$query = $this->db->query('SELECT NILAI FROM data_apbd WHERE ID_DAERAH ='.$kab.' AND PERIODE ="'.$periode.'" AND TAHUN ="'.$tahun.'"' );
+        
+        return $hasil;
+    }
+
 }
+//SELECT * FROM `data_apbd` WHERE TAHUN IN ('2008', '2009')
