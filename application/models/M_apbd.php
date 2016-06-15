@@ -68,9 +68,7 @@ class M_apbd extends CI_Model
 
     public function getIDAPBD($namaAPBD){
         $data = $this->db->query('SELECT ID_URAIAN FROM uraian_apbd WHERE URAIAN ="'.$namaAPBD.'" LIMIT 1');
-        $row = $data->row_array();
-        //echo $row['ID_APBD'];
-        return $row['ID_URAIAN'];
+        return $data;
 
     }
 

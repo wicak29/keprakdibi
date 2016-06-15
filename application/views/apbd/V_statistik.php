@@ -115,7 +115,7 @@
                         <br />
                         <input type="checkbox" name="uraian[]" value="7" class="uraian-checkbox"/> Dana Perimbangan
                         <br />
-                        <input type="checkbox" name="uraian[]" value="8" class="uraian-checkbox"/> Bagi Hasil Pajak & Bukan Pajak
+                        <input type="checkbox" name="uraian[]" value="8" class="uraian-checkbox"/> Bagi Hasil Pajak &amp; Bukan Pajak
                         <br />
                         <input type="checkbox" name="uraian[]" value="9" class="uraian-checkbox"/> DAU
                         <br />
@@ -127,11 +127,11 @@
                         <br />
                         <input type="checkbox" name="uraian[]" value="13" class="uraian-checkbox"/> Pendapatan Hibah
                         <br />
-                        <input type="checkbox" name="uraian[]" value="14" class="uraian-checkbox"/> Bagi Hsl. Pajak Prov & Pemda
+                        <input type="checkbox" name="uraian[]" value="14" class="uraian-checkbox"/> Bagi Hsl. Pajak Prov &amp; Pemda
                         <br />
-                        <input type="checkbox" name="uraian[]" value="15" class="uraian-checkbox"/> Penyesuaian & Otonomi Khusus
+                        <input type="checkbox" name="uraian[]" value="15" class="uraian-checkbox"/> Penyesuaian &amp; Otonomi Khusus
                         <br />
-                        <input type="checkbox" name="uraian[]" value="16" class="uraian-checkbox"/> Bantuan Keuangan Prov & Pemda
+                        <input type="checkbox" name="uraian[]" value="16" class="uraian-checkbox"/> Bantuan Keuangan Prov &amp; Pemda
                         <br />
                         <input type="checkbox" name="uraian[]" value="17" class="uraian-checkbox"/> Sumbangan Pihak Ketiga
                         <br />
@@ -141,53 +141,53 @@
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <p style="padding: 5px;">
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> BELANJA DAERAH
+                        <input type="checkbox" name="uraian[]" value="19" class="uraian-checkbox"/> BELANJA DAERAH
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Tidak Langsung
+                        <input type="checkbox" name="uraian[]" value="20" class="uraian-checkbox"/> Belanja Tidak Langsung
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Pegawai
+                        <input type="checkbox" name="uraian[]" value="21" class="uraian-checkbox"/> Belanja Pegawai
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Barang
+                        <input type="checkbox" name="uraian[]" value="22" class="uraian-checkbox"/> Belanja Barang
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Subsidi
+                        <input type="checkbox" name="uraian[]" value="23" class="uraian-checkbox"/> Belanja Subsidi
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Hibah
+                        <input type="checkbox" name="uraian[]" value="24" class="uraian-checkbox"/> Belanja Hibah
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Bantuan Sosial
+                        <input type="checkbox" name="uraian[]" value="25" class="uraian-checkbox"/> Belanja Bantuan Sosial
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Blj. Bagi Hsl Pr/Kt/Kab/Pemda
+                        <input type="checkbox" name="uraian[]" value="26" class="uraian-checkbox"/> Blj. Bagi Hsl Pr/Kt/Kab/Pemda
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Bantuan Keuangan
+                        <input type="checkbox" name="uraian[]" value="27" class="uraian-checkbox"/> Belanja Bantuan Keuangan
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Tidak Terduga
+                        <input type="checkbox" name="uraian[]" value="28" class="uraian-checkbox"/> Belanja Tidak Terduga
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Langsung
+                        <input type="checkbox" name="uraian[]" value="29" class="uraian-checkbox"/> Belanja Langsung
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Pegawai
+                        <input type="checkbox" name="uraian[]" value="30" class="uraian-checkbox"/> Belanja Pegawai
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Barang dan Jasa
+                        <input type="checkbox" name="uraian[]" value="31" class="uraian-checkbox"/> Belanja Barang dan Jasa
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Modal
+                        <input type="checkbox" name="uraian[]" value="32" class="uraian-checkbox"/> Belanja Modal
                         <br />
                       </p>
                       <p style="padding: 5px;">
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> SURPLUS/(DEFISIT)
+                        <input type="checkbox" name="uraian[]" value="33" class="uraian-checkbox"/> SURPLUS/(DEFISIT)
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> PEMBIAYAAN
+                        <input type="checkbox" name="uraian[]" value="34" class="uraian-checkbox"/> PEMBIAYAAN
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Penerimaan Daerah
+                        <input type="checkbox" name="uraian[]" value="35" class="uraian-checkbox"/> Penerimaan Daerah
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Penggunaan SILPA
+                        <input type="checkbox" name="uraian[]" value="36" class="uraian-checkbox"/> Penggunaan SILPA
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Pengeluaran Daerah
+                        <input type="checkbox" name="uraian[]" value="37" class="uraian-checkbox"/> Pengeluaran Daerah
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Penyertaan Modal Pemda
+                        <input type="checkbox" name="uraian[]" value="38" class="uraian-checkbox"/> Penyertaan Modal Pemda
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Penguatan Modal Pemda
+                        <input type="checkbox" name="uraian[]" value="39" class="uraian-checkbox"/> Penguatan Modal Pemda
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Pembiayaan Netto
+                        <input type="checkbox" name="uraian[]" value="40" class="uraian-checkbox"/> Pembiayaan Netto
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> SILPA
+                        <input type="checkbox" name="uraian[]" value="41" class="uraian-checkbox"/> SILPA
                         <br />
                       </p>
                     </div>
@@ -530,7 +530,20 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
         {
           type: 'category',
           boundaryGap: false,
-          data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
+          data: [
+          <?php
+            $count = sizeof($tahun);
+            $pos = 0;
+            foreach ($tahun as $t) 
+            {
+              if ($count-1 != $pos) 
+                echo "'".$t."',";
+              else
+                echo "'".$t."'";
+              $pos++;
+            }
+          ?>
+          ]
         }],
         yAxis: [
         {

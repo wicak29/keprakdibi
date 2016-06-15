@@ -83,7 +83,7 @@ class C_apbd extends CI_Controller
             $highestRow = $sheet->getHighestRow();
             $highestColumn = $sheet->getHighestColumn();
             $rowData = array();
-            for ($row = 6; $row <= $highestRow; $row++){                  //  Read a row of data into an array                 
+            for ($row = 2; $row <= $highestRow; $row++){                  //  Read a row of data into an array                 
                 $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
                                                 NULL,
                                                 TRUE,
