@@ -87,7 +87,10 @@
                         <?php foreach ($data_apbd as $r) { ?>
                           <tr>
                             <td ><?php echo $r['URAIAN'] ?></td>
+                            <td ><?php echo $r['APBD'] ?></td>
+                            <td ><?php echo $r['APBD_P'] ?></td>
                             <td ><?php echo $r['NILAI'] ?></td>
+                            <td ><?php echo $r['PERSENTASE'] ?>%</td>
                           </tr>
                         <?php } ?>
                       </tbody>
