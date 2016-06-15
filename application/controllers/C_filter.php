@@ -67,9 +67,8 @@ class C_filter extends CI_Controller
 
         if (!$bulan) $bulan = "Bulan";
 
-        $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
+        // $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
         $data['bulan'] = $bulan;
-        if(!$data['uraian']) $data['uraian'] = array();
         
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
@@ -88,7 +87,7 @@ class C_filter extends CI_Controller
         $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
         
         $data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['tahun']);
-        print_r($data['data_apbd']);
+        //print_r($data['data_apbd']);
 
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
@@ -97,36 +96,37 @@ class C_filter extends CI_Controller
         $this->load->view('V_footer_table');
     }
 
-
-    public function viewLihatStatistik()
+    public function statistik()
     {
+        //$this->load->model('M_filter');
         $kabkota = $this->input->post('kabkota');
         $periode = $this->input->post('periode');
+        //data['periode'] = $this->input->post('periode');
+        //$data['tahun'] = $this->input->post('tahun');
         $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
 
         
         //$tahun = substr(implode(', ', $this->input->post('tahun')), 0);
-        $data['tahun'] = array();
-        $data['tahun'] = $this->input->post('tahun');
-        $data['ukuran_checkbox'] = sizeof($data['tahun']);
-        print_r($data['tahun']);
-        print_r($data['ukuran_checkbox']);
+        $tahun = array();
+        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
+        $ukuran_checkbox = sizeof($tahun);
+        //var_dump($tahun);
+        //echo $tahun;
+        //$tahun = $this->input->post('kabkota');
+        $data['compare'] = $this->M_filter->getCompareDaerah($tahun,$kabkota,$periode);
+        print_r($data['compare']);
 
-        if (!$data['tahun']) $data['tahun'] = array();
-        else
-        {
-            $data['compare'] = $this->M_filter->getCompareDaerah($data['tahun'],$kabkota,$periode);
-            // print_r($data['compare']);
-        }
- 
-        $data['uraian'] = array();
-        $data['uraian'] = $this->input->post('uraian');
-        print_r($data['uraian']);
 
-        $this->load->view('V_headChart');
+        //$data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);
+
+        $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_statistik', $data);
-        $this->load->view('V_footerChart');
+        $this->load->view('V_footer_table');
     }
 }
