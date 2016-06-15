@@ -67,9 +67,12 @@ class C_filter extends CI_Controller
 
         if (!$bulan) $bulan = "Bulan";
 
-        // $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
+
+        $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
         $data['bulan'] = $bulan;
-        
+        if(!$data['uraian']) $data['uraian'] = array();
+        //var_dump($data['uraian']);
+
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
@@ -117,7 +120,7 @@ class C_filter extends CI_Controller
         //echo $tahun;
         //$tahun = $this->input->post('kabkota');
         $data['compare'] = $this->M_filter->getCompareDaerah($tahun,$kabkota,$periode);
-        print_r($data['compare']);
+        //print_r($data['compare']);
 
 
         //$data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);

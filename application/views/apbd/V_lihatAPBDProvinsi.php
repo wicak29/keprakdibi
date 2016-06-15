@@ -3,7 +3,7 @@
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
-              <div class="col-md-8 col-sm-8 col-xs-12" style="margin-right:auto; margin-left:auto;float:none;">
+              <div class="col-md-12 col-sm-12 col-xs-12" style="margin-right:auto; margin-left:auto;float:none;">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
                     <h2>Lihat Tabel</h2>
@@ -68,7 +68,15 @@
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
-                        
+                        <?php foreach ($uraian as $r) { ?>
+                          <tr>
+                            <td ><?php echo $r['URAIAN'] ?></td>
+                            <td ><?php echo $r['APBD'] ?></td>
+                            <td ><?php echo $r['APBD_P'] ?></td>
+                            <td ><?php echo $r['NILAI'] ?></td>
+                            <td ><?php echo $r['PERSENTASE'] ?> %</td>
+                          </tr>
+                        <?php } ?>
                       </tbody>
                     </table>
                   </div>
