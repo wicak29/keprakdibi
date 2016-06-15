@@ -96,6 +96,104 @@
                   </select>
                   </div>
                 </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Uraian :</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <p style="padding: 5px;">
+                        <input type="checkbox" name="uraian[]" value="1" class="uraian-checkbox"/> PENDAPATAN DAERAH
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> PAD
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="3" class="uraian-checkbox"/> Pend. Pajak Daerah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="4" class="uraian-checkbox"/> Retribusi Daerah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="5" class="uraian-checkbox"/> Hsl. PMD &amp; Hsl. Pengel
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="6" class="uraian-checkbox"/> Lain-lain PAD Sah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="7" class="uraian-checkbox"/> Dana Perimbangan
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="8" class="uraian-checkbox"/> Bagi Hasil Pajak & Bukan Pajak
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="9" class="uraian-checkbox"/> DAU
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="10" class="uraian-checkbox"/> DAK
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="11" class="uraian-checkbox"/> Penguatan Infrastuktur Daerah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="12" class="uraian-checkbox"/> Lain-lain Pendapatan Sah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="13" class="uraian-checkbox"/> Pendapatan Hibah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="14" class="uraian-checkbox"/> Bagi Hsl. Pajak Prov & Pemda
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="15" class="uraian-checkbox"/> Penyesuaian & Otonomi Khusus
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="16" class="uraian-checkbox"/> Bantuan Keuangan Prov & Pemda
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="17" class="uraian-checkbox"/> Sumbangan Pihak Ketiga
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="18" class="uraian-checkbox"/> Alokasi Krg. Byr. DAK
+                        <br />
+                      </p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <p style="padding: 5px;">
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> BELANJA DAERAH
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Tidak Langsung
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Pegawai
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Barang
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Subsidi
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Hibah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Bantuan Sosial
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Blj. Bagi Hsl Pr/Kt/Kab/Pemda
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Bantuan Keuangan
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Tidak Terduga
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Langsung
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Pegawai
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Barang dan Jasa
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Belanja Modal
+                        <br />
+                      </p>
+                      <p style="padding: 5px;">
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> SURPLUS/(DEFISIT)
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> PEMBIAYAAN
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Penerimaan Daerah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Penggunaan SILPA
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Pengeluaran Daerah
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Penyertaan Modal Pemda
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Penguatan Modal Pemda
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> Pembiayaan Netto
+                        <br />
+                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> SILPA
+                        <br />
+                      </p>
+                    </div>
+                  </select>
+                  </div>
+                </div>
                 <div class="ln_solid"></div>
                 <div class="form-group">
                   <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -105,6 +203,52 @@
               </form>
             </div>
             <div id="echart_line" style="height:350px;"></div>
+            <table id="datatable-buttons" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
+                  <!-- <th><?php echo $kabkota ?></th> -->
+                  <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
+                  <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                  <?php foreach ($tahun as $t) 
+                  { ?>
+                    <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $t ?></th>
+                  <?php
+                  }?>
+                </tr>
+                <tr>
+                  <th scope="col">Nilai</th>
+                  <th scope="col">Persentase</th>
+                  <th scope="col">Nilai</th>
+                  <th scope="col">Persentase</th>
+                  <th scope="col">Nilai</th>
+                  <th scope="col">Persentase</th>
+                  <th scope="col">Nilai</th>
+                  <th scope="col">Persentase</th>
+                </tr>
+              </thead>
+              <tbody id="tabelApbd">
+                <tr>
+                  <td>Uraian</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+                <?php foreach ($data_apbd as $r) { ?>
+                  <tr>
+                    <td ><?php echo $r['URAIAN'] ?></td>
+                    <td ><?php echo $r['NILAI'] ?></td>
+                  </tr>
+                <?php } ?> 
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -126,7 +270,6 @@ $('input[type=checkbox]').on('change', function (e) {
     }
 });
 </script>
-Chat Conversation End
 
 <script>
       var theme = {
@@ -346,7 +489,7 @@ Chat Conversation End
       echartLine.setOption({
         title: {
           text: 'Grafik APBD Kota Denpasar',
-          subtext: 'lalala yeyeye lalala'
+          subtext: ''
         },
         tooltip: {
           trigger: 'axis'

@@ -95,15 +95,15 @@
                   <div class="x_content">
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
                       <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#tab-provinsi" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Provinsi</a>
+                        <li role="presentation" class="active"><a href="#tab-apbdp" role="tab" id="apbdp-tab" data-toggle="tab" aria-expanded="true">APDBP</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab-kabupaten" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Kabupaten/Kota</a>
+                        <li role="presentation" class=""><a href="#tab-provinsi" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Provinsi</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab-apbdp" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">APDBP</a>
+                        <li role="presentation" class=""><a href="#tab-kabupaten" role="tab" id="kabupaten-tab" data-toggle="tab" aria-expanded="false">Kabupaten/Kota</a>
                         </li>
                       </ul>
                       <div id="myTabContent" class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade active in" id="tab-provinsi" aria-labelledby="home-tab">
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-provinsi" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyProvinsi/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data APBD Provinsi Bali</h3>
                             <br>
@@ -272,7 +272,7 @@
                         </div>
 
                        
-                        <div role="tabpanel" class="tab-pane fade in" id="tab-apbdp" aria-labelledby="home-tab">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab-apbdp" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDP/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data APBD P per Tahun</h3>
                             <br>
@@ -346,6 +346,7 @@
           </div>
         </div>
         <!-- /INSERT KE DATA APBD -->
+      
         <script type="text/javascript">
         $(document).ready(function()
         {

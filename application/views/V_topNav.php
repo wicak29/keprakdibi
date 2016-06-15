@@ -9,12 +9,18 @@
       <ul class="nav navbar-nav navbar-left">
         <li class="active"><a href="#">Home</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">APBD <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">APBD <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('C_apbd/viewImportExcel');?>">Import Excel</a></li>
             <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
             <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li>
-            <li><a href="">Bandingkan Data</a></li>
+            <li class="dropdown dropdown-submenu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data</a>
+              <ul class="dropdown-menu">
+                <li><a href="">Provinsi</a></li>  
+                <li><a href="">Kabupaten/Kota</a></li>
+              </ul>
+            </li>
             <li><a href="<?php echo base_url('C_apbd/viewLihatStatistik');?>">Statistik</a></li>
           </ul>
         </li>

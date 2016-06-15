@@ -95,6 +95,7 @@ class C_filter extends CI_Controller
         $this->load->view('V_footer_table');
     }
 
+
     public function statistik()
     {
         //$this->load->model('M_filter');
@@ -106,26 +107,26 @@ class C_filter extends CI_Controller
 
         
         //$tahun = substr(implode(', ', $this->input->post('tahun')), 0);
-        $tahun = array();
-        $tahun = $this->input->post('tahun');
-        $tahun = $this->input->post('tahun');
-        $tahun = $this->input->post('tahun');
-        $tahun = $this->input->post('tahun');
-        $tahun = $this->input->post('tahun');
-        $ukuran_checkbox = sizeof($tahun);
+        $data['tahun'] = array();
+        $data['tahun'] = $this->input->post('tahun');
+        $data['tahun'] = $this->input->post('tahun');
+        $data['tahun'] = $this->input->post('tahun');
+        $data['tahun'] = $this->input->post('tahun');
+        $data['tahun'] = $this->input->post('tahun');
+        $data['ukuran_checkbox'] = sizeof($data['tahun']);
         //var_dump($tahun);
         //echo $tahun;
         //$tahun = $this->input->post('kabkota');
-        $data['compare'] = $this->M_filter->getCompareDaerah($tahun,$kabkota,$periode);
+        $data['compare'] = $this->M_filter->getCompareDaerah($data['tahun'],$kabkota,$periode);
         print_r($data['compare']);
 
 
         //$data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);
 
-        $this->load->view('V_head_table');
+        $this->load->view('V_headChart');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_statistik', $data);
-        $this->load->view('V_footer_table');
+        $this->load->view('V_footerChart');
     }
 }
