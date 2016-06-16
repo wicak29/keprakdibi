@@ -15,8 +15,29 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>C_filter/lihatFilterProvinsi/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>C_update/filterKab/" method="post" enctype="multipart/form-data" class="form-inline">
                       <div class="form-group">
+                        <label for="ex3">Pilih Daerah : </label>
+                        <select class="form-control" name="kabkota" required="required">
+                          <option value="" selected disabled>Pilih Daerah</option>
+                          <option value="2">Kab. Badung</option>
+                          <option value="3">Kab. Bangli</option>
+                          <option value="4">Kab. Buleleng</option>
+                          <option value="5">Kab. Gianyar</option>
+                          <option value="6">Kab. Jembrana</option>
+                          <option value="7">Kab. Karangasem</option>
+                          <option value="8">Kab. Klungkung</option>
+                          <option value="9">Kab. Tabanan</option>
+                          <option value="10">Kota. Denpasar</option>
+                        </select>
+                        <label for="ex3">Pilih Periode : </label>
+                        <select name="periode" class="form-control" tabindex="-1" style="margin-left:10px;">
+                            <option value="" selected disabled>Pilih Triwulan</option>
+                            <option value="Triwulan_1">Triwulan 1</option>
+                            <option value="Triwulan_2">Triwulan 2</option>
+                            <option value="Triwulan_3">Triwulan 3</option>
+                            <option value="Triwulan_4">Triwulan 4</option>
+                        </select>
                         <label for="ex3">Pilih Tahun : </label>
                         <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
                             <option value="" selected disabled>Pilih tahun</option>
@@ -31,21 +52,8 @@
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                           </select>
-                          <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;">
-                            <option value="" selected disabled>Pilih bulan</option>
-                            <option value="Januari">Januari</option>
-                            <option value="Februari">Februari</option>
-                            <option value="Maret">Maret</option>
-                            <option value="April">April</option>
-                            <option value="Mei">Mei</option>
-                            <option value="Juni">Juni</option>
-                            <option value="Juli">Juli</option>
-                            <option value="Agustus">Agustus</option>
-                            <option value="September">September</option>
-                            <option value="Oktober">Oktober</option>
-                            <option value="November">November</option>
-                            <option value="Desember">Desember</option>
-                          </select>
+                          
+
                         <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/>
                       </div>
                     </form>
@@ -54,6 +62,7 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
+                    <form action="<?php echo base_url();?>C_update/updateDataNilaiKab/" method="post" enctype="multipart/form-data" class="form-inline">
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -68,18 +77,20 @@
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
-                        <?php foreach ($uraian as $r) { ?>
+                        <?php foreach ($data_apbd as $r) { ?>
                           <tr>
                             <td ><?php echo $r['URAIAN'] ?></td>
                             <td ><?php echo $r['APBD'] ?></td>
                             <td ><?php echo $r['APBD_P'] ?></td>
-                            <td><input type="text" value="?php echo $r['NILAI'] ?"></td>
+                            <td><input type="text" name="nilai[]" value="<?php echo $r['NILAI'] ?>"></td>
                             <!-- <td ><?php //echo $r['NILAI'] ?></td> -->
                             <td ><?php echo $r['PERSENTASE'] ?> %</td>
                           </tr>
                         <?php } ?>
                       </tbody>
                     </table>
+                    <input type="submit" class="btn btn-warning" style="float:right;" value="Update"/>
+                  </form>
                   </div>
                 </div>
 

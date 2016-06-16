@@ -53,12 +53,12 @@ class M_update extends CI_Model
         
     }
 
-    public function getDatabyKabTahunPeriode($periode, $tahun, $daerah)
+    public function getDatabyKabTahunPeriode($daerah, $tahun, $periode)
     {
 
         $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
                                      FROM uraian_apbd, data_apbd, apbd
-                                     WHERE data_apbd.ID_DAERAH = '.$daerah.' AND data_apbd.TAHUN ="'.$tahun.'" AND data_apbd.PERIODE ="'.$bulan.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = apbd.ID_URAIAN
+                                     WHERE data_apbd.ID_DAERAH = '.$daerah.' AND data_apbd.TAHUN ="'.$tahun.'" AND data_apbd.PERIODE ="'.$periode.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = apbd.ID_URAIAN
                                      GROUP BY data_apbd.ID_URAIAN');
 
         return $query->result_array();

@@ -9,7 +9,7 @@
                     <h2>Lihat Tabel</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>C_filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="<?php echo base_url();?>C_update" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -54,7 +54,7 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <form action="<?php echo base_url();?>C_update/updateDataNilai/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>C_update/updateDataNilaiProv/" method="post" enctype="multipart/form-data" class="form-inline">
                 
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
