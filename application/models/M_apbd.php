@@ -9,6 +9,13 @@ class M_apbd extends CI_Model
         $this->load->database();
     }
 
+    public function getAllUraian()
+    {
+        $this->db->select('URAIAN');
+        $query = $this->db->get('uraian_apbd')->result_array();
+        return $query;
+    }
+
     public function getUraian($id)
     {
         $data = $this->db->query('SELECT URAIAN FROM uraian_apbd WHERE ID_URAIAN ="'.$id.'" LIMIT 1');

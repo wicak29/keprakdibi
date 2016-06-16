@@ -15,41 +15,42 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>C_filter/lihatFilterProvinsi/" method="post" enctype="multipart/form-data" class="form-inline">
-                      <div class="form-group">
-                        <label for="ex3">Pilih Tahun : </label>
-                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
-                            <option value="" selected disabled>Pilih tahun</option>
-                            <option value="2007">2007</option>
-                            <option value="2008">2008</option>
-                            <option value="2009">2009</option>
-                            <option value="2010">2010</option>
-                            <option value="2011">2011</option>
-                            <option value="2012">2012</option>
-                            <option value="2013">2013</option>
-                            <option value="2014">2014</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                          </select>
-                          <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;">
-                            <option value="" selected disabled>Pilih bulan</option>
-                            <option value="Januari">Januari</option>
-                            <option value="Februari">Februari</option>
-                            <option value="Maret">Maret</option>
-                            <option value="April">April</option>
-                            <option value="Mei">Mei</option>
-                            <option value="Juni">Juni</option>
-                            <option value="Juli">Juli</option>
-                            <option value="Agustus">Agustus</option>
-                            <option value="September">September</option>
-                            <option value="Oktober">Oktober</option>
-                            <option value="November">November</option>
-                            <option value="Desember">Desember</option>
-                          </select>
-                        <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/>
-                      </div>
-                    </form>
-                    
+                    <div class="row">
+                      <form action="<?php echo base_url();?>C_filter/lihatFilterProvinsi/" method="post" enctype="multipart/form-data" class="form-inline">
+                        <div class="form-group">
+                          <label for="ex3">Pilih Tahun : </label>
+                          <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
+                              <option value="" selected disabled>Pilih tahun</option>
+                              <option value="2007">2007</option>
+                              <option value="2008">2008</option>
+                              <option value="2009">2009</option>
+                              <option value="2010">2010</option>
+                              <option value="2011">2011</option>
+                              <option value="2012">2012</option>
+                              <option value="2013">2013</option>
+                              <option value="2014">2014</option>
+                              <option value="2015">2015</option>
+                              <option value="2016">2016</option>
+                            </select>
+                            <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;">
+                              <option value="" selected disabled>Pilih bulan</option>
+                              <option value="Januari">Januari</option>
+                              <option value="Februari">Februari</option>
+                              <option value="Maret">Maret</option>
+                              <option value="April">April</option>
+                              <option value="Mei">Mei</option>
+                              <option value="Juni">Juni</option>
+                              <option value="Juli">Juli</option>
+                              <option value="Agustus">Agustus</option>
+                              <option value="September">September</option>
+                              <option value="Oktober">Oktober</option>
+                              <option value="November">November</option>
+                              <option value="Desember">Desember</option>
+                            </select>
+                          <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/>
+                        </div>
+                      </form>
+                    </div>                    
                     <div class="ln_solid"></div>
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>

@@ -554,14 +554,14 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
           y: 40,
           data: [
           <?php 
-            $count = sizeof($listUraian);
+            $count = sizeof($finalResult);
             $pos = 0;
-            foreach ($listUraian as $key) 
+            foreach ($finalResult as $key) 
             {
               if ($count-1 != $pos)
-                echo "'".$key."',";
+                echo "'".$key[0]."',";
               else
-                echo "'".$key."'";
+                echo "'".$key[0]."'";
               $pos++;
             }
           ?>
@@ -569,13 +569,13 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
         },
         series: [
         <?php
-          $count = sizeof($listUraian);
+          $count = sizeof($finalResult);
           $pos = 0;
-          foreach ($listUraian as $key) 
+          foreach ($finalResult as $key) 
           {
             if ($count-1 != $pos)
               echo "{
-                  name: '".$key."',
+                  name: '".$key[0]."',
                   type: 'line',
                   smooth: true,
                   itemStyle: {
@@ -585,11 +585,11 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
                       }
                     }
                   },
-                  data: [1425462, 1850762, 2620854]
+                  data: [".$key[1]."]
                 },";
             else
               echo "{
-                  name: '".$key."',
+                  name: '".$key[0]."',
                   type: 'line',
                   smooth: true,
                   itemStyle: {
@@ -599,7 +599,7 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
                       }
                     }
                   },
-                  data: [1425462, 1850762, 2620854]
+                  data: [".$key[1]."]
                 }";
             $pos++;
           }

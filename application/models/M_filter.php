@@ -32,9 +32,9 @@ class M_filter extends CI_Model
         return $result->result_array();
     }
 
-    public function getNilaiByUraian($id, $tahun)
+    public function getNilaiByUraian($id, $tahun, $periode, $kabkota)
     {
-        $data = $this->db->query('SELECT NILAI_REALISASI FROM `data_apbd` WHERE ID_URAIAN ="'.$id.'"');
+        $data = $this->db->query('SELECT NILAI_REALISASI FROM `data_apbd` WHERE ID_URAIAN ="'.$id.'" AND TAHUN ="'.$tahun.'" AND PERIODE="'.$periode.'" AND ID_DAERAH="'.$kabkota.'"');
         $row = $data->row_array();
         return $row['NILAI_REALISASI'];
     }

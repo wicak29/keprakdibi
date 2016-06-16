@@ -7,6 +7,7 @@ class C_filter extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_filter');
+        $this->load->model('M_apbd');
     }
     public function index()
     {
@@ -59,6 +60,17 @@ class C_filter extends CI_Controller
       
     }
 
+    public function viewEditData()
+    {
+        $data['list_uraian'] = $this->M_apbd->getAllUraian();
+
+        $this->load->view('V_head');
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
+        $this->load->view('apbd/V_editData', $data);
+        $this->load->view('V_footer');
+    }
+
     public function lihatFilterProvinsi()
     {
         
@@ -109,28 +121,40 @@ class C_filter extends CI_Controller
         $data['jumlah_uraian'] = sizeof($data['uraian']);
         $data['jumlah_tahun'] = sizeof($data['tahun']);
 
-        print_r($data['kabkota']['NAMA_DAERAH']);
+        // print_r($data['kabkota']['NAMA_DAERAH']);
 
         if (!$data['tahun']) $data['tahun'] = array();
         if (!$data['uraian']) $data['uraian'] = array();
 
-        $data['listUraian'] = array();
-        foreach ($data['uraian'] as $key) 
+        
+        $data['finalResult'] = array();
+        foreach ($data['uraian'] as $i) 
         {
-            $nama_daerah = $this->M_filter->getUraian($key);
-            $uraian = $this->M_filter->getNilaiByUraian($key, $data['tahun']);
-            print_r($uraian);
-            array_push($data['listUraian'], $nama_daerah);
+            $data['listUraian'] = array();
+            $data['list_nilai']="";
+            $nama_uraian = $this->M_filter->getUraian($i);
+            // $uraian = $this->M_filter->getNilaiByUraian($key, $data['tahun']);
+            // print_r($uraian);
+            array_push($data['listUraian'], $nama_uraian);
+
+            $pos = 0;
+            foreach ($data['tahun'] as $t) 
+            {
+                $nilai = $this->M_filter->getNilaiByUraian($i, $t, $periode, $kabkota);
+                if ($pos != $data['jumlah_tahun']-1)
+                    $data['list_nilai'] .= $nilai.",";
+                else
+                    $data['list_nilai'] .= $nilai."";
+                $pos++;
+            }
+            array_push($data['listUraian'], $data['list_nilai']);
+            array_push($data['finalResult'], $data['listUraian']);
         }        
-        print_r($data['listUraian']);
+        // print_r($data['finalResult']);
 
         $data['compare'] = $this->M_filter->getCompareDaerah($data['tahun'],$kabkota,$periode);
-        // print_r($data['compare']);
-        // print_r($data['uraian']);
 
-        if (!$data['uraian']) $data['uraian'] = array();
-
-        //$data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);
+        if (!$data['uraian']) $data['uraian'] = array();        
 
         $this->load->view('V_headChart');
         $this->load->view('V_sidebar');
