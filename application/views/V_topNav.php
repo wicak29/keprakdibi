@@ -14,7 +14,6 @@
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
             <!-- <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li> -->
-            <li><a href="">Tambah Data</a></li>
             <li><a href="">Hapus Data</a></li>
             <li><a href="<?php echo base_url('C_update/');?>">Update Data</a></li>
           </ul>
@@ -31,7 +30,7 @@
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="<?php echo base_url('assets');?>/gentelella/production/images/img.jpg" alt="">Admin
+            <img src="<?php echo base_url('assets');?>/gentelella/production/images/mayu.jpg" alt="">Admin
           </a>
         </li>
       </ul>
