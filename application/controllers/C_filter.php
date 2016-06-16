@@ -67,9 +67,8 @@ class C_filter extends CI_Controller
 
         if (!$bulan) $bulan = "Bulan";
 
-        $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
+        // $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
         $data['bulan'] = $bulan;
-        if(!$data['uraian']) $data['uraian'] = array();
         
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
@@ -88,7 +87,7 @@ class C_filter extends CI_Controller
         $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
         
         $data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['tahun']);
-        print_r($data['data_apbd']);
+        //print_r($data['data_apbd']);
 
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
@@ -97,14 +96,14 @@ class C_filter extends CI_Controller
         $this->load->view('V_footer_table');
     }
 
-
     public function viewLihatStatistik()
     {
+        //$this->load->model('M_filter');
         $kabkota = $this->input->post('kabkota');
         $periode = $this->input->post('periode');
         $data['uraian'] = $this->input->post('uraian');
         $data['tahun'] = $this->input->post('tahun');
-
+        
         $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
         $data['jumlah_uraian'] = sizeof($data['uraian']);
         $data['jumlah_tahun'] = sizeof($data['tahun']);
@@ -130,6 +129,7 @@ class C_filter extends CI_Controller
 
         if (!$data['uraian']) $data['uraian'] = array();
 
+        //$data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['periode'], $data['tahun']);
 
         $this->load->view('V_headChart');
         $this->load->view('V_sidebar');
