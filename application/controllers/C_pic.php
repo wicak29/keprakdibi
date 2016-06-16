@@ -18,6 +18,17 @@ class C_pic extends CI_Controller
         $this->load->view('V_footer');
     }
 
+    public function viewLihatPic()
+    {
+        $data['list_pic'] = $this->M_pic->getPic()->result_array();
+
+        $this->load->view('V_head');
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
+        $this->load->view('pic/V_lihatPic', $data);
+        $this->load->view('V_footer');
+    }
+
     public function uploadKontak()
     {
         

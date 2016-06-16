@@ -139,7 +139,7 @@
                                   <?php
                                     foreach ($list_pic as $pic) 
                                     {
-                                      echo '<option value="'.$pic['ID_KONTAK'].'">'.$pic['PIC'].'</option>';
+                                      echo '<option value="'.$pic['ID_KONTAK'].'">'.$pic['PIC'].' - '.$pic['NAMA_INSTANSI'].'</option>';
                                     }
                                   ?>
                                 </select>
@@ -214,7 +214,7 @@
                                   <?php
                                     foreach ($list_pic as $pic) 
                                     {
-                                      echo '<option value="'.$pic['ID_KONTAK'].'">'.$pic['PIC'].'</option>';
+                                      echo '<option value="'.$pic['ID_KONTAK'].'">'.$pic['PIC'].' - '.$pic['NAMA_INSTANSI'].'</option>';
                                     }
                                   ?>
                                 </select>

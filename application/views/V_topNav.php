@@ -20,7 +20,13 @@
           </ul>
         </li>
         <li><a href="<?php echo base_url('C_filter/viewLihatStatistik');?>">Grafik</a></li>
-        <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>">Tambah Kontak</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kontak <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo base_url('C_pic/viewLihatPic');?>">Lihat Kontak</a></li>
+            <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>">Tambah Kontak</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">
