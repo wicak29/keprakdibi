@@ -14,6 +14,7 @@
             <li><a href="<?php echo base_url('C_apbd/viewImportExcel');?>">Import Excel</a></li>
             <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
             <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li>
+            <li><a href="<?php echo base_url('C_update/');?>">Update Data</a></li>
             <li class="dropdown dropdown-submenu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data</a>
               <ul class="dropdown-menu">
