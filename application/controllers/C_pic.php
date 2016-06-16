@@ -48,6 +48,6 @@ class C_pic extends CI_Controller
         {
             $this->session->set_flashdata('notif', 2);   
         }
-        redirect('C_pic/viewTambahPic');
+        redirect('C_pic/viewLihatPic');
     }
 }

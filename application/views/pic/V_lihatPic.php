@@ -23,8 +23,8 @@
                   </div>
                   <div class="x_content">
                     <div class="row">
-                      <div class="col-md-12 col-sm-12 col-xs-12 text-center"></div>
-                      <div class="col-md-12 col-sm-12 col-xs-12 text-center"></div>
+                      <div class="col-md-12 col-sm-12 col-xs-12"></div>
+                      <div class="col-md-12 col-sm-12 col-xs-12"></div>
                       <?php
                       $imgu = "http://localhost/keprakdibi/assets/gentelella/production/images/img.jpg";
                       foreach ($list_pic as $pic) 
