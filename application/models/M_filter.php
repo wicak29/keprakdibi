@@ -31,6 +31,21 @@ class M_filter extends CI_Model
         $result = $this->db->get('data_apbd');
         return $result->result_array();
     }
+
+    public function getNilaiByUraian($id, $tahun)
+    {
+        $data = $this->db->query('SELECT NILAI_REALISASI FROM `data_apbd` WHERE ID_URAIAN ="'.$id.'"');
+        $row = $data->row_array();
+        return $row['NILAI_REALISASI'];
+    }
+
+    public function getUraian($id)
+    {
+        $data = $this->db->query('SELECT URAIAN FROM uraian_apbd WHERE ID_URAIAN ="'.$id.'" LIMIT 1');
+        $row = $data->row_array();
+        return $row['URAIAN'];
+    }
+
     public function cariFilter($daerah,$tahun)
     {
         $query = $this->db->query('SELECT NILAI FROM my_table WHERE ID_DAERAH =.$daerah. AND TAHUN ="'.$tahun.'"' );
@@ -45,9 +60,8 @@ class M_filter extends CI_Model
 
     public function getDaerah($id)
     {
-
-        $data = $this->db->query('SELECT NAMA_DAERAH FROM daerah WHERE ID_DAERAH ="'.$id.'" LIMIT 1');
-        return $data;
+        $data = $this->db->query('SELECT NAMA_DAERAH FROM daerah WHERE ID_DAERAH ="'.$id.'" LIMIT 1')->row_array();
+        return $data;        
     }
 
     public function getDatabyProvTahunPeriode($bulan, $tahun)
@@ -72,13 +86,16 @@ class M_filter extends CI_Model
                                  ' );
         return $query->result_array();
     }
-    
     public function getCompareDaerah($tahun,$kabkota,$periode)
     {
         $hasil=array();
+
+        // $data = $this->db->query('SELECT URAIAN FROM uraian_apbd WHERE ID_URAIAN ="'.$id.'" LIMIT 1');
+        // $row = $data->row_array();
+
         for($i=0;$i<sizeof($tahun);$i++)
         {
-            $query = $this->db->query('SELECT TAHUN FROM `data_apbd` WHERE TAHUN ="'.$tahun[$i].'" AND ID_DAERAH ='.$kabkota.' AND PERIODE="'.$periode.'"
+            $query = $this->db->query('SELECT NILAI_REALISASI FROM `data_apbd` WHERE TAHUN ="'.$tahun[$i].'" AND ID_DAERAH ='.$kabkota.' AND PERIODE="'.$periode.'"
                                  ' );
             array_push($hasil, $query->result_array());
         }

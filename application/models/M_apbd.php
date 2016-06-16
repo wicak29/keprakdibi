@@ -9,8 +9,9 @@ class M_apbd extends CI_Model
         $this->load->database();
     }
 
-    public function getUraian($id){
-        $data = $this->db->query('SELECT URAIAN FROM apbd WHERE ID_URAIAN ="'.$id.'" LIMIT 1');
+    public function getUraian($id)
+    {
+        $data = $this->db->query('SELECT URAIAN FROM uraian_apbd WHERE ID_URAIAN ="'.$id.'" LIMIT 1');
         $row = $data->row_array();
         return $row['URAIAN'];
     }

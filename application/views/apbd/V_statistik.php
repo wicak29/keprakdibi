@@ -491,7 +491,7 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
 
       echartLine.setOption({
         title: {
-          text: 'Grafik APBD Kota Denpasar',
+          text: <?php echo "'Grafik APBD ".$kabkota['NAMA_DAERAH']."'" ?>,
           subtext: ''
         },
         tooltip: {
@@ -552,35 +552,59 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
         legend: {
           x: 220,
           y: 40,
-          data: ['Total APBD', 'Total PDAM']
+          data: [
+          <?php 
+            $count = sizeof($listUraian);
+            $pos = 0;
+            foreach ($listUraian as $key) 
+            {
+              if ($count-1 != $pos)
+                echo "'".$key."',";
+              else
+                echo "'".$key."'";
+              $pos++;
+            }
+          ?>
+          ]
         },
         series: [
-        {
-          name: 'Total APBD',
-          type: 'line',
-          smooth: true,
-          itemStyle: {
-            normal: {
-              areaStyle: {
-                type: 'default'
-              }
-            }
-          },
-          data: [1425462, 1850762, 2620854, 2954662, 2467172, 0, 0]
-        },
-        {
-          name: 'Total PDAM',
-          type: 'line',
-          smooth: true,
-          itemStyle: {
-            normal: {
-              areaStyle: {
-                type: 'default'
-              }
-            }
-          },
-          data: [1411213, 1786534, 2536716, 1986473, 2786467, 2876474, 1887564]
-        }]
+        <?php
+          $count = sizeof($listUraian);
+          $pos = 0;
+          foreach ($listUraian as $key) 
+          {
+            if ($count-1 != $pos)
+              echo "{
+                  name: '".$key."',
+                  type: 'line',
+                  smooth: true,
+                  itemStyle: {
+                    normal: {
+                      areaStyle: {
+                        type: 'default'
+                      }
+                    }
+                  },
+                  data: [1425462, 1850762, 2620854]
+                },";
+            else
+              echo "{
+                  name: '".$key."',
+                  type: 'line',
+                  smooth: true,
+                  itemStyle: {
+                    normal: {
+                      areaStyle: {
+                        type: 'default'
+                      }
+                    }
+                  },
+                  data: [1425462, 1850762, 2620854]
+                }";
+            $pos++;
+          }
+        ?>
+        ]
       });
 
     </script>

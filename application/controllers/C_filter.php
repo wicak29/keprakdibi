@@ -102,23 +102,31 @@ class C_filter extends CI_Controller
     {
         $kabkota = $this->input->post('kabkota');
         $periode = $this->input->post('periode');
-        $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
-        
-        //$tahun = substr(implode(', ', $this->input->post('tahun')), 0);
+        $data['uraian'] = $this->input->post('uraian');
         $data['tahun'] = $this->input->post('tahun');
-        $data['ukuran_checkbox'] = sizeof($data['tahun']);
-        print_r($data['tahun']);
-        print_r($data['ukuran_checkbox']);
+
+        $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
+        $data['jumlah_uraian'] = sizeof($data['uraian']);
+        $data['jumlah_tahun'] = sizeof($data['tahun']);
+
+        print_r($data['kabkota']['NAMA_DAERAH']);
 
         if (!$data['tahun']) $data['tahun'] = array();
-        else
+        if (!$data['uraian']) $data['uraian'] = array();
+
+        $data['listUraian'] = array();
+        foreach ($data['uraian'] as $key) 
         {
-            $data['compare'] = $this->M_filter->getCompareDaerah($data['tahun'],$kabkota,$periode);
-            print_r($data['compare']);
-        }
- 
-        $data['uraian'] = $this->input->post('uraian');
-        print_r($data['uraian']);
+            $nama_daerah = $this->M_filter->getUraian($key);
+            $uraian = $this->M_filter->getNilaiByUraian($key, $data['tahun']);
+            print_r($uraian);
+            array_push($data['listUraian'], $nama_daerah);
+        }        
+        print_r($data['listUraian']);
+
+        $data['compare'] = $this->M_filter->getCompareDaerah($data['tahun'],$kabkota,$periode);
+        // print_r($data['compare']);
+        // print_r($data['uraian']);
 
         if (!$data['uraian']) $data['uraian'] = array();
 
