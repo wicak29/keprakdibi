@@ -7,27 +7,22 @@
         <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
       </div>
       <ul class="nav navbar-nav navbar-left">
-        <li class="active"><a href="#">Home</a></li>
+        <li><a href="<?php echo base_url('C_apbd/viewImportExcel');?>">Import File</a></li>
+        <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">APBD <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo base_url('C_apbd/viewImportExcel');?>">Import Excel</a></li>
             <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
-            <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li>
+            <!-- <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li> -->
+            <li><a href="">Tambah Data</a></li>
+            <li><a href="">Hapus Data</a></li>
             <li><a href="<?php echo base_url('C_update/');?>">Update Data</a></li>
-            <li class="dropdown dropdown-submenu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data</a>
-              <ul class="dropdown-menu">
-                <li><a href="">Provinsi</a></li>  
-                <li><a href="">Kabupaten/Kota</a></li>
-              </ul>
-            </li>
-            <li><a href="<?php echo base_url('C_filter/viewLihatStatistik');?>">Grafik</a></li>
           </ul>
         </li>
+        <li><a href="<?php echo base_url('C_filter/viewLihatStatistik');?>">Grafik</a></li>
         <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>">Tambah Kontak</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
             <img src="<?php echo base_url('assets');?>/gentelella/production/images/img.jpg" alt="">Admin
