@@ -26,6 +26,7 @@
     <link href="<?php echo base_url('assets'); ?>/gentelella/vendors/starrr/dist/starrr.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
+    <link href="<?php echo base_url('assets'); ?>/gentelella/production/css/simple-sidebar.css" rel="stylesheet">
     <link href="<?php echo base_url('assets'); ?>/gentelella/production/css/custom.css" rel="stylesheet">
 
     <!-- jQuery -->

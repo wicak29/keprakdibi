@@ -1,10 +1,7 @@
 <body class="nav-md">
+  <div id="wrapper" style="max-width:100%; margin-top: 0%;">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="clearfix"></div>
-            <br />
 
             <!-- sidebar menu
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" style="width:230px;">
@@ -32,5 +29,38 @@
 
             </div>
             <!-- /sidebar menu -->
-          </div>
-        </div>
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            Start Bootstrap
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">Shortcuts</a>
+                    </li>
+                    <li>
+                        <a href="#">Overview</a>
+                    </li>
+                    <li>
+                        <a href="#">Events</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+            <script>
+            $("#wrapper").toggleClass("toggled");
+            </script>
