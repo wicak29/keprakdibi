@@ -109,9 +109,20 @@ class M_delete extends CI_Model
 
     public function getListDeleteProv()
     {
-        $query = $this->db->query('SELECT DISTINCT data_apbd.ID_DAERAH AS ID_DAERAH, data_apbd.TAHUN AS TAHUN, data_apbd.PERIODE AS PERIODE, kontak.NAMA_INSTANSI AS INSTANSI, kontak.PIC AS PIC, data_apbd.ID_KONTAK AS ID_KONTAK FROM `data_apbd`, `kontak` WHERE ID_DAERAH =1 AND data_apbd.ID_KONTAK=kontak.ID_KONTAK');
+        $query = $this->db->query('SELECT DISTINCT data_apbd.ID_DAERAH AS ID_DAERAH, data_apbd.TAHUN AS TAHUN, data_apbd.PERIODE AS PERIODE, kontak.NAMA_INSTANSI AS INSTANSI, kontak.PIC AS PIC, data_apbd.ID_KONTAK AS ID_KONTAK 
+                                    FROM `data_apbd`, `kontak` 
+                                    WHERE ID_DAERAH =1 AND data_apbd.ID_KONTAK=kontak.ID_KONTAK');
         return $query->result_array();
     }
+
+    public function getListDeleteKab($daerah)
+    {
+        $query = $this->db->query('SELECT DISTINCT data_apbd.ID_DAERAH AS ID_DAERAH, data_apbd.TAHUN AS TAHUN, data_apbd.PERIODE AS PERIODE, kontak.NAMA_INSTANSI AS INSTANSI, kontak.PIC AS PIC, data_apbd.ID_KONTAK AS ID_KONTAK 
+                                    FROM `data_apbd`, `kontak` 
+                                    WHERE ID_DAERAH ='.$daerah.' AND data_apbd.ID_KONTAK=kontak.ID_KONTAK');
+        return $query->result_array();
+    }
+
     public function deleteData($daerah,$periode,$tahun,$id_kontak)
     {
         print_r($periode);

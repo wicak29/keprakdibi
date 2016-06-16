@@ -55,7 +55,7 @@
                         <?php foreach ($list as $r) { ?>
                           <tr>
                             <td><input type="checkbox" name="data[]" value="<?php echo $r['ID_DAERAH']?>#<?php echo $r['PERIODE']?>#<?php echo $r['TAHUN'] ?>#<?php echo $r['INSTANSI'] ?>#<?php echo $r['PIC'] ?>#<?php echo $r['ID_KONTAK'] ?>" class="single-checkbox" /></td>
-                            <td ><?php echo $r['ID_DAERAH'] ?></td>
+                            <td ><?php echo $kabkota['NAMA_DAERAH'] ?></td>
                             <td ><?php echo $r['PERIODE'] ?></td>
                             <td ><?php echo $r['TAHUN'] ?></td>
                             <td ><?php echo $r['INSTANSI'] ?></td>
