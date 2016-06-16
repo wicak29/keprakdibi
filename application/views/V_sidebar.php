@@ -32,11 +32,12 @@
             <!-- Sidebar -->
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">INDIKATOR</a>
-                    </li>
-                    <li><a href="<?php echo base_url('C_apbd/');?>">APBD</a></li>
-                    <li><a href="#">Cooming soon!</a></li>
+                    <li class="sidebar-brand"><a href="#">INDIKATOR<i class="fa fa-sliders sidebar-title"></i></a></li>
+                    <li><a href="<?php echo base_url('C_apbd/');?>"><i class="fa fa-angle-right"></i> APBD</a></li>
+                    <li><a href="#"><i class="fa fa-angle-right"></i> Cooming soon!</a></li>
+                    <li class="sidebar-brand"><a href="#">KONTAK<i class="fa fa-user sidebar-title"></i></a></li>
+                    <li><a href="<?php echo base_url('C_pic/viewLihatPic');?>"><i class="fa fa-angle-right"></i> Lihat Kontak</a></li>
+                    <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>"><i class="fa fa-angle-right"></i> Tambah Kontak</a></li>
                 </ul>
             </div>
             <!-- /#sidebar-wrapper -->
