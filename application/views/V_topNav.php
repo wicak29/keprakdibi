@@ -14,7 +14,7 @@
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
             <!-- <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li> -->
-            <li><a href="">Hapus Data</a></li>
+            <li><a href="<?php echo base_url('C_delete/');?>">Hapus Data</a></li>
             <li><a href="<?php echo base_url('C_update/');?>">Update Data</a></li>
           </ul>
         </li>
