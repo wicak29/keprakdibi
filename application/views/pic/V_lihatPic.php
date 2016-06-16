@@ -35,7 +35,7 @@
                           <div class="col-sm-12">
                             <h4 class="brief bg-primary"><i>'.$pic['NAMA_INSTANSI'].'</i></h4>
                             <div class="left col-xs-7">
-                              <h2 style="color: #2A3F54;">'.$pic['PIC'].'</h2>
+                              <h2 style="color: #2A3F54; text-transform: uppercase;">'.$pic['PIC'].'</h2>
                               <ul class="list-unstyled">
                                 <li><i class="fa fa-building"></i> '.$pic['ALAMAT'].'</li>
                                 <li><i class="fa fa-phone"></i> '.$pic['NO_TELEPON'].' </li>
