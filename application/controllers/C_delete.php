@@ -142,19 +142,20 @@ class C_delete extends CI_Controller
     {
        
         $data = $this->input->post('data');
-        //print_r($data);
-        //print_r($data[0]);
-        //print_r($data[1]);
+        
         for ($i=0; $i<sizeof($data); $i++){
 
             $piece = explode("#", $data[$i]);
             $id_kontak = $piece[0];
             $id_unknown = 1;
-            //print_r($daerah);
+            print_r($id_kontak);
+
             $data = array(
                 'ID_KONTAK' => $id_unknown
             );
-            $this->M_delete->updateDataKontak($id_unknown, $data);
+            print_r($data);
+            // return;
+            $this->M_delete->updateDataKontak($id_kontak, $data);
             
             $this->M_delete->deleteDataKontak($id_kontak);
 

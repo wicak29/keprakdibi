@@ -32,10 +32,11 @@
                         
                       </thead>
                       <tbody id="tabelApbd">                        
-                        <?php foreach ($list as $r) { ?>
+                        <?php 
+                        foreach ($list as $r) { 
+                          if ($r['ID_KONTAK']!=1) {?>
                           <tr>
                             <td><input type="checkbox" name="data[]" value="<?php echo $r['ID_KONTAK']?>#<?php echo $r['PIC'] ?>#<?php echo $r['NAMA_INSTANSI'] ?>#<?php echo $r['NO_TELEPON'] ?>#<?php echo $r['EMAIL'] ?>#<?php echo $r['ALAMAT'] ?>#<?php echo $r['PREFERRED_CONTACT'] ?>" class="single-checkbox" /></td>
-                            
                             <td ><?php echo $r['PIC'] ?></td>
                             <td ><?php echo $r['NAMA_INSTANSI'] ?></td>
                             <td ><?php echo $r['NO_TELEPON'] ?></td>
@@ -47,7 +48,8 @@
                             <!-- <td ><?//php echo $r['NILAI'] ?></td> -->
                             
                           </tr>
-                        <?php } ?>
+                        <?php } 
+                      } ?>
                       </tbody>
                     </table>
 
