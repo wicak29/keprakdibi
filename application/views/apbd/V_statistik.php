@@ -204,31 +204,31 @@
             </div>
             <div class="ln_solid"></div>
             <div id="echart_line" style="height:550px;" ></div>
-            <table id="datatable-buttons" class="table table-striped table-bordered">
+            <!-- <table id="datatable-buttons" class="table table-striped table-bordered">
               <thead>
                 <tr>
-                  <!-- <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
+                  <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
                   <!-- <th><?php echo $kabkota ?></th> -->
                   <!-- <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
-                  <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th> --> 
+                  <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>  -->
                   <?php foreach ($tahun as $t) 
                   { ?>
                     <!-- <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $t ?></th> -->
                   <?php
                   }?>
-                </tr>
-                <tr>
+                <!-- </tr>
+                <tr> -->
                   <?php foreach ($tahun as $t) 
                   { ?>
                     <!-- <th scope="col">Nilai</th>
                     <th scope="col">Persentase</th> -->
                   <?php
                   }?>
-                </tr>
+                <!-- </tr>
               </thead>
               <tbody id="tabelApbd">
                 <tr>
-                  <!-- <td>Uraian</td>
+                  <td>Uraian</td>
                   <td>APBD</td>
                   <td>APBDP</td> -->
                   <?php foreach ($tahun as $t) 
@@ -240,12 +240,12 @@
                   <?php
                   }?>
                 </tr>
-                <!--<?php foreach ($data_apbd as $r) { ?>
+                <?php foreach ($uraian as $r) { ?>
                   <tr>
-                    <td ><?php echo $r['URAIAN'] ?></td>
-                    <td ><?php echo $r['NILAI'] ?></td>
+                    <!-- <td ><?php echo $r['URAIAN'] ?></td>
+                    <td ><?php echo $r['NILAI'] ?></td> -->
                   </tr>
-                <?php } ?> -->
+                <?php } ?>
               </tbody>
             </table>
           </div>
