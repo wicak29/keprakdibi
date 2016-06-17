@@ -65,23 +65,22 @@
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
                           <!-- <th><?php echo $kabkota ?></th> -->
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBDP</th>
-                          <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 1</th>
-                          <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 2</th>
-                          <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 3</th>
-                          <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 4</th>
-                          <!-- <th>Periode</th>-->
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                          <?php foreach ($periode as $p) 
+                          { ?>
+                            <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $p['PERIODE'] ?></th>
+                          <?php
+                          }?>
                         </tr>
                         <tr>
-                          <th scope="col" style="text-align: center;">Nilai</th>
-                          <th scope="col" style="text-align: center;">%</th>
-                          <th scope="col" style="text-align: center;">Nilai</th>
-                          <th scope="col" style="text-align: center;">%</th>
-                          <th scope="col" style="text-align: center;">Nilai</th>
-                          <th scope="col" style="text-align: center;">%</th>
-                          <th scope="col" style="text-align: center;">Nilai</th>
-                          <th scope="col" style="text-align: center;">%</th>
+                          <?php foreach ($periode as $p) 
+                          { ?>
+                            <th scope="col">Nilai</th>
+                            <th scope="col">Persentase</th>
+                          <?php
+                          }?>
                         </tr>
+                      </thead>
                       </thead>
                       <tbody id="">
                         <?php 
@@ -96,12 +95,6 @@
                               <td ><?php echo $data_apbd[$i]['APBD_P']; ?></td>
                               <td ><?php echo $data_apbd[$i]['NILAI'];?></td>
                               <td ><?php echo $data_apbd[$i]['PERSENTASE']; ?>%</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
                             <?php }
                             
                             elseif($j==82){ ?>
@@ -112,10 +105,6 @@
                               <td ><?php echo $data_apbd[$i*2]['PERSENTASE']; ?>%</td>
                               <td ><?php echo $data_apbd[($i*2)+1]['NILAI'];?></td>
                               <td ><?php echo $data_apbd[($i*2)+1]['PERSENTASE']; ?>%</td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
 
                             <?php }
                             elseif($j==123){ ?>
@@ -128,8 +117,7 @@
                               <td ><?php echo $data_apbd[($i*3)+1]['PERSENTASE']; ?>%</td>
                               <td ><?php echo $data_apbd[($i*3)+2]['NILAI'];?></td>
                               <td ><?php echo $data_apbd[($i*3)+2]['PERSENTASE']; ?>%</td>
-                              <td></td>
-                              <td></td>
+
 
                             <?php }
                             elseif($j==164){ ?>

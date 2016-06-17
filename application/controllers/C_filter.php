@@ -35,6 +35,7 @@ class C_filter extends CI_Controller
         //$data['list_daerah'] = $this->M_filter->getFilter();
         //$data['list_tahun'] = $this->M_filter->getTahun();
         $data['kabkota'] = "nama_daerah";
+        $data['periode'] = array();
         $data['data_apbd'] = array();
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
@@ -98,9 +99,12 @@ class C_filter extends CI_Controller
         //$data['periode'] = $this->input->post('periode');
         $data['tahun'] = $this->input->post('tahun');
         $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
-        
+
+        $data['periode'] = $this->M_filter->getAllPeriode($kabkota, $data['tahun']);
+        //print_r( $data['periode']);
+        //print_r( sizeof($data['periode']));
         $data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['tahun']);
-        //print_r($data['data_apbd']);
+        //print_r(sizeof($data['data_apbd']));
 
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
