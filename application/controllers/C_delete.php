@@ -42,19 +42,8 @@ class C_delete extends CI_Controller
       
     }
 
-    public function viewDeleteDataProv(){
-        
-        //$bulan= $this->input->post('bulan');        
-        //$tahun= $this->input->post('tahun');
-        //$this->load->library('session');
-        // $this->session->set_flashdata('tahun',$tahun);
-        // $this->session->set_flashdata('bulan',$bulan);
-
-        // if (!$bulan) $bulan = "Bulan";
-
-        // $data['uraian'] = $this->M_update->getDatabyProvTahunPeriode($bulan,$tahun,1);
-        // $data['bulan'] = $bulan;
-        // if(!$data['uraian']) $data['uraian'] = array();
+    public function viewDeleteDataProv()
+    {
         $data['list'] = $this->M_delete->getListDeleteProv();
 
         $this->load->view('V_head_table');

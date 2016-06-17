@@ -25,6 +25,9 @@ class C_apbd extends CI_Controller
     public function viewImportExcel()
     {
         $this->load->model('M_pic');
+
+        $data['list_provinsi'] = $this->M_apbd->getListDataProv();
+        $data['list_kab'] = $this->M_apbd->getListDataKab();
         $data['list_pic'] = $this->M_pic->getPic()->result_array();
         // print_r($data['list_pic']);
         // return;

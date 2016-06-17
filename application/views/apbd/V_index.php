@@ -93,8 +93,6 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    
-
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
                       <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#tab-apbdp" role="tab" id="apbdp-tab" data-toggle="tab" aria-expanded="true">APDBP</a>
@@ -200,7 +198,41 @@
                                 </div>
                               </div>
                           </form>
+                          <br>
+                          <br>
+                          <div class="ln_solid"></div>
+                          <div>
+                            <h3>Data Provinsi yang Telah di Import</h3>
+                            <table id="datatable-buttons" class="table table-striped table-bordered">
+                            <thead>
+                              <tr>
+                                <th style="vertical-align: middle;text-align: center;">No</th>
+                                <th style="vertical-align: middle;text-align: center;">Data Daerah</th>
+                                <th style="vertical-align: middle;text-align: center;">Periode</th>
+                                <th style="vertical-align: middle;text-align: center;">Tahun</th>
+                                <th style="vertical-align: middle;text-align: center;">Nama Instansi</th>
+                                <th style="vertical-align: middle;text-align: center;">P.I.C.</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tabelApbd">                        
+                              <?php 
+                                $no=1;
+                                foreach ($list_provinsi as $r) { ?>
+                                <tr>
+                                  <td><?php echo $no?></td>
+                                  <td ><?php echo "Prov. Bali" ?></td>
+                                  <td ><?php echo $r['PERIODE'] ?></td>
+                                  <td ><?php echo $r['TAHUN'] ?></td>
+                                  <td ><?php echo $r['INSTANSI'] ?></td>
+                                  <td ><?php echo $r['PIC'] ?></td>
+                                </tr>
+                                <?php $no++;
+                                } ?>
+                            </tbody>
+                          </table>
+                          </div>
                         </div>
+
                         <div role="tabpanel" class="tab-pane fade" id="tab-kabupaten" aria-labelledby="profile-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyKabKota/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data APBD Kabupaten/Kota</h3>
@@ -270,12 +302,6 @@
                                   <option value="2014">2014</option>
                                   <option value="2015">2015</option>
                                   <option value="2016">2016</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2018">2018</option>
-                                  <option value="2019">2019</option>
-                                  <option value="2020">2020</option>
-                                  <option value="2021">2021</option>
-                                  <option value="2022">2022</option>
                                 </select>
                               </div>
                             </div>
@@ -292,6 +318,43 @@
                                 </div>
                               </div>
                           </form>
+                          <br>
+                          <br>
+                          <div class="ln_solid"></div>
+                          <div>
+                            <h3>Data Kabupaten/Kota yang Telah di Import</h3>
+                            <table id="datatable-buttons" class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th style="vertical-align: middle;text-align: center;">No</th>
+                                  <th style="vertical-align: middle;text-align: center;">Data Daerah</th>
+                                  <th style="vertical-align: middle;text-align: center;">Periode</th>
+                                  <th style="vertical-align: middle;text-align: center;">Tahun</th>
+                                  <th style="vertical-align: middle;text-align: center;">Nama Instansi</th>
+                                  <th style="vertical-align: middle;text-align: center;">P.I.C.</th>
+                                </tr>
+                              </thead>
+                              <tbody id="tabelApbd">                        
+                                <?php 
+                                  $no=1;
+                                  foreach ($list_kab as $r) { ?>
+                                  <tr>
+                                    <td><?php echo $no; ?></td>
+                                    <td ><?php echo $r['NAMA_DAERAH'] ?></td>
+                                    <td ><?php echo $r['PERIODE'] ?></td>
+                                    <td ><?php echo $r['TAHUN'] ?></td>
+                                    <td ><?php echo $r['INSTANSI'] ?></td>
+                                    <td ><?php echo $r['PIC'] ?></td>
+                                    
+                                    <!-- <td ><?//php echo $r['NILAI'] ?></td> -->
+                                    
+                                  </tr>
+                                  <?php 
+                                  $no++;
+                                  } ?>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
 
                        

@@ -37,6 +37,22 @@ class M_apbd extends CI_Model
         return $result;
     }
 
+    public function getListDataProv()
+    {
+        $query = $this->db->query('SELECT DISTINCT data_apbd.ID_DAERAH AS ID_DAERAH, data_apbd.TAHUN AS TAHUN, data_apbd.PERIODE AS PERIODE, kontak.NAMA_INSTANSI AS INSTANSI, kontak.PIC AS PIC, data_apbd.ID_KONTAK AS ID_KONTAK 
+                                    FROM `data_apbd`, `kontak` 
+                                    WHERE ID_DAERAH =1 AND data_apbd.ID_KONTAK=kontak.ID_KONTAK');
+        return $query->result_array();
+    }
+
+    public function getListDataKab()
+    {
+        $query = $this->db->query('SELECT DISTINCT data_apbd.ID_DAERAH AS ID_DAERAH, daerah.NAMA_DAERAH AS NAMA_DAERAH, data_apbd.TAHUN AS TAHUN, data_apbd.PERIODE AS PERIODE, kontak.NAMA_INSTANSI AS INSTANSI, kontak.PIC AS PIC, data_apbd.ID_KONTAK AS ID_KONTAK 
+            FROM `data_apbd`, `kontak` , `daerah` 
+            WHERE data_apbd.ID_KONTAK=kontak.ID_KONTAK AND data_apbd.ID_DAERAH=daerah.ID_DAERAH AND data_apbd.ID_DAERAH!="1"');
+        return $query->result_array();
+    }
+
     public function tambahUraian($dataarray)
     {
         for($i=0;$i<count($dataarray);$i++)
