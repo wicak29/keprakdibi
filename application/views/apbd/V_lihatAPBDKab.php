@@ -83,74 +83,70 @@
                           <th scope="col">Persentase</th>
                         </tr>
                       </thead>
-                      <tbody id="tabelApbd">
+                      <tbody id="">
                         <?php 
-                        $j=sizeof($data_apbd);
-                        //print_r($j);
-                        for ($i=0; $i < 41; $i++) { 
-                          //print_r($data_apbd[0]);
-                        
-                          //foreach ($data_apbd[] as $r) { 
+                          $j=sizeof($data_apbd);
+                          for ($i=0; $i < 41; $i++) { 
                           ?>
                           <tr>
                             <?php 
                             if($j==41){ ?>
-
-                              <td ><?php echo $data_apbd[$i]['URAIAN'] ?></td>
-                              <td ><?php echo $data_apbd[$i]['APBD'] ?></td>
-                              <td ><?php echo $data_apbd[$i]['APBD_P'] ?></td>
-                              <td ><?php echo $data_apbd[$i]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[$i]['PERSENTASE'] ?>%</td>
+                              <td ><?php echo $data_apbd[$i]['URAIAN']; ?></td>
+                              <td ><?php echo $data_apbd[$i]['APBD']; ?></td>
+                              <td ><?php echo $data_apbd[$i]['APBD_P']; ?></td>
+                              <td ><?php echo $data_apbd[$i]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[$i]['PERSENTASE']; ?>%</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
                             <?php }
                             
                             elseif($j==82){ ?>
-                              <td ><?php echo $data_apbd[$i*2]['URAIAN'] ?></td>
-                              <td ><?php echo $data_apbd[$i*2]['APBD'] ?></td>
-                              <td ><?php echo $data_apbd[$i*2]['APBD_P'] ?></td>
-                              <td ><?php echo $data_apbd[$i*2]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[$i*2]['PERSENTASE'] ?>%</td>
-                              <td ><?php echo $data_apbd[($i*2)+1]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[($i*2)+1]['PERSENTASE'] ?>%</td>
+                              <td ><?php echo $data_apbd[$i*2]['URAIAN']; ?></td>
+                              <td ><?php echo $data_apbd[$i*2]['APBD']; ?></td>
+                              <td ><?php echo $data_apbd[$i*2]['APBD_P']; ?></td>
+                              <td ><?php echo $data_apbd[$i*2]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[$i*2]['PERSENTASE']; ?>%</td>
+                              <td ><?php echo $data_apbd[($i*2)+1]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[($i*2)+1]['PERSENTASE']; ?>%</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
 
                             <?php }
                             elseif($j==123){ ?>
-                              <td ><?php echo $data_apbd[$i*3]['URAIAN'] ?></td>
-                              <td ><?php echo $data_apbd[$i*3]['APBD'] ?></td>
-                              <td ><?php echo $data_apbd[$i*3]['APBD_P'] ?></td>
-                              <td ><?php echo $data_apbd[$i*3]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[$i*3]['PERSENTASE'] ?>%</td>
-                              <td ><?php echo $data_apbd[($i*3)+1]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[($i*3)+1]['PERSENTASE'] ?>%</td>
-                              <td ><?php echo $data_apbd[($i*3)+2]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[($i*3)+2]['PERSENTASE'] ?>%</td>
+                              <td ><?php echo $data_apbd[$i*3]['URAIAN']; ?></td>
+                              <td ><?php echo $data_apbd[$i*3]['APBD']; ?></td>
+                              <td ><?php echo $data_apbd[$i*3]['APBD_P']; ?></td>
+                              <td ><?php echo $data_apbd[$i*3]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[$i*3]['PERSENTASE']; ?>%</td>
+                              <td ><?php echo $data_apbd[($i*3)+1]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[($i*3)+1]['PERSENTASE']; ?>%</td>
+                              <td ><?php echo $data_apbd[($i*3)+2]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[($i*3)+2]['PERSENTASE']; ?>%</td>
+                              <td></td>
+                              <td></td>
 
                             <?php }
                             elseif($j==164){ ?>
-                              <td ><?php echo $data_apbd[$i*4]['URAIAN'] ?></td>
-                              <td ><?php echo $data_apbd[$i*4]['APBD'] ?></td>
-                              <td ><?php echo $data_apbd[$i*4]['APBD_P'] ?></td>
-                              <td ><?php echo $data_apbd[$i*4]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[$i*4]['PERSENTASE'] ?>%</td>
-                              <td ><?php echo $data_apbd[($i*4)+1]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[($i*4)+1]['PERSENTASE'] ?>%</td>
-                              <td ><?php echo $data_apbd[($i*4)+2]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[($i*4)+2]['PERSENTASE'] ?>%</td>
-                              <td ><?php echo $data_apbd[($i*4)+3]['NILAI']?></td>
-                              <td ><?php echo $data_apbd[($i*4)+3]['PERSENTASE'] ?>%</td>
+                              <td ><?php echo $data_apbd[$i*4]['URAIAN']; ?></td>
+                              <td ><?php echo $data_apbd[$i*4]['APBD']; ?></td>
+                              <td ><?php echo $data_apbd[$i*4]['APBD_P']; ?></td>
+                              <td ><?php echo $data_apbd[$i*4]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[$i*4]['PERSENTASE']; ?>%</td>
+                              <td ><?php echo $data_apbd[($i*4)+1]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[($i*4)+1]['PERSENTASE']; ?>%</td>
+                              <td ><?php echo $data_apbd[($i*4)+2]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[($i*4)+2]['PERSENTASE']; ?>%</td>
+                              <td ><?php echo $data_apbd[($i*4)+3]['NILAI'];?></td>
+                              <td ><?php echo $data_apbd[($i*4)+3]['PERSENTASE']; ?>%</td>
 
                             <?php }
-
-
                             ?>
-                            
-                           <!--  ?>
-                            <td ><?php echo $data_apbd[($i*4)-3]['NILAI']?></td>
-                            <td ><?php echo $data_apbd[($i*4)-3]['PERSENTASE'] ?>%</td>
-                            <td ><?php echo $data_apbd[($i*4)-2]['NILAI']?></td>
-                            <td ><?php echo $data_apbd[($i*4)-2]['PERSENTASE'] ?>%</td>
-                            <td ><?php echo $data_apbd[($i*4)-1]['NILAI']?></td>
-                            <td ><?php echo $data_apbd[($i*4)-1]['PERSENTASE'] ?>%</td>
- -->
                           </tr>
                           <!-- <tr>
                             <td ><?php //echo $r['URAIAN'] ?></td>
