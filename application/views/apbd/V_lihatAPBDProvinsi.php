@@ -19,7 +19,7 @@
                       <form action="<?php echo base_url();?>C_filter/lihatFilterProvinsi/" method="post" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                           <label for="ex3">Pilih Tahun : </label>
-                          <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
+                          <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                               <option value="" selected disabled>Pilih tahun</option>
                               <option value="2007">2007</option>
                               <option value="2008">2008</option>
@@ -32,7 +32,7 @@
                               <option value="2015">2015</option>
                               <option value="2016">2016</option>
                             </select>
-                            <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;">
+                            <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                               <option value="" selected disabled>Pilih bulan</option>
                               <option value="Januari">Januari</option>
                               <option value="Februari">Februari</option>
@@ -55,7 +55,7 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                    <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
@@ -64,8 +64,8 @@
                           <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $bulan?></th>
                         </tr>
                         <tr>
-                          <th scope="col">Nilai</th>
-                          <th scope="col">Persentase</th>
+                          <th scope="col" style="text-align: center;">Nilai</th>
+                          <th scope="col" style="text-align: center;">%</th>
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">

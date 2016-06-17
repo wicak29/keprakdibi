@@ -6,39 +6,30 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel" style="min-height:538px;">
           <div class="x_title">
-            <h2>Statistik</h2>
+            <h2>Grafik Provinsi</h2>
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
             <div style="margin-bottom:50px;">
-              <form id="demo-form" action="<?php echo base_url();?>C_filter/viewLihatStatistik" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+              <form id="demo-form" action="<?php echo base_url();?>C_filter/viewLihatStatistikProv" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                 <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ex3">Daerah :</label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Bulan :</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <select name="kabkota" class="form-control" required="required">
-                      <option value="" selected disabled>Pilih Daerah</option>
-                      <option value="2">Kab. Badung</option>
-                      <option value="3">Kab. Bangli</option>
-                      <option value="4">Kab. Buleleng</option>
-                      <option value="5">Kab. Gianyar</option>
-                      <option value="6">Kab. Jembrana</option>
-                      <option value="7">Kab. Karangasem</option>
-                      <option value="8">Kab. Klungkung</option>
-                      <option value="9">Kab. Tabanan</option>
-                      <option value="10">Kota. Denpasar</option>
+                  <select name="bulan" class="form-control" required="required">
+                      <option value="" selected disabled>Pilih bulan</option>
+                      <option value="Januari">Januari</option>
+                      <option value="Februari">Februari</option>
+                      <option value="Maret">Maret</option>
+                      <option value="April">April</option>
+                      <option value="Mei">Mei</option>
+                      <option value="Juni">Juni</option>
+                      <option value="Juli">Juli</option>
+                      <option value="Agustus">Agustus</option>
+                      <option value="September">September</option>
+                      <option value="Oktober">Oktober</option>
+                      <option value="November">November</option>
+                      <option value="Desember">Desember</option>
                     </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Periode :</label>
-                  <div class="col-md-6 col-sm-6 col-xs-12">
-                  <select name="periode" class="form-control" required="required">
-                    <option value="" selected disabled>Pilih Periode</option>
-                    <option value="Triwulan_1">Triwulan 1</option>
-                    <option value="Triwulan_2">Triwulan 2</option>
-                    <option value="Triwulan_3">Triwulan 3</option>
-                    <option value="Triwulan_4">Triwulan 4</option>
-                  </select>
                   </div>
                 </div>
                 <div class="form-group">
@@ -72,25 +63,12 @@
                         <br />
                         <input type="checkbox" name="tahun[]" value="2015" class="single-checkbox" /> 2015
                         <br />
-                        <!-- <input type="checkbox" name="tahun[]" value="2009" class="flat" /> 2009
-                        <br />
-                        <input type="checkbox" name="tahun[]" value="2010" class="flat" /> 2010
-                        <br /> -->
                       </p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                       <p style="padding: 5px;">
                       <input type="checkbox" name="tahun[]" value="2016" class="single-checkbox"/> 2016
                         <br />
-                      <!-- <p style="padding: 5px;">
-                        <input type="checkbox" name="tahun[]" value="2007" class="flat" /> 2007
-                        <br />
-                        <input type="checkbox" name="tahun[]" value="2008" class="flat" /> 2008
-                        <br />
-                        <input type="checkbox" name="tahun[]" value="2009" class="flat" /> 2009
-                        <br />
-                        <input type="checkbox" name="tahun[]" value="2010" class="flat" /> 2010
-                        <br />-->
                       </p>
                     </div>
                   </select>
@@ -202,8 +180,7 @@
                 </div>
               </form>
             </div>
-            <div class="ln_solid"></div>
-            <div id="echart_line" style="height:550px;" ></div>
+            <div id="echart_line" class="col-md-12" style="height:550px;"></div>
             <table id="datatable-buttons" class="table table-striped table-bordered">
               <thead>
                 <tr>
@@ -492,7 +469,7 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
 
       echartLine.setOption({
         title: {
-          text: <?php echo "'Grafik APBD ".$kabkota['NAMA_DAERAH']."'" ?>,
+          text: "Grafik APBD Provinsi",
           subtext: ''
         },
         tooltip: {
@@ -501,19 +478,7 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
         legend: {
           x: 220,
           y: 40,
-          data: [<?php
-            $count = sizeof($tahun);
-            $pos = 0;
-            foreach ($tahun as $t) 
-            {
-              if ($count-1 != $pos) 
-                echo "'".$t."',";
-              else
-                echo "'".$t."'";
-              $pos++;
-            }
-          ?>
-          ]
+          data: ['Intent', 'Pre-order', 'Deal']
         },
         toolbox: {
           show: true,

@@ -162,4 +162,50 @@ class C_filter extends CI_Controller
         $this->load->view('apbd/V_statistik', $data);
         $this->load->view('V_footerChart');
     }
+
+    public function viewLihatStatistikProv()
+    {
+        $periode = $this->input->post('bulan');
+        $data['uraian'] = $this->input->post('uraian');
+        $data['tahun'] = $this->input->post('tahun');
+                
+        $data['jumlah_uraian'] = sizeof($data['uraian']);
+        $data['jumlah_tahun'] = sizeof($data['tahun']);
+
+        if (!$data['tahun']) $data['tahun'] = array();
+        if (!$data['uraian']) $data['uraian'] = array();
+        
+        $data['finalResult'] = array();
+        foreach ($data['uraian'] as $i) 
+        {
+            $data['listUraian'] = array();
+            $data['list_nilai']="";
+            $nama_uraian = $this->M_filter->getUraian($i);
+            array_push($data['listUraian'], $nama_uraian);
+
+            $pos = 0;
+            foreach ($data['tahun'] as $t) 
+            {
+                $nilai = $this->M_filter->getNilaiByUraian($i, $t, $periode, 1);
+                if ($pos != $data['jumlah_tahun']-1)
+                    $data['list_nilai'] .= $nilai.",";
+                else
+                    $data['list_nilai'] .= $nilai."";
+                $pos++;
+            }
+            array_push($data['listUraian'], $data['list_nilai']);
+            array_push($data['finalResult'], $data['listUraian']);
+        }        
+        // print_r($data['finalResult']);
+
+        $data['compare'] = $this->M_filter->getCompareDaerah($data['tahun'],1,$periode);
+
+        if (!$data['uraian']) $data['uraian'] = array();        
+
+        $this->load->view('V_headChart');
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
+        $this->load->view('apbd/V_statistikProv', $data);
+        $this->load->view('V_footerChart');
+    }
 }

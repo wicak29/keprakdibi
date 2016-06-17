@@ -19,7 +19,7 @@
                     <form class="form-inline">
                       <div class="form-group">
                         <label for="ex3">Pilih Tahun : </label>
-                        <select name="kabkota" class="form-control" tabindex="-1" style="margin-left:10px;">
+                        <select name="kabkota" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih Kabupaten/Kota</option>
                             <option value="2">Badung</option>
                             <option value="3">Bangli</option>                          
@@ -31,7 +31,7 @@
                             <option value="9">Tabanan</option>
                             <option value="10">Kota Denpasar</option>
                           </select>
-                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
+                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
                             <option value="2008">2008</option>
@@ -59,13 +59,13 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                    <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
                           <!-- <th><?php echo $kabkota ?></th> -->
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBDP</th>
                           <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 1</th>
                           <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 2</th>
                           <th colspan="2" scope="colgroup" style="text-align: center;">Triwulan 3</th>
@@ -73,14 +73,14 @@
                           <!-- <th>Periode</th>-->
                         </tr>
                         <tr>
-                          <th scope="col">Nilai</th>
-                          <th scope="col">Persentase</th>
-                          <th scope="col">Nilai</th>
-                          <th scope="col">Persentase</th>
-                          <th scope="col">Nilai</th>
-                          <th scope="col">Persentase</th>
-                          <th scope="col">Nilai</th>
-                          <th scope="col">Persentase</th>
+                          <th scope="col" style="text-align: center;">Nilai</th>
+                          <th scope="col" style="text-align: center;">%</th>
+                          <th scope="col" style="text-align: center;">Nilai</th>
+                          <th scope="col" style="text-align: center;">%</th>
+                          <th scope="col" style="text-align: center;">Nilai</th>
+                          <th scope="col" style="text-align: center;">%</th>
+                          <th scope="col" style="text-align: center;">Nilai</th>
+                          <th scope="col" style="text-align: center;">%</th>
                         </tr>
                       </thead>
                       <tbody id="">

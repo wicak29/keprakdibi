@@ -18,7 +18,13 @@
             <li><a href="<?php echo base_url('C_update/');?>">Update Data</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url('C_filter/viewLihatStatistik');?>">Grafik</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grafik <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo base_url('C_filter/viewLihatStatistikProv');?>">Provinsi</a></li>
+            <li><a href="<?php echo base_url('C_filter/viewLihatStatistik');?>">Kabupaten/Kota</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">
