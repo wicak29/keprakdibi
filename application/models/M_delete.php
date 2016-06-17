@@ -122,6 +122,11 @@ class M_delete extends CI_Model
                                     WHERE ID_DAERAH ='.$daerah.' AND data_apbd.ID_KONTAK=kontak.ID_KONTAK');
         return $query->result_array();
     }
+    public function getListDeleteAPBDP()
+    {
+        $query = $this->db->query('SELECT DISTINCT apbd.ID_DAERAH AS ID_DAERAH, daerah.NAMA_DAERAH AS DAERAH, apbd.TAHUN AS TAHUN FROM `apbd`, `daerah` WHERE apbd.ID_DAERAH=daerah.ID_DAERAH');
+        return $query->result_array();
+    }
 
     public function deleteData($daerah,$periode,$tahun,$id_kontak)
     {
@@ -132,6 +137,16 @@ class M_delete extends CI_Model
         $this->db->where('TAHUN', $tahun);
         $this->db->where('ID_KONTAK', $id_kontak);
         $this->db->delete('data_apbd'); 
+    }
+    public function deleteDataAPBDP($id_daerah,$tahun)
+    {
+        //print_r($periode);
+        //print_r($id_kontak);
+        $this->db->where('ID_DAERAH', $id_daerah);
+        
+        $this->db->where('TAHUN', $tahun);
+        
+        $this->db->delete('apbd'); 
     }
 
 }
