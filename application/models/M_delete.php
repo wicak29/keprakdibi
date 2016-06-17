@@ -138,14 +138,11 @@ class M_delete extends CI_Model
         $this->db->where('ID_KONTAK', $id_kontak);
         $this->db->delete('data_apbd'); 
     }
+    
     public function deleteDataAPBDP($id_daerah,$tahun)
     {
-        //print_r($periode);
-        //print_r($id_kontak);
         $this->db->where('ID_DAERAH', $id_daerah);
-        
         $this->db->where('TAHUN', $tahun);
-        
         $this->db->delete('apbd'); 
     }
 

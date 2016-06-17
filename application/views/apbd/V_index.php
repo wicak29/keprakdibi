@@ -126,7 +126,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="tab-provinsi" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyProvinsi/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Data APBD Provinsi Bali</h3>
+                            <h3>Import Data APBD Provinsi Bali</h3>
                             <br>
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
@@ -203,7 +203,7 @@
                           <div class="ln_solid"></div>
                           <div>
                             <h3>Data Provinsi yang Telah di Import</h3>
-                            <table id="datatable-buttons" class="table table-striped table-bordered">
+                            <table id="" class="table table-striped table-bordered">
                             <thead>
                               <tr>
                                 <th style="vertical-align: middle;text-align: center;">No</th>
@@ -214,7 +214,7 @@
                                 <th style="vertical-align: middle;text-align: center;">P.I.C.</th>
                               </tr>
                             </thead>
-                            <tbody id="tabelApbd">                        
+                            <tbody id="tabelProvinsi">                        
                               <?php 
                                 $no=1;
                                 foreach ($list_provinsi as $r) { ?>
@@ -235,7 +235,7 @@
 
                         <div role="tabpanel" class="tab-pane fade" id="tab-kabupaten" aria-labelledby="profile-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyKabKota/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Data APBD Kabupaten/Kota</h3>
+                            <h3>Import Data APBD Kabupaten/Kota</h3>
                             <br>
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
@@ -323,7 +323,7 @@
                           <div class="ln_solid"></div>
                           <div>
                             <h3>Data Kabupaten/Kota yang Telah di Import</h3>
-                            <table id="datatable-buttons" class="table table-striped table-bordered">
+                            <table id="" class="table table-striped table-bordered">
                               <thead>
                                 <tr>
                                   <th style="vertical-align: middle;text-align: center;">No</th>
@@ -334,7 +334,7 @@
                                   <th style="vertical-align: middle;text-align: center;">P.I.C.</th>
                                 </tr>
                               </thead>
-                              <tbody id="tabelApbd">                        
+                              <tbody id="tabelDaerah">                        
                                 <?php 
                                   $no=1;
                                   foreach ($list_kab as $r) { ?>
@@ -360,9 +360,8 @@
                        
                         <div role="tabpanel" class="tab-pane fade active in" id="tab-apbdp" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDP/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Data APBD P per Tahun</h3>
+                            <h3>Import Data APBD P per Tahun</h3>
                             <br>
-                            
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Daerah <span class="required">*</span>
                               </label>
@@ -421,6 +420,34 @@
                                 </div>
                               </div>
                           </form>
+                          <br>
+                          <br>
+                          <div class="ln_solid"></div>
+                          <div>
+                            <h3>Data APBD P yang Telah di Import</h3>
+                            <table class="table table-striped table-bordered">
+                              <thead>
+                                <tr>
+                                  <th style="vertical-align: middle;text-align: center;">No</th>
+                                  <th style="vertical-align: middle;text-align: center;">Data Daerah</th>
+                                  <th style="vertical-align: middle;text-align: center;">Tahun</th>
+                                </tr>                                
+                              </thead>
+                              <tbody id="tabelApbdp">                        
+                                <?php 
+                                  $no=1;
+                                  foreach ($list_apbdp as $r) { ?>
+                                  <tr>
+                                    <td><?php echo $no; ?></td>
+                                    <td ><?php echo $r['DAERAH'] ?></td>
+                                    <td ><?php echo $r['TAHUN'] ?></td>
+                                  </tr>
+                                  <?php 
+                                  $no++;
+                                  } ?>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
                     </div>

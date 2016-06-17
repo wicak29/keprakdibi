@@ -53,6 +53,12 @@ class M_apbd extends CI_Model
         return $query->result_array();
     }
 
+    public function getListDataAPBDP()
+    {
+        $query = $this->db->query('SELECT DISTINCT apbd.ID_DAERAH AS ID_DAERAH, daerah.NAMA_DAERAH AS DAERAH, apbd.TAHUN AS TAHUN FROM `apbd`, `daerah` WHERE apbd.ID_DAERAH=daerah.ID_DAERAH');
+        return $query->result_array();
+    }
+
     public function tambahUraian($dataarray)
     {
         for($i=0;$i<count($dataarray);$i++)

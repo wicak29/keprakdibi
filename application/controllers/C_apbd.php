@@ -27,6 +27,7 @@ class C_apbd extends CI_Controller
         $this->load->model('M_pic');
 
         $data['list_provinsi'] = $this->M_apbd->getListDataProv();
+        $data['list_apbdp'] = $this->M_apbd->getListDataApbdp();
         $data['list_kab'] = $this->M_apbd->getListDataKab();
         $data['list_pic'] = $this->M_pic->getPic()->result_array();
         // print_r($data['list_pic']);
