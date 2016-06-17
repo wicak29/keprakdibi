@@ -158,7 +158,7 @@ class M_delete extends CI_Model
         //print_r($periode);
         //print_r($id_kontak);
         $this->db->where('ID_KONTAK', $id_kontak);
-        $this->db->update('data_apbd', $data);
+        $this->db->update('kontak', $data);
         
         //$this->db->delete('kontak'); 
     }
