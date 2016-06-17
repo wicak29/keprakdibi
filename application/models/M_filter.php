@@ -64,26 +64,48 @@ class M_filter extends CI_Model
         return $data;        
     }
 
+    // public function getDatabyProvTahunPeriode($bulan, $tahun)
+    // {
+    //     $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
+    //                                  FROM uraian_apbd, data_apbd, apbd
+    //                                  WHERE data_apbd.ID_DAERAH = 1 AND data_apbd.TAHUN ="'.$tahun.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = apbd.ID_URAIAN
+    //                                  GROUP BY data_apbd.ID_URAIAN');
+
+    //     return $query->result_array();
+        
+    // }
     public function getDatabyProvTahunPeriode($bulan, $tahun)
     {
-        $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
-                                     FROM uraian_apbd, data_apbd, apbd
-                                     WHERE data_apbd.ID_DAERAH = 1 AND data_apbd.TAHUN ="'.$tahun.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = apbd.ID_URAIAN
-                                     GROUP BY data_apbd.ID_URAIAN');
+        $query = $this->db->query('SELECT uraian_apbd.URAIAN as URAIAN, apbd.APBD as APBD, apbd.APBD_P as APBD_P, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE
+                                    FROM apbd, data_apbd, uraian_apbd
+                                    WHERE apbd.ID_DAERAH = 1 AND apbd.TAHUN = "'.$tahun.'" AND data_apbd.ID_URAIAN = apbd.ID_URAIAN 
+                                    AND data_apbd.PERIODE = "'.$bulan.'" AND apbd.TAHUN = data_apbd.TAHUN AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN 
+                                    AND data_apbd.ID_URAIAN = apbd.ID_URAIAN');
 
         return $query->result_array();
         
     }
 
-    public function getDatabyKabTahunPeriode($kab, $tahun)
+    // public function getDatabyKabTahunPeriode($kab, $tahun)
+    // {
+
+    //     //$query = $this->db->query('SELECT NILAI FROM data_apbd WHERE ID_DAERAH ='.$kab.' AND PERIODE ="'.$periode.'" AND TAHUN ="'.$tahun.'"' );
+    //     $query = $this->db->query('SELECT data_apbd.PERIODE as PERIODE, apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
+    //                                 FROM uraian_apbd, data_apbd, apbd
+    //                                 WHERE data_apbd.ID_DAERAH ='.$kab.' AND data_apbd.TAHUN ="'.$tahun.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = data_apbd.ID_URAIAN GROUP BY uraian_apbd.ID_URAIAN, data_apbd.PERIODE
+    //                                 ORDER BY data_apbd.ID_URAIAN
+    //                                 ' );
+    //     return $query->result_array();
+    // }
+    public function getDatabyKabTahunPeriode($daerah, $tahun)
     {
 
-        //$query = $this->db->query('SELECT NILAI FROM data_apbd WHERE ID_DAERAH ='.$kab.' AND PERIODE ="'.$periode.'" AND TAHUN ="'.$tahun.'"' );
-        $query = $this->db->query('SELECT data_apbd.PERIODE as PERIODE, apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
-                                    FROM uraian_apbd, data_apbd, apbd
-                                    WHERE data_apbd.ID_DAERAH ='.$kab.' AND data_apbd.TAHUN ="'.$tahun.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = data_apbd.ID_URAIAN GROUP BY uraian_apbd.ID_URAIAN, data_apbd.PERIODE
-                                    ORDER BY data_apbd.ID_URAIAN
-                                    ' );
+        $query = $this->db->query('SELECT data_apbd.PERIODE as PERIODE,uraian_apbd.URAIAN as URAIAN, apbd.APBD as APBD, apbd.APBD_P as APBD_P, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE
+                                    FROM apbd, data_apbd, uraian_apbd
+                                    WHERE apbd.ID_DAERAH = '.$daerah.' AND apbd.TAHUN = "'.$tahun.'" AND data_apbd.ID_URAIAN = apbd.ID_URAIAN 
+                                    AND apbd.TAHUN = data_apbd.TAHUN AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN 
+                                    AND data_apbd.ID_URAIAN = apbd.ID_URAIAN');
+
         return $query->result_array();
     }
     public function getCompareDaerah($tahun,$kabkota,$periode)
