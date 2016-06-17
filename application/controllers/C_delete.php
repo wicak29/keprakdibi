@@ -29,6 +29,17 @@ class C_delete extends CI_Controller
         $this->load->view('delete/V_deleteAPBDKabKota', $data);
         $this->load->view('V_footer_table');
     }
+    public function viewDeleteDataAPBDP()
+    {
+        //$data['periode'] = "periode";
+        //$data['list'] = array();
+        $data['list'] = $this->M_delete->getListDeleteAPBDP();
+        $this->load->view('V_head_table');
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
+        $this->load->view('delete/V_deleteAPBDP', $data);
+        $this->load->view('V_footer_table');
+    }
 
     public function pindahKeFilter(){
         
@@ -38,6 +49,9 @@ class C_delete extends CI_Controller
         }
         elseif($kategori == 'Kab_Kota'){
             redirect('C_delete/viewDeleteDataKab');
+        }
+        else{
+            redirect('C_delete/viewDeleteDataAPBDP');
         }
       
     }
@@ -75,6 +89,28 @@ class C_delete extends CI_Controller
         }
         //print_r($data);
         redirect('C_delete/viewDeleteDataProv');
+
+    }
+
+    public function deleteDataAPBDP() {
+       
+        $data = $this->input->post('data');
+        //print_r($data);
+        //print_r($data[0]);
+        //print_r($data[1]);
+        for ($i=0; $i<sizeof($data); $i++){
+
+            $piece = explode("#", $data[$i]);
+            $id_daerah = $piece[0];
+            //print_r($daerah);
+            $nama_daerah = $piece[1];
+            $tahun = $piece[2];
+            
+            $this->M_delete->deleteDataAPBDP($id_daerah,$tahun);
+
+        }
+        //print_r($data);
+        redirect('C_delete/viewDeleteDataAPBDP');
 
     }
 
