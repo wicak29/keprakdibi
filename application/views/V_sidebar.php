@@ -1,5 +1,5 @@
 <body class="nav-md">
-  <div id="wrapper" style="max-width:100%; margin-top: 0%;">
+  <div id="wrapper" class="toggled" style="max-width:100%; margin-top: 0%;">
     <div class="container body">
       <div class="main_container">
 
@@ -42,6 +42,3 @@
                 </ul>
             </div>
             <!-- /#sidebar-wrapper -->
-            <script>
-            $("#wrapper").toggleClass("toggled");
-            </script>
