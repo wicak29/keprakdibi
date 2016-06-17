@@ -40,6 +40,17 @@ class C_delete extends CI_Controller
         $this->load->view('delete/V_deleteAPBDP', $data);
         $this->load->view('V_footer_table');
     }
+    public function viewDeleteDataKontak()
+    {
+        //$data['periode'] = "periode";
+        //$data['list'] = array();
+        $data['list'] = $this->M_delete->getListDeleteKontak();
+        $this->load->view('V_head_table');
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
+        $this->load->view('delete/V_deleteKontak', $data);
+        $this->load->view('V_footer_table');
+    }
 
     public function pindahKeFilter(){
         
@@ -50,14 +61,28 @@ class C_delete extends CI_Controller
         elseif($kategori == 'Kab_Kota'){
             redirect('C_delete/viewDeleteDataKab');
         }
+        elseif($kategori == 'kontak'){
+            redirect('C_delete/viewDeleteDataKontak');
+        }
         else{
             redirect('C_delete/viewDeleteDataAPBDP');
         }
       
     }
 
-    public function viewDeleteDataProv()
-    {
+    public function viewDeleteDataProv(){
+        
+        //$bulan= $this->input->post('bulan');        
+        //$tahun= $this->input->post('tahun');
+        //$this->load->library('session');
+        // $this->session->set_flashdata('tahun',$tahun);
+        // $this->session->set_flashdata('bulan',$bulan);
+
+        // if (!$bulan) $bulan = "Bulan";
+
+        // $data['uraian'] = $this->M_update->getDatabyProvTahunPeriode($bulan,$tahun,1);
+        // $data['bulan'] = $bulan;
+        // if(!$data['uraian']) $data['uraian'] = array();
         $data['list'] = $this->M_delete->getListDeleteProv();
 
         $this->load->view('V_head_table');
@@ -113,6 +138,27 @@ class C_delete extends CI_Controller
         redirect('C_delete/viewDeleteDataAPBDP');
 
     }
+    public function deleteDataKontak() 
+    {
+       
+        $data = $this->input->post('data');
+        //print_r($data);
+        //print_r($data[0]);
+        //print_r($data[1]);
+        for ($i=0; $i<sizeof($data); $i++){
+
+            $piece = explode("#", $data[$i]);
+            $id_kontak = $piece[0];
+            //print_r($daerah);
+            
+            $this->M_delete->deleteDataKontak($id_kontak);
+
+        }
+        //print_r($data);
+        redirect('C_delete/viewDeleteDataKontak');
+
+    }
+
 
     public function filterKab()
     {

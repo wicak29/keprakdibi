@@ -127,23 +127,39 @@ class M_delete extends CI_Model
         $query = $this->db->query('SELECT DISTINCT apbd.ID_DAERAH AS ID_DAERAH, daerah.NAMA_DAERAH AS DAERAH, apbd.TAHUN AS TAHUN FROM `apbd`, `daerah` WHERE apbd.ID_DAERAH=daerah.ID_DAERAH');
         return $query->result_array();
     }
+    public function getListDeleteKontak()
+    {
+        $query = $this->db->query('SELECT ID_KONTAK, NAMA_INSTANSI, NO_TELEPON, EMAIL, ALAMAT, PIC, PREFERRED_CONTACT FROM `kontak` ');
+        return $query->result_array();
+    }
 
     public function deleteData($daerah,$periode,$tahun,$id_kontak)
     {
-        print_r($periode);
-        print_r($id_kontak);
+        //print_r($periode);
+        //print_r($id_kontak);
         $this->db->where('ID_DAERAH', $daerah);
         $this->db->where('PERIODE', $periode);
         $this->db->where('TAHUN', $tahun);
         $this->db->where('ID_KONTAK', $id_kontak);
         $this->db->delete('data_apbd'); 
     }
-    
     public function deleteDataAPBDP($id_daerah,$tahun)
     {
+        //print_r($periode);
+        //print_r($id_kontak);
         $this->db->where('ID_DAERAH', $id_daerah);
+        
         $this->db->where('TAHUN', $tahun);
+        
         $this->db->delete('apbd'); 
+    }
+    public function deleteDataKontak($id_kontak)
+    {
+        //print_r($periode);
+        //print_r($id_kontak);
+        $this->db->where('ID_KONTAK', $id_kontak);
+        
+        $this->db->delete('kontak'); 
     }
 
 }
