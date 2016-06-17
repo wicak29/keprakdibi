@@ -44,10 +44,11 @@ class M_update extends CI_Model
 
     public function getDatabyProvTahunPeriode($bulan, $tahun, $daerah)
     {
-        $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
-                                     FROM uraian_apbd, data_apbd, apbd
-                                     WHERE data_apbd.ID_DAERAH = '.$daerah.' AND data_apbd.TAHUN ="'.$tahun.'" AND data_apbd.PERIODE ="'.$bulan.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = apbd.ID_URAIAN
-                                     GROUP BY data_apbd.ID_URAIAN');
+        $query = $this->db->query('SELECT uraian_apbd.URAIAN as URAIAN, apbd.APBD as APBD, apbd.APBD_P as APBD_P, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE
+                                    FROM apbd, data_apbd, uraian_apbd
+                                    WHERE apbd.ID_DAERAH = '.$daerah.' AND apbd.TAHUN = "'.$tahun.'" AND data_apbd.ID_URAIAN = apbd.ID_URAIAN 
+                                    AND data_apbd.PERIODE = "'.$bulan.'" AND apbd.TAHUN = data_apbd.TAHUN AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN 
+                                    AND data_apbd.ID_URAIAN = apbd.ID_URAIAN');
 
         return $query->result_array();
         
@@ -56,10 +57,11 @@ class M_update extends CI_Model
     public function getDatabyKabTahunPeriode($daerah, $tahun, $periode)
     {
 
-        $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
-                                     FROM uraian_apbd, data_apbd, apbd
-                                     WHERE data_apbd.ID_DAERAH = '.$daerah.' AND data_apbd.TAHUN ="'.$tahun.'" AND data_apbd.PERIODE ="'.$periode.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = apbd.ID_URAIAN
-                                     GROUP BY data_apbd.ID_URAIAN');
+        $query = $this->db->query('SELECT uraian_apbd.URAIAN as URAIAN, apbd.APBD as APBD, apbd.APBD_P as APBD_P, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE
+                                    FROM apbd, data_apbd, uraian_apbd
+                                    WHERE apbd.ID_DAERAH = '.$daerah.' AND apbd.TAHUN = "'.$tahun.'" AND data_apbd.ID_URAIAN = apbd.ID_URAIAN 
+                                    AND data_apbd.PERIODE = "'.$periode.'" AND apbd.TAHUN = data_apbd.TAHUN AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN 
+                                    AND data_apbd.ID_URAIAN = apbd.ID_URAIAN');
 
         return $query->result_array();
     }
@@ -80,7 +82,9 @@ class M_update extends CI_Model
     }
 
     public function getNilaiAPBDP($daerah, $tahun){
-        $query = $this->db->query('SELECT APBD, APBD_P FROM `apbd` WHERE TAHUN ="'.$tahun.'" AND ID_DAERAH ='.$daerah.'');
+        $query = $this->db->query('SELECT uraian_apbd.URAIAN as URAIAN, apbd.APBD as APBD, apbd.APBD_P as APBD_P
+                                    FROM `apbd`, `uraian_apbd` 
+                                    WHERE TAHUN ="'.$tahun.'" AND ID_DAERAH ='.$daerah.' AND apbd.ID_URAIAN = uraian_apbd.ID_URAIAN');
         return $query->result_array();
     }
 
@@ -88,24 +92,27 @@ class M_update extends CI_Model
     {
         $hasil=array();
 
-        // $data = $this->db->query('SELECT URAIAN FROM uraian_apbd WHERE ID_URAIAN ="'.$id.'" LIMIT 1');
-        // $row = $data->row_array();
-        // function update_student_id1($id,$data){
-        // $this->db->where('student_id', $id);
-        // $this->db->update('students', $data);
-        // }
-
-
-                     
-            $this->db->where('ID_URAIAN', $uraian);
-            $this->db->where('ID_DAERAH', $daerah);
-            $this->db->where('TAHUN', $tahun);
-            $this->db->where('PERIODE', $bulan);
-            $this->db->update('data_apbd', $data);
+        $this->db->where('ID_URAIAN', $uraian);
+        $this->db->where('ID_DAERAH', $daerah);
+        $this->db->where('TAHUN', $tahun);
+        $this->db->where('PERIODE', $bulan);
+        $this->db->update('data_apbd', $data);
             //array_push($hasil, $query->result_array());
         
         //return $hasil;
     }
+    public function updateNilaiAPBDP($data, $daerah, $uraian, $tahun){
+        $this->db->where('ID_URAIAN', $uraian);
+        $this->db->where('ID_DAERAH', $daerah);
+        $this->db->where('TAHUN', $tahun);
+        $this->db->update('apbd', $data);
+    }
+
+    public function getDataUpdateRealisasi($daerah, $tahun){
+        $query = $this->db->query('SELECT uraian_apbd.ID_URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE, data_apbd.PERIODE as PERIODE 
+                                     FROM uraian_apbd, data_apbd
+                                     WHERE data_apbd.ID_DAERAH = '.$daerah.' AND data_apbd.TAHUN ="'.$tahun.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN');
+        return $query->result_array();
+    }
 
 }
-//SELECT * FROM `data_apbd` WHERE TAHUN IN ('2008', '2009')

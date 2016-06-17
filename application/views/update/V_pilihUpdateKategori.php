@@ -91,6 +91,18 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="kategori">
                             <option value="" selected disabled>Pilih Kategori</option>
+                            <option value="apbdp">APBD dan APBD P</option>
+                            <option value="realisasi">Nilai Realisasi</option>
+                            
+                          </select>
+                        </div>
+                        <br><br>
+                        <br>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pilih Daerah <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="daerah">
+                            <option value="" selected disabled>Pilih Daerah</option>
                             <option value="Provinsi">Provinsi</option>
                             <option value="Kab_Kota">Kabupaten/Kota</option>
                             
@@ -98,9 +110,7 @@
                         </div>
                       </div>
                         
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          
-                        </div>
+                        
                       </div>
                         <div class="form-group">
                           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
