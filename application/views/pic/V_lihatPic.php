@@ -26,7 +26,7 @@
                       <div class="col-md-12 col-sm-12 col-xs-12"></div>
                       <div class="col-md-12 col-sm-12 col-xs-12"></div>
                       <?php
-                      $imgu = "http://localhost/keprakdibi/assets/gentelella/production/images/img.jpg";
+                      $imgu = "http://localhost/keprakdibi/assets/gentelella/production/images/user.png";
                       foreach ($list_pic as $pic) 
                       {
                         echo '
@@ -51,10 +51,11 @@
                             <div class="col-xs-12 col-sm-9 emphasis">
                             </div>
                             <div class="col-xs-12 col-sm-3 emphasis">
-                              <button class="btn btn-success btn-xs"> <i class="fa fa-user">
-                                </i> </button>
-                              <button class="btn btn-primary btn-xs">
-                                <i class="fa fa-user"> </i>
+                              <button class="btn btn-success btn-xs" data-toggle="tooltip" title="Edit Kontak"> 
+                              <i class="fa fa-edit"> </i> 
+                              </button>
+                              <button class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus Kontak">
+                                <i class="fa fa-trash"></i>
                               </button>
                             </div>
                           </div>

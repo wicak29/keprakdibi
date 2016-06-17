@@ -38,6 +38,7 @@
                     <li class="sidebar-brand"><a href="#">KONTAK<i class="fa fa-user sidebar-title"></i></a></li>
                     <li><a href="<?php echo base_url('C_pic/viewLihatPic');?>"><i class="fa fa-angle-right"></i> Lihat Kontak</a></li>
                     <li><a href="<?php echo base_url('C_pic/viewTambahPic');?>"><i class="fa fa-angle-right"></i> Tambah Kontak</a></li>
+                    <li><a href="<?php echo base_url('C_delete/viewDeleteDataKontak');?>"><i class="fa fa-angle-right"></i> Hapus Kontak</a></li>
                 </ul>
             </div>
             <!-- /#sidebar-wrapper -->
