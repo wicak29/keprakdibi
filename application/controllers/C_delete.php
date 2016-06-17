@@ -109,7 +109,16 @@ class C_delete extends CI_Controller
             $nama_instansi = $piece[3];
             $pic = $piece[4];
             $id_kontak = $piece[5];
-            $this->M_delete->deleteData($daerah,$periode,$tahun,$id_kontak);
+            $unknown = 'unknown';
+            $data = array(
+                'NAMA_INSTANSI' => $unknown,
+                'NO_TELEPON' => $unknown,
+                'EMAIL' => $unknown,
+                'ALAMAT' => $unknown,
+                'PIC' => $unknown,
+                'PREFERRED_CONTACT' => $unknown
+            );
+            $this->M_delete->deleteData($id_kontak,$data);
 
         }
         //print_r($data);
