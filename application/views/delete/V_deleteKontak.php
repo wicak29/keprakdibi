@@ -66,8 +66,8 @@
                           <h4>Apakah Anda yakin ingin menghapus kontak yang dipilih?</h4>
                         </div>
                         <div class="modal-footer">
-                          <input type="submit" class="btn btn-success" value="Ok" style="margin: 0;"/>
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                          <input type="submit" class="btn btn-success" value="Iya" style="margin: 0;"/>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
                         </div>
 
                       </div>
