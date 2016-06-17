@@ -86,9 +86,29 @@
                       </tbody>
                     </table>
 
-                  
-                  <input type="submit" class="btn btn-danger" style="float:right;" value="Delete"/>
-            
+                  <button id="checkBtn" type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Hapus</button>
+                  <!-- Small modal -->
+                  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">HAPUS KONTAK</h4>
+                        </div>
+                        <div class="modal-body">
+                          <h4>Apakah Anda yakin ingin menghapus kontak yang dipilih?</h4>
+                        </div>
+                        <div class="modal-footer">
+                          <input type="submit" class="btn btn-success" value="Iya" style="margin: 0;"/>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /modals -->
                 </form>
 
                 </div>
@@ -99,6 +119,20 @@
         </div>
         <!-- /page content -->
 
+      <!-- MINIMAL CHECK -->
+      <script type="text/javascript">
+      $(document).ready(function () {
+          $( '#checkBtn').click(function() {
+            checked = $("input[type=checkbox]:checked").length;
+
+            if(!checked) {
+              alert("Anda belum memilih data APBD!");
+              return false;
+            }
+          });
+      });
+      </script>
+      
         <!-- DATA TABLES-->
         <script>
       $(document).ready(function() {

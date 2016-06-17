@@ -16,6 +16,12 @@ class M_pic extends CI_Model
         return $result;
     }
 
+    public function getKontakByID($id)
+    {
+        $result = $this->db->get_where('kontak', array('ID_KONTAK'=>$id));
+        return $result->row_array();
+    }
+
     public function addKontak($nama_instansi,$no_telp,$email,$alamat,$pic,$prefer)
     {
         $data = array(
@@ -29,5 +35,11 @@ class M_pic extends CI_Model
         );
         $query = $this->db->insert('kontak', $data);
         return $query;
+    }
+
+    public function updateKontak($id, $data)
+    {
+        $this->db->where('ID_KONTAK', $id);
+        $this->db->update('kontak', $data);
     }
 }
