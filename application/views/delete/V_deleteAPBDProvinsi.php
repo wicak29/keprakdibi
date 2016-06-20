@@ -56,10 +56,10 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel2">HAPUS KONTAK</h4>
+                          <h4 class="modal-title" id="myModalLabel2">HAPUS APBD</h4>
                         </div>
                         <div class="modal-body">
-                          <h4>Apakah Anda yakin ingin menghapus kontak yang dipilih?</h4>
+                          <h4>Apakah Anda yakin ingin menghapus data yang dipilih?</h4>
                         </div>
                         <div class="modal-footer">
                           <input type="submit" class="btn btn-success" value="Iya" style="margin: 0;"/>

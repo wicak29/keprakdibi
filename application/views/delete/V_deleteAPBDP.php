@@ -15,42 +15,6 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>C_update/viewUpdateDataProv/" method="post" enctype="multipart/form-data" class="form-inline">
-                      <div class="form-group">
-                       <!--  <label for="ex3">Pilih Tahun : </label> -->
-                        <!-- <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
-                            <option value="" selected disabled>Pilih tahun</option>
-                            <option value="2007">2007</option>
-                            <option value="2008">2008</option>
-                            <option value="2009">2009</option>
-                            <option value="2010">2010</option>
-                            <option value="2011">2011</option>
-                            <option value="2012">2012</option>
-                            <option value="2013">2013</option>
-                            <option value="2014">2014</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                          </select>
-                          <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;">
-                            <option value="" selected disabled>Pilih bulan</option>
-                            <option value="Januari">Januari</option>
-                            <option value="Februari">Februari</option>
-                            <option value="Maret">Maret</option>
-                            <option value="April">April</option>
-                            <option value="Mei">Mei</option>
-                            <option value="Juni">Juni</option>
-                            <option value="Juli">Juli</option>
-                            <option value="Agustus">Agustus</option>
-                            <option value="September">September</option>
-                            <option value="Oktober">Oktober</option>
-                            <option value="November">November</option>
-                            <option value="Desember">Desember</option>
-                          </select> -->
-                        <!-- <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/> -->
-                      </div>
-                    </form>
-                    
-                    <div class="ln_solid"></div>
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
@@ -82,10 +46,30 @@
                         <?php } ?>
                       </tbody>
                     </table>
-
                   
-                  <input type="submit" class="btn btn-danger" style="float:right;" value="Delete"/>
-            
+                 <button id="checkBtn" type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Hapus</button>
+                  <!-- Small modal -->
+                  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel2">HAPUS APBD</h4>
+                        </div>
+                        <div class="modal-body">
+                          <h4>Apakah Anda yakin ingin menghapus data yang dipilih?</h4>
+                        </div>
+                        <div class="modal-footer">
+                          <input type="submit" class="btn btn-success" value="Iya" style="margin: 0;"/>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /modals -->
                 </form>
 
                 </div>
@@ -95,6 +79,20 @@
           </div>
         </div>
         <!-- /page content -->
+
+      <!-- MINIMAL CHECK -->
+      <script type="text/javascript">
+      $(document).ready(function () {
+          $( '#checkBtn').click(function() {
+            checked = $("input[type=checkbox]:checked").length;
+
+            if(!checked) {
+              alert("Anda belum memilih data APBD!");
+              return false;
+            }
+          });
+      });
+      </script>
 
         <!-- DATA TABLES-->
         <script>

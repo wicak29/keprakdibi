@@ -180,6 +180,7 @@ class C_delete extends CI_Controller
 
     public function filterKab()
     {
+        $data['title'] = "Hapus Data Kab./Kota";
         $kabkota = $this->input->post('kabkota');
 
         $data['tahun'] = $this->input->post('tahun');
@@ -191,10 +192,10 @@ class C_delete extends CI_Controller
 
         //print_r($data['list']);
 
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('delete/V_deleteAPBDKabKota', $data);
+        $this->load->view('delete/V_deleteAPBDKabKota');
         $this->load->view('V_footer_table');
     }
 
