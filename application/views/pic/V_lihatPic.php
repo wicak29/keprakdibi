@@ -35,13 +35,13 @@
                           <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
                             <div class="well profile_view">
                               <div class="col-sm-12">
-                                <h4 class="brief bg-primary"><i><?php echo $pic['NAMA_INSTANSI']; ?></i></h4>
+                                <h4 class="brief bg-primary"><i> <?php echo $pic['NAMA_INSTANSI']; ?></i></h4>
                                 <div class="left col-xs-7">
                                   <h2 style="color: #2A3F54; text-transform: uppercase;"><?php echo $pic['PIC'];?></h2>
                                   <ul class="list-unstyled">
                                     <li><i class="fa fa-building"></i> <?php echo $pic['ALAMAT']; ?></li>
                                     <li><i class="fa fa-phone"></i> <?php echo $pic['NO_TELEPON']; ?></li>
-                                    <li><i class="fa fa-at"></i> <?php echo $pic['EMAIL']; ?></li>
+                                    <li><i class="fa fa-envelope"></i> <?php echo $pic['EMAIL']; ?></li>
                                     <li><i class="fa fa-smile-o"></i> <?php echo $pic['PREFERRED_CONTACT']; ?></li>
                                   </ul>
                                 </div>

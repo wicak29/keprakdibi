@@ -97,7 +97,7 @@
                       <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#tab-apbdp" role="tab" id="apbdp-tab" data-toggle="tab" aria-expanded="true">APDBP</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
+                        <li role="presentation" class="" style="display:none;"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
                         </li>
                         <li role="presentation" class=""><a href="#tab-provinsi" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Provinsi</a>
                         </li>
@@ -106,7 +106,7 @@
                       </ul>
 
                       <div id="myTabContent" class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in" id="tab-uraian" aria-labelledby="profile-tab">
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-uraian" aria-labelledby="profile-tab" style="display:none;">
                           <form action="<?php echo base_url();?>C_apbd/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data Uraian APBD</h3>
                             <br>

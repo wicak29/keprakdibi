@@ -181,7 +181,7 @@
               </form>
             </div>
             <div id="echart_line" class="col-md-12" style="height:550px;"></div>
-            <table id="datatable-buttons" class="table table-striped table-bordered">
+            <table id="datatable-buttons" class="table table-striped table-bordered" style="display:none;">
               <thead>
                 <tr>
                   <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
