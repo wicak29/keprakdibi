@@ -81,6 +81,10 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
             <strong>Gagal!</strong> File gagal disimpan ke database!
           </div>
+          <div id="duplikat-tambah" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal!</strong> Data Sudah Pernah Diupload!
+          </div>
           <!-- END ALERTS -->
 
           <div class="">
@@ -463,7 +467,7 @@
         <script type="text/javascript">
         $(document).ready(function()
         {
-          <?php if ($this->session->flashdata('notif')) 
+          <?php if ($this->session->flashdata('notif')==1) 
           { ?>
             $('#sukses-tambah').show();
             <?php
@@ -472,6 +476,14 @@
           { ?>
             $('#gagal-tambah').show();
             <?php
-          }?>
+          }
+          else if ($this->session->flashdata('notif')==3)
+          { ?>
+            $('#duplikat-tambah').show();
+            <?php
+          }
+
+          ?>
+
         });
         </script>

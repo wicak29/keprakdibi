@@ -387,22 +387,56 @@ class C_apbd extends CI_Controller
             $highestColumn = $sheet->getHighestColumn();
             //echo $highestRow;
             //echo $highestColumn;
+            $ErrorHandling = array();
+            $ErrorHandling = $this->M_apbd->getAPBDPError($daerah, $tahun);
             $rowData = array();
-            for ($row = 6; $row <= $highestRow; $row++)
-            {                  //  Read a row of data into an array                 
-                $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
-                                                NULL,
-                                                TRUE,
-                                                FALSE);
+            //print_r($ErrorHandling);
+            if (empty($ErrorHandling)){
+                //echo "wow";
+                //$this->session->set_flashdata('notif', 1);
+                for ($row = 6; $row <= $highestRow; $row++)
+                {                  //  Read a row of data into an array                 
+                    $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+                                                    NULL,
+                                                    TRUE,
+                                                    FALSE);
 
-                //$IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
-                //echo 'INI ID APBD = '. $IDAPBD;
-                $importFile = $this->M_apbd->tambahNilaiAPBDPbyTahun($rowData, $tahun, $row-5, $daerah);
+                    //$IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
+                    //echo 'INI ID APBD = '. $IDAPBD;
+                    $importFile = $this->M_apbd->tambahNilaiAPBDPbyTahun($rowData, $tahun, $row-5, $daerah);
+                }
+                if ($importFile){
+                    $this->session->set_flashdata('notif', 1);
+                }
+                else{
+                    $this->session->set_flashdata('notif', 2);
+                }
+
             }
-            if ($importFile)
-            {
-                $this->session->set_flashdata('notif', 1);
+            elseif ($ErrorHandling) {
+                //echo "salah";
+                // print_r($ErrorHandling);
+                // print_r($tahun);
+                // print_r($daerah);
+                $this->session->set_flashdata('notif', 3);
+
             }
+            
+            // for ($row = 6; $row <= $highestRow; $row++)
+            // {                  //  Read a row of data into an array                 
+            //     $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+            //                                     NULL,
+            //                                     TRUE,
+            //                                     FALSE);
+
+            //     //$IDAPBD = $this->M_apbd->getIDAPBD($rowData[0][0]);
+            //     //echo 'INI ID APBD = '. $IDAPBD;
+            //     $importFile = $this->M_apbd->tambahNilaiAPBDPbyTahun($rowData, $tahun, $row-5, $daerah);
+            // }
+            // if ($importFile)
+            // {
+            //     $this->session->set_flashdata('notif', 1);
+            // }
             delete_files('./temp_upload/');
             redirect(base_url('C_apbd/viewImportExcel'));
     }

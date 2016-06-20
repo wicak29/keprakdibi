@@ -4805,7 +4805,10 @@ ul.notifications {
 {
     display: none;
 }
-
+#duplikat-tambah
+{
+    display: none;
+}
 .tables th
 {
     text-align: center;
