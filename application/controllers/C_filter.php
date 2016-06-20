@@ -53,7 +53,6 @@ class C_filter extends CI_Controller
 
     public function pindahKeFilter()
     {
-    
         $kategori= $this->input->post('kategori');
 
         //$result = $this->M_filter->cariFilter($daerah,$tahun);
@@ -129,8 +128,6 @@ class C_filter extends CI_Controller
         $data['jumlah_uraian'] = sizeof($data['uraian']);
         $data['jumlah_tahun'] = sizeof($data['tahun']);
 
-        // print_r($data['kabkota']['NAMA_DAERAH']);
-
         if (!$data['tahun']) $data['tahun'] = array();
         if (!$data['uraian']) $data['uraian'] = array();
 
@@ -141,19 +138,29 @@ class C_filter extends CI_Controller
             $data['listUraian'] = array();
             $data['list_nilai']="";
             $nama_uraian = $this->M_filter->getUraian($i);
-            // $uraian = $this->M_filter->getNilaiByUraian($key, $data['tahun']);
-            // print_r($uraian);
+
             array_push($data['listUraian'], $nama_uraian);
 
             $pos = 0;
             foreach ($data['tahun'] as $t) 
             {
                 $nilai = $this->M_filter->getNilaiByUraian($i, $t, $periode, $kabkota);
-                if ($pos != $data['jumlah_tahun']-1)
-                    $data['list_nilai'] .= $nilai.",";
-                else
-                    $data['list_nilai'] .= $nilai."";
-                $pos++;
+                $HandlingTengah = $this->M_filter->getNilaiGrafik($data['tahun'][$pos], $kabkota,$periode);
+                if ($nilai && $HandlingTengah){
+                    if ($pos != $data['jumlah_tahun']-1)
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI'].",";
+                    else
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI'].",";
+                }
+                else{
+
+                    if ($pos != $data['jumlah_tahun']-1)
+                        $data['list_nilai'] .= "0,";
+                    else
+                        $data['list_nilai'] .= "0.";                
+                }
             }
             array_push($data['listUraian'], $data['list_nilai']);
             array_push($data['finalResult'], $data['listUraian']);
@@ -201,9 +208,11 @@ class C_filter extends CI_Controller
                 //print_r($HandlingTengah);
                 if ($nilai && $HandlingTengah){
                     if ($pos != $data['jumlah_tahun']-1)
-                        $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI'].",";
                     else
-                        $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI']."";
                 }
                 else{
 
@@ -211,10 +220,7 @@ class C_filter extends CI_Controller
                         $data['list_nilai'] .= "0,";
                     else
                         $data['list_nilai'] .= "0.";
-                
                 }
-
-
                 $pos++;
             }
             array_push($data['listUraian'], $data['list_nilai']);
