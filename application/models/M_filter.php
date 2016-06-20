@@ -140,6 +140,17 @@ class M_filter extends CI_Model
         }
         return $hasil;
     }
+    public function getNilaiGrafik($tahun,$daerah,$periode)
+    {
+        $this->db->select('NILAI_REALISASI, PERSEN_REALISASI');
+        $this->db->where('TAHUN', $tahun);
+        $this->db->where('ID_DAERAH', $daerah);
+        $this->db->where('PERIODE', $periode);
+        $result = $this->db->get('data_apbd');
+        return $result->result_array();
+
+    }
+
 
 }
 //SELECT * FROM `data_apbd` WHERE TAHUN IN ('2008', '2009')
