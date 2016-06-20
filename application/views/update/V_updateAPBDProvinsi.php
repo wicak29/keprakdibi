@@ -51,6 +51,10 @@
                     </form>
                     
                     <div class="ln_solid"></div>
+                    <?php if($tahun!="Tahun" || $bulan!="Bulan") { ?>
+                      <h3 align="center">Update Nilai Realisasi Prov. Bali</h3>
+                      <h3 align="center"> Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
+                    <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
@@ -70,24 +74,18 @@
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
-
-                        
                         <?php foreach ($uraian as $r) { ?>
                           <tr>
                             <td ><?php echo $r['URAIAN'] ?></td>
                             <td ><?php echo $r['APBD'] ?></td>
                             <td ><?php echo $r['APBD_P'] ?></td>
                             <td><input type="text" name="nilai[]" value="<?php echo $r['NILAI'] ?>"></td>
-                            <!-- <td ><?//php echo $r['NILAI'] ?></td> -->
                             <td ><?php echo $r['PERSENTASE'] ?> %</td>
                           </tr>
                         <?php } ?>
                       </tbody>
                     </table>
-
-                  
                   <input type="submit" class="btn btn-warning" style="float:right;" value="Update"/>
-            
                 </form>
 
                 </div>

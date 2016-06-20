@@ -36,6 +36,10 @@
                     </form>
                    
                     <div class="ln_solid"></div>
+                    <?php if($tahun!="Tahun") { ?>
+                      <h3 align="center">Update APBD/APBD Perubahan</h3>
+                      <h3 align="center">Prov. Bali Tahun <?php echo $tahun?></h3>
+                    <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->

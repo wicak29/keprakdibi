@@ -52,13 +52,15 @@
                             <option value="2015">2015</option>
                             <option value="2016">2016</option>
                           </select>
-                          
-
                         <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/>
                       </div>
                     </form>
                     
                     <div class="ln_solid"></div>
+                    <?php if($tahun!="Tahun" || $periode!="periode") { ?>
+                      <h3 align="center">Update Nilai Realisasi <?php echo $kabkota['NAMA_DAERAH']?></h3>
+                      <h3 align="center"><?php echo $periode?> Tahun <?php echo $tahun?></h3>
+                    <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
