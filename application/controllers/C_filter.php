@@ -148,9 +148,11 @@ class C_filter extends CI_Controller
                 $HandlingTengah = $this->M_filter->getNilaiGrafik($data['tahun'][$pos], $kabkota,$periode);
                 if ($nilai && $HandlingTengah){
                     if ($pos != $data['jumlah_tahun']-1)
-                        $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI'].",";
                     else
-                        $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI'].",";
                 }
                 else{
 
@@ -206,9 +208,11 @@ class C_filter extends CI_Controller
                 //print_r($HandlingTengah);
                 if ($nilai && $HandlingTengah){
                     if ($pos != $data['jumlah_tahun']-1)
-                        $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI'].",";
                     else
-                        $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI']."";
                 }
                 else{
 
