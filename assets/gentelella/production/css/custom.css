@@ -4809,6 +4809,10 @@ ul.notifications {
 {
     display: none;
 }
+#gagal-apbdp
+{
+    display: none;
+}
 .tables th
 {
     text-align: center;
