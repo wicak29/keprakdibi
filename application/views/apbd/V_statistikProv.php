@@ -184,34 +184,34 @@
             <table id="datatable-buttons" class="table table-striped table-bordered" style="display:none;">
               <thead>
                 <tr>
-                  <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
+                 <!--  <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th> -->
                   <!-- <th><?php echo $kabkota ?></th> -->
-                  <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
-                  <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                  <!-- <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
+                  <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th> -->
                   <?php foreach ($tahun as $t) 
                   { ?>
-                    <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $t ?></th>
+                   <!--  <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $t ?></th> -->
                   <?php
                   }?>
                 </tr>
                 <tr>
                   <?php foreach ($tahun as $t) 
                   { ?>
-                    <th scope="col">Nilai</th>
-                    <th scope="col">Persentase</th>
+                    <!-- <th scope="col">Nilai</th>
+                    <th scope="col">Persentase</th> -->
                   <?php
                   }?>
                 </tr>
               </thead>
               <tbody id="tabelApbd">
                 <tr>
-                  <td>Uraian</td>
+                  <!-- <td>Uraian</td>
                   <td>APBD</td>
-                  <td>APBDP</td>
+                  <td>APBDP</td> -->
                   <?php foreach ($tahun as $t) 
                   { ?>
-                    <td scope="col">1</td>
-                    <td scope="col">2</td>
+                    <!-- <td scope="col">1</td>
+                    <td scope="col">2</td> -->
                   <?php
                   }?>
                 </tr>
