@@ -186,15 +186,28 @@ class C_filter extends CI_Controller
             array_push($data['listUraian'], $nama_uraian);
 
             $pos = 0;
+
             foreach ($data['tahun'] as $t) 
             {
                 $nilai = $this->M_filter->getNilaiByUraian($i, $t, $periode, 1);
-                if ($nilai){
+                $HandlingTengah = $this->M_filter->getNilaiGrafik($data['tahun'][$pos],1,$periode);
+                //print_r($HandlingTengah);
+                if ($nilai && $HandlingTengah){
                     if ($pos != $data['jumlah_tahun']-1)
                         $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
                     else
                         $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
                 }
+                else{
+
+                    if ($pos != $data['jumlah_tahun']-1)
+                        $data['list_nilai'] .= "0,";
+                    else
+                        $data['list_nilai'] .= "0.";
+                
+                }
+
+
                 $pos++;
             }
             array_push($data['listUraian'], $data['list_nilai']);
