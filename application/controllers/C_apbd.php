@@ -9,6 +9,13 @@ class C_apbd extends CI_Controller
         $this->load->helper("file");
         $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
         $this->load->model('M_apbd');
+
+        //AUTENTIKASI
+        $login = $this->session->userdata('username');
+        if (!$login) 
+        {
+            redirect('C_auth');
+        }
     }
 
 	public function index()

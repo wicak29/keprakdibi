@@ -4813,6 +4813,10 @@ ul.notifications {
 {
     display: none;
 }
+#gagal-login
+{
+    display: none;
+}
 .tables th
 {
     text-align: center;

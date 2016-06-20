@@ -8,6 +8,13 @@ class C_filter extends CI_Controller
         parent::__construct();
         $this->load->model('M_filter');
         $this->load->model('M_apbd');
+
+        //AUTENTIKASI
+        $login = $this->session->userdata('username');
+        if (!$login) 
+        {
+            redirect('C_auth');
+        }
     }
     public function index()
     {

@@ -10,6 +10,12 @@ class C_importExcel extends CI_Controller
         $this->load->helper('form');
         $this->load->helper('file');
         $this->load->model('M_user');
+
+        $login = $this->session->userdata('username');
+        if (!$login) 
+        {
+            redirect('C_auth');
+        }
     }
     
     public function index()

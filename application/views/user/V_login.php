@@ -63,3 +63,14 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    $(document).ready(function()
+    {
+      <?php if ($this->session->flashdata('notif')==1) 
+      { ?>
+        $('#gagal-login').show();
+        <?php
+      } 
+      ?>
+    });
+  </script>

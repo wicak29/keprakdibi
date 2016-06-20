@@ -16,8 +16,6 @@ class C_auth extends CI_Controller
         $data['title'] = "Login";
 
         $valid = $this->isLogin();
-        // print_r($valid);
-        // return;
         if ($valid)
         {
             redirect('C_apbd/');
@@ -25,7 +23,6 @@ class C_auth extends CI_Controller
 
         $this->load->view('V_head', $data);
         $this->load->view('user/V_login');
-        // $this->load->view('V_footer');
     }
 
     public function isLogin()
@@ -61,9 +58,17 @@ class C_auth extends CI_Controller
                 $this->session->set_userdata($session_data);
                 redirect('C_apbd');
             }   
-            else redirect('C_auth');
+            else 
+            {
+                $this->session->set_flashdata('notif', 1);
+                redirect('C_auth');
+            }
         }
-        else redirect('C_auth');
+        else 
+        {
+            $this->session->set_flashdata('notif', 1);
+            redirect('C_auth');
+        }
     }
 
     public function logout()
