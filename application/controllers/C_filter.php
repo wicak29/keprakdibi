@@ -189,10 +189,12 @@ class C_filter extends CI_Controller
             foreach ($data['tahun'] as $t) 
             {
                 $nilai = $this->M_filter->getNilaiByUraian($i, $t, $periode, 1);
-                if ($pos != $data['jumlah_tahun']-1)
-                    $data['list_nilai'] .= $nilai.",";
-                else
-                    $data['list_nilai'] .= $nilai."";
+                if ($nilai){
+                    if ($pos != $data['jumlah_tahun']-1)
+                        $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                    else
+                        $data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                }
                 $pos++;
             }
             array_push($data['listUraian'], $data['list_nilai']);
