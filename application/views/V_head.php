@@ -8,7 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('assets'); ?>/gentelella/production/images/favicon-32x32.png">
 
-    <title>Home | Bank Indonesia</title>
+    <title>
+        <?php
+        if ($title)
+        {
+            echo $title;
+        }
+        else 
+        {
+            echo "Aplikasi";
+        }; ?> | Bank Indonesia
+    </title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url('assets'); ?>/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

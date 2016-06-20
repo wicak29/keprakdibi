@@ -11,12 +11,13 @@ class C_filter extends CI_Controller
     }
     public function index()
     {
+        $data['title'] = "Cari Data";
         $data['list_daerah'] = $this->M_filter->getFilter();
         $data['list_tahun'] = $this->M_filter->getTahun();
-        $this->load->view('V_head');
+        $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_pilihKategori', $data);
+        $this->load->view('apbd/V_pilihKategori');
         $this->load->view('V_footer');
     }
   
@@ -31,15 +32,15 @@ class C_filter extends CI_Controller
     }
     public function viewDataKab()
     {
-
+        $data['title'] = "Cari Data Kabupaten/Kota";
         $data['kabkota'] = "nama_daerah";
         $data['tahun'] = "Tahun";
         $data['periode'] = array();
         $data['data_apbd'] = array();
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_lihatAPBDKab', $data);
+        $this->load->view('apbd/V_lihatAPBDKab');
         $this->load->view('V_footer_table');
     }
 
@@ -70,7 +71,7 @@ class C_filter extends CI_Controller
 
     public function lihatFilterProvinsi()
     {
-        
+        $data['title'] = "Cari Data Provinsi";
         $bulan= $this->input->post('bulan');        
         $tahun= $this->input->post('tahun');
 
@@ -82,17 +83,17 @@ class C_filter extends CI_Controller
         $data['tahun'] = $tahun;
         if(!$data['uraian']) $data['uraian'] = array();
         
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_lihatAPBDProvinsi', $data);
+        $this->load->view('apbd/V_lihatAPBDProvinsi');
         $this->load->view('V_footer_table');
             
     }
 
     public function filterKab()
     {
-
+        $data['title'] = "Cari Data Kabupaten/Kota";
         $kabkota = $this->input->post('kabkota');
         $data['tahun'] = $this->input->post('tahun');
         $data['kabkota'] = $this->M_filter->getDaerah($kabkota);
@@ -101,15 +102,16 @@ class C_filter extends CI_Controller
 
         $data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['tahun']);
 
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_lihatAPBDKab', $data);
+        $this->load->view('apbd/V_lihatAPBDKab');
         $this->load->view('V_footer_table');
     }
 
     public function viewLihatStatistik()
     {
+        $data['title'] = "Grafik APBD Kab./Kota";
         //$this->load->model('M_filter');
         $kabkota = $this->input->post('kabkota');
         $periode = $this->input->post('periode');
@@ -155,15 +157,16 @@ class C_filter extends CI_Controller
 
         if (!$data['uraian']) $data['uraian'] = array();        
 
-        $this->load->view('V_headChart');
+        $this->load->view('V_headChart', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_statistik', $data);
+        $this->load->view('apbd/V_statistik');
         $this->load->view('V_footerChart');
     }
 
     public function viewLihatStatistikProv()
     {
+        $data['title'] = "Grafik APBD Provinsi";
         $periode = $this->input->post('bulan');
         $data['uraian'] = $this->input->post('uraian');
         $data['tahun'] = $this->input->post('tahun');
@@ -201,10 +204,10 @@ class C_filter extends CI_Controller
 
         if (!$data['uraian']) $data['uraian'] = array();        
 
-        $this->load->view('V_headChart');
+        $this->load->view('V_headChart', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_statistikProv', $data);
+        $this->load->view('apbd/V_statistikProv');
         $this->load->view('V_footerChart');
     }
 }

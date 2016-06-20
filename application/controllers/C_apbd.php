@@ -15,16 +15,17 @@ class C_apbd extends CI_Controller
     {
         $this->load->model('M_pic');
 
+        $data['title'] = "APBD";
         $data['list_provinsi'] = $this->M_apbd->getListDataProv();
         $data['list_apbdp'] = $this->M_apbd->getListDataApbdp();
         $data['list_kab'] = $this->M_apbd->getListDataKab();
         $data['list_pic'] = $this->M_pic->getPic()->result_array();
         // print_r($data['list_pic']);
         // return;
-        $this->load->view('V_head');
+        $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_index', $data);
+        $this->load->view('apbd/V_index');
         $this->load->view('V_footer');
     }
 
@@ -32,22 +33,24 @@ class C_apbd extends CI_Controller
     {
         $this->load->model('M_pic');
 
+        $data['title'] = "Import File";
         $data['list_provinsi'] = $this->M_apbd->getListDataProv();
         $data['list_apbdp'] = $this->M_apbd->getListDataApbdp();
         $data['list_kab'] = $this->M_apbd->getListDataKab();
         $data['list_pic'] = $this->M_pic->getPic()->result_array();
         // print_r($data['list_pic']);
         // return;
-        $this->load->view('V_head');
+        $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('apbd/V_index', $data);
+        $this->load->view('apbd/V_index');
         $this->load->view('V_footer');
     }
 
     public function viewRekapAPBD()
     {
-    	$this->load->view('V_head_table');
+        $data['title'] = "Rekap APBD";
+    	$this->load->view('V_head_table', $data);
     	$this->load->view('V_sidebar');
     	$this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBD');

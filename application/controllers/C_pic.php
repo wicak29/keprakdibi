@@ -11,7 +11,8 @@ class C_pic extends CI_Controller
 
     public function viewTambahPic()
     {
-    	$this->load->view('V_head');
+        $data['title'] = "Tambah Kontak";
+    	$this->load->view('V_head', $data);
     	$this->load->view('V_sidebar');
     	$this->load->view('V_topNav');
         $this->load->view('pic/V_tambahPic');
@@ -20,12 +21,13 @@ class C_pic extends CI_Controller
 
     public function viewLihatPic()
     {
+        $data['title'] = "Daftar Kontak";
         $data['list_pic'] = $this->M_pic->getPic()->result_array();
 
-        $this->load->view('V_head');
+        $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('pic/V_lihatPic', $data);
+        $this->load->view('pic/V_lihatPic');
         $this->load->view('V_footer');
     }
 

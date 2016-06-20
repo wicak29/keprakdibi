@@ -8,8 +8,10 @@ class C_update extends CI_Controller
         parent::__construct();
         $this->load->model('M_update');
     }
-    public function index(){
-        $this->load->view('V_head');
+    public function index()
+    {
+        $data['title'] = "Update Data";
+        $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('update/V_pilihUpdateKategori');
@@ -18,23 +20,25 @@ class C_update extends CI_Controller
 
     public function viewUpdateDataRealisasiKab()
     {
+        $data['title'] = "Update Data Realisasi Kab./Kota";
         $data['periode'] = "periode";
         $data['data_apbd'] = array();
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('update/V_updateAPBDKabKota', $data);
+        $this->load->view('update/V_updateAPBDKabKota');
         $this->load->view('V_footer_table');
     }
 
      public function viewUpdateDataAPBDPKab()
     {
+        $data['title'] = "Update Data Kabupaten/Kota";
         //$data['periode'] = "periode";
         $data['uraian'] = array();
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('update/V_updateAPBDP_KabKota', $data);
+        $this->load->view('update/V_updateAPBDP_KabKota');
         $this->load->view('V_footer_table');
     }
 
@@ -62,7 +66,9 @@ class C_update extends CI_Controller
         } 
     }
 
-    public function viewUpdateDataRealisasiProv(){       
+    public function viewUpdateDataRealisasiProv()
+    {       
+        $data['title'] = "Update Data Realisasi Provinsi";
         $bulan= $this->input->post('bulan');        
         $tahun= $this->input->post('tahun');
         $this->load->library('session');
@@ -75,16 +81,17 @@ class C_update extends CI_Controller
         $data['bulan'] = $bulan;
         if(!$data['uraian']) $data['uraian'] = array();
         
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('update/V_updateAPBDProvinsi', $data);
+        $this->load->view('update/V_updateAPBDProvinsi');
         $this->load->view('V_footer_table');
             
     }
 
     public function filterKabRealisasi()
     {
+        $data['title'] = "Update Data Realisasi Kab./Kota";
         $kabkota = $this->input->post('kabkota');
 
         $data['tahun'] = $this->input->post('tahun');
@@ -99,15 +106,16 @@ class C_update extends CI_Controller
         $data['data_apbd'] = $this->M_update->getDatabyKabTahunPeriode($kabkota, $data['tahun'], $data['periode']);
         //print_r($data['data_apbd']);
 
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('update/V_updateAPBDKabKota', $data);
+        $this->load->view('update/V_updateAPBDKabKota');
         $this->load->view('V_footer_table');
     }
 
     public function filterKabAPBDP()
     {
+        $data['title'] = "Update Data Kabupaten/Kota";
         $kabkota = $this->input->post('kabkota');
 
         $data['tahun'] = $this->input->post('tahun');
@@ -121,15 +129,15 @@ class C_update extends CI_Controller
         $data['uraian'] = $this->M_update->getNilaiAPBDP($kabkota, $data['tahun']);
         //print_r($data['data_apbd']);
 
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('update/V_updateAPBDP_KabKota', $data);
+        $this->load->view('update/V_updateAPBDP_KabKota');
         $this->load->view('V_footer_table');
     }
 
-    public function updateDataNilaiRealisasiProv() {
-
+    public function updateDataNilaiRealisasiProv() 
+    {
         $nilai = array();
         $nilai = $this->input->post('nilai');
         $bulan = $this->session->flashdata('bulan');
@@ -159,7 +167,8 @@ class C_update extends CI_Controller
         //return;
     }
 
-    public function updateDataNilaiRealisasiKab() {
+    public function updateDataNilaiRealisasiKab() 
+    {
         //$id= $this->input->post('did');
         $nilai = array();
         $nilai = $this->input->post('nilai');
@@ -192,7 +201,9 @@ class C_update extends CI_Controller
         //return;
     }
 
-    public function viewUpdateDataAPBDPProv(){       
+    public function viewUpdateDataAPBDPProv()
+    {       
+        $data['title'] = "Update Data Provinsi";
         //$bulan= $this->input->post('bulan');        
         $tahun= $this->input->post('tahun');
         $this->load->library('session');
@@ -203,10 +214,10 @@ class C_update extends CI_Controller
 
         if(!$data['uraian']) $data['uraian'] = array();
         
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('update/V_updateAPBDP_Provinsi', $data);
+        $this->load->view('update/V_updateAPBDP_Provinsi');
         $this->load->view('V_footer_table');       
     }
 

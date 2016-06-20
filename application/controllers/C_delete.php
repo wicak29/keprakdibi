@@ -10,9 +10,10 @@ class C_delete extends CI_Controller
     }
     public function index()
     {
+        $data['title'] = "Hapus Data";
         //$data['list_daerah'] = $this->M_filter->getFilter();
         //$data['list_tahun'] = $this->M_filter->getTahun();
-        $this->load->view('V_head');
+        $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('delete/V_pilihDeleteKategori');
@@ -21,34 +22,37 @@ class C_delete extends CI_Controller
 
     public function viewDeleteDataKab()
     {
+        $data['title'] = "Hapus Data Kabupaten/Kota";
         $data['periode'] = "periode";
         $data['list'] = array();
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('delete/V_deleteAPBDKabKota', $data);
+        $this->load->view('delete/V_deleteAPBDKabKota');
         $this->load->view('V_footer_table');
     }
     public function viewDeleteDataAPBDP()
     {
+        $data['title'] = "Hapus Data APBD P";
         //$data['periode'] = "periode";
         //$data['list'] = array();
         $data['list'] = $this->M_delete->getListDeleteAPBDP();
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('delete/V_deleteAPBDP', $data);
+        $this->load->view('delete/V_deleteAPBDP');
         $this->load->view('V_footer_table');
     }
     public function viewDeleteDataKontak()
     {
+        $data['title'] = "Hapus Kontak";
         //$data['periode'] = "periode";
         //$data['list'] = array();
         $data['list'] = $this->M_delete->getListDeleteKontak();
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('delete/V_deleteKontak', $data);
+        $this->load->view('delete/V_deleteKontak');
         $this->load->view('V_footer_table');
     }
 
@@ -83,12 +87,13 @@ class C_delete extends CI_Controller
         // $data['uraian'] = $this->M_update->getDatabyProvTahunPeriode($bulan,$tahun,1);
         // $data['bulan'] = $bulan;
         // if(!$data['uraian']) $data['uraian'] = array();
+        $data['title'] = "Hapus Data Provinsi";
         $data['list'] = $this->M_delete->getListDeleteProv();
 
-        $this->load->view('V_head_table');
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('delete/V_deleteAPBDProvinsi', $data);
+        $this->load->view('delete/V_deleteAPBDProvinsi');
         $this->load->view('V_footer_table');
             
     }
