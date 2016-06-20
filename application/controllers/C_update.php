@@ -31,6 +31,7 @@ class C_update extends CI_Controller
     {
         //$data['periode'] = "periode";
         $data['uraian'] = array();
+        $data['tahun'] = "Tahun";
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
@@ -200,7 +201,8 @@ class C_update extends CI_Controller
         //$this->session->set_flashdata('bulan',$bulan);
 
         $data['uraian'] = $this->M_update->getNilaiAPBDP(1, $tahun);
-
+        $data['tahun'] = $tahun;
+        if(!$tahun) $data['tahun'] = "Tahun";
         if(!$data['uraian']) $data['uraian'] = array();
         
         $this->load->view('V_head_table');
