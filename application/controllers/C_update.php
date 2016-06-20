@@ -19,6 +19,8 @@ class C_update extends CI_Controller
     public function viewUpdateDataRealisasiKab()
     {
         $data['periode'] = "periode";
+        $data['kabkota'] = "kabkota";
+        $data['tahun'] = "Tahun";
         $data['data_apbd'] = array();
         $this->load->view('V_head_table');
         $this->load->view('V_sidebar');
@@ -73,6 +75,9 @@ class C_update extends CI_Controller
         if (!$bulan) $bulan = "Bulan";
 
         $data['uraian'] = $this->M_update->getDatabyProvTahunPeriode($bulan,$tahun,1);
+        $data['tahun'] = $tahun;
+        if(!$tahun) $data['tahun'] = "Tahun";
+        
         $data['bulan'] = $bulan;
         if(!$data['uraian']) $data['uraian'] = array();
         
