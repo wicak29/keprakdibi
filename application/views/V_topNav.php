@@ -34,7 +34,12 @@
               $var = $this->session->userdata;
               echo $var['username'];
             ?>
+            <span class=" fa fa-angle-down"></span>
           </a>
+          <ul class="dropdown-menu dropdown-usermenu pull-right" style="right: 0;">
+            <li><a href="<?php echo base_url('C_auth/logout');?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
