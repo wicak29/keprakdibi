@@ -151,6 +151,18 @@ class M_apbd extends CI_Model
         //echo $data['dump'];
     }
 
+    public function getAPBDDataError($daerah, $tahun, $periode)
+    {
+
+        $this->db->select('ID_DAERAH, TAHUN');
+        $this->db->where('TAHUN', $tahun);
+        $this->db->where('ID_DAERAH', $daerah);
+        $this->db->where('PERIODE', $periode);
+        $result = $this->db->get('data_apbd');
+        return $result->result_array();
+        //echo $data['dump'];
+    }
+
     public function tambahNilaiDaerah($dataarray, $tahun, $daerah, $periode, $dataAPBD, $pic, $dataPlafon){
         //echo $daerah;
         //echo $dataPlafon[$dataAPBD]['APBD'];

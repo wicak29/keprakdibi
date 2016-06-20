@@ -85,6 +85,10 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
             <strong>Gagal!</strong> Data Sudah Pernah Diupload!
           </div>
+          <div id="gagal-apbdp" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal!</strong> Data APBD/APBD Perubahan untuk tahun yang dipilih BELUM ADA!
+          </div>
           <!-- END ALERTS -->
 
           <div class="">
@@ -480,6 +484,11 @@
           else if ($this->session->flashdata('notif')==3)
           { ?>
             $('#duplikat-tambah').show();
+            <?php
+          }
+          else if ($this->session->flashdata('notif')==4)
+          { ?>
+            $('#gagal-apbdp').show();
             <?php
           }
 
