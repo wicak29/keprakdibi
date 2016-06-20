@@ -324,12 +324,21 @@ class C_apbd extends CI_Controller
     public function getNilaiByTahun($tahun)
     {
         $listNilai = array();
-        for ($i = 1; $i <= 61; $i++) 
+        for ($i = 1; $i <= 41; $i++) 
         {
             $uraian = $this->M_apbd->getUraian($i);
-            $result = $this->M_apbd->getNilai($tahun, $i);
-            array_push($result, $uraian);
-            array_push($listNilai, $result);
+            $resultProv = $this->M_apbd->getNilaiTotalProv($tahun, $i);            
+            $listNilaiKK = array();
+            for ($j = 2; $j<=10; $j++)
+            {
+                $resultKK = $this->M_apbd->getNilaiTotalKK($tahun, $i, $j);
+                array_push($listNilaiKK, $resultKK);
+            }
+            // print_r($uraian);
+            // print_r($listNilaiKK);
+            array_push($listNilaiKK, $resultProv);
+            array_push($listNilaiKK, $uraian);
+            array_push($listNilai, $listNilaiKK);
         }
         // print_r($listNilai);
         // return;

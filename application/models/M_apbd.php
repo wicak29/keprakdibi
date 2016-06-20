@@ -23,18 +23,18 @@ class M_apbd extends CI_Model
         return $row['URAIAN'];
     }
 
-    public function getNilaiProv($tahun, $id)
+    public function getNilaiTotalProv($tahun, $id)
     {
-        $this->db->select('NILAI');
-        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_APBD'=>$id))->result_array();
-        return $result;   
+        $this->db->select_sum('NILAI_REALISASI');
+        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_URAIAN'=>$id, 'ID_DAERAH'=>"1"))->row_array();
+        return $result['NILAI_REALISASI'];   
     }
 
-    public function getNilaiKK($tahun, $id)
+    public function getNilaiTotalKK($tahun, $id, $daerah)
     {
-        $this->db->select('NILAI');
-        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_URAIAN'=>$id))->result_array();
-        return $result;
+        $this->db->select_sum('NILAI_REALISASI');
+        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_URAIAN'=>$id, 'ID_DAERAH'=>$daerah))->row_array();
+        return $result['NILAI_REALISASI'];
     }
 
     public function getListDataProv()
