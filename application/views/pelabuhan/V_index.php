@@ -171,7 +171,7 @@
                             <tbody id="tabelProvinsi">                        
                               <?php 
                                 $no=1;
-                                foreach ($list_pelabuhan as $p) { ?>
+                                foreach ($list_data_pelabuhan as $p) { ?>
                                 <tr>
                                   <td><?php echo $no?></td>
                                   <td ><?php echo $p['PELABUHAN'] ?></td>
