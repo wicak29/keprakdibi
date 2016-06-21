@@ -26,7 +26,7 @@ class C_pelabuhan extends CI_Controller
 
         $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
         $data['list_pic'] = $this->M_pelabuhan->getListPICPelabuhan();
-        $data['list_pelabuhan'] = $this->M_pelabuhan->getListDataPelabuhan();
+        $data['list_data_pelabuhan'] = $this->M_pelabuhan->getListDataPelabuhan();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('pelabuhan/V_topNavPelabuhan');
