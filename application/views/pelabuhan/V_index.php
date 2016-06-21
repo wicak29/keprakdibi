@@ -33,18 +33,18 @@
                   <div class="x_content">
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
                       <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#tab-apbdp" role="tab" id="apbdp-tab" data-toggle="tab" aria-expanded="true">APDBP</a>
+                       <!--  <li role="presentation" class="active"><a href="#tab-apbdp" role="tab" id="apbdp-tab" data-toggle="tab" aria-expanded="true">APDBP</a>
+                        </li> -->
+                        <li role="presentation" class="active"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
                         </li>
-                        <li role="presentation" class="" style="display:none;"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
-                        </li>
-                        <li role="presentation" class=""><a href="#tab-provinsi" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Provinsi</a>
+                        <!-- <li role="presentation" class=""><a href="#tab-provinsi" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Provinsi</a>
                         </li>
                         <li role="presentation" class=""><a href="#tab-kabupaten" role="tab" id="kabupaten-tab" data-toggle="tab" aria-expanded="false">Kabupaten/Kota</a>
-                        </li>
+                        </li> -->
                       </ul>
 
                       <div id="myTabContent" class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in" id="tab-uraian" aria-labelledby="profile-tab" style="display:none;">
+                        <div role="tabpanel" class="tab-pane fade in active" id="tab-uraian" aria-labelledby="profile-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data Uraian APBD</h3>
                             <br>
@@ -62,7 +62,7 @@
                               </div>
                           </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade in" id="tab-provinsi" aria-labelledby="home-tab">
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-p" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyProvinsi/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Import Data APBD Provinsi Bali</h3>
                             <br>
@@ -130,11 +130,11 @@
                                 <input type="file" name="file" id="excelUpload" required="required" class="form-control col-md-7 col-xs-12">
                               </div>
                             </div>
-                              <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                  <input type="submit" class="btn btn-primary" value="Upload"/>
-                                </div>
+                            <div class="form-group">
+                              <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <input type="submit" class="btn btn-primary" value="Upload"/>
                               </div>
+                            </div>
                           </form>
                           <br>
                           <br>
@@ -296,7 +296,7 @@
                         </div>
 
                        
-                        <div role="tabpanel" class="tab-pane fade active in" id="tab-apbdp" aria-labelledby="home-tab">
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-apbdp" aria-labelledby="home-tab" style="display:none;">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDP/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Import Data APBD P per Tahun</h3>
                             <br>
