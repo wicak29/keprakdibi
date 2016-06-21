@@ -60,18 +60,18 @@ class C_update extends CI_Controller
 
         if ($kategori == 'realisasi'){
             if ($daerah == 'Provinsi'){
-                redirect('C_update/viewUpdateDataRealisasiProv');
+                redirect('apbd/update/viewUpdateDataRealisasiProv');
             }
             elseif($daerah == 'Kab_Kota'){
-                redirect('C_update/viewUpdateDataRealisasiKab');
+                redirect('apbd/update/viewUpdateDataRealisasiKab');
             }
         }
         elseif ($kategori == 'apbdp'){
             if ($daerah == 'Provinsi'){
-                redirect('C_update/viewUpdateDataAPBDPProv');
+                redirect('apbd/update/viewUpdateDataAPBDPProv');
             }
             elseif($daerah == 'Kab_Kota'){
-                redirect('C_update/viewUpdateDataAPBDPKab');
+                redirect('apbd/update/viewUpdateDataAPBDPKab');
             }
         } 
     }

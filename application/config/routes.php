@@ -38,13 +38,26 @@
 |
 */
 
+// APBD
 $route['default_controller'] = "C_auth";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['login'] = 'C_auth';
 $route['apbd'] = 'C_apbd';
-$route['apbd/(:any)'] = 'C_apbd/$1';
 $route['apbd/filter'] = 'C_filter';
 $route['apbd/filter/(:any)'] = 'C_filter/$1';
+$route['apbd/hapus'] = 'C_delete';
+$route['apbd/hapus/(:any)'] = 'C_delete/$1';
+$route['apbd/kontak'] = 'C_pic';
+$route['apbd/kontak/(:any)'] = 'C_pic/$1';
+$route['apbd/update'] = 'C_update';
+$route['apbd/update/(:any)'] = 'C_update/$1';
+$route['apbd/hapus'] = 'C_delete';
+$route['apbd/hapus/(:any)'] = 'C_delete/$1';
+$route['apbd/update'] = 'C_update';
+$route['apbd/(:any)'] = 'C_apbd/$1';
+
+// PELABUHAN
 $route['pelabuhan'] = 'pelabuhan/C_pelabuhan';
 $route['pelabuhan/filter'] = 'pelabuhan/C_filter';
 

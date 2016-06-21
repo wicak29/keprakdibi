@@ -75,6 +75,6 @@ class C_auth extends CI_Controller
     {
         $this->session->sess_destroy();
         $this->session->unset_userdata('username');
-        redirect('C_auth');
+        redirect(base_url());
     }
 }

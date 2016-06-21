@@ -87,14 +87,15 @@ class C_pic extends CI_Controller
     public function viewUpdatePic($id)
     {
         // print_r($id);
+        $data['title'] = "Update Kontak";
         $data['kontak'] = $this->M_pic->getKontakByID($id);
         // print_r($data['kontak']);
         $this->session->set_flashdata('idkontak',$data['kontak']['ID_KONTAK']);
 
-        $this->load->view('V_head');
+        $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
-        $this->load->view('pic/V_updatePic', $data);
+        $this->load->view('pic/V_updatePic');
         $this->load->view('V_footer');
     }
 }
