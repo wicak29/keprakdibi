@@ -43,17 +43,12 @@ class C_filter extends CI_Controller
         $pelabuhan = $this->input->post('pelabuhan');
         $tahun = $this->input->post('tahun');
         $bulan = $this->input->post('bulan');
+        $data['pelabuhan'] = $this->M_filter->getListPelabuhan();
 
         $data['tahun'] = $tahun;
         $data['bulan'] = $bulan;
 
-        // if($pelabuhan = 1){
-        //     $data['pelabuhan'] = 'Benoa';
-        // }
-        // else{
-        //     $data['pelabuhan'] = 'Celukan Bawang';
-        // }
-        //return;
+
         $data['hasil_filter'] = $this->M_filter->getHasilFilterPelabuhan($pelabuhan, $tahun, $bulan); 
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');

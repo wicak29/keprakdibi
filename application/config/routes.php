@@ -40,7 +40,13 @@
 
 $route['default_controller'] = "C_auth";
 $route['404_override'] = '';
-
+$route['translate_uri_dashes'] = FALSE;
+$route['apbd'] = 'C_apbd';
+$route['apbd/(:any)'] = 'C_apbd/$1';
+$route['apbd/filter'] = 'C_filter';
+$route['apbd/filter/(:any)'] = 'C_filter/$1';
+$route['pelabuhan'] = 'pelabuhan/C_pelabuhan';
+$route['pelabuhan/filter'] = 'pelabuhan/C_filter';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

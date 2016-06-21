@@ -84,15 +84,10 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">No.</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">JENIS DATA</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">SATUAN</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">REALISASI</th>
-                          <!-- <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $bulan?></th> -->
-                        </tr>
-                        <tr>
-                          <!-- <th scope="col" style="text-align: center;">Nilai</th>
-                          <th scope="col" style="text-align: center;">%</th> -->
+                          <th style="vertical-align: middle;text-align: center;">No.</th>
+                          <th style="vertical-align: middle;text-align: center;">JENIS DATA</th>
+                          <th style="vertical-align: middle;text-align: center;">SATUAN</th>
+                          <th style="vertical-align: middle;text-align: center;">REALISASI</th>
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
