@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "C_apbd";
+$route['default_controller'] = "C_auth";
 $route['404_override'] = '';
 
 

@@ -25,16 +25,16 @@ class M_apbd extends CI_Model
 
     public function getNilaiTotalProv($tahun, $id)
     {
-        $this->db->select_sum('NILAI_REALISASI');
-        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_URAIAN'=>$id, 'ID_DAERAH'=>"1"))->row_array();
-        return $result['NILAI_REALISASI'];   
+        $this->db->select('NILAI_REALISASI, PERSEN_REALISASI');
+        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_URAIAN'=>$id, 'ID_DAERAH'=>"1", 'PERIODE'=>'Desember'))->row_array();
+        return $result;   
     }
 
     public function getNilaiTotalKK($tahun, $id, $daerah)
     {
-        $this->db->select_sum('NILAI_REALISASI');
-        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_URAIAN'=>$id, 'ID_DAERAH'=>$daerah))->row_array();
-        return $result['NILAI_REALISASI'];
+        $this->db->select('NILAI_REALISASI, PERSEN_REALISASI');
+        $result = $this->db->get_where('data_apbd', array('TAHUN'=>$tahun, 'ID_URAIAN'=>$id, 'ID_DAERAH'=>$daerah, 'PERIODE'=>'Triwulan_4'))->row_array();
+        return $result;
     }
 
     public function getListDataProv()
@@ -57,6 +57,19 @@ class M_apbd extends CI_Model
     {
         $query = $this->db->query('SELECT DISTINCT apbd.ID_DAERAH AS ID_DAERAH, daerah.NAMA_DAERAH AS DAERAH, apbd.TAHUN AS TAHUN FROM `apbd`, `daerah` WHERE apbd.ID_DAERAH=daerah.ID_DAERAH');
         return $query->result_array();
+    }
+
+    public function getNilaiByUraian($id, $tahun, $daerah)
+    {
+        if ($daerah==1)
+        {
+            $data = $this->db->query('SELECT PERSEN_REALISASI FROM `data_apbd` WHERE ID_URAIAN ="'.$id.'" AND TAHUN ="'.$tahun.'" AND PERIODE="Desember" AND ID_DAERAH="'.$daerah.'"');    
+        }
+        else
+        {
+            $data = $this->db->query('SELECT PERSEN_REALISASI FROM `data_apbd` WHERE ID_URAIAN ="'.$id.'" AND TAHUN ="'.$tahun.'" AND PERIODE="Triwulan_4" AND ID_DAERAH="'.$daerah.'"');       
+        }
+        return $data->result_array();
     }
 
     public function tambahUraian($dataarray)

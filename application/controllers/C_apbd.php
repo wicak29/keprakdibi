@@ -56,12 +56,77 @@ class C_apbd extends CI_Controller
 
     public function viewRekapAPBD()
     {
+        $data['uraian'] = $this->input->post('uraian');
+        $data['tahun'] = $this->input->post('tahun');
+
+        $data['jumlah_uraian'] = sizeof($data['uraian']);
+        
+        // LIST DATA PAD TABEL
+        $data['nilai_tabel'] = array();
+        for ($i = 1; $i <= 41; $i++) 
+        {
+            $uraian = $this->M_apbd->getUraian($i);
+            $resultProv = $this->M_apbd->getNilaiTotalProv($data['tahun'], $i);   
+            if (!$resultProv) $resultProv=0;
+            $listNilaiKK = array();
+            for ($j = 2; $j<=10; $j++)
+            {
+                $resultKK = $this->M_apbd->getNilaiTotalKK($data['tahun'], $i, $j);
+                if (!$resultKK) $resultKK=0;
+                array_push($listNilaiKK, $resultKK);
+            }
+            array_push($listNilaiKK, $resultProv);
+            array_push($listNilaiKK, $uraian);
+            array_push($data['nilai_tabel'], $listNilaiKK);
+        }
+        // print_r($data['nilai_tabel']);
+        // return;
+        // END LIST DATA PAD TABEL
+        if (!$data['uraian']) $data['uraian'] = array(); 
+        
+        
+        $data['finalResult'] = array();
+        foreach ($data['uraian'] as $i) 
+        {
+            $data['listUraian'] = array();
+            $data['list_nilai']="";
+            $nama_uraian = $this->M_apbd->getUraian($i);
+            array_push($data['listUraian'], $nama_uraian);
+
+            $pos = 0;
+
+            for ($d=1; $d<=10; $d++) 
+            {
+                $nilai = $this->M_apbd->getNilaiByUraian($i, $data['tahun'], $d);
+                // print_r($nilai);
+                
+                if ($nilai)
+                {
+                    if ($pos  != 9)
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI'].",";
+                    else
+                        $data['list_nilai'] .= $nilai[0]['PERSEN_REALISASI']."";
+                }
+                else
+                {
+
+                    if ($pos != 9)
+                        $data['list_nilai'] .= "0,";
+                    else
+                        $data['list_nilai'] .= "0";
+                }
+                $pos++;
+            }
+            array_push($data['listUraian'], $data['list_nilai']);
+            array_push($data['finalResult'], $data['listUraian']);
+        }        
+
         $data['title'] = "Rekap APBD";
-    	$this->load->view('V_head_table', $data);
-    	$this->load->view('V_sidebar');
-    	$this->load->view('V_topNav');
+        $this->load->view('V_headChartTable', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBD');
-        $this->load->view('V_footer_table');	
+        $this->load->view('V_footerChartTable'); 
     }
 
     public function viewCariTable()
@@ -378,32 +443,6 @@ class C_apbd extends CI_Controller
     {
         $result = $this->M_apbd->getUraian($id);
         print_r($result);
-    }
-
-    public function getNilaiByTahun($tahun)
-    {
-        $listNilai = array();
-        for ($i = 1; $i <= 41; $i++) 
-        {
-            $uraian = $this->M_apbd->getUraian($i);
-            $resultProv = $this->M_apbd->getNilaiTotalProv($tahun, $i);            
-            $listNilaiKK = array();
-            for ($j = 2; $j<=10; $j++)
-            {
-                $resultKK = $this->M_apbd->getNilaiTotalKK($tahun, $i, $j);
-                array_push($listNilaiKK, $resultKK);
-            }
-            // print_r($uraian);
-            // print_r($listNilaiKK);
-            array_push($listNilaiKK, $resultProv);
-            array_push($listNilaiKK, $uraian);
-            array_push($listNilai, $listNilaiKK);
-        }
-        // print_r($listNilai);
-        // return;
-        // $result = $this->M_apbd->getNilai($tahun);
-        header('Content-Type: application/json');
-        echo json_encode($listNilai);
     }
 
     public function insertDataAPBDP()

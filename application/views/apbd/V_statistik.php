@@ -501,15 +501,16 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
         legend: {
           x: 220,
           y: 40,
-          data: [<?php
-            $count = sizeof($tahun);
+          data: [
+          <?php 
+            $count = sizeof($finalResult);
             $pos = 0;
-            foreach ($tahun as $t) 
+            foreach ($finalResult as $key) 
             {
-              if ($count-1 != $pos) 
-                echo "'".$t."',";
+              if ($count-1 != $pos)
+                echo "'".$key[0]."',";
               else
-                echo "'".$t."'";
+                echo "'".$key[0]."'";
               $pos++;
             }
           ?>
@@ -562,24 +563,7 @@ $('input[class=uraian-checkbox]').on('change', function (e) {
         {
           type: 'value'
         }],
-        legend: {
-          x: 220,
-          y: 40,
-          data: [
-          <?php 
-            $count = sizeof($finalResult);
-            $pos = 0;
-            foreach ($finalResult as $key) 
-            {
-              if ($count-1 != $pos)
-                echo "'".$key[0]."',";
-              else
-                echo "'".$key[0]."'";
-              $pos++;
-            }
-          ?>
-          ]
-        },
+        
         series: [
         <?php
           $count = sizeof($finalResult);
