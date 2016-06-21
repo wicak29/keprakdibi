@@ -56,4 +56,12 @@ class M_pelabuhan extends CI_Model
         return $query;
     }
 
+    public function getListDataPelabuhan(){
+        $query = $this->db->query('SELECT DISTINCT pelabuhan.PELABUHAN as PELABUHAN, data_pelabuhan.BULAN as PERIODE, data_pelabuhan.TAHUN as TAHUN, 
+                                kontak.NAMA_INSTANSI as NAMA_INSTANSI, kontak.PIC as PIC 
+                                FROM `data_pelabuhan`, `pelabuhan`, `kontak`
+                                WHERE data_pelabuhan.ID_KONTAK = kontak.ID_KONTAK AND data_pelabuhan.ID_PELABUHAN = pelabuhan.ID_PELABUHAN');
+        return $query->result_array();
+    }
+
 }

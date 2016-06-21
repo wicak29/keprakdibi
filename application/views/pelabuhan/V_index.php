@@ -161,7 +161,7 @@
                             <thead>
                               <tr>
                                 <th style="vertical-align: middle;text-align: center;">No</th>
-                                <th style="vertical-align: middle;text-align: center;">Data Daerah</th>
+                                <th style="vertical-align: middle;text-align: center;">Nama Pelabuhan</th>
                                 <th style="vertical-align: middle;text-align: center;">Periode</th>
                                 <th style="vertical-align: middle;text-align: center;">Tahun</th>
                                 <th style="vertical-align: middle;text-align: center;">Nama Instansi</th>
@@ -171,14 +171,14 @@
                             <tbody id="tabelProvinsi">                        
                               <?php 
                                 $no=1;
-                                foreach ($list_provinsi as $r) { ?>
+                                foreach ($list_pelabuhan as $p) { ?>
                                 <tr>
                                   <td><?php echo $no?></td>
-                                  <td ><?php echo "Prov. Bali" ?></td>
-                                  <td ><?php echo $r['PERIODE'] ?></td>
-                                  <td ><?php echo $r['TAHUN'] ?></td>
-                                  <td ><?php echo $r['INSTANSI'] ?></td>
-                                  <td ><?php echo $r['PIC'] ?></td>
+                                  <td ><?php echo $p['PELABUHAN'] ?></td>
+                                  <td ><?php echo $p['PERIODE'] ?></td>
+                                  <td ><?php echo $p['TAHUN'] ?></td>
+                                  <td ><?php echo $p['NAMA_INSTANSI'] ?></td>
+                                  <td ><?php echo $p['PIC'] ?></td>
                                 </tr>
                                 <?php $no++;
                                 } ?>
