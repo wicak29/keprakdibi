@@ -21,6 +21,9 @@ class C_filter extends CI_Controller
         $data['title'] = "Cari Data";
         // $data['list_daerah'] = $this->M_filter->getFilter();
         // $data['list_tahun'] = $this->M_filter->getTahun();
+        $data['tahun'] = "Tahun";
+        $data['bulan'] = "Bulan";
+        $data['hasil_filter'] = array();
         $data['pelabuhan'] = $this->M_filter->getListPelabuhan();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
@@ -40,13 +43,23 @@ class C_filter extends CI_Controller
         $pelabuhan = $this->input->post('pelabuhan');
         $tahun = $this->input->post('tahun');
         $bulan = $this->input->post('bulan');
+
+        $data['tahun'] = $tahun;
+        $data['bulan'] = $bulan;
+
+        // if($pelabuhan = 1){
+        //     $data['pelabuhan'] = 'Benoa';
+        // }
+        // else{
+        //     $data['pelabuhan'] = 'Celukan Bawang';
+        // }
         //return;
         $data['hasil_filter'] = $this->M_filter->getHasilFilterPelabuhan($pelabuhan, $tahun, $bulan); 
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('pelabuhan/V_topNavPelabuhan');
         $this->load->view('pelabuhan/V_cariData');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
  
