@@ -8,8 +8,8 @@
       </div>
       <ul class="nav navbar-nav navbar-left">
         <li><a href="<?php echo base_url('pelabuhan/C_pelabuhan/');?>">Import File</a></li>
-        <!-- <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li>
-        <li class="dropdown">
+        <li><a href="<?php echo base_url('pelabuhan/C_filter/');?>">Cari Data</a></li>
+        <!--<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('C_apbd/viewRekapAPBD');?>">Rekap APBD</a></li>
