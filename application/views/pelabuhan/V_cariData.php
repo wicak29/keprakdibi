@@ -74,36 +74,40 @@
                       </form>
                     </div>                    
                     <div class="ln_solid"></div>
-               <!--      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?> -->
-                   <!--    <h3 align="center">Data Realisasi APBD Prov. Bali</h3>
-                      <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3> -->
-          <!--           <?php } ?> -->
+                     <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
+                       <h3 align="center">Data Realisasi Pelabuhan <?php echo $hasil_filter[0]['NAMA']?> </h3>
+                      <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
+                     <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
                     <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">No.</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">JENIS DATA</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">SATUAN</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">REALISASI</th>
                           <!-- <th colspan="2" scope="colgroup" style="text-align: center;"><?php echo $bulan?></th> -->
                         </tr>
                         <tr>
-                          <th scope="col" style="text-align: center;">Nilai</th>
-                          <th scope="col" style="text-align: center;">%</th>
+                          <!-- <th scope="col" style="text-align: center;">Nilai</th>
+                          <th scope="col" style="text-align: center;">%</th> -->
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
-     <!--                    <?php foreach ($uraian as $r) { ?> -->
+                         <?php 
+                         $i=1;
+
+                         foreach ($hasil_filter as $r) { ?> 
                           <tr>
-                            <!-- <td ><?php echo $r['URAIAN'] ?></td>
-                            <td ><?php echo $r['APBD'] ?></td>
-                            <td ><?php echo $r['APBD_P'] ?></td>
-                            <td ><?php echo $r['NILAI'] ?></td>
-                            <td ><?php echo $r['PERSENTASE'] ?> %</td> -->
+                            <td ><?php echo $i ?></td>
+                            <td ><?php echo $r['JENIS_DATA'] ?></td>
+                            <td ><?php echo $r['SATUAN'] ?></td>
+                            <td ><?php echo $r['REALISASI'] ?></td>
+                            
                           </tr>
-       <!--                  <?php } ?> -->
+                         <?php $i++;} ?>
                       </tbody>
                     </table>
                   </div>
