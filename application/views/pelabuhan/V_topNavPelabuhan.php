@@ -15,7 +15,7 @@
             <li><a href="#">Rekap APBD</a></li>
             <!-- <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li> --> 
             <li><a href="<?php echo base_url('pelabuhan/C_delete/');?>">Hapus Data</a></li>
-            <li><a href="#">Update Data</a></li>
+            <li><a href="<?php echo base_url('pelabuhan/C_update/');?>">Update Data</a></li>
           </ul>
         </li>
         <!-- <li class="dropdown">
