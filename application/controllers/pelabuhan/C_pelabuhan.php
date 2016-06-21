@@ -8,7 +8,7 @@ class C_pelabuhan extends CI_Controller
         parent::__construct();
         $this->load->helper("file");
         $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
-        $this->load->model('M_apbd');
+        $this->load->model('pelabuhan/M_pelabuhan');
 
         //AUTENTIKASI
         $login = $this->session->userdata('username');
@@ -31,9 +31,70 @@ class C_pelabuhan extends CI_Controller
         // return;
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
-        $this->load->view('V_topNav');
+        $this->load->view('pelabuhan/V_topNavPelabuhan');
         $this->load->view('pelabuhan/V_index');
         $this->load->view('V_footer');
+    }
+    public function viewImportExcel()
+    {
+        $this->load->model('pelabuhan/M_pelabuhan');
+
+        $data['title'] = "Pelabuhan";
+        // $data['list_provinsi'] = $this->M_apbd->getListDataProv();
+        // $data['list_apbdp'] = $this->M_apbd->getListDataApbdp();
+        // $data['list_kab'] = $this->M_apbd->getListDataKab();
+        // $data['list_pic'] = $this->M_pic->getPic()->result_array();
+        // print_r($data['list_pic']);
+        // return;
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('pelabuhan/V_topNavPelabuhan');
+        $this->load->view('pelabuhan/V_index');
+        $this->load->view('V_footer');
+    }
+    public function insertUraian()
+    {
+        $fileName = time().$_FILES['file']['name'];
+         
+        $config['upload_path'] = './temp_upload/'; //buat folder dengan nama assets di root folder
+        $config['file_name'] = $fileName;
+        $config['allowed_types'] = 'xls|xlsx|csv';
+        $config['max_size'] = 10000;
+         
+        $this->load->library('upload');
+        $this->upload->initialize($config);
+         
+        if(! $this->upload->do_upload('file') )
+        $this->upload->display_errors();
+             
+        $media = $this->upload->data('file');
+        $inputFileName = './temp_upload/'.$media['file_name'];
+         
+        try {
+                $inputFileType = IOFactory::identify($inputFileName);
+                $objReader = IOFactory::createReader($inputFileType);
+                $objPHPExcel = $objReader->load($inputFileName);
+            } catch(Exception $e) {
+                die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+            }
+ 
+            $sheet = $objPHPExcel->getSheet(0);
+            $highestRow = $sheet->getHighestRow();
+            $highestColumn = $sheet->getHighestColumn();
+            $rowData = array();
+            for ($row = 7; $row <= $highestRow; $row++){                  //  Read a row of data into an array                 
+                $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+                                                NULL,
+                                                TRUE,
+                                                FALSE);
+               
+                //print_r($rowData);
+
+                $this->M_pelabuhan->tambahUraian($rowData);     
+            }
+            
+        delete_files('./temp_upload/');
+        redirect(base_url('/pelabuhan/C_pelabuhan/viewImportExcel'));
     }
 
     // public function viewImportExcel()
@@ -73,50 +134,7 @@ class C_pelabuhan extends CI_Controller
     //     $this->load->view('V_footer');	
     // }
 
-    // public function insertUraian()
-    // {
-    //     $fileName = time().$_FILES['file']['name'];
-         
-    //     $config['upload_path'] = './temp_upload/'; //buat folder dengan nama assets di root folder
-    //     $config['file_name'] = $fileName;
-    //     $config['allowed_types'] = 'xls|xlsx|csv';
-    //     $config['max_size'] = 10000;
-         
-    //     $this->load->library('upload');
-    //     $this->upload->initialize($config);
-         
-    //     if(! $this->upload->do_upload('file') )
-    //     $this->upload->display_errors();
-             
-    //     $media = $this->upload->data('file');
-    //     $inputFileName = './temp_upload/'.$media['file_name'];
-         
-    //     try {
-    //             $inputFileType = IOFactory::identify($inputFileName);
-    //             $objReader = IOFactory::createReader($inputFileType);
-    //             $objPHPExcel = $objReader->load($inputFileName);
-    //         } catch(Exception $e) {
-    //             die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
-    //         }
- 
-    //         $sheet = $objPHPExcel->getSheet(0);
-    //         $highestRow = $sheet->getHighestRow();
-    //         $highestColumn = $sheet->getHighestColumn();
-    //         $rowData = array();
-    //         for ($row = 2; $row <= $highestRow; $row++){                  //  Read a row of data into an array                 
-    //             $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
-    //                                             NULL,
-    //                                             TRUE,
-    //                                             FALSE);
-               
-    //             //print_r($rowData);
 
-    //             $this->M_apbd->tambahUraian($rowData);     
-    //         }
-            
-    //     delete_files('./temp_upload/');
-    //     redirect(base_url('C_apbd/viewImportExcel'));
-    // }
     // public function importExcel()
     // {
     //     $fileName = time().$_FILES['file']['name'];
