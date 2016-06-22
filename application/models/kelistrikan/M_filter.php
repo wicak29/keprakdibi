@@ -24,5 +24,24 @@ class M_filter extends CI_Model
         return $query->result_array(); 
     }
 
+    public function getNamaKategoriById($id)
+    {
+        $this->db->select('KATEGORI_PELANGGAN');
+        $result = $this->db->get_where('kategori_pelanggan',array('ID_KATEGORI'=>$id))->row_array();
+        return $result['KATEGORI_PELANGGAN'];
+    }
 
+    public function getNilaiByKategori($id, $tahun, $bulan, $aspek)
+    {
+        $this->db->select('NILAI');
+        $result = $this->db->get_where('data_kelistrikan', array('ID_KATEGORI'=>$id, 'TAHUN'=>$tahun, 'BULAN'=>$bulan, 'ID_ASPEK'=>$aspek));
+        return $result->result_array();
+    }
+
+    public function getAspekById($id)
+    {
+        $this->db->select('ASPEK');
+        $result = $this->db->get_where('aspek', array('ID_ASPEK'=>$id))->row_array();
+        return $result['ASPEK'];
+    }
 }
