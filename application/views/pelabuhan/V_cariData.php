@@ -6,7 +6,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12" style="margin-right:auto; margin-left:auto;float:none;">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h2>Cari Data Provinsi</h2>
+                    <h2>Cari Data Pelabuhan</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
                         <a href="<?php echo base_url();?>pelabuhan/C_filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
@@ -49,10 +49,6 @@
                               <option value="2020">2020</option>
                               <option value="2021">2021</option>
                               <option value="2022">2022</option>
-                              <option value="2023">2023</option>
-                              <option value="2024">2024</option>
-                              <option value="2025">2025</option>
-                              <option value="2026">2026</option>
                             </select>
                             <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                               <option value="" selected disabled>Pilih bulan</option>
@@ -75,7 +71,7 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Realisasi Pelabuhan <?php echo $hasil_filter[0]['NAMA']?> </h3>
+                       <h3 align="center">Data Realisasi Pelabuhan <?php echo $tabel_title['PELABUHAN']?> </h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">

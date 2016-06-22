@@ -75,7 +75,7 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Realisasi Pelabuhan <?php echo $hasil_filter[0]['NAMA']?> </h3>
+                       <h3 align="center">Data Realisasi Pelabuhan <?php echo $nama_pelabuhan['PELABUHAN']?> </h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">

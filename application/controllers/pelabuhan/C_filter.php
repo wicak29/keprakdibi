@@ -7,7 +7,6 @@ class C_filter extends CI_Controller
     {
         parent::__construct();
         $this->load->model('pelabuhan/M_filter');
-        
 
         //AUTENTIKASI
         $login = $this->session->userdata('username');
@@ -36,9 +35,9 @@ class C_filter extends CI_Controller
 
     public function filterDataPelabuhan()
     {
+        $this->load->model('pelabuhan/M_pelabuhan');
         $data['title'] = "Cari Data Pelabuhan";
 
-        
         //print_r($data['pelabuhan']);
         $pelabuhan = $this->input->post('pelabuhan');
         $tahun = $this->input->post('tahun');
@@ -48,8 +47,9 @@ class C_filter extends CI_Controller
         $data['tahun'] = $tahun;
         $data['bulan'] = $bulan;
 
-
+        $data['tabel_title'] = $this->M_pelabuhan->getNamaPelabuhanById($pelabuhan);
         $data['hasil_filter'] = $this->M_filter->getHasilFilterPelabuhan($pelabuhan, $tahun, $bulan); 
+
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('pelabuhan/V_topNavPelabuhan');

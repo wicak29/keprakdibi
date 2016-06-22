@@ -13,7 +13,7 @@
           </div>
           <div id="duplikat-tambah" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
-            <strong>Gagal!</strong> Data Sudah Pernah Diupload!
+            <strong>Warning!</strong> Data Sudah Pernah Diupload!
           </div>
           <div id="gagal-apbdp" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
@@ -46,7 +46,7 @@
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="tab-uraian" aria-labelledby="profile-tab">
                           <form action="<?php echo base_url();?>pelabuhan/C_pelabuhan/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Data Uraian APBD</h3>
+                            <h3>Data Uraian pelabuhan</h3>
                             <br>
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pilih File <span class="required">*</span>
@@ -136,6 +136,12 @@
                                   <option value="2014">2014</option>
                                   <option value="2015">2015</option>
                                   <option value="2016">2016</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2022">2022</option>
                                 </select>
                               </div>
                             </div>

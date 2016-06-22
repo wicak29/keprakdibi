@@ -36,6 +36,7 @@ class C_update extends CI_Controller
 
     public function filterDataPelabuhan()
     {
+        $this->load->model('pelabuhan/M_pelabuhan');
         $data['title'] = "Update Data Pelabuhan";
 
         $nilai = array();
@@ -46,6 +47,7 @@ class C_update extends CI_Controller
         $bulan = $this->input->post('bulan');
 
         $data['pelabuhan'] = $this->M_update->getListPelabuhan();
+        $data['nama_pelabuhan'] = $this->M_pelabuhan->getNamaPelabuhanById($pelabuhan);
 
         $data['tahun'] = $tahun;
         $data['bulan'] = $bulan;

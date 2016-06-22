@@ -16,6 +16,7 @@ class M_filter extends CI_Model
         
         return $result->result_array();
     }
+
     public function getHasilFilterPelabuhan($pelabuhan, $tahun, $bulan)
     {
         //$this->db->select('ID_PELABUHAN, PELABUHAN');

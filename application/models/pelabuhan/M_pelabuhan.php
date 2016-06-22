@@ -22,6 +22,13 @@ class M_pelabuhan extends CI_Model
         //echo $data['dump'];
     }
 
+    public function getNamaPelabuhanById($id)
+    {
+        $this->db->select('PELABUHAN');
+        $result = $this->db->get_where('pelabuhan',array('ID_PELABUHAN'=>$id))->row_array();
+        return $result;
+    }
+
     public function getListPelabuhan()
     {
         $query = $this->db->query('SELECT ID_PELABUHAN, PELABUHAN FROM `pelabuhan`');
