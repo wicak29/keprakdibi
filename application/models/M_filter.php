@@ -40,14 +40,16 @@ class M_filter extends CI_Model
 
     }
 
+    public function getDataperTriwulan($daerah, $tahun, $periode){
+        $query = $this->db->query('SELECT NILAI_REALISASI as NILAI
+                                   FROM `data_apbd`
+                                    WHERE ID_DAERAH ='.$daerah.' AND TAHUN="'.$tahun.'" AND PERIODE="'.$periode.'"');
+        return $query->result_array();
+    }
+
     public function getNilaiByUraian($id, $tahun, $periode, $kabkota)
     {
-        //$data = $this->db->query('SELECT NILAI_REALISASI FROM `data_apbd` WHERE ID_URAIAN ="'.$id.'" AND TAHUN ="'.$tahun.'" AND PERIODE="'.$periode.'" AND ID_DAERAH="'.$kabkota.'"');
         $data = $this->db->query('SELECT PERSEN_REALISASI FROM `data_apbd` WHERE ID_URAIAN ="'.$id.'" AND TAHUN ="'.$tahun.'" AND PERIODE="'.$periode.'" AND ID_DAERAH="'.$kabkota.'"');
-        //$row = $data->row_array();
-        //print_r($data->result_array());
-        //print_r($row['NILAI_REALISASI']);
-        //return $row['NILAI_REALISASI'];
         return $data->result_array();
     }
 
@@ -56,6 +58,12 @@ class M_filter extends CI_Model
         $data = $this->db->query('SELECT URAIAN FROM uraian_apbd WHERE ID_URAIAN ="'.$id.'" LIMIT 1');
         $row = $data->row_array();
         return $row['URAIAN'];
+    }
+
+    public function getAllUraian()
+    {
+        $data = $this->db->query('SELECT URAIAN FROM uraian_apbd');
+        return $data->result_array();
     }
 
     public function cariFilter($daerah,$tahun)
@@ -76,16 +84,6 @@ class M_filter extends CI_Model
         return $data;        
     }
 
-    // public function getDatabyProvTahunPeriode($bulan, $tahun)
-    // {
-    //     $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
-    //                                  FROM uraian_apbd, data_apbd, apbd
-    //                                  WHERE data_apbd.ID_DAERAH = 1 AND data_apbd.TAHUN ="'.$tahun.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = apbd.ID_URAIAN
-    //                                  GROUP BY data_apbd.ID_URAIAN');
-
-    //     return $query->result_array();
-        
-    // }
     public function getDatabyProvTahunPeriode($bulan, $tahun)
     {
         $query = $this->db->query('SELECT uraian_apbd.URAIAN as URAIAN, apbd.APBD as APBD, apbd.APBD_P as APBD_P, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE
@@ -98,17 +96,6 @@ class M_filter extends CI_Model
         
     }
 
-    // public function getDatabyKabTahunPeriode($kab, $tahun)
-    // {
-
-    //     //$query = $this->db->query('SELECT NILAI FROM data_apbd WHERE ID_DAERAH ='.$kab.' AND PERIODE ="'.$periode.'" AND TAHUN ="'.$tahun.'"' );
-    //     $query = $this->db->query('SELECT data_apbd.PERIODE as PERIODE, apbd.APBD as APBD, apbd.APBD_P as APBD_P, uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE 
-    //                                 FROM uraian_apbd, data_apbd, apbd
-    //                                 WHERE data_apbd.ID_DAERAH ='.$kab.' AND data_apbd.TAHUN ="'.$tahun.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND apbd.ID_URAIAN = data_apbd.ID_URAIAN GROUP BY uraian_apbd.ID_URAIAN, data_apbd.PERIODE
-    //                                 ORDER BY data_apbd.ID_URAIAN
-    //                                 ' );
-    //     return $query->result_array();
-    // }
     public function getDatabyKabTahunPeriode($daerah, $tahun)
     {
 
@@ -130,9 +117,6 @@ class M_filter extends CI_Model
     {
         $hasil=array();
 
-        // $data = $this->db->query('SELECT URAIAN FROM uraian_apbd WHERE ID_URAIAN ="'.$id.'" LIMIT 1');
-        // $row = $data->row_array();
-
         for($i=0;$i<sizeof($tahun);$i++)
         {
             $query = $this->db->query('SELECT NILAI_REALISASI FROM `data_apbd` WHERE TAHUN ="'.$tahun[$i].'" AND ID_DAERAH ='.$kabkota.' AND PERIODE="'.$periode.'"
@@ -151,7 +135,6 @@ class M_filter extends CI_Model
         return $result->result_array();
 
     }
-
 
 }
 //SELECT * FROM `data_apbd` WHERE TAHUN IN ('2008', '2009')

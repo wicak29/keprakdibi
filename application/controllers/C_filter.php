@@ -44,6 +44,8 @@ class C_filter extends CI_Controller
         $data['tahun'] = "Tahun";
         $data['periode'] = array();
         $data['data_apbd'] = array();
+        $data['all_uraian'] = array();
+        $data['nonkumulatif'] = array();
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
@@ -107,6 +109,73 @@ class C_filter extends CI_Controller
         $data['periode'] = $this->M_filter->getAllPeriode($kabkota, $data['tahun']);
 
         $data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['tahun']);
+        $data['all_uraian'] = $this->M_filter->getAllUraian();
+
+        $temp2 = array();
+        $temp3 = array();
+        $temp4 = array();
+
+        $triwulan1 = $this->M_filter->getDataperTriwulan($kabkota, $data['tahun'], "Triwulan_1");
+        //IF TRIWULAN I TIDAK ADA
+        if(!$triwulan1){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($triwulan1, $default);
+            }
+        }
+
+        $triwulan2 = $this->M_filter->getDataperTriwulan($kabkota, $data['tahun'], "Triwulan_2");
+        //IF TRIWULAN II TIDAK ADA
+        if(!$triwulan2){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($temp2, $default);
+                array_push($triwulan2, $default);
+            }
+        }
+        else{
+            $temp2 = $triwulan2;
+            for($i=0; $i<41; $i++){
+                $temp2[$i]['NILAI'] = $triwulan2[$i]['NILAI']-$triwulan1[$i]['NILAI'];
+            }
+        }
+   
+        $triwulan3 = $this->M_filter->getDataperTriwulan($kabkota, $data['tahun'], "Triwulan_3");
+        //IF TRIWULAN III TIDAK ADA
+        if(!$triwulan3){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($triwulan3, $default);
+                array_push($temp3, $default);
+            }
+        }
+        else{
+            $temp3 = $triwulan3;
+            for($i=0; $i<41; $i++){
+                $temp3[$i]['NILAI'] = $triwulan3[$i]['NILAI']-$triwulan2[$i]['NILAI'];
+            }
+        }
+
+        $triwulan4 = $this->M_filter->getDataperTriwulan($kabkota, $data['tahun'], "Triwulan_4");
+        //IF TRIWULAN IV TIDAK ADA
+        if(!$triwulan4){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($temp4, $default);
+            }
+        }
+        else{
+            for($i=0; $i<41; $i++){
+                $temp4[$i]['NILAI'] = $triwulan4[$i]['NILAI']-$triwulan3[$i]['NILAI'];
+            }
+        }
+
+        $data['nonkumulatif'] = array();
+        array_push($data['nonkumulatif'], $triwulan1);
+        array_push($data['nonkumulatif'], $temp2);
+        array_push($data['nonkumulatif'], $temp3);
+        array_push($data['nonkumulatif'], $temp4);
+        //print_r($data['nonkumulatif']);
 
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
