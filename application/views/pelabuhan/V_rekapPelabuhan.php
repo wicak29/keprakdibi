@@ -51,7 +51,6 @@
                             </select>
                           </div>
                         </div>
-                        <div class="ln_solid"></div>
                         <div class="form-group">
                           <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                             <input id="checkBtn" type="submit" class="btn btn-primary" value="Lihat Rekapitulasi"/>
@@ -71,7 +70,9 @@
 
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in" id="tab-data" aria-labelledby="profile-tab">
-                          <h3 align="center">Rekapitulasi Pelabuhan <?php echo $nama_pelabuhan['PELABUHAN']; ?> Tahun <?php echo $tahun;?></h3>
+                          <h3 align="center">Rekapitulasi Pelabuhan <?php 
+                            if ($nama_pelabuhan) echo $nama_pelabuhan['PELABUHAN'];
+                            else echo "_"; ?> Tahun <?php echo $tahun;?></h3>
                           <table class="table table-striped table-bordered datatable-buttons" style="width:100%;">
                             <thead>
                               <tr>
