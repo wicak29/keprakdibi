@@ -482,7 +482,7 @@
 
         echartLine.setOption({
           title: {
-            text: "makanmakan",
+            text: "GRAFIK REKAP PERTAHUN",
             subtext: ''
           },
           tooltip: {

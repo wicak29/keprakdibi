@@ -15,6 +15,7 @@ class C_filter extends CI_Controller
             redirect('C_auth');
         }
     }
+
     public function index()
     {
         $data['title'] = "Cari Data";
@@ -30,8 +31,6 @@ class C_filter extends CI_Controller
         $this->load->view('pelabuhan/V_cariData');
         $this->load->view('V_footer');
     }
-
-
 
     public function filterDataPelabuhan()
     {
@@ -57,5 +56,72 @@ class C_filter extends CI_Controller
         $this->load->view('V_footer_table');
     }
 
+    public function viewLihatGrafikBulan()
+    {
+        $data['title'] = "Grafik Pelabuhan Berdasarkan Bulan Pertahun";
+        $data['pelabuhan'] = $this->M_filter->getListPelabuhan();
+        $periode = $this->input->post('bulan');
+        $pelabuhan = $this->input->post('pelabuhan');
+        $data['uraian'] = $this->input->post('uraian');
+        $data['tahun'] = $this->input->post('tahun');
+                
+        $data['jumlah_uraian'] = sizeof($data['uraian']);
+        $data['jumlah_tahun'] = sizeof($data['tahun']);
+
+        if (!$data['tahun']) $data['tahun'] = array();
+        if (!$data['uraian']) $data['uraian'] = array();
+        
+        
+        // print_r($pelabuhan);
+        // print_r($periode);
+        // print_r($data['tahun']);
+        // print_r($data['uraian']);
+
+        $data['finalResult'] = array();
+        foreach ($data['uraian'] as $i) 
+        {
+            $data['listUraian'] = array();
+            $data['list_nilai']="";
+            $nama_uraian = $this->M_filter->getNamaUraianById($i);
+            $uraian_satuan = $nama_uraian['JENIS_DATA']." (".$nama_uraian['SATUAN'].")";
+            // print_r($uraian_satuan);
+            array_push($data['listUraian'], $uraian_satuan);
+
+            $pos = 0;
+
+            foreach ($data['tahun'] as $t) 
+            {
+                $nilai = $this->M_filter->getNilaiByUraian($i, $t, $periode, $pelabuhan);
+                // print_r($nilai);
+                if ($nilai)
+                {
+                    if ($pos != $data['jumlah_tahun']-1)
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI'].",";
+                        $data['list_nilai'] .= $nilai[0]['NILAI'].",";
+                    else
+                        //$data['list_nilai'] .= $nilai[0]['NILAI_REALISASI']."";
+                        $data['list_nilai'] .= $nilai[0]['NILAI']."";
+                }
+                else
+                {
+
+                    if ($pos != $data['jumlah_tahun']-1)
+                        $data['list_nilai'] .= "0,";
+                    else
+                        $data['list_nilai'] .= "0";
+                }
+                $pos++;
+            }
+            array_push($data['listUraian'], $data['list_nilai']);
+            array_push($data['finalResult'], $data['listUraian']);
+        }        
+        // print_r($data['finalResult']);
+
+        $this->load->view('V_headChart', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('pelabuhan/V_topNavPelabuhan');
+        $this->load->view('pelabuhan/V_grafikPerbulan');
+        $this->load->view('V_footerChart');
+    }
  
 }
