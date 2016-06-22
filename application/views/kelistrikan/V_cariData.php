@@ -78,17 +78,18 @@
                       </thead>
                       <tbody id="tabelApbd">
                          <?php 
-                         $i=1;
-
-                         foreach ($hasil_filter as $r) { ?> 
+                         $j=1;
+                         if(sizeof($data_listrik)==4){
+                         for($i=0; $i<5; $i++) { ?> 
                           <tr>
-                            <td ><?php echo $i ?></td>
-                            <td ><?php echo $r['JENIS_DATA'] ?></td>
-                            <td ><?php echo $r['SATUAN'] ?></td>
-                            <td ><?php echo $r['REALISASI'] ?></td>
+                            <td ><?php echo $j ?></td>
+                            <td ><?php echo $data_listrik[0][$i]['KATEGORI'] ?></td>
+                            <td ><?php echo $data_listrik[1][$i]['NILAI'] ?></td>
+                            <td ><?php echo $data_listrik[2][$i]['NILAI'] ?></td>
+                            <td ><?php echo $data_listrik[3][$i]['NILAI'] ?></td>
                             
                           </tr>
-                         <?php $i++;} ?>
+                         <?php $j++;}} ?>
                       </tbody>
                     </table>
                   </div>
