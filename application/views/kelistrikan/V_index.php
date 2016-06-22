@@ -37,7 +37,7 @@
                         </li> -->
                         <li role="presentation" class="active"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab-datapelabuhan" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Data Pelabuhan</a>
+                        <li role="presentation" class=""><a href="#tab-datapelabuhan" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Data Kelistrikan</a>
                         </li>
                         <!-- <li role="presentation" class=""><a href="#tab-kabupaten" role="tab" id="kabupaten-tab" data-toggle="tab" aria-expanded="false">Kabupaten/Kota</a>
                         </li> -->
@@ -63,24 +63,10 @@
                           </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="tab-datapelabuhan" aria-labelledby="home-tab">
-                          <form action="<?php echo base_url();?>kelistrikan/C_kelistrikan/insertDataPelabuhan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data Pelabuhan Provinsi Bali</h3>
+                          <form action="<?php echo base_url();?>kelistrikan/C_kelistrikan/insertDataKelistrikan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                            <h3>Import Data Kelistrikan Provinsi Bali</h3>
                             <br>
-                            <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pelabuhan <span class="required">*</span>
-                              </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control" name="id_pelabuhan" required="required">
-                                  <option value="" selected disabled>Pilih Pelabuhan</option>
-                                  <?php
-                                    foreach ($list_pelabuhan as $pelabuhan) 
-                                    {
-                                      echo '<option value="'.$pelabuhan['ID_PELABUHAN'].'">'.$pelabuhan['PELABUHAN'].'</option>';
-                                    }
-                                  ?>
-                                </select>
-                              </div>
-                            </div>
+                            
 
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
@@ -162,12 +148,12 @@
                           <br>
                           <div class="ln_solid"></div>
                           <div>
-                            <h3>Data Pelabuhan yang Telah di Import</h3>
+                            <h3>Data Kelistrikan yang Telah di Import</h3>
                             <table id="" class="table table-striped table-bordered">
                             <thead>
                               <tr>
                                 <th style="vertical-align: middle;text-align: center;">No</th>
-                                <th style="vertical-align: middle;text-align: center;">Nama Pelabuhan</th>
+                                
                                 <th style="vertical-align: middle;text-align: center;">Periode</th>
                                 <th style="vertical-align: middle;text-align: center;">Tahun</th>
                                 <th style="vertical-align: middle;text-align: center;">Nama Instansi</th>
@@ -177,11 +163,10 @@
                             <tbody id="tabelProvinsi">                        
                               <?php 
                                 $no=1;
-                                foreach ($list_data_pelabuhan as $p) { ?>
+                                foreach ($list_data_kelistrikan as $p) { ?>
                                 <tr>
                                   <td><?php echo $no?></td>
-                                  <td ><?php echo $p['PELABUHAN'] ?></td>
-                                  <td ><?php echo $p['PERIODE'] ?></td>
+                                  <td ><?php echo $p['BULAN'] ?></td>
                                   <td ><?php echo $p['TAHUN'] ?></td>
                                   <td ><?php echo $p['NAMA_INSTANSI'] ?></td>
                                   <td ><?php echo $p['PIC'] ?></td>

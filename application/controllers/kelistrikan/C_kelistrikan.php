@@ -25,8 +25,8 @@ class C_kelistrikan extends CI_Controller
         $data['title'] = "Kelistrikan";
 
         // $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
-        // $data['list_pic'] = $this->M_pelabuhan->getListPICPelabuhan();
-        // $data['list_data_pelabuhan'] = $this->M_pelabuhan->getListDataPelabuhan();
+        $data['list_pic'] = $this->M_kelistrikan->getListPIC();
+        $data['list_data_kelistrikan'] = $this->M_kelistrikan->getListDataKelistrikan();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('kelistrikan/V_topNavKelistrikan');
@@ -41,8 +41,8 @@ class C_kelistrikan extends CI_Controller
         $data['title'] = "Kelistrikan";
 
         // $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
-        // $data['list_pic'] = $this->M_pelabuhan->getListPICPelabuhan();
-        // $data['list_data_pelabuhan'] = $this->M_pelabuhan->getListDataPelabuhan();
+        $data['list_pic'] = $this->M_kelistrikan->getListPIC();
+        $data['list_data_kelistrikan'] = $this->M_kelistrikan->getListDataKelistrikan();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('kelistrikan/V_topNavKelistrikan');
@@ -94,71 +94,71 @@ class C_kelistrikan extends CI_Controller
         redirect(base_url('/kelistrikan/C_kelistrikan/viewImportExcel'));
     }
 
-    // public function insertDataPelabuhan()
-    // {
-    //     $fileName = time().$_FILES['file']['name'];
+    public function insertDataKelistrikan()
+    {
+        $fileName = time().$_FILES['file']['name'];
          
-    //     $config['upload_path'] = './temp_upload/'; //buat folder dengan nama assets di root folder
-    //     $config['file_name'] = $fileName;
-    //     $config['allowed_types'] = 'xls|xlsx|csv';
-    //     $config['max_size'] = 1000000;
+        $config['upload_path'] = './temp_upload/'; //buat folder dengan nama assets di root folder
+        $config['file_name'] = $fileName;
+        $config['allowed_types'] = 'xls|xlsx|csv';
+        $config['max_size'] = 1000000;
          
-    //     $this->load->library('upload');
-    //     $this->upload->initialize($config);
+        $this->load->library('upload');
+        $this->upload->initialize($config);
         
-    //     $tahun = $this->input->post('tahun');
-    //     $periode = $this->input->post('bulan');
-    //     $pelabuhan = $this->input->post('id_pelabuhan');
-    //     //$daerah = 1;
-    //     $pic = $this->input->post('id_kontak');
+        $tahun = $this->input->post('tahun');
+        $periode = $this->input->post('bulan');
+        $pelabuhan = $this->input->post('id_pelabuhan');
+        //$daerah = 1;
+        $pic = $this->input->post('id_kontak');
          
-    //     if(! $this->upload->do_upload('file') )
-    //     $this->upload->display_errors();
+        if(! $this->upload->do_upload('file') )
+        $this->upload->display_errors();
              
-    //     $media = $this->upload->data('file');
-    //     $inputFileName = './temp_upload/'.$media['file_name'];
+        $media = $this->upload->data('file');
+        $inputFileName = './temp_upload/'.$media['file_name'];
          
-    //     try {
-    //             $inputFileType = IOFactory::identify($inputFileName);
-    //             $objReader = IOFactory::createReader($inputFileType);
-    //             $objPHPExcel = $objReader->load($inputFileName);
+        try {
+                $inputFileType = IOFactory::identify($inputFileName);
+                $objReader = IOFactory::createReader($inputFileType);
+                $objPHPExcel = $objReader->load($inputFileName);
 
-    //         } catch(Exception $e) {
-    //             die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
-    //         }
+            } catch(Exception $e) {
+                die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+            }
  
-    //     $sheet = $objPHPExcel->getSheet(0);
-    //     $highestRow = $sheet->getHighestRow();
-    //     $highestColumn = $sheet->getHighestColumn();      
-    //     $rowData = array();
+        $sheet = $objPHPExcel->getSheet(0);
+        $highestRow = $sheet->getHighestRow();
+        $highestColumn = $sheet->getHighestColumn();      
+        $rowData = array();
 
-    //     $ErrorHandling = $this->M_pelabuhan->getPelabuhanDataError($pelabuhan, $tahun, $periode);
+        // $ErrorHandling = $this->M_pelabuhan->getPelabuhanDataError($pelabuhan, $tahun, $periode);
 
-    //     if (empty($ErrorHandling)){
-    //         //echo "wow";
-    //         for ($row = 7; $row <= $highestRow; $row++){
-    //               //  Read a row of data into an array                 
-    //             $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
-    //                                             NULL,
-    //                                             TRUE,
-    //                                             FALSE);
+        if (empty($ErrorHandling)){
+            //echo "wow";
+            for ($row = 7; $row <= $highestRow; $row++){
+                  //  Read a row of data into an array                 
+                $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+                                                NULL,
+                                                TRUE,
+                                                FALSE);
 
-    //             $importFile = $this->M_pelabuhan->tambahDataPelabuhan($rowData, $periode, $tahun, $pic, $row-6, $pelabuhan);
-    //         }
-    //         if ($importFile){
-    //             $this->session->set_flashdata('notif', 1);
-    //         }
-    //         else{
-    //             $this->session->set_flashdata('notif', 2);
-    //         }
+                $importFile = $this->M_kelistrikan->tambahDataKelistrikan($rowData, $periode, $tahun, $pic, $row-6);
+            }
+            if ($importFile){
+                $this->session->set_flashdata('notif', 1);
+            }
+            else{
+                $this->session->set_flashdata('notif', 2);
+            }
             
-    //     }
-    //     elseif ($ErrorHandling) {
+        }
+        elseif ($ErrorHandling) {
 
-    //         $this->session->set_flashdata('notif', 3);
-    //     }
-    //     delete_files('./temp_upload/');
-    //     redirect(base_url('pelabuhan/C_pelabuhan/viewImportExcel'));
-    // }
+            $this->session->set_flashdata('notif', 3);
+        }
+        delete_files('./temp_upload/');
+        redirect(base_url('kelistrikan/C_kelistrikan/viewImportExcel'));
+    }
 
 }
