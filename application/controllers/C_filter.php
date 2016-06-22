@@ -30,7 +30,7 @@ class C_filter extends CI_Controller
   
     public function viewDataProvinsi()
     {
-
+        $data['title'] = "Cari Data Provinsi";
         $this->load->view('V_head');
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
@@ -159,7 +159,7 @@ class C_filter extends CI_Controller
                     if ($pos != $data['jumlah_tahun']-1)
                         $data['list_nilai'] .= "0,";
                     else
-                        $data['list_nilai'] .= "0.";                
+                        $data['list_nilai'] .= "0";                
                 }
             }
             array_push($data['listUraian'], $data['list_nilai']);
@@ -219,7 +219,7 @@ class C_filter extends CI_Controller
                     if ($pos != $data['jumlah_tahun']-1)
                         $data['list_nilai'] .= "0,";
                     else
-                        $data['list_nilai'] .= "0.";
+                        $data['list_nilai'] .= "0";
                 }
                 $pos++;
             }

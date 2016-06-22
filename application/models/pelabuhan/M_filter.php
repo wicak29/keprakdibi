@@ -17,6 +17,20 @@ class M_filter extends CI_Model
         return $result->result_array();
     }
 
+    public function getNamaPelabuhanById($id)
+    {
+        $this->db->select('PELABUHAN');
+        $result = $this->db->get_where('pelabuhan',array('ID_PELABUHAN'=>$id))->row_array();
+        return $result['PELABUHAN'];
+    }
+
+    public function getNamaUraianById($id)
+    {
+        $this->db->select('JENIS_DATA, SATUAN');
+        $result = $this->db->get_where('jenis_bongkar_muat',array('ID_JENIS_DATA'=>$id))->row_array();
+        return $result;
+    }
+
     public function getHasilFilterPelabuhan($pelabuhan, $tahun, $bulan)
     {
         //$this->db->select('ID_PELABUHAN, PELABUHAN');
@@ -26,6 +40,13 @@ class M_filter extends CI_Model
             WHERE data_pelabuhan.ID_PELABUHAN = '.$pelabuhan.' AND data_pelabuhan.TAHUN ="'.$tahun.'" AND data_pelabuhan.BULAN ="'.$bulan.'" AND data_pelabuhan.ID_JENIS_DATA=jenis_bongkar_muat.ID_JENIS_DATA 
             AND pelabuhan.ID_PELABUHAN=data_pelabuhan.ID_PELABUHAN');
         
+        return $result->result_array();
+    }
+
+    public function getNilaiByUraian($id, $tahun, $periode, $pelabuhan)
+    {
+        $this->db->select('NILAI');
+        $result = $this->db->get_where('data_pelabuhan', array('ID_JENIS_DATA'=>$id, 'TAHUN'=>$tahun, 'BULAN'=>$periode, 'ID_PELABUHAN'=>$pelabuhan));
         return $result->result_array();
     }
 
