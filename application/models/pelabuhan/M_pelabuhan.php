@@ -71,4 +71,11 @@ class M_pelabuhan extends CI_Model
         return $query->result_array();
     }
 
+    public function getNilaiPerBulan($id, $tahun, $bulan, $pelabuhan)
+    {
+        $this->db->select('NILAI');
+        $result = $this->db->get_where('data_pelabuhan', array('ID_PELABUHAN'=>$pelabuhan, 'ID_JENIS_DATA'=>$id, 'TAHUN'=>$tahun, 'BULAN'=>$bulan));
+        return $result->result_array();
+    }
+
 }
