@@ -108,7 +108,7 @@ class C_kelistrikan extends CI_Controller
         
         $tahun = $this->input->post('tahun');
         $periode = $this->input->post('bulan');
-        $pelabuhan = $this->input->post('id_pelabuhan');
+        // $pelabuhan = $this->input->post('id_pelabuhan');
         //$daerah = 1;
         $pic = $this->input->post('id_kontak');
          
@@ -132,7 +132,7 @@ class C_kelistrikan extends CI_Controller
         $highestColumn = $sheet->getHighestColumn();      
         $rowData = array();
 
-        // $ErrorHandling = $this->M_pelabuhan->getPelabuhanDataError($pelabuhan, $tahun, $periode);
+        $ErrorHandling = $this->M_kelistrikan->getKelistrikanDataError($tahun, $periode);
 
         if (empty($ErrorHandling)){
             //echo "wow";

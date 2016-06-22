@@ -42,11 +42,12 @@ class M_kelistrikan extends CI_Model
         return $query->result_array();
     }
 
-    // public function getPelabuhanDataError($pelabuhan, $tahun, $periode){
-    //     $query = $this->db->query('SELECT NILAI FROM `data_pelabuhan`
-    //                 WHERE ID_PELABUHAN = '.$pelabuhan.' AND BULAN ="'.$periode.'" AND TAHUN ="'.$tahun.'" ');
-    //     return $query->result_array();
-    // }
+    public function getKelistrikanDataError($tahun, $periode)
+    {
+        $query = $this->db->query('SELECT NILAI FROM `data_kelistrikan`
+                    WHERE BULAN ="'.$periode.'" AND TAHUN ="'.$tahun.'" ');
+        return $query->result_array();
+    }
 
     public function tambahDataKelistrikan($dataarray, $periode, $tahun, $pic, $id_kategori){
         for($i=0;$i<count($dataarray);$i++){
