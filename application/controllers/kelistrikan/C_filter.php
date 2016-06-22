@@ -20,7 +20,7 @@ class C_filter extends CI_Controller
         $data['title'] = "Cari Data";
         $data['tahun'] = "Tahun";
         $data['bulan'] = "Bulan";
-        $data['hasil_filter'] = array();
+        $data['data_listrik'] = array();
         //$data['pelabuhan'] = $this->M_filter->getListPelabuhan();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
