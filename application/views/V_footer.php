@@ -39,24 +39,6 @@
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url('assets'); ?>/gentelella/production/js/custom.js"></script>
 
-    <!-- Select2 -->
-    <script>
-      $(document).ready(function() {
-        $(".select2_single").select2({
-          placeholder: "Pilih Daerah",
-          allowClear: true
-        });
-        $(".select3_single").select2({
-          placeholder: "Pilih Tahun",
-          allowClear: true
-        });
-        $(".select4_single").select2({
-          placeholder: "Pilih Triwulan",
-          allowClear: true
-        });
-      });
-    </script>
-    <!-- /Select2 -->    
     <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();

@@ -25,10 +25,10 @@
                     <br>
                     <form action="<?php echo base_url();?>C_apbd/addKontakToApbd" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Kontak <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="id_kontak" required="required">
+                          <select class="select2_single form-control" name="id_kontak" required="required">
                             <option value="" selected disabled>Pilih PIC</option>
                             <?php
                               foreach ($list_kontak as $kontak) 
@@ -71,3 +71,18 @@
           }?>
         });
         </script>
+
+        <!-- Select2 -->
+    <script>
+      $(document).ready(function() {
+        $(".select2_single").select2({
+          placeholder: "Pilih Kontak",
+          allowClear: true
+        });
+        // $(".select3_single").select2({
+        //   placeholder: "Pilih Tahun",
+        //   allowClear: true
+        // });
+      });
+    </script>
+    <!-- /Select2 -->    

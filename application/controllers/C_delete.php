@@ -58,7 +58,7 @@ class C_delete extends CI_Controller
         $data['list'] = $this->M_delete->getListDeleteKontak();
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
-        $this->load->view('V_topNav');
+        $this->load->view('V_topNavKontak');
         $this->load->view('delete/V_deleteKontak');
         $this->load->view('V_footer_table');
     }

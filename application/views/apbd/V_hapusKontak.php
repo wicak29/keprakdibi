@@ -9,7 +9,7 @@
                     <h2>Hapus Kontak dari APBD</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>apbd/viewLihatKontak" class=""><i class="fa fa-user"></i> Lihat Kontak</a>
+                        <a href="<?php echo base_url();?>apbd/viewLihatKontak" class=""><i class="fa fa-user"></i> Lihat Kontak APBD</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>

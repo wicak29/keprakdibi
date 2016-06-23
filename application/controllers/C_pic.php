@@ -21,7 +21,7 @@ class C_pic extends CI_Controller
         $data['title'] = "Tambah Kontak";
     	$this->load->view('V_head', $data);
     	$this->load->view('V_sidebar');
-    	$this->load->view('V_topNav');
+    	$this->load->view('V_topNavKontak');
         $this->load->view('pic/V_tambahPic');
         $this->load->view('V_footer');
     }
@@ -33,7 +33,7 @@ class C_pic extends CI_Controller
 
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
-        $this->load->view('V_topNav');
+        $this->load->view('V_topNavKontak');
         $this->load->view('pic/V_lihatPic');
         $this->load->view('V_footer');
     }
@@ -94,7 +94,7 @@ class C_pic extends CI_Controller
 
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
-        $this->load->view('V_topNav');
+        $this->load->view('V_topNavKontak');
         $this->load->view('pic/V_updatePic');
         $this->load->view('V_footer');
     }
