@@ -31,17 +31,17 @@ class M_filter extends CI_Model
         return $result['KATEGORI_PELANGGAN'];
     }
 
-    public function getNilaiByKategori($id, $tahun, $bulan, $aspek)
+    public function getNilaiByKategori($jenis, $tahun, $bulan, $upt)
     {
         $this->db->select('NILAI');
-        $result = $this->db->get_where('data_kelistrikan', array('ID_KATEGORI'=>$id, 'TAHUN'=>$tahun, 'BULAN'=>$bulan, 'ID_ASPEK'=>$aspek));
+        $result = $this->db->get_where('data_kendaraan', array('JENIS'=>$jenis, 'TAHUN'=>$tahun, 'BULAN'=>$bulan, 'KODE_UPT'=>$upt));
         return $result->result_array();
     }
 
-    public function getAspekById($id)
+    public function getUptById($id)
     {
-        $this->db->select('ASPEK');
-        $result = $this->db->get_where('aspek', array('ID_ASPEK'=>$id))->row_array();
-        return $result['ASPEK'];
+        $this->db->select('NAMA_UPT');
+        $result = $this->db->get_where('upt', array('KODE_UPT'=>$id))->row_array();
+        return $result['NAMA_UPT'];
     }
 }

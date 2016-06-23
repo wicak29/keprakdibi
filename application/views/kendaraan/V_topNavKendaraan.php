@@ -18,7 +18,7 @@
             <!-- <li><a href="<?php echo base_url('kelistrikan/C_update/');?>">Update Data</a></li> -->
           </ul>
         </li>
-        <!-- <li><a href="<?php echo base_url('kelistrikan/C_filter/viewLihatGrafikBulan');?>">Grafik</a></li> -->
+        <li><a href="<?php echo base_url('kendaraan/C_filter/viewLihatGrafikBulan');?>">Grafik</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">
