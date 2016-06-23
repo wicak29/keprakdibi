@@ -30,7 +30,7 @@
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('apbd/viewLihatKontak');?>">Lihat Kontak APBD</a></li>
             <li><a href="<?php echo base_url('apbd/viewTambahKontak');?>">Tambah Kontak APBD </a></li>
-            <li><a href="">Hapus Kontak APBD </a></li>
+            <li><a href="<?php echo base_url('apbd/viewHapusKontak');?>">Hapus Kontak APBD </a></li>
           </ul>
         </li>
       </ul>

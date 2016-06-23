@@ -155,21 +155,13 @@ class M_delete extends CI_Model
     }
     public function deleteDataKontak($id_kontak)
     {
-        //print_r($periode);
-        //print_r($id_kontak);
         $this->db->where('ID_KONTAK', $id_kontak);
-        //$this->db->update('kontak', $data);
-        
         $this->db->delete('kontak'); 
     }
     public function updateDataKontak($id_kontak,$data)
     {
         $query = $this->db->query('UPDATE data_apbd SET id_kontak=1 WHERE id_kontak="'.$id_kontak.'"');
         return $query;
-        // $this->db->where('ID_KONTAK', $id_kontak);
-        // $this->db->update('data_apbd', $data);
-        
-        //$this->db->delete('kontak'); 
     }
 
 }

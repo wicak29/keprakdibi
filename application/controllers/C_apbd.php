@@ -579,6 +579,7 @@ class C_apbd extends CI_Controller
 
     public function deleteKontak($id)
     {
+        $update = $this->M_apbd->updateDataKontak($id);
         $result = $this->M_apbd->deleteKontak($id);
         redirect('apbd/viewLihatKontak');
     }
@@ -616,5 +617,34 @@ class C_apbd extends CI_Controller
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_tambahKontak');
         $this->load->view('V_footer');
+    }
+
+    public function viewHapusKontak()
+    {
+        $data['title'] = "Hapus Kontak APBD";
+
+        $data['list'] = $this->M_apbd->getDetailKontak();
+        // print_r($data['list']);
+        $this->load->view('V_head_table', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
+        $this->load->view('apbd/V_hapusKontak');
+        $this->load->view('V_footer_table');
+    }
+
+    public function hapusKontakBanyak() 
+    {
+        $data = $this->input->post('data');
+        
+        for ($i=0; $i<sizeof($data); $i++)
+        {
+            $piece = explode("#", $data[$i]);
+            $id_kontak = $piece[0];
+            
+            $update = $this->M_apbd->updateDataKontak($id_kontak);
+            $result = $this->M_apbd->deleteKontak($id_kontak);
+        }
+        redirect('apbd/viewLihatKontak');
+
     }
 }

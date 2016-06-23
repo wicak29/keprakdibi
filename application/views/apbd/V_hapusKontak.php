@@ -6,16 +6,16 @@
               <div class="col-md-12 col-sm-12 col-xs-12" style="margin-right:auto; margin-left:auto;float:none;">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h2>Hapus Kontak</h2>
+                    <h2>Hapus Kontak dari APBD</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>C_pic/viewLihatPic" class=""><i class="fa fa-user"></i> Lihat Kontak</a>
+                        <a href="<?php echo base_url();?>apbd/viewLihatKontak" class=""><i class="fa fa-user"></i> Lihat Kontak</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>C_delete/deleteDataKontak/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>apbd/hapusKontakBanyak/" method="post" enctype="multipart/form-data" class="form-inline">
                     <table id="" class="table table-striped table-bordered">
                       <thead>
                         <tr>
@@ -42,10 +42,6 @@
                             <td ><?php echo $r['EMAIL'] ?></td>
                             <td ><?php echo $r['ALAMAT'] ?></td>
                             <td ><?php echo $r['PREFERRED_CONTACT'] ?></td>
-                            
-                            
-                            <!-- <td ><?//php echo $r['NILAI'] ?></td> -->
-                            
                           </tr>
                         <?php } 
                       } ?>
@@ -94,6 +90,5 @@
 
           });
       });
-
       </script>
        

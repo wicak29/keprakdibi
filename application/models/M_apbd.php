@@ -265,6 +265,12 @@ class M_apbd extends CI_Model
         $this->db->delete('kontak_indikator'); 
     }
 
+    public function updateDataKontak($id_kontak)
+    {
+        $query = $this->db->query('UPDATE data_apbd SET id_kontak=1 WHERE id_kontak="'.$id_kontak.'"');
+        return $query;
+    }
+
     public function addKontak($id)
     {
         $data = array(

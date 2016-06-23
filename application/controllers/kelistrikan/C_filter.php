@@ -69,8 +69,12 @@ class C_filter extends CI_Controller
         $data['uraian'] = $this->input->post('uraian');
         $data['aspek'] = $this->input->post('aspek');
                 
+
         $data['jumlah_tahun'] = sizeof($data['tahun']);
-        $data['nama_aspek'] = $this->M_filter->getAspekById($data['aspek']);
+        if ($data['aspek']) 
+        {
+            $data['nama_aspek'] = $this->M_filter->getAspekById($data['aspek']);
+        }
 
         if (!$data['tahun']) $data['tahun'] = array();
         if (!$data['uraian']) $data['uraian'] = array();
