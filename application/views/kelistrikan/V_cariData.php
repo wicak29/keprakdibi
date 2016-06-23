@@ -89,7 +89,16 @@
                             <td ><?php echo $data_listrik[3][$i]['NILAI'] ?></td>
                             
                           </tr>
-                         <?php $j++;}} ?>
+                         <?php $j++;} ?>
+                         <tr>
+                            <td ><?php echo $j ?></td>
+                            <td >Rata-rata penggunaan</td>
+                            <td ><?php echo ($data_listrik[1][0]['NILAI']+$data_listrik[1][1]['NILAI']+$data_listrik[1][2]['NILAI']+$data_listrik[1][3]['NILAI']+$data_listrik[1][4]['NILAI'])/5 ?></td>
+                            <td ><?php echo ($data_listrik[2][0]['NILAI']+$data_listrik[2][1]['NILAI']+$data_listrik[2][2]['NILAI']+$data_listrik[2][3]['NILAI']+$data_listrik[2][4]['NILAI'])/5 ?></td>
+                            <td ><?php echo ($data_listrik[3][0]['NILAI']+$data_listrik[3][1]['NILAI']+$data_listrik[3][2]['NILAI']+$data_listrik[3][3]['NILAI']+$data_listrik[3][4]['NILAI'])/5 ?></td>
+                            
+                          </tr>
+                         <?php } ?>
                       </tbody>
                     </table>
                   </div>
