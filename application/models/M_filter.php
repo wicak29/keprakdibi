@@ -46,6 +46,12 @@ class M_filter extends CI_Model
                                     WHERE ID_DAERAH ='.$daerah.' AND TAHUN="'.$tahun.'" AND PERIODE="'.$periode.'"');
         return $query->result_array();
     }
+    public function getDataProvinsiNonKumulatif($daerah, $tahun, $periode){
+        $query = $this->db->query('SELECT NILAI_REALISASI as NILAI
+                                   FROM `data_apbd`
+                                    WHERE ID_DAERAH ='.$daerah.' AND TAHUN="'.$tahun.'" AND PERIODE="'.$periode.'"');
+        return $query->result_array();
+    }
 
     public function getNilaiByUraian($id, $tahun, $periode, $kabkota)
     {

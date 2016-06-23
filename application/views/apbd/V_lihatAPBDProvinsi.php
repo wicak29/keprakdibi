@@ -59,6 +59,18 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
+                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                      <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#tab-kumulatif" role="tab" id="grafik-tab" data-toggle="tab" aria-expanded="false">Kumulatif</a>
+                        </li>
+                        <li role="presentation" class=""><a href="#tab-nonkumulatif" role="tab" id="realisasi-tab" data-toggle="tab" aria-expanded="true">Non Kumulatif</a>
+                        </li>
+                        <!-- <li role="presentation" class=""><a href="#tab-persentase" id="persentase-tab" role="tab" data-toggle="tab" aria-expanded="false">Persentase</a>
+                        </li> -->
+                      </ul>
+                  <div id="myTabContent" class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="tab-kumulatif" aria-labelledby="profile-tab">
+
                     <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>
@@ -85,6 +97,39 @@
                       </tbody>
                     </table>
                   </div>
+
+                  <div role="tabpanel" class="tab-pane fade in" id="tab-nonkumulatif" aria-labelledby="profile-tab">
+                          <table class="table table-striped table-bordered datatable-buttons">
+                            <thead>
+                              <tr>
+                                
+                                <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
+                                <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
+                                <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                                <th colspan="2" scope="colgroup" style="text-align: center;">Nilai <?php echo $bulan?></th>
+                              </tr>
+                            </thead>
+                            <tbody id="tabelApbd">
+                              <?php if(sizeof($all_uraian)==41){
+                                for ($r=0; $r<41; $r++) { ?>
+                                  <tr>
+                                    <td ><?php echo $all_uraian[$r]['URAIAN']; ?></td>
+                                    <td ><?php echo $uraian[$r]['APBD'] ?></td>
+                                    <td ><?php echo $uraian[$r]['APBD_P'] ?></td>
+                                    <td ><?php echo $nonkumulatif[0][$r]['NILAI'] ?></td>
+                                    <!-- <td ><?php echo $nonkumulatif[1][$r]['NILAI'] ?></td>
+                                    <td ><?php echo $nonkumulatif[2][$r]['NILAI'] ?></td>
+                                    <td ><?php echo $nonkumulatif[3][$r]['NILAI'] ?></td>
+                                  </tr> -->
+                              <?php }} ?>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!-- END TAB PANEL -->
+                      </div>
+                      <!-- END TAB CONTENT -->
+
+
                 </div>
 
               </div>

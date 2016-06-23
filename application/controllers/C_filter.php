@@ -91,11 +91,269 @@ class C_filter extends CI_Controller
         $data['tahun'] = $tahun;
         if(!$data['uraian']) $data['uraian'] = array();
         
+        $data['all_uraian'] = $this->M_filter->getAllUraian();
+
+
+        $januari = array();
+        $februari = array();
+        $maret = array();
+        $april = array();
+        $mei = array();
+        $juni = array();
+        $juli = array();
+        $agustus = array();
+        $september = array();
+        $oktober = array();
+        $november = array();
+        $desember = array();
+
+        //$nonkumulatif = $this->M_filter->getDataProvinsiNonKumulatif(1, $tahun, $periode);
+
+        // $januari = $this->M_filter->getDataProvinsiNonKumulatif(1, $tahun, "J");
+        $bulan_januari= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Januari");
+        //print_r($bulan_januari);
+        //IF JANUARI TIDAK ADA
+        if(!$bulan_januari){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($bulan_januari, $default);
+            }
+        }
+
+        $bulan_februari= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Februari");
+       // print_r($bulan_februari);
+        //IF FEBRUARI TIDAK ADA
+        if(!$bulan_februari){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($februari, $default);
+                array_push($bulan_februari, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $februari = $bulan_februari;
+            for($i=0; $i<41; $i++){
+                $februari[$i]['NILAI'] = $bulan_februari[$i]['NILAI']-$bulan_januari[$i]['NILAI'];
+            }
+        }
+
+        $bulan_maret= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Maret");
+        //IF MARET TIDAK ADA
+        if(!$bulan_maret){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($maret, $default);
+                array_push($bulan_maret, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $maret = $bulan_maret;
+            for($i=0; $i<41; $i++){
+                $maret[$i]['NILAI'] = $bulan_maret[$i]['NILAI']-$bulan_februari[$i]['NILAI'];
+            }
+        }
+
+        $bulan_april= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "April");
+        //IF MARET TIDAK ADA
+        if(!$bulan_april){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($april, $default);
+                array_push($bulan_april, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $april = $bulan_april;
+            for($i=0; $i<41; $i++){
+                $april[$i]['NILAI'] = $bulan_april[$i]['NILAI']-$bulan_maret[$i]['NILAI'];
+            }
+        }
+        $bulan_mei= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Mei");
+        //IF MARET TIDAK ADA
+        if(!$bulan_mei){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($mei, $default);
+                array_push($bulan_mei, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $mei = $bulan_mei;
+            for($i=0; $i<41; $i++){
+                $mei[$i]['NILAI'] = $bulan_mei[$i]['NILAI']-$bulan_april[$i]['NILAI'];
+            }
+        }
+
+        $bulan_juni= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Juni");
+        //IF MARET TIDAK ADA
+        if(!$bulan_juni){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($juni, $default);
+                array_push($bulan_juni, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $juni = $bulan_juni;
+            for($i=0; $i<41; $i++){
+                $juni[$i]['NILAI'] = $bulan_juni[$i]['NILAI']-$bulan_mei[$i]['NILAI'];
+            }
+        }
+
+
+        $bulan_juli= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Juli");
+        //IF MARET TIDAK ADA
+        if(!$bulan_juli){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($juli, $default);
+                array_push($bulan_juli, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $juli = $bulan_juli;
+            for($i=0; $i<41; $i++){
+                $juli[$i]['NILAI'] = $bulan_juli[$i]['NILAI']-$bulan_juni[$i]['NILAI'];
+            }
+        }
+
+        $bulan_agustus= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Agustus");
+        //IF MARET TIDAK ADA
+        if(!$bulan_agustus){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($agustus, $default);
+                array_push($bulan_agustus, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $agustus = $bulan_agustus;
+            for($i=0; $i<41; $i++){
+                $agustus[$i]['NILAI'] = $bulan_agustus[$i]['NILAI']-$bulan_juli[$i]['NILAI'];
+            }
+        }
+
+        $bulan_september= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "September");
+        //IF MARET TIDAK ADA
+        if(!$bulan_september){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($september, $default);
+                array_push($bulan_september, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $september = $bulan_september;
+            for($i=0; $i<41; $i++){
+                $september[$i]['NILAI'] = $bulan_september[$i]['NILAI']-$bulan_agustus[$i]['NILAI'];
+            }
+        }
+
+        $bulan_oktober= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Oktober");
+        //IF MARET TIDAK ADA
+        if(!$bulan_oktober){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($oktober, $default);
+                array_push($bulan_oktober, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $oktober = $bulan_oktober;
+            for($i=0; $i<41; $i++){
+                $oktober[$i]['NILAI'] = $bulan_oktober[$i]['NILAI']-$bulan_september[$i]['NILAI'];
+            }
+        }
+
+        $bulan_november= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "November");
+        //IF MARET TIDAK ADA
+        if(!$bulan_november){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($november, $default);
+                array_push($bulan_november, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $november = $bulan_november;
+            for($i=0; $i<41; $i++){
+                $november[$i]['NILAI'] = $bulan_november[$i]['NILAI']-$bulan_oktober[$i]['NILAI'];
+            }
+        }
+
+        $bulan_desember= $this->M_filter->getDataProvinsiNonKumulatif(1, $data['tahun'], "Desember");
+        //IF MARET TIDAK ADA
+        if(!$bulan_desember){
+            for($i=0; $i<41; $i++){
+                $default = array('NILAI' => 0);
+                array_push($desember, $default);
+                array_push($bulan_desember, $default);
+            }
+        }
+        else{
+            // $temp2 = $triwulan2;
+            $desember = $bulan_desember;
+            for($i=0; $i<41; $i++){
+                $desember[$i]['NILAI'] = $bulan_desember[$i]['NILAI']-$bulan_november[$i]['NILAI'];
+            }
+        }
+
+        $data['nonkumulatif'] = array();
+
+        if($bulan=="Januari"){
+            array_push($data['nonkumulatif'], $bulan_januari);
+        }
+        elseif ($bulan=="Februari") {
+            array_push($data['nonkumulatif'], $februari);
+        }
+        elseif ($bulan=="Maret") {
+            array_push($data['nonkumulatif'], $maret);
+        }
+        elseif ($bulan=="April") {
+            array_push($data['nonkumulatif'], $april);
+        }
+        elseif ($bulan=="Mei") {
+            array_push($data['nonkumulatif'], $mei);
+        }
+        elseif ($bulan=="Juni") {
+            array_push($data['nonkumulatif'], $juni);
+        }
+        elseif ($bulan=="Juli") {
+            array_push($data['nonkumulatif'], $juli);
+        }
+        elseif ($bulan=="Agustus") {
+            array_push($data['nonkumulatif'], $agustus);
+        }
+        elseif ($bulan=="September") {
+            array_push($data['nonkumulatif'], $september);
+        }
+        elseif ($bulan=="Oktober") {
+            array_push($data['nonkumulatif'], $oktober);
+        }
+        elseif ($bulan=="November") {
+            array_push($data['nonkumulatif'], $november);
+        }
+        elseif ($bulan=="Desember") {
+            array_push($data['nonkumulatif'], $desember);
+        }
+        
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_lihatAPBDProvinsi');
         $this->load->view('V_footer_table');
+
+
             
     }
 
