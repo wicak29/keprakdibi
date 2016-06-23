@@ -576,4 +576,45 @@ class C_apbd extends CI_Controller
             delete_files('./temp_upload/');
             redirect(base_url('C_apbd/viewImportExcel'));
     }
+
+    public function deleteKontak($id)
+    {
+        $result = $this->M_apbd->deleteKontak($id);
+        redirect('apbd/viewLihatKontak');
+    }
+
+    public function viewLihatKontak()
+    {
+        $data['title'] = "Daftar Kontak APBD";
+        $data['list_kontak'] = $this->M_apbd->getDetailKontak();
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
+        $this->load->view('apbd/V_lihatKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function addKontakToApbd()
+    {
+        $data['kontak'] = $this->input->post('id_kontak');
+        $result = $this->M_apbd->addKontak($data['kontak']);
+        if ($result)
+        {
+            $this->session->set_flashdata('notif', 1);
+        }
+        else $this->session->set_flashdata('notif', 2);
+        redirect('apbd/viewLihatKontak');
+    }
+
+    public function viewTambahKontak()
+    {
+        $data['title'] = "Tambah Kontak APBD";
+        $data['list_kontak'] = $this->M_apbd->getKontakNotApbd();
+
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('V_topNav');
+        $this->load->view('apbd/V_tambahKontak');
+        $this->load->view('V_footer');
+    }
 }

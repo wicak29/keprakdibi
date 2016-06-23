@@ -25,6 +25,14 @@
             <li><a href="<?php echo base_url('apbd/filter/viewLihatStatistik');?>">Kabupaten/Kota</a></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kontak <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo base_url('apbd/viewLihatKontak');?>">Lihat Kontak APBD</a></li>
+            <li><a href="<?php echo base_url('apbd/viewTambahKontak');?>">Tambah Kontak APBD </a></li>
+            <li><a href="">Hapus Kontak APBD </a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">

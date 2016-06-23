@@ -245,4 +245,33 @@ class M_apbd extends CI_Model
         return $query;  
         //echo $data['dump'];
     }
+
+    public function getDetailKontak()
+    {
+        $result = $this->db->query('SELECT * FROM `kontak`, indikator, kontak_indikator WHERE indikator.ID_INDIKATOR = 1 AND kontak_indikator.ID_INDIKATOR = indikator.ID_INDIKATOR AND kontak_indikator.ID_KONTAK = kontak.ID_KONTAK');
+        return $result->result_array();
+    }
+
+    public function getKontakNotApbd()
+    {
+        $result = $this->db->query('SELECT * FROM kontak WHERE kontak.ID_KONTAK NOT IN (SELECT kontak_indikator.ID_KONTAK FROM kontak, indikator, kontak_indikator WHERE indikator.ID_INDIKATOR = 1 AND indikator.ID_INDIKATOR = kontak_indikator.ID_INDIKATOR AND kontak_indikator.ID_KONTAK = kontak_indikator.ID_KONTAK)');
+        return $result->result_array();
+    }
+
+    public function deleteKontak($id)
+    {
+        $this->db->where('ID_KONTAK', $id);
+        $this->db->where('ID_INDIKATOR', 1);
+        $this->db->delete('kontak_indikator'); 
+    }
+
+    public function addKontak($id)
+    {
+        $data = array(
+                'ID_KONTAK'=>$id,
+                'ID_INDIKATOR'=>1
+            );
+        $query = $this->db->insert('kontak_indikator', $data);
+        return $query;
+    }
 }
