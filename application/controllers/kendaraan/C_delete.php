@@ -6,7 +6,7 @@ class C_delete extends CI_Controller
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('kelistrikan/M_delete');
+        $this->load->model('kendaraan/M_delete');
 
         //AUTENTIKASI
         $login = $this->session->userdata('username');
@@ -19,7 +19,7 @@ class C_delete extends CI_Controller
     public function index()
     {
         $data['title'] = "Hapus Data";
-        $data['list_data_kelistrikan'] = $this->M_delete->getListDataKelistrikan();
+        $data['list_data_kendaraan'] = $this->M_delete->getListDataKendaraan();
         //$data['list_daerah'] = $this->M_filter->getFilter();
         //$data['list_tahun'] = $this->M_filter->getTahun();
         // $data['list_pelabuhan'] = $this->M_delete->getListPelabuhan();
@@ -29,15 +29,15 @@ class C_delete extends CI_Controller
 
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
-        $this->load->view('kelistrikan/V_topNavKelistrikan');
-        $this->load->view('kelistrikan/V_deleteDataKelistrikan');
+        $this->load->view('kendaraan/V_topNavKendaraan');
+        $this->load->view('kendaraan/V_deleteDataKendaraan');
         $this->load->view('V_footer');
     }
 
     public function filterHapusDataKelistrikan()
     {
-        $data['title'] = "Hapus Data Kelistrikan";
-        $data['list_data_kelistrikan'] = $this->M_delete->getListDataKelistrikan();
+        $data['title'] = "Hapus Data Kendaraan";
+        $data['list_data_kendaraan'] = $this->M_delete->getListDataKendaraan();
         // $data['list_pelabuhan'] = $this->M_delete->getListPelabuhan();
         // $id_pelabuhan = $this->input->post('id_pelabuhan');
 
@@ -50,13 +50,13 @@ class C_delete extends CI_Controller
 
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
-        $this->load->view('kelistrikan/V_topNavKelistrikan');
-        $this->load->view('kelistrikan/V_deleteDataKelistrikan');
+        $this->load->view('kendaraan/V_topNavKendaraan');
+        $this->load->view('kendaraan/V_deleteDataKendaraan');
         $this->load->view('V_footer_table');
     }
 
 
-    public function deleteDataKelistrikan(){
+    public function deleteDataKendaraan(){
         $data = $this->input->post('data');
         //print_r($data);
         //print_r($data[0]);
@@ -68,11 +68,11 @@ class C_delete extends CI_Controller
             $periode = $piece[1];
             $tahun = $piece[2];
             
-            $this->M_delete->deleteDataKelistrikan($id_kontak,$periode,$tahun);
+            $this->M_delete->deleteDataKendaraan($id_kontak,$periode,$tahun);
 
         }
         //print_r($data);
-        redirect('kelistrikan/C_delete/');
+        redirect('kendaraan/C_delete/');
 
     }
 
