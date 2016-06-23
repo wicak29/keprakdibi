@@ -61,6 +61,17 @@ $route['apbd/(:any)'] = 'C_apbd/$1';
 // PELABUHAN
 $route['pelabuhan'] = 'pelabuhan/C_pelabuhan';
 $route['pelabuhan/filter'] = 'pelabuhan/C_filter';
+$route['pelabuhan/filter/(:any)'] = 'pelabuhan/C_filter/$1';
+$route['pelabuhan/hapus'] = 'pelabuhan/C_delete';
+$route['pelabuhan/hapus/(:any)'] = 'pelabuhan/C_delete/$1';
+$route['pelabuhan/update'] = 'pelabuhan/C_update';
+$route['pelabuhan/update/(:any)'] = 'pelabuhan/C_update/$1';
+$route['pelabuhan/(:any)'] = 'pelabuhan/C_pelabuhan/$1';
 
+
+//KELISTRIKAN
+$route['kelistrikan'] = 'kelistrikan/C_kelistrikan';
+$route['kelistrikan/filter'] = 'kelistrikan/C_filter';
+$route['kelistrikan/filter/(:any)'] = 'kelistrikan/C_filter/$1';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

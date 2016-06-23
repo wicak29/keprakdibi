@@ -12,7 +12,7 @@ class C_update extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -61,15 +61,6 @@ class C_update extends CI_Controller
         $data['hasil_filter'] = $this->M_update->getHasilFilterPelabuhan($pelabuhan, $tahun, $bulan);
         print_r($nilai);
 
-        // for ($i=0; $i<sizeof($nilai); $i++){
-
-        //     $update = array(
-        //         'NILAI' => $nilai[$i]
-        //     );
-
-        //     $this->M_update->updateNilai($i+1, $update, $tahun, $bulan, $pelabuhan);
-        // }
-
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('pelabuhan/V_topNavPelabuhan');
@@ -107,12 +98,8 @@ class C_update extends CI_Controller
 
             $this->M_update->updateNilai($i+1, $update, $tahun, $bulan, $pelabuhan);
         }
-
         
-        redirect(base_url('pelabuhan/C_update/'));
+        redirect(base_url('pelabuhan/update/'));
     }
-
-
-
 
 }

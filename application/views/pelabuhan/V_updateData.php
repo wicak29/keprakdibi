@@ -9,14 +9,14 @@
                     <h2>Update Data Pelabuhan</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>pelabuhan/C_update" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="<?php echo base_url();?>pelabuhan/update" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="row">
-                      <form action="<?php echo base_url();?>pelabuhan/C_update/filterDataPelabuhan/" method="post" enctype="multipart/form-data" class="form-inline">
+                      <form action="<?php echo base_url();?>pelabuhan/update/filterDataPelabuhan/" method="post" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                           <label for="ex3">Pilih Pelabuhan : </label>
                           <select name="pelabuhan" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
@@ -81,7 +81,7 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <form action="<?php echo base_url();?>pelabuhan/C_update/updateDataPelabuhan/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>pelabuhan/update/updateDataPelabuhan/" method="post" enctype="multipart/form-data" class="form-inline">
                     <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>

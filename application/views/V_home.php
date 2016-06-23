@@ -6,7 +6,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h3>Sistem Informasi Visualisasi Data Bank Indonesia </h3>
+                    <h3>Sistem Informasi Visualisasi Data Statistik Bank Indonesia </h3>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="row">
                       <a href="<?php echo base_url('apbd/');?>">
-                        <div class="animated flipInY col-lg-2 col-md-2 col-sm-6 col-xs-12 col-md-offset-1 col-lg-offset-1 widget_tally_box">
+                        <div class="animated flipInY col-lg-2 col-md-2 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 widget_tally_box">
                         <div class="x_panel">
                           <div class="x_content">
                             <div style="text-align: center; margin-bottom: 17px; font-size: 60px;">

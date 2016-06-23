@@ -8,17 +8,17 @@
       </div>
       <ul class="nav navbar-nav navbar-left">
         <li><h3 style="line-height:1.5; margin-right:10px; margin-left:-5px;font-weight: bold; color : #1ABB9C;"><a href="<?php echo base_url('pelabuhan');?>">PELABUHAN</a></h3></li>
-        <li><a href="<?php echo base_url('pelabuhan/C_pelabuhan/');?>">Import File</a></li>
-        <li><a href="<?php echo base_url('pelabuhan/C_filter/');?>">Cari Data</a></li>
+        <li><a href="<?php echo base_url('pelabuhan/');?>">Import File</a></li>
+        <li><a href="<?php echo base_url('pelabuhan/filter/');?>">Cari Data</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo base_url('pelabuhan/C_pelabuhan/viewRekapPelabuhan');?>">Rekap Pelabuhan</a></li>
-            <li><a href="<?php echo base_url('pelabuhan/C_delete/');?>">Hapus Data</a></li>
-            <li><a href="<?php echo base_url('pelabuhan/C_update/');?>">Update Data</a></li>
+            <li><a href="<?php echo base_url('pelabuhan/viewRekapPelabuhan');?>">Rekap Pelabuhan</a></li>
+            <li><a href="<?php echo base_url('pelabuhan/hapus/');?>">Hapus Data</a></li>
+            <li><a href="<?php echo base_url('pelabuhan/update/');?>">Update Data</a></li>
           </ul>
         </li>
-        <li><a href="<?php echo base_url('pelabuhan/C_filter/viewLihatGrafikBulan');?>">Grafik</a></li>
+        <li><a href="<?php echo base_url('pelabuhan/filter/viewLihatGrafikBulan');?>">Grafik</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">

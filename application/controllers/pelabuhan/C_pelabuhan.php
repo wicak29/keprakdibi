@@ -14,7 +14,7 @@ class C_pelabuhan extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -92,7 +92,7 @@ class C_pelabuhan extends CI_Controller
             }
             
         delete_files('./temp_upload/');
-        redirect(base_url('/pelabuhan/C_pelabuhan/viewImportExcel'));
+        redirect(base_url('/pelabuhan/viewImportExcel'));
     }
 
     public function insertDataPelabuhan()
@@ -159,7 +159,7 @@ class C_pelabuhan extends CI_Controller
             $this->session->set_flashdata('notif', 3);
         }
         delete_files('./temp_upload/');
-        redirect(base_url('pelabuhan/C_pelabuhan/viewImportExcel'));
+        redirect(base_url('pelabuhan/viewImportExcel'));
     }
 
     public function viewRekapPelabuhan()

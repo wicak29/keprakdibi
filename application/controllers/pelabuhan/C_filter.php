@@ -12,7 +12,7 @@ class C_filter extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -67,7 +67,7 @@ class C_filter extends CI_Controller
                 
         $data['jumlah_uraian'] = sizeof($data['uraian']);
         $data['jumlah_tahun'] = sizeof($data['tahun']);
-        $data['nama_pelabuhan'] = $this->M_filter->getNamaPelabuhanById($pelabuhan);
+        if ($pelabuhan) $data['nama_pelabuhan'] = $this->M_filter->getNamaPelabuhanById($pelabuhan);
 
         if (!$data['tahun']) $data['tahun'] = array();
         if (!$data['uraian']) $data['uraian'] = array();
