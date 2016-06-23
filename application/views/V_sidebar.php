@@ -32,6 +32,7 @@
             <!-- Sidebar -->
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
+                    <li id="home-sidebar" class="sidebar-brand" style="background: #34495E;"><a href="<?php echo base_url('home/');?>" style="height: 100%;">HOME<i class="fa fa-home sidebar-title"></i></a></li>
                     <li class="sidebar-brand"><a href="#">INDIKATOR<i class="fa fa-sliders sidebar-title"></i></a></li>
                     <li><a href="<?php echo base_url('apbd/');?>"><i class="fa fa-angle-right"></i> APBD</a></li>
                     <li><a href="<?php echo base_url('pelabuhan/');?>"><i class="fa fa-angle-right"></i> Pelabuhan</a></li>

@@ -4836,3 +4836,9 @@ ul.notifications {
 {
     display: none;
 }
+
+#judulHome
+{
+    text-align: center;
+    margin-bottom: 50px;
+}

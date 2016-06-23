@@ -56,18 +56,18 @@ class C_auth extends CI_Controller
                     );
 
                 $this->session->set_userdata($session_data);
-                redirect('C_apbd');
+                redirect('home');
             }   
             else 
             {
                 $this->session->set_flashdata('notif', 1);
-                redirect('C_auth');
+                redirect('login');
             }
         }
         else 
         {
             $this->session->set_flashdata('notif', 1);
-            redirect('C_auth');
+            redirect('login');
         }
     }
 

@@ -26,7 +26,7 @@ class C_apbd extends CI_Controller
         $data['list_provinsi'] = $this->M_apbd->getListDataProv();
         $data['list_apbdp'] = $this->M_apbd->getListDataApbdp();
         $data['list_kab'] = $this->M_apbd->getListDataKab();
-        $data['list_pic'] = $this->M_pic->getPic()->result_array();
+        $data['list_pic'] = $this->M_apbd->getListPICApbd();
         // print_r($data['list_pic']);
         // return;
         $this->load->view('V_head', $data);
@@ -44,7 +44,7 @@ class C_apbd extends CI_Controller
         $data['list_provinsi'] = $this->M_apbd->getListDataProv();
         $data['list_apbdp'] = $this->M_apbd->getListDataApbdp();
         $data['list_kab'] = $this->M_apbd->getListDataKab();
-        $data['list_pic'] = $this->M_pic->getPic()->result_array();
+        $data['list_pic'] = $this->M_apbd->getListPICApbd();
         // print_r($data['list_pic']);
         // return;
         $this->load->view('V_head', $data);

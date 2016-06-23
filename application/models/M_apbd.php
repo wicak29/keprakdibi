@@ -280,4 +280,11 @@ class M_apbd extends CI_Model
         $query = $this->db->insert('kontak_indikator', $data);
         return $query;
     }
+
+    public function getListPICApbd()
+    {
+        $query = $this->db->query('SELECT kontak.ID_KONTAK as ID_KONTAK, kontak.PIC as PIC, kontak.NAMA_INSTANSI as NAMA_INSTANSI FROM `kontak_indikator`, `kontak`
+                    WHERE kontak.ID_KONTAK = kontak_indikator.ID_KONTAK AND kontak_indikator.ID_INDIKATOR=1');
+        return $query->result_array();
+    }
 }
