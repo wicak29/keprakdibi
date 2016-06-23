@@ -352,7 +352,7 @@
 
       echartLine.setOption({
         title: {
-          text: <?php echo '"GRAFIK KENDARAAN BULAN '.$periode.'",'?>
+          text: <?php echo '"GRAFIK KENDARAAN '.$nama_upt.' BULAN '.$periode.'",'?>
           subtext: ''
         },
         tooltip: {

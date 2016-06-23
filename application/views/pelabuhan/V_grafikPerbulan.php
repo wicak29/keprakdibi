@@ -389,7 +389,7 @@
 
       echartLine.setOption({
         title: {
-          text: "GRAFIK PELABUHAN BULAN PERTAHUN",
+          text: <?php echo '"Grafik Pelabuhan '.$nama_pelabuhan.' Bulan '.$periode.'",'; ?>
           subtext: ''
         },
         tooltip: {

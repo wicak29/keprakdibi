@@ -60,22 +60,17 @@ class C_filter extends CI_Controller
     {
         $data['title'] = "Grafik Pelabuhan Berdasarkan Bulan Pertahun";
         $data['pelabuhan'] = $this->M_filter->getListPelabuhan();
-        $periode = $this->input->post('bulan');
+        $data['periode'] = $this->input->post('bulan');
         $pelabuhan = $this->input->post('pelabuhan');
         $data['uraian'] = $this->input->post('uraian');
         $data['tahun'] = $this->input->post('tahun');
                 
         $data['jumlah_uraian'] = sizeof($data['uraian']);
         $data['jumlah_tahun'] = sizeof($data['tahun']);
+        $data['nama_pelabuhan'] = $this->M_filter->getNamaPelabuhanById($pelabuhan);
 
         if (!$data['tahun']) $data['tahun'] = array();
         if (!$data['uraian']) $data['uraian'] = array();
-        
-        
-        // print_r($pelabuhan);
-        // print_r($periode);
-        // print_r($data['tahun']);
-        // print_r($data['uraian']);
 
         $data['finalResult'] = array();
         foreach ($data['uraian'] as $i) 
@@ -91,7 +86,7 @@ class C_filter extends CI_Controller
 
             foreach ($data['tahun'] as $t) 
             {
-                $nilai = $this->M_filter->getNilaiByUraian($i, $t, $periode, $pelabuhan);
+                $nilai = $this->M_filter->getNilaiByUraian($i, $t, $data['periode'], $pelabuhan);
                 // print_r($nilai);
                 if ($nilai)
                 {
