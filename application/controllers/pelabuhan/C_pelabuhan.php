@@ -235,4 +235,75 @@ class C_pelabuhan extends CI_Controller
         $this->load->view('V_footerChartTable'); 
     }
 
+    public function deleteKontak($id)
+    {
+        $update = $this->M_pelabuhan->updateDataKontak($id);
+        $result = $this->M_pelabuhan->deleteKontak($id);
+        redirect('pelabuhan/viewLihatKontak');
+    }
+
+    public function viewLihatKontak()
+    {
+        $data['title'] = "Daftar Kontak APBD";
+        $data['list_kontak'] = $this->M_pelabuhan->getDetailKontak();
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('pelabuhan/V_topNavPelabuhan');
+        $this->load->view('pelabuhan/V_lihatKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function addKontakToPelabuhan()
+    {
+        $data['kontak'] = $this->input->post('id_kontak');
+        $result = $this->M_pelabuhan->addKontak($data['kontak']);
+        if ($result)
+        {
+            $this->session->set_flashdata('notif', 1);
+        }
+        else $this->session->set_flashdata('notif', 2);
+        redirect('pelabuhan/viewLihatKontak');
+    }
+
+    public function viewTambahKontak()
+    {
+        $data['title'] = "Tambah Kontak Pelabuhan";
+        $data['list_kontak'] = $this->M_pelabuhan->getKontakNotPelabuhan();
+
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('pelabuhan/V_topNavPelabuhan');
+        $this->load->view('pelabuhan/V_tambahKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function viewHapusKontak()
+    {
+        $data['title'] = "Hapus Kontak Pelabuhan";
+
+        $data['list'] = $this->M_pelabuhan->getDetailKontak();
+        // print_r($data['list']);
+        $this->load->view('V_head_table', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('pelabuhan/V_topNavPelabuhan');
+        $this->load->view('pelabuhan/V_hapusKontak');
+        $this->load->view('V_footer_table');
+    }
+
+    public function hapusKontakBanyak() 
+    {
+        $data = $this->input->post('data');
+        
+        for ($i=0; $i<sizeof($data); $i++)
+        {
+            $piece = explode("#", $data[$i]);
+            $id_kontak = $piece[0];
+            
+            $update = $this->M_pelabuhan->updateDataKontak($id_kontak);
+            $result = $this->M_pelabuhan->deleteKontak($id_kontak);
+        }
+        redirect('pelabuhan/viewLihatKontak');
+
+    }
+
 }

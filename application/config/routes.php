@@ -38,12 +38,13 @@
 |
 */
 
-// APBD
 $route['default_controller'] = "C_auth";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'C_auth';
 $route['home'] = 'C_home';
+
+// APBD
 $route['apbd'] = 'C_apbd';
 $route['apbd/filter'] = 'C_filter';
 $route['apbd/filter/(:any)'] = 'C_filter/$1';
