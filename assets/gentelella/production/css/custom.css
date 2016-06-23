@@ -4821,3 +4821,18 @@ ul.notifications {
 {
     text-align: center;
 }
+
+#sukses-hapus
+{
+    display: none;
+}
+
+#gagal-hapus
+{
+    display: none;
+}
+
+#warning-hapus
+{
+    display: none;
+}

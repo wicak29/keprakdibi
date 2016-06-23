@@ -155,24 +155,40 @@ class C_delete extends CI_Controller
        
         $data = $this->input->post('data');
         
-        for ($i=0; $i<sizeof($data); $i++){
+        //CEK KE SEMUA TABEL KONTAK ADA ATAU TIDAK
+        for ($i=0; $i<sizeof($data); $i++)
+        {
 
             $piece = explode("#", $data[$i]);
             $id_kontak = $piece[0];
-            $id_unknown = 1;
-            print_r($id_kontak);
 
-            $data = array(
-                'ID_KONTAK' => $id_unknown
-            );
-            print_r($data);
-            // return;
-            $this->M_delete->updateDataKontak($id_kontak, $data);
-            
-            $this->M_delete->deleteDataKontak($id_kontak);
-
+            $isExist = $this->M_delete->cekKontak($id_kontak);
+            if ($isExist)
+            {
+                $this->session->set_flashdata('notif', 3);
+                redirect('C_delete/viewDeleteDataKontak');
+                return;
+            }
         }
-        //print_r($data);
+
+        //HAPUS DATA SETELAH DI CEK
+        for ($i=0; $i<sizeof($data); $i++)
+        {
+
+            $piece = explode("#", $data[$i]);
+            $id_kontak = $piece[0];
+
+            $result1 = $this->M_delete->deleteKontakDiIndikator($id_kontak);
+            $result2 = $this->M_delete->deleteDataKontak($id_kontak);
+        }
+        if ($result1 && $result2)
+        {
+            $this->session->set_flashdata('notif', 1);
+        }
+        else
+        {
+            $this->session->set_flashdata('notif', 2);
+        }
         redirect('C_delete/viewDeleteDataKontak');
 
     }

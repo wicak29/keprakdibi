@@ -1,5 +1,19 @@
         <!-- page content -->
         <div class="right_col" role="main" style="margin-left: 0px;">
+          <!-- ALERTS -->
+          <div id="sukses-hapus" class="alert alert-success alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Berhasil!</strong> Kontak berhasil di hapus dari database!
+          </div>    
+          <div id="gagal-hapus" class="alert alert-danger alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal!</strong> Kontak gagal di hapus dari database!
+          </div>
+          <div id="warning-hapus" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Warning!</strong> Kontak menjadi PIC di Indikator, kontak tidak bisa dihapus!
+          </div>
+          <!-- END ALERTS -->
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
@@ -42,10 +56,6 @@
                             <td ><?php echo $r['EMAIL'] ?></td>
                             <td ><?php echo $r['ALAMAT'] ?></td>
                             <td ><?php echo $r['PREFERRED_CONTACT'] ?></td>
-                            
-                            
-                            <!-- <td ><?//php echo $r['NILAI'] ?></td> -->
-                            
                           </tr>
                         <?php } 
                       } ?>
@@ -96,4 +106,26 @@
       });
 
       </script>
+
+      <script type="text/javascript">
+        $(document).ready(function()
+        {
+          <?php if ($this->session->flashdata('notif')==1) 
+          { ?>
+            $('#sukses-hapus').show();
+            <?php
+          } 
+          else if ($this->session->flashdata('notif')==2)
+          { ?>
+            $('#gagal-hapus').show();
+            <?php
+          }
+          else if ($this->session->flashdata('notif')==3)
+          { ?>
+            $('#warning-hapus').show();
+            <?php
+          }
+          ?>
+        });
+        </script>
        

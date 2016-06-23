@@ -143,6 +143,7 @@ class M_delete extends CI_Model
         $this->db->where('ID_KONTAK', $id_kontak);
         $this->db->delete('data_apbd'); 
     }
+
     public function deleteDataAPBDP($id_daerah,$tahun)
     {
         //print_r($periode);
@@ -153,15 +154,52 @@ class M_delete extends CI_Model
         
         $this->db->delete('apbd'); 
     }
+
+    public function deleteKontakDiIndikator($id_kontak)
+    {
+        $this->db->where('ID_KONTAK', $id_kontak);
+        $result = $this->db->delete('kontak_indikator');  
+        return $result;
+    }
+
     public function deleteDataKontak($id_kontak)
     {
         $this->db->where('ID_KONTAK', $id_kontak);
-        $this->db->delete('kontak'); 
+        $result = $this->db->delete('kontak'); 
+        return $result;
     }
+
     public function updateDataKontak($id_kontak,$data)
     {
         $query = $this->db->query('UPDATE data_apbd SET id_kontak=1 WHERE id_kontak="'.$id_kontak.'"');
         return $query;
+    }
+
+    public function cekKontak($id)
+    {
+        $cek1 = $this->db->query('SELECT * FROM `data_apbd` WHERE ID_KONTAK="'.$id.'"');
+        if ($cek1->num_rows() > 0) return true;
+        else
+        {
+            $cek2 = $this->db->query('SELECT * FROM `data_kelistrikan` WHERE ID_KONTAK="'.$id.'"');
+            if ($cek2->num_rows() > 0) return true;
+            else
+            {
+                $cek3 = $this->db->query('SELECT * FROM `data_kendaraan` WHERE ID_KONTAK="'.$id.'"');
+                if ($cek3->num_rows() > 0) return true;
+                else
+                {
+                    $cek4 = $this->db->query('SELECT * FROM `data_pelabuhan` WHERE ID_KONTAK="'.$id.'"');
+                    if ($cek4->num_rows() > 0) return true;
+                    else
+                    {
+                        $cek5 = $this->db->query('SELECT * FROM `data_penerbangan` WHERE ID_KONTAK="'.$id.'"');
+                        if ($cek5->num_rows() > 0) return true;
+                        else return false;
+                    }
+                }
+            }
+        }
     }
 
 }
