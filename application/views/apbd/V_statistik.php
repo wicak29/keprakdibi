@@ -6,7 +6,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel" style="min-height:538px;">
           <div class="x_title">
-            <h2>Statistik</h2>
+            <h2>Grafik Kabupaten/Kota</h2>
             <div class="clearfix"></div>
           </div>
           <div class="x_content">

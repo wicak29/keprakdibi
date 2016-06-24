@@ -6,17 +6,17 @@
               <div class="col-md-12 col-sm-12 col-xs-12" style="margin-right:auto; margin-left:auto;float:none;">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h2>Cari Data Kendaraan</h2>
+                    <h2>Update Data Penerbangan</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>kendaraan/update" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="<?php echo base_url();?>kendaraan/C_update" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="row">
-                      <form action="<?php echo base_url();?>kendaraan/update/filterDataKendaraan/" method="post" enctype="multipart/form-data" class="form-inline">
+                      <form action="<?php echo base_url();?>penerbangan/C_update/filterDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                           <label for="ex3">Pilih Tahun : </label>
                 
@@ -60,45 +60,54 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Realisasi Kendaraan </h3>
+                       <h3 align="center">Update Data Penerbangan </h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <form action="<?php echo base_url();?>kendaraan/update/updateDataKendaraan/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>penerbangan/C_update/updateDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
                     <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>
-                          <th style="vertical-align: middle;text-align: center;">No.</th>
-                          <th style="vertical-align: middle;text-align: center;">Kode UPT</th>
-                          <th style="vertical-align: middle;text-align: center;">Nama UPT</th>
-                          <th style="vertical-align: middle;text-align: center;">Jenis</th>
-                          <th style="vertical-align: middle;text-align: center;">Jumlah</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">No.</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Entitas</th>
+                          <th colspan="3" style="vertical-align: middle;text-align: center;">Domestik</th>
+                          <th colspan="3" style="vertical-align: middle;text-align: center;">Internasional</th>
+                        </tr>
+                        <tr>
+                          <th style="vertical-align: middle;text-align: center;">Datang</th>
+                          <th style="vertical-align: middle;text-align: center;">Berangkat</th>
+                          <th style="vertical-align: middle;text-align: center;">Transit</th>
+                          <th style="vertical-align: middle;text-align: center;">Datang</th>
+                          <th style="vertical-align: middle;text-align: center;">Berangkat</th>
+                          <th style="vertical-align: middle;text-align: center;">Transit</th>
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
                          <?php 
                          $j=0;
                          $k=0;
-                         if(sizeof($kendaraan)==18){
-                         for($i=0; $i<18; $i++) { 
-                            if($k == 2){$k = 0;$j++;}
-                            $k++;?> 
+                         if(sizeof($penerbangan)==30){
+                         for($i=0; $i<5; $i++) { 
+                            ?> 
                           <tr>
                             <td ><?php echo $i+1 ?></td>
-                            <td ><?php echo $uraian[$j]['KODE_UPT'] ?></td>
-                            <td ><?php echo $uraian[$j]['NAMA_UPT'] ?></td>
-                            <td ><?php echo $kendaraan[$i]['JENIS'] ?></td>
-
+                            <td ><?php echo $list_entitas[$i]['NAMA_ENTITAS'] ?></td>
+                            <td ><input type="text" name="nilai1[]" value="<?php echo $penerbangan[$i*3]['NILAI'] ?>"></td>
+                            <td ><input type="text" name="nilai1[]" value="<?php echo $penerbangan[$i*3+1]['NILAI'] ?>"></td>
+                            <td ><input type="text" name="nilai1[]" value="<?php echo $penerbangan[$i*3+2]['NILAI'] ?>"></td>
+                            <td ><input type="text" name="nilai2[]" value="<?php echo $penerbangan[$i*3+15]['NILAI'] ?>"></td>
+                            <td ><input type="text" name="nilai2[]" value="<?php echo $penerbangan[$i*3+16]['NILAI'] ?>"></td>
+                            <td ><input type="text" name="nilai2[]" value="<?php echo $penerbangan[$i*3+17]['NILAI'] ?>"></td>
                             <!-- <td ><?php echo $kendaraan[$i]['NILAI'] ?></td> -->
-                            <td ><input type="text" name="nilai[]" value="<?php echo $kendaraan[$i]['NILAI'] ?>"></td>
-                            
+                            <!-- <td ><input type="text" name="nilai[]" value="<?php echo $kendaraan[$i]['NILAI'] ?>"></td>
+                             -->
                           </tr>
                          <?php } } ?>
                       </tbody>
                     </table>
-                    <?php if($kendaraan){ ?>
+                    <?php if($penerbangan){ ?>
                     <input type="submit" class="btn btn-warning" style="float:right;" value="Update"/>
                     <?php } ?>
                     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
@@ -108,7 +117,7 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel2">UPDATE DATA KENDARAAN</h4>
+                          <h4 class="modal-title" id="myModalLabel2">UPDATE DATA PENERBANGAN</h4>
                         </div>
                         <div class="modal-body">
                           <h4>Apakah Anda yakin ingin menghapus data yang dipilih?</h4>
