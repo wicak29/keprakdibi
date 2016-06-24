@@ -22,16 +22,16 @@ class C_penerbangan extends CI_Controller
     {
         $this->load->model('penerbangan/M_penerbangan');
 
-        $data['title'] = "Kendaraan";
+        $data['title'] = "Penerbangan";
 
         // $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
-        $data['list_pic'] = $this->M_kendaraan->getListPIC();
-        $data['list_data_kendaraan'] = $this->M_kendaraan->getListDataKendaraan();
+        $data['list_pic'] = $this->M_penerbangan->getListPIC();
+        $data['list_data_kendaraan'] = $this->M_penerbangan->getListDataKendaraan();
         if(!$data['list_data_kendaraan']) $data['list_data_kendaraan'] = array();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
-        $this->load->view('kendaraan/V_topNavKendaraan');
-        $this->load->view('kendaraan/V_index');
+        $this->load->view('penerbangan/V_topNavPenerbangan');
+        $this->load->view('penerbangan/V_index');
         $this->load->view('V_footer');
     }
 
