@@ -15,7 +15,7 @@
           <ul class="dropdown-menu">
             <li><a href="#">Rekap APBD</a></li>
             <li><a href="<?php echo base_url('penerbangan/C_delete/');?>">Hapus Data</a></li>
-            <!-- <li><a href="<?php echo base_url('kendaraan/C_update/');?>">Update Data</a></li> -->
+            <li><a href="<?php echo base_url('penerbangan/C_update/');?>">Update Data</a></li>
           </ul>
         </li>
         <!-- <li><a href="<?php echo base_url('kendaraan/C_filter/viewLihatGrafikBulan');?>">Grafik</a></li> -->

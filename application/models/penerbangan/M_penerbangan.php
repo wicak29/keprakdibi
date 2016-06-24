@@ -79,7 +79,7 @@ class M_penerbangan extends CI_Model
                     $rutedipakai = "Domestik";
                 }
                 elseif ($ruteawal==2) {
-                     $rutedipakai = "International";
+                     $rutedipakai = "Internasional";
                  } 
                 
                 $data = array(
