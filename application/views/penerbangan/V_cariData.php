@@ -94,6 +94,7 @@
                       </thead>
                       <tbody id="tabelApbd">
                          <?php 
+                         if(sizeof($penerbangan)==3){ 
                          for($i=0; $i<1; $i++) { 
                             ?> 
                           <tr>
@@ -105,7 +106,7 @@
                             <td ><?php echo $penerbangan[$i+1][$i+1]['NILAI'] ?></td>
                             <td ><?php echo $penerbangan[$i+2][$i+1]['NILAI'] ?></td>
                           </tr>
-                         <?php } ?>
+                         <?php }} ?>
                       </tbody>
                     </table>
                   </div>
