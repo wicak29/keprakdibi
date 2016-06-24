@@ -23,7 +23,7 @@ class C_update extends CI_Controller
         $data['bulan'] = "Bulan";
         $data['penerbangan'] = array();
         $data['uraian'] = array();
-        //$data['pelabuhan'] = $this->M_filter->getListPelabuhan();
+
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('penerbangan/V_topNavPenerbangan');
@@ -42,7 +42,7 @@ class C_update extends CI_Controller
         $data['bulan'] = $bulan;
 
         $data['list_entitas'] = $this->M_update->getEntitas();
-        //array_push($data['data_listrik'], $uraian);
+
         $data['penerbangan'] = $this->M_update->getListPenerbangan($tahun, $bulan);
 
         print_r($data['penerbangan']);
@@ -69,9 +69,6 @@ class C_update extends CI_Controller
         $nilai4 = $this->input->post('nilai4');
         $nilai5 = $this->input->post('nilai5');
         $nilai6 = $this->input->post('nilai6');
-
-        print_r($nilai1);
-        print_r($nilai2);
 
         $bulan = $this->session->flashdata('bulan');
         $tahun = $this->session->flashdata('tahun');
