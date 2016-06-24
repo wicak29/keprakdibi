@@ -18,15 +18,7 @@
                     <div class="row">
                       <form action="<?php echo base_url();?>penerbangan/filter/filterDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
-                          <label for="ex3">Pilih Entitas : </label>
-                          <select name="entitas" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
-                              <option value="" selected disabled>Pilih Entitas</option>
-                              <option value="Pesawat">Pesawat</option>
-                              <option value="Penumpang">Penumpang</option>
-                              <option value="Bagasi">Bagasi</option>
-                              <option value="Kargo">Kargo</option>
-                              <option value="Pos">Pos</option>
-                          </select>
+                          
                           <label for="ex3">Pilih Tahun : </label>
                 
                           <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
@@ -80,6 +72,7 @@
                       <thead>
                         <tr>
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">No.</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Entitas</th>
                           <th colspan="3" style="vertical-align: middle;text-align: center;">Domestik</th>
                           <th colspan="3" style="vertical-align: middle;text-align: center;">Internasional</th>
                         </tr>
@@ -94,19 +87,23 @@
                       </thead>
                       <tbody id="tabelApbd">
                          <?php 
-                         if(sizeof($penerbangan)==3){ 
-                         for($i=0; $i<1; $i++) { 
+                         $j=0;
+                         $k=0;
+                         if(sizeof($penerbangan)==30){
+                         for($i=0; $i<5; $i++) { 
                             ?> 
                           <tr>
                             <td ><?php echo $i+1 ?></td>
-                            <td ><?php echo $penerbangan[$i][$i]['NILAI'] ?></td>
-                            <td ><?php echo $penerbangan[$i+1][$i]['NILAI'] ?></td>
-                            <td ><?php echo $penerbangan[$i+2][$i]['NILAI'] ?></td>
-                            <td ><?php echo $penerbangan[$i][$i+1]['NILAI'] ?></td>
-                            <td ><?php echo $penerbangan[$i+1][$i+1]['NILAI'] ?></td>
-                            <td ><?php echo $penerbangan[$i+2][$i+1]['NILAI'] ?></td>
+                            <td ><?php echo $list_entitas[$i]['NAMA_ENTITAS'] ?></td>
+                            <td ><?php echo $penerbangan[$i*3]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i*3+1]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i*3+2]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i*3+15]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i*3+16]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i*3+17]['NILAI'] ?></td>
+                            
                           </tr>
-                         <?php }} ?>
+                         <?php } } ?>
                       </tbody>
                     </table>
                   </div>

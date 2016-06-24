@@ -13,7 +13,7 @@
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Rekap APBD</a></li>
+            <li><a href="#">Rekap Penerbangan</a></li>
             <li><a href="<?php echo base_url('penerbangan/hapus/');?>">Hapus Data</a></li>
             <li><a href="<?php echo base_url('penerbangan/update/');?>">Update Data</a></li>
           </ul>

@@ -9,18 +9,17 @@ class M_filter extends CI_Model
         $this->load->database();
     }
 
-    public function getIDEntitas($entitas){
-        $query = $this->db->query('SELECT ID_ENTITAS
+    public function getEntitas(){
+        $query = $this->db->query('SELECT DISTINCT NAMA_ENTITAS 
                                     FROM `entitas`
-                                    WHERE NAMA_ENTITAS = "'.$entitas.'"
                                   ');
         return $query->result_array(); 
     }
 
-    public function getDataPenerangan($id_entitas, $bulan, $tahun){
+    public function getListPenerbangan($tahun, $bulan){
         $query = $this->db->query('SELECT NILAI, RUTE 
                                     FROM `data_penerbangan`
-                                    WHERE BULAN = "'.$bulan.'" AND TAHUN = "'.$tahun.'" AND ID_ENTITAS = '.$id_entitas.'
+                                    WHERE BULAN = "'.$bulan.'" AND TAHUN = "'.$tahun.'"
                                     ');
         return $query->result_array(); 
     }

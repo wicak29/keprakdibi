@@ -43,17 +43,20 @@ class C_filter extends CI_Controller
         $data['bulan'] = $bulan;
         $data['entitas'] = $entitas;
 
-        $id_entitas = $this->M_filter->getIDEntitas($entitas);
-        $dataTemp = array();
-        for ($i=0; $i<sizeof($id_entitas); $i++){
-            $penerbangan = $this->M_filter->getDataPenerangan($id_entitas[$i]['ID_ENTITAS'], $bulan, $tahun);
-            if($penerbangan)
-                array_push($dataTemp, $penerbangan);
-        }
+        //$id_entitas = $this->M_filter->getIDEntitas($entitas);
+        // $dataTemp = array();
+        // for ($i=0; $i<sizeof($id_entitas); $i++){
+        //     $penerbangan = $this->M_filter->getDataPenerangan($id_entitas[$i]['ID_ENTITAS'], $bulan, $tahun);
+        //     if($penerbangan)
+        //         array_push($dataTemp, $penerbangan);
+        // }
+        $data['list_entitas'] = $this->M_filter->getEntitas();
+
+        $data['penerbangan'] = $this->M_filter->getListPenerbangan($tahun, $bulan);
 
         //print_r($dataTemp);
-        if(!$dataTemp) $dataTemp = array();
-        $data['penerbangan'] = $dataTemp;
+        //if(!$dataTemp) $dataTemp = array();
+        //$data['penerbangan'] = $dataTemp;
 
         //print_r($id_entitas);
         // $data['uraian'] = $this->M_filter->getUraianKendaraan();
