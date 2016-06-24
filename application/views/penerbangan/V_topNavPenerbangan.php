@@ -9,15 +9,15 @@
       <ul class="nav navbar-nav navbar-left">
         <li><h3 style="line-height:1.5; margin-right:10px; margin-left:-5px;font-weight: bold; color : #1ABB9C;"><a href="<?php echo base_url('penerbangan/C_penerbangan/');?>">PENERBANGAN</a></h3></li>
         <li><a href="<?php echo base_url('penerbangan/C_penerbangan/');?>">Import File</a></li>
-        <!-- <li><a href="<?php echo base_url('kendaraan/C_filter/');?>">Cari Data</a></li> -->
-         <!-- <li class="dropdown">
+        <li><a href="<?php echo base_url('penerbangan/C_filter/');?>">Cari Data</a></li>
+         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Rekap APBD</a></li>
-            <li><a href="<?php echo base_url('kendaraan/C_delete/');?>">Hapus Data</a></li>
-            <li><a href="<?php echo base_url('kendaraan/C_update/');?>">Update Data</a></li>
+            <li><a href="<?php echo base_url('penerbangan/C_delete/');?>">Hapus Data</a></li>
+            <!-- <li><a href="<?php echo base_url('kendaraan/C_update/');?>">Update Data</a></li> -->
           </ul>
-        </li> -->
+        </li>
         <!-- <li><a href="<?php echo base_url('kendaraan/C_filter/viewLihatGrafikBulan');?>">Grafik</a></li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
