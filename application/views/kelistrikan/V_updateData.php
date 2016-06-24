@@ -102,7 +102,7 @@
                       </tbody>
                     </table>
                     <?php if($data_listrik){ ?>
-                    <input type="submit" class="btn btn-warning" style="float:right;" value="Update"/>
+                    <button id="checkBtn" type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Update</button>
                     <?php } ?>
 
                     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">

@@ -9,14 +9,14 @@
                     <h2>Update Data Penerbangan</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>kendaraan/update" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="<?php echo base_url();?>kendaraan/C_update" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="row">
-                      <form action="<?php echo base_url();?>penerbangan/update/filterDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
+                      <form action="<?php echo base_url();?>penerbangan/C_update/filterDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                           <label for="ex3">Pilih Tahun : </label>
                 
@@ -66,7 +66,7 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <form action="<?php echo base_url();?>penerbangan/update/updateDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>penerbangan/C_update/updateDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
                     <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>
@@ -108,7 +108,7 @@
                       </tbody>
                     </table>
                     <?php if($penerbangan){ ?>
-                    <input type="submit" class="btn btn-warning" style="float:right;" value="Update"/>
+                    <button id="checkBtn" type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Update</button>
                     <?php } ?>
                     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-sm">
