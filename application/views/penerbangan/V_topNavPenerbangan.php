@@ -18,7 +18,7 @@
             <li><a href="<?php echo base_url('penerbangan/update/');?>">Update Data</a></li>
           </ul>
         </li>
-        <!-- <li><a href="<?php echo base_url('kendaraan/filter/viewLihatGrafikBulan');?>">Grafik</a></li> -->
+        <li><a href="<?php echo base_url('penerbangan/filter/viewLihatGrafikBulan');?>">Grafik</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kontak <span class="caret"></span></a>
           <ul class="dropdown-menu">
