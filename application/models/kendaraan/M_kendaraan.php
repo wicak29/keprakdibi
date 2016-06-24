@@ -97,4 +97,11 @@ class M_kendaraan extends CI_Model
         return $query;
     }
 
+    public function getNilaiPerBulan($id, $tahun, $bulan, $jenis)
+    {
+        $this->db->select('NILAI');
+        $result = $this->db->get_where('data_kendaraan', array('KODE_UPT'=>$id, 'TAHUN'=>$tahun, 'BULAN'=>$bulan, 'JENIS'=>$jenis));
+        return $result->result_array();
+    }
+
 }

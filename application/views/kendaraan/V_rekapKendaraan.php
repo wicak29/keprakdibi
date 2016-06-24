@@ -6,21 +6,21 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h2>Rekap Pelabuhan Pertahun</h2>
+                    <h2>Rekap Kendaraan Pertahun</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div>
-                      <form id="demo-form" action="<?php echo base_url();?>pelabuhan/viewRekapPelabuhan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                      <form id="demo-form" action="<?php echo base_url();?>kendaraan/viewRekapKendaraan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                         <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Pelabuhan :</label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama UPT :</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="pelabuhan" class="form-control" required="required">
-                              <option value="" selected disabled>Pilih Pelabuhan</option>
+                            <select name="upt" class="form-control" required="required">
+                              <option value="" selected disabled>Pilih UPT</option>
                               <?php
-                                foreach ($pelabuhan as $p) 
+                                foreach ($upt as $p) 
                                 {
-                                  echo '<option value="'.$p['ID_PELABUHAN'].'">'.$p['PELABUHAN'].'</option>';
+                                  echo '<option value="'.$p['KODE_UPT'].'">'.$p['NAMA_UPT'].'</option>';
                                 }
                               ?>
                             </select>
@@ -70,54 +70,67 @@
 
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in" id="tab-data" aria-labelledby="profile-tab">
-                          <h3 align="center">Rekapitulasi Pelabuhan <?php 
-                            if ($nama_pelabuhan) echo $nama_pelabuhan['PELABUHAN'];
-                            else echo "_"; ?> Tahun <?php echo $tahun;?></h3>
+                          <h3 align="center">Rekapitulasi Kendaraan Tahun <?php echo $tahun;?></h3>
                           <table class="table table-striped table-bordered datatable-buttons" style="width:100%;">
                             <thead>
                               <tr>
-                                <th rowspan="2" style="vertical-align: middle;text-align: center;">No</th>
-                                <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
-                                <th rowspan="2" style="vertical-align: middle;text-align: center;">Satuan</th>
+                                <th rowspan="2" style="vertical-align: middle;text-align: center;">KODE</th>
+                                <th rowspan="2" style="vertical-align: middle;text-align: center;">NAMA UPT</th>
+                                <th rowspan="2" style="vertical-align: middle;text-align: center;">JENIS</th>
                                 <th colspan="12" scope="colgroup" style="text-align: center;">Tahun <?php echo $tahun; ?></th>
                               </tr>
                               <tr>
-                                <th scope="col" style="text-align: center;">1</th>
-                                <th scope="col" style="text-align: center;">2</th>
-                                <th scope="col" style="text-align: center;">3</th>
-                                <th scope="col" style="text-align: center;">4</th>
-                                <th scope="col" style="text-align: center;">5</th>
-                                <th scope="col" style="text-align: center;">6</th>
-                                <th scope="col" style="text-align: center;">7</th>
-                                <th scope="col" style="text-align: center;">8</th>
-                                <th scope="col" style="text-align: center;">9</th>
-                                <th scope="col" style="text-align: center;">10</th>
-                                <th scope="col" style="text-align: center;">11</th>
-                                <th scope="col" style="text-align: center;">12</th>
+                                <th scope="col" style="text-align: center;">JAN</th>
+                                <th scope="col" style="text-align: center;">FEB</th>
+                                <th scope="col" style="text-align: center;">MAR</th>
+                                <th scope="col" style="text-align: center;">APR</th>
+                                <th scope="col" style="text-align: center;">MEI</th>
+                                <th scope="col" style="text-align: center;">JUN</th>
+                                <th scope="col" style="text-align: center;">JUL</th>
+                                <th scope="col" style="text-align: center;">AGU</th>
+                                <th scope="col" style="text-align: center;">SEP</th>
+                                <th scope="col" style="text-align: center;">OKT</th>
+                                <th scope="col" style="text-align: center;">NOV</th>
+                                <th scope="col" style="text-align: center;">DES</th>
                               </tr>
                             </thead>
                             <tbody id="tabelApbd">
-                              <?php 
-                                $no = 1;
-                                for ($r=0; $r<10; $r++) { ?>
+                              <?php foreach ($nilai_tabel as $i) { ?>
                                   <tr>
-                                    <td><?php echo $no; ?></td>
-                                    <td ><?php echo $nilai_tabel[$r][12]['JENIS_DATA']; ?></td>
-                                    <td ><?php echo $nilai_tabel[$r][12]['SATUAN']; ?></td>
-                                    <td ><?php echo $nilai_tabel[$r][0]; ?></td>
-                                    <td ><?php echo $nilai_tabel[$r][1];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][2];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][3];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][4];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][5];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][6];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][7];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][8];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][9];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][10];?></td>
-                                    <td ><?php echo $nilai_tabel[$r][11];?></td>
+                                    <td ><?php echo $i[12]['KODE_UPT']; ?></td>
+                                    <td ><?php echo $i[12]['NAMA_UPT']; ?></td>
+                                    <td >Sepeda motor dan sejenisnya</td>
+                                    <td ><?php echo $i[0][0]; ?></td>
+                                    <td ><?php echo $i[1][0]; ?></td>
+                                    <td ><?php echo $i[2][0]; ?></td>
+                                    <td ><?php echo $i[3][0]; ?></td>
+                                    <td ><?php echo $i[4][0]; ?></td>
+                                    <td ><?php echo $i[5][0]; ?></td>
+                                    <td ><?php echo $i[6][0]; ?></td>
+                                    <td ><?php echo $i[7][0]; ?></td>
+                                    <td ><?php echo $i[8][0]; ?></td>
+                                    <td ><?php echo $i[9][0]; ?></td>
+                                    <td ><?php echo $i[10][0]; ?></td>
+                                    <td ><?php echo $i[11][0]; ?></td>
                                   </tr>
-                              <?php $no++; } ?>
+                                  <tr>
+                                    <td ></td>
+                                    <td ></td>
+                                    <td>Mobil dan sejenisnya</td>
+                                    <td ><?php echo $i[0][1]; ?></td>
+                                    <td ><?php echo $i[1][1]; ?></td>
+                                    <td ><?php echo $i[2][1]; ?></td>
+                                    <td ><?php echo $i[3][1]; ?></td>
+                                    <td ><?php echo $i[4][1]; ?></td>
+                                    <td ><?php echo $i[5][1]; ?></td>
+                                    <td ><?php echo $i[6][1]; ?></td>
+                                    <td ><?php echo $i[7][1]; ?></td>
+                                    <td ><?php echo $i[8][1]; ?></td>
+                                    <td ><?php echo $i[9][1]; ?></td>
+                                    <td ><?php echo $i[10][1]; ?></td>
+                                    <td ><?php echo $i[11][1]; ?></td>
+                                  </tr>
+                              <?php  } ?>
                             </tbody>
                           </table>      
                         </div>
@@ -355,7 +368,7 @@
 
         echartLine.setOption({
           title: {
-            text: "GRAFIK REKAP PELABUHAN PERTAHUN",
+            text: <?php echo '"GRAFIK REKAP KENDARAAN '.$nama_upt.' TAHUN '.$tahun.'",'; ?>
             subtext: ''
           },
           tooltip: {

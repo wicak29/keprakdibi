@@ -155,6 +155,82 @@ class C_kendaraan extends CI_Controller
         redirect(base_url('kendaraan/'));
     }
 
+    public function viewRekapKendaraan()
+    {
+        $this->load->model('kendaraan/M_filter');
+        $data['tahun'] = $this->input->post('tahun');
+        $data['id_upt'] = $this->input->post('upt');
+        $bulan = array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+        
+        $jenis = array('Sepeda motor dan sejenisnya', 'Mobil dan sejenisnya');
+        $data['nilai_tabel'] = array();
+        
+        $data['upt'] = $this->M_filter->getUraianKendaraan();
+        if ($data['id_upt']) $data['nama_upt'] = $this->M_filter->getUptById($data['id_upt']);
+        // print_r($data['upt']);
+
+        foreach ($data['upt'] as $i)
+        {
+            $listNilaiBulan = array();
+            foreach ($bulan as $j)                
+            {
+                $nilaiJenis = array();
+                foreach ($jenis as $k) 
+                {
+                    $result = $this->M_kendaraan->getNilaiPerBulan($i['KODE_UPT'], $data['tahun'], $j, $k);
+                    if (!$result) $result=0;
+                    else $result = $result[0]['NILAI'];
+                    array_push($nilaiJenis, $result);
+                }
+                array_push($listNilaiBulan, $nilaiJenis);
+            }
+            array_push($listNilaiBulan, $i);
+            array_push($data['nilai_tabel'], $listNilaiBulan);
+        }
+        // print_r($data['nilai_tabel']);
+        //END LIST DATA PAD TABEL
+        
+        $data['finalResult'] = array();
+        foreach ($jenis as $i)
+        {
+            $data['listUraian'] = array();
+            $data['list_nilai']="";
+            array_push($data['listUraian'], $i);
+
+            $pos = 0;
+            foreach ($bulan as $d)
+            {
+                $nilai = $this->M_kendaraan->getNilaiPerBulan($data['id_upt'], $data['tahun'], $d, $i);
+                // print_r($nilai);
+                if ($nilai)
+                {
+                    if ($pos  != 11)
+                        $data['list_nilai'] .= $nilai[0]['NILAI'].",";
+                    else
+                        $data['list_nilai'] .= $nilai[0]['NILAI']."";
+                }
+                else
+                {
+                    if ($pos != 11)
+                        $data['list_nilai'] .= "0,";
+                    else
+                        $data['list_nilai'] .= "0";
+                }
+                $pos++;
+            }
+            array_push($data['listUraian'], $data['list_nilai']);
+            array_push($data['finalResult'], $data['listUraian']);
+        }        
+        // print_r($data['finalResult']);
+
+        $data['title'] = "Rekap Kendaraan";
+        $this->load->view('V_headChartTable', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('kendaraan/V_topNavKendaraan');
+        $this->load->view('kendaraan/V_rekapKendaraan');
+        $this->load->view('V_footerChartTable'); 
+    }
+
     public function deleteKontak($id)
     {
         $update = $this->M_kendaraan->updateDataKontak($id);
