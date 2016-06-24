@@ -4847,3 +4847,8 @@ ul.notifications {
 {
     color:#1ABB9C;
 }
+
+#echart_line
+{
+    overflow: auto;
+}

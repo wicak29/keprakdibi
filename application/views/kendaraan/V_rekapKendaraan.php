@@ -135,7 +135,7 @@
                           </table>      
                         </div>
 
-                        <div role="tabpanel" class="tab-pane fade active in" id="tab-grafik" aria-labelledby="profile-tab" >
+                        <div role="tabpanel" class="col-lg-12 col-sm-12 tab-pane fade active in" id="tab-grafik" aria-labelledby="profile-tab" >
                           <div id="echart_line" style="height:550px;" ></div>
                         </div>
                         <!-- END TAB PANEL -->
