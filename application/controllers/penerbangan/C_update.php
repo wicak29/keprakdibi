@@ -45,7 +45,7 @@ class C_update extends CI_Controller
 
         $data['penerbangan'] = $this->M_update->getListPenerbangan($tahun, $bulan);
 
-        print_r($data['penerbangan']);
+        //print_r($data['penerbangan']);
 
         $this->load->library('session');
         $this->session->set_flashdata('tahun',$tahun);
