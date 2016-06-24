@@ -24,10 +24,10 @@ class C_penerbangan extends CI_Controller
 
         $data['title'] = "Penerbangan";
 
-        // $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
+        $data['list_data_penerbangan'] = $this->M_penerbangan->getListDataPenerbangan();
         $data['list_pic'] = $this->M_penerbangan->getListPIC();
-        $data['list_data_kendaraan'] = $this->M_penerbangan->getListDataKendaraan();
-        if(!$data['list_data_kendaraan']) $data['list_data_kendaraan'] = array();
+        //$data['list_data_kendaraan'] = $this->M_penerbangan->getListDataKendaraan();
+        if(!$data['list_data_penerbangan']) $data['list_data_penerbangan'] = array();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
         $this->load->view('penerbangan/V_topNavPenerbangan');
@@ -90,10 +90,10 @@ class C_penerbangan extends CI_Controller
             }
             
         delete_files('./temp_upload/');
-        redirect(base_url('/kendaraan/C_kendaraan/'));
+        redirect(base_url('/penerbangan/C_penerbangan/'));
     }
 
-    public function insertDataKendaraan()
+    public function insertDataPenerbangan()
     {
         $fileName = time().$_FILES['file']['name'];
     
@@ -131,27 +131,31 @@ class C_penerbangan extends CI_Controller
         $highestColumn = $sheet->getHighestColumn();      
         $rowData = array();
 
-        $data_upt = $this->M_kendaraan->getDataUPT();
-
-        $ErrorHandling = $this->M_kendaraan->getKendaraanDataError($tahun, $periode);
-
-        $ind = 0;
-        $indHelp = 0;
+        // $data_upt = $this->M_kendaraan->getDataUPT();
+        //$data_identitas = $this->M_penerbangan->getIdEntitas();
+        
+        $ErrorHandling = $this->M_penerbangan->getPenerbanganDataError($tahun, $periode);
+        //print_r($entitas);
+        // $ind = 0;
+        // $indHelp = 0;
         if (empty($ErrorHandling)){
             //echo "wow";
-            for ($row = 7; $row <= $highestRow; $row++){
+            for ($row = 9; $row <= $highestRow; $row++){
                   //  Read a row of data into an array                 
                 $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
                                                 NULL,
                                                 TRUE,
                                                 FALSE);
                 
-                if($indHelp == 2){
-                    $indHelp = 0;
-                    $ind++;
-                }
-                $indHelp++;
-                $importFile = $this->M_kendaraan->tambahDataKendaraan($rowData, $periode, $tahun, $data_upt[$ind]['KODE_UPT'], $pic);
+                // if($indHelp == 2){
+                //     $indHelp = 0;
+                //     $ind++;
+                // }
+                // $indHelp++;
+                //print_r($entitas[$ind]);
+                $importFile = $this->M_penerbangan->tambahDataPenerbangan($rowData, $periode, $tahun, $pic);
+                
+
                 //print_r($ind);
             }
             if ($importFile){
@@ -165,9 +169,9 @@ class C_penerbangan extends CI_Controller
         elseif ($ErrorHandling) {
 
             $this->session->set_flashdata('notif', 3);
-        }
+         }
         delete_files('./temp_upload/');
-        redirect(base_url('kendaraan/C_kendaraan/'));
+        redirect(base_url('penerbangan/C_penerbangan/'));
     }
 
 }

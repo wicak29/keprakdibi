@@ -37,7 +37,7 @@
                         </li> -->
                         <li role="presentation" class="active"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab-datakendaraan" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Data Kendaraan</a>
+                        <li role="presentation" class=""><a href="#tab-datapenerbangan" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Data Penerbangan</a>
                         </li>
                         <!-- <li role="presentation" class=""><a href="#tab-kabupaten" role="tab" id="kabupaten-tab" data-toggle="tab" aria-expanded="false">Kabupaten/Kota</a>
                         </li> -->
@@ -45,8 +45,8 @@
 
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="tab-uraian" aria-labelledby="profile-tab">
-                          <form action="<?php echo base_url();?>kendaraan/C_kendaraan/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Data Uraian Kendaraan</h3>
+                          <form action="<?php echo base_url();?>penerbangan/C_penerbangan/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                            <h3>Data Uraian Penerbangan</h3>
                             <br>
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Pilih File <span class="required">*</span>
@@ -62,9 +62,9 @@
                               </div>
                           </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade in" id="tab-datakendaraan" aria-labelledby="home-tab">
-                          <form action="<?php echo base_url();?>kendaraan/C_kendaraan/insertDataKendaraan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data Kendaraan Baru Provinsi Bali</h3>
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-datapenerbangan" aria-labelledby="home-tab">
+                          <form action="<?php echo base_url();?>penerbangan/C_penerbangan/insertDataPenerbangan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                            <h3>Import Data Penerbangan Provinsi Bali</h3>
                             <br>
                             
 
@@ -148,7 +148,7 @@
                           <br>
                           <div class="ln_solid"></div>
                           <div>
-                            <h3>Data kendaraan yang Telah di Import</h3>
+                            <h3>Data Penerbangan yang Telah di Import</h3>
                             <table id="" class="table table-striped table-bordered">
                             <thead>
                               <tr>
@@ -162,7 +162,7 @@
                             <tbody id="tabelProvinsi">                        
                               <?php 
                                 $no=1;
-                                foreach ($list_data_kendaraan as $p) { ?>
+                                foreach ($list_data_penerbangan as $p) { ?>
                                 <tr>
                                   <td><?php echo $no?></td>
                                   <td ><?php echo $p['BULAN'] ?></td>
