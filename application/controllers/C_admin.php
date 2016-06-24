@@ -8,6 +8,18 @@ class C_admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_admin');
+
+        //AUTENTIKASI
+        $login = $this->session->userdata('username');
+        $var = $this->session->userdata;
+        if (!$login) 
+        {
+            redirect('C_auth');
+        }
+        elseif ($var['level']!="admin") 
+        {
+            redirect('home');
+        }
     }
 
     public function index()
