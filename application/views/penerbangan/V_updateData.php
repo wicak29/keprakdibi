@@ -107,7 +107,9 @@
                          <?php } } ?>
                       </tbody>
                     </table>
+                    <?php if($penerbangan){ ?>
                     <input type="submit" class="btn btn-warning" style="float:right;" value="Update"/>
+                    <?php } ?>
                   </form>
                   </div>
                 </div>

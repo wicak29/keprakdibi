@@ -107,7 +107,9 @@
                          <?php $i++;} ?>
                       </tbody>
                     </table>
+                    <?php if($hasil_filter){ ?>
                     <input type="submit" class="btn btn-warning" style="float:right;" value="Update"/>
+                    <?php } ?>
                   </form>
                   </div>
                 </div>
