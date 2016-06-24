@@ -70,7 +70,7 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Penerbangan </h3>
+                       <h3 align="center">Data Penerbangan Entitas <?php echo $entitas?></h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
@@ -94,21 +94,18 @@
                       </thead>
                       <tbody id="tabelApbd">
                          <?php 
-                         $j=0;
-                         $k=0;
-                         if(sizeof($penerbangan)==18){
-                         for($i=0; $i<18; $i++) { 
-                            if($k == 2){$k = 0;$j++;}
-                            $k++;?> 
+                         for($i=0; $i<1; $i++) { 
+                            ?> 
                           <tr>
                             <td ><?php echo $i+1 ?></td>
-                            <td ><?php echo $uraian[$j]['KODE_UPT'] ?></td>
-                            <td ><?php echo $uraian[$j]['NAMA_UPT'] ?></td>
-                            <td ><?php echo $kendaraan[$i]['JENIS'] ?></td>
-                            <td ><?php echo $kendaraan[$i]['NILAI'] ?></td>
-                            
+                            <td ><?php echo $penerbangan[$i][$i]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i+1][$i]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i+2][$i]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i][$i+1]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i+1][$i+1]['NILAI'] ?></td>
+                            <td ><?php echo $penerbangan[$i+2][$i+1]['NILAI'] ?></td>
                           </tr>
-                         <?php } } ?>
+                         <?php } ?>
                       </tbody>
                     </table>
                   </div>

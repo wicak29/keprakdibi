@@ -20,7 +20,7 @@ class M_filter extends CI_Model
     public function getDataPenerangan($id_entitas, $bulan, $tahun){
         $query = $this->db->query('SELECT NILAI, RUTE 
                                     FROM `data_penerbangan`
-                                    WHERE BULAN = "'.$bulan.'" AND TAHUN = "'.$tahun.'" AND ID_ENTITAS = "'.$id_entitas.'"
+                                    WHERE BULAN = "'.$bulan.'" AND TAHUN = "'.$tahun.'" AND ID_ENTITAS = '.$id_entitas.'
                                     ');
         return $query->result_array(); 
     }

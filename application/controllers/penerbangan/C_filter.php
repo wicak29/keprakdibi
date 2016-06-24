@@ -46,12 +46,14 @@ class C_filter extends CI_Controller
         $id_entitas = $this->M_filter->getIDEntitas($entitas);
         $dataTemp = array();
         for ($i=0; $i<sizeof($id_entitas); $i++){
-            $penerbangan = $this->M_filter->getDataPenerangan($id_entitas[$i], $bulan, $tahun);
-            array_push($dataTemp, $penerbangan);
+            $penerbangan = $this->M_filter->getDataPenerangan($id_entitas[$i]['ID_ENTITAS'], $bulan, $tahun);
+            if($penerbangan)
+                array_push($dataTemp, $penerbangan);
         }
 
-        print_r($dataTemp);
-
+        //print_r($dataTemp);
+        if(!$dataTemp) $dataTemp = array();
+        $data['penerbangan'] = $dataTemp;
 
         //print_r($id_entitas);
         // $data['uraian'] = $this->M_filter->getUraianKendaraan();
@@ -63,13 +65,11 @@ class C_filter extends CI_Controller
         //     $data['uraian'] = array();
         // }
 
-        
-    
-        // $this->load->view('V_head_table', $data);
-        // $this->load->view('V_sidebar');
-        // $this->load->view('penerbangan/V_topNavPenerbangan');
-        // $this->load->view('penerbangan/V_cariData');
-        // $this->load->view('V_footer_table');
+        $this->load->view('V_head_table', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('penerbangan/V_topNavPenerbangan');
+        $this->load->view('penerbangan/V_cariData');
+        $this->load->view('V_footer_table');
     }
 
     public function viewLihatGrafikBulan()
