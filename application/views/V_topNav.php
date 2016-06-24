@@ -45,6 +45,11 @@
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right" style="right: 0;">
+            <?php
+              if ($var['level']=="admin") 
+                { ?>
+                  <li><a href="<?php echo base_url('C_admin/');?>"><i class="fa fa-lock pull-right"></i> Ke Halaman Admin</a></li>
+            <?php } ?>
             <li><a href="<?php echo base_url('C_auth/logout');?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
             </li>
           </ul>

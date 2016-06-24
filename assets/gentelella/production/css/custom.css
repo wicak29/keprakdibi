@@ -4843,6 +4843,14 @@ ul.notifications {
     margin-bottom: 50px;
 }
 
+#sukses-update
+{
+    display: none;
+}
+#gagal-update
+{
+    display: none;
+}
 .icon-home:hover
 {
     color:#1ABB9C;

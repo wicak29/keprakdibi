@@ -7,7 +7,7 @@
         <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
       </div>
       <ul class="nav navbar-nav navbar-left">
-        <li><h3 style="line-height:1.5; margin-right:10px; margin-left:-5px;font-weight: bold; color : #1ABB9C;"><a href="<?php echo base_url('apbd');?>">KONTAK</a></h3></li>
+        <li><h3 style="line-height:1.5; margin-right:10px; margin-left:-5px;font-weight: bold; color : #1ABB9C;"><a href="<?php echo base_url('C_pic');?>">KONTAK</a></h3></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kontak <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -28,6 +28,11 @@
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right" style="right: 0;">
+            <?php
+              if ($var['level']=="admin") 
+                { ?>
+                  <li><a href="<?php echo base_url('C_admin/');?>"><i class="fa fa-lock pull-right"></i> Ke Halaman Admin</a></li>
+            <?php } ?>
             <li><a href="<?php echo base_url('C_auth/logout');?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
             </li>
           </ul>

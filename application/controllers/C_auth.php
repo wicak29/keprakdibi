@@ -18,7 +18,7 @@ class C_auth extends CI_Controller
         $valid = $this->isLogin();
         if ($valid)
         {
-            redirect('C_apbd/');
+            redirect('home/');
         }
 
         $this->load->view('V_head', $data);
@@ -35,7 +35,7 @@ class C_auth extends CI_Controller
     {
         if (isset($_SESSION['username'])) 
         {
-            redirect('C_apbd');
+            redirect('home/');
         }
         if ($_SERVER['REQUEST_METHOD']=='POST')
         {
