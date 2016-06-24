@@ -45,7 +45,7 @@
 
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="tab-uraian" aria-labelledby="profile-tab">
-                          <form action="<?php echo base_url();?>kendaraan/C_kendaraan/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                          <form action="<?php echo base_url();?>kendaraan/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data Uraian Kendaraan</h3>
                             <br>
                             <div class="form-group">
@@ -63,7 +63,7 @@
                           </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="tab-datakendaraan" aria-labelledby="home-tab">
-                          <form action="<?php echo base_url();?>kendaraan/C_kendaraan/insertDataKendaraan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                          <form action="<?php echo base_url();?>kendaraan/insertDataKendaraan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Import Data Kendaraan Baru Provinsi Bali</h3>
                             <br>
                             

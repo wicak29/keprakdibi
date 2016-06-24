@@ -79,5 +79,15 @@ $route['kelistrikan/hapus/(:any)'] = 'kelistrikan/C_delete/$1';
 $route['kelistrikan/update'] = 'kelistrikan/C_update';
 $route['kelistrikan/update/(:any)'] = 'kelistrikan/C_update/$1';
 $route['kelistrikan/(:any)'] = 'kelistrikan/C_kelistrikan/$1';
+
+//KENDARAAN
+$route['kendaraan'] = 'kendaraan/C_kendaraan';
+$route['kendaraan/filter'] = 'kendaraan/C_filter';
+$route['kendaraan/filter/(:any)'] = 'kendaraan/C_filter/$1';
+$route['kendaraan/hapus'] = 'kendaraan/C_delete';
+$route['kendaraan/hapus/(:any)'] = 'kendaraan/C_delete/$1';
+$route['kendaraan/update'] = 'kendaraan/C_update';
+$route['kendaraan/update/(:any)'] = 'kendaraan/C_update/$1';
+$route['kendaraan/(:any)'] = 'kendaraan/C_kendaraan/$1';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

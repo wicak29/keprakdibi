@@ -14,7 +14,7 @@ class C_kendaraan extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -35,21 +35,6 @@ class C_kendaraan extends CI_Controller
         $this->load->view('V_footer');
     }
 
-    // public function viewImportExcel()
-    // {
-    //     $this->load->model('kelistrikan/M_kelistrikan');
-
-    //     $data['title'] = "Kelistrikan";
-
-    //     // $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
-    //     $data['list_pic'] = $this->M_kelistrikan->getListPIC();
-    //     $data['list_data_kelistrikan'] = $this->M_kelistrikan->getListDataKelistrikan();
-    //     $this->load->view('V_head', $data);
-    //     $this->load->view('V_sidebar');
-    //     $this->load->view('kelistrikan/V_topNavKelistrikan');
-    //     $this->load->view('kelistrikan/V_index');
-    //     $this->load->view('V_footer');
-    // }
     public function insertUraian()
     {
         $fileName = time().$_FILES['file']['name'];
@@ -90,7 +75,7 @@ class C_kendaraan extends CI_Controller
             }
             
         delete_files('./temp_upload/');
-        redirect(base_url('/kendaraan/C_kendaraan/'));
+        redirect(base_url('/kendaraan/'));
     }
 
     public function insertDataKendaraan()
@@ -167,7 +152,78 @@ class C_kendaraan extends CI_Controller
             $this->session->set_flashdata('notif', 3);
         }
         delete_files('./temp_upload/');
-        redirect(base_url('kendaraan/C_kendaraan/'));
+        redirect(base_url('kendaraan/'));
+    }
+
+    public function deleteKontak($id)
+    {
+        $update = $this->M_kendaraan->updateDataKontak($id);
+        $result = $this->M_kendaraan->deleteKontak($id);
+        redirect('kendaraan/viewLihatKontak');
+    }
+
+    public function viewLihatKontak()
+    {
+        $data['title'] = "Daftar Kontak Kendaraan";
+        $data['list_kontak'] = $this->M_kendaraan->getDetailKontak();
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('kendaraan/V_topNavKendaraan');
+        $this->load->view('kendaraan/V_lihatKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function addKontakToKendaraan()
+    {
+        $data['kontak'] = $this->input->post('id_kontak');
+        $result = $this->M_kendaraan->addKontak($data['kontak']);
+        if ($result)
+        {
+            $this->session->set_flashdata('notif', 1);
+        }
+        else $this->session->set_flashdata('notif', 2);
+        redirect('kendaraan/viewLihatKontak');
+    }
+
+    public function viewTambahKontak()
+    {
+        $data['title'] = "Tambah Kontak Kendaraan";
+        $data['list_kontak'] = $this->M_kendaraan->getKontakNotKendaraan();
+
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('kendaraan/V_topNavKendaraan');
+        $this->load->view('kendaraan/V_tambahKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function viewHapusKontak()
+    {
+        $data['title'] = "Hapus Kontak Kendaraan";
+
+        $data['list'] = $this->M_kendaraan->getDetailKontak();
+        // print_r($data['list']);
+        $this->load->view('V_head_table', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('kendaraan/V_topNavKendaraan');
+        $this->load->view('kendaraan/V_hapusKontak');
+        $this->load->view('V_footer_table');
+    }
+
+    public function hapusKontakBanyak() 
+    {
+        $data = $this->input->post('data');
+        
+        for ($i=0; $i<sizeof($data); $i++)
+        {
+            $piece = explode("#", $data[$i]);
+            $id_kontak = $piece[0];
+            
+            $update = $this->M_kendaraan->updateDataKontak($id_kontak);
+            $result = $this->M_kendaraan->deleteKontak($id_kontak);
+        }
+        redirect('kendaraan/viewLihatKontak');
+
     }
 
 }

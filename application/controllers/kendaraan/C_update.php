@@ -12,7 +12,7 @@ class C_update extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -117,7 +117,7 @@ class C_update extends CI_Controller
         }
 
         
-       redirect(base_url('kendaraan/C_update/'));
+       redirect(base_url('kendaraan/update/'));
     }
 
     public function viewLihatGrafikBulan()

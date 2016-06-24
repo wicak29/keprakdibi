@@ -11,7 +11,7 @@
           </div>
           <div class="x_content">
             <div style="margin-bottom:50px;">
-              <form id="demo-form" action="<?php echo base_url();?>kendaraan/C_filter/viewLihatGrafikBulan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+              <form id="demo-form" action="<?php echo base_url();?>kendaraan/filter/viewLihatGrafikBulan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12">Aspek :</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">

@@ -12,7 +12,7 @@ class C_delete extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -72,7 +72,7 @@ class C_delete extends CI_Controller
 
         }
         //print_r($data);
-        redirect('kendaraan/C_delete/');
+        redirect('kendaraan/hapus/');
 
     }
 
