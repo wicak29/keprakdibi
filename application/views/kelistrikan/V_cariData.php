@@ -7,16 +7,11 @@
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
                     <h2>Cari Data Kelistrikan</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li>
-                        <a href="<?php echo base_url();?>pelabuhan/C_filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
-                      </li>
-                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="row">
-                      <form action="<?php echo base_url();?>kelistrikan/C_filter/filterDataKelistrikan/" method="post" enctype="multipart/form-data" class="form-inline">
+                      <form action="<?php echo base_url();?>kelistrikan/filter/filterDataKelistrikan/" method="post" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                           <label for="ex3">Pilih Tahun : </label>
                 

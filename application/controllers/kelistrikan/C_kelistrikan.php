@@ -14,7 +14,7 @@ class C_kelistrikan extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -24,7 +24,6 @@ class C_kelistrikan extends CI_Controller
 
         $data['title'] = "Kelistrikan";
 
-        // $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
         $data['list_pic'] = $this->M_kelistrikan->getListPIC();
         $data['list_data_kelistrikan'] = $this->M_kelistrikan->getListDataKelistrikan();
         $this->load->view('V_head', $data);
@@ -40,7 +39,6 @@ class C_kelistrikan extends CI_Controller
 
         $data['title'] = "Kelistrikan";
 
-        // $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
         $data['list_pic'] = $this->M_kelistrikan->getListPIC();
         $data['list_data_kelistrikan'] = $this->M_kelistrikan->getListDataKelistrikan();
         $this->load->view('V_head', $data);
@@ -91,7 +89,7 @@ class C_kelistrikan extends CI_Controller
             }
             
         delete_files('./temp_upload/');
-        redirect(base_url('/kelistrikan/C_kelistrikan/viewImportExcel'));
+        redirect(base_url('/kelistrikan/viewImportExcel'));
     }
 
     public function insertDataKelistrikan()
@@ -108,8 +106,7 @@ class C_kelistrikan extends CI_Controller
         
         $tahun = $this->input->post('tahun');
         $periode = $this->input->post('bulan');
-        // $pelabuhan = $this->input->post('id_pelabuhan');
-        //$daerah = 1;
+       
         $pic = $this->input->post('id_kontak');
          
         if(! $this->upload->do_upload('file') )
@@ -158,7 +155,78 @@ class C_kelistrikan extends CI_Controller
             $this->session->set_flashdata('notif', 3);
         }
         delete_files('./temp_upload/');
-        redirect(base_url('kelistrikan/C_kelistrikan/viewImportExcel'));
+        redirect(base_url('kelistrikan/viewImportExcel'));
+    }
+
+    public function deleteKontak($id)
+    {
+        $update = $this->M_kelistrikan->updateDataKontak($id);
+        $result = $this->M_kelistrikan->deleteKontak($id);
+        redirect('kelistrikan/viewLihatKontak');
+    }
+
+    public function viewLihatKontak()
+    {
+        $data['title'] = "Daftar Kontak Kelistrikan";
+        $data['list_kontak'] = $this->M_kelistrikan->getDetailKontak();
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('kelistrikan/V_topNavKelistrikan');
+        $this->load->view('kelistrikan/V_lihatKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function addKontakToKelistrikan()
+    {
+        $data['kontak'] = $this->input->post('id_kontak');
+        $result = $this->M_kelistrikan->addKontak($data['kontak']);
+        if ($result)
+        {
+            $this->session->set_flashdata('notif', 1);
+        }
+        else $this->session->set_flashdata('notif', 2);
+        redirect('kelistrikan/viewLihatKontak');
+    }
+
+    public function viewTambahKontak()
+    {
+        $data['title'] = "Tambah Kontak Kelistrikan";
+        $data['list_kontak'] = $this->M_kelistrikan->getKontakNotKelistrikan();
+
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('kelistrikan/V_topNavKelistrikan');
+        $this->load->view('kelistrikan/V_tambahKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function viewHapusKontak()
+    {
+        $data['title'] = "Hapus Kontak Kelistrikan";
+
+        $data['list'] = $this->M_kelistrikan->getDetailKontak();
+        // print_r($data['list']);
+        $this->load->view('V_head_table', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('kelistrikan/V_topNavKelistrikan');
+        $this->load->view('kelistrikan/V_hapusKontak');
+        $this->load->view('V_footer_table');
+    }
+
+    public function hapusKontakBanyak() 
+    {
+        $data = $this->input->post('data');
+        
+        for ($i=0; $i<sizeof($data); $i++)
+        {
+            $piece = explode("#", $data[$i]);
+            $id_kontak = $piece[0];
+            
+            $update = $this->M_kelistrikan->updateDataKontak($id_kontak);
+            $result = $this->M_kelistrikan->deleteKontak($id_kontak);
+        }
+        redirect('kelistrikan/viewLihatKontak');
+
     }
 
 }

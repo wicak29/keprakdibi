@@ -22,18 +22,6 @@ class M_kelistrikan extends CI_Model
         //echo $data['dump'];
     }
 
-    // public function getNamaPelabuhanById($id)
-    // {
-    //     $this->db->select('PELABUHAN');
-    //     $result = $this->db->get_where('pelabuhan',array('ID_PELABUHAN'=>$id))->row_array();
-    //     return $result;
-    // }
-
-    // public function getListPelabuhan()
-    // {
-    //     $query = $this->db->query('SELECT ID_PELABUHAN, PELABUHAN FROM `pelabuhan`');
-    //     return $query->result_array();
-    // }
 
     public function getListPIC()
     {
@@ -71,6 +59,41 @@ class M_kelistrikan extends CI_Model
         $query = $this->db->query('SELECT DISTINCT data_kelistrikan.BULAN as BULAN, data_kelistrikan.TAHUN as TAHUN, kontak.NAMA_INSTANSI as NAMA_INSTANSI, kontak.PIC as PIC FROM `data_kelistrikan`,`kontak` 
             WHERE data_kelistrikan.ID_KONTAK=kontak.ID_KONTAK');
         return $query->result_array();
+    }
+
+    public function getDetailKontak()
+    {
+        $result = $this->db->query('SELECT * FROM `kontak`, indikator, kontak_indikator WHERE indikator.ID_INDIKATOR = 3 AND kontak_indikator.ID_INDIKATOR = indikator.ID_INDIKATOR AND kontak_indikator.ID_KONTAK = kontak.ID_KONTAK');
+        return $result->result_array();
+    }
+
+    public function getKontakNotKelistrikan()
+    {
+        $result = $this->db->query('SELECT * FROM kontak WHERE kontak.ID_KONTAK NOT IN (SELECT kontak_indikator.ID_KONTAK FROM kontak, indikator, kontak_indikator WHERE indikator.ID_INDIKATOR =3 AND indikator.ID_INDIKATOR = kontak_indikator.ID_INDIKATOR AND kontak_indikator.ID_KONTAK = kontak_indikator.ID_KONTAK)');
+        return $result->result_array();
+    }
+
+    public function deleteKontak($id)
+    {
+        $this->db->where('ID_KONTAK', $id);
+        $this->db->where('ID_INDIKATOR', 3);
+        $this->db->delete('kontak_indikator'); 
+    }
+
+    public function updateDataKontak($id_kontak)
+    {
+        $query = $this->db->query('UPDATE data_kelistrikan SET id_kontak=1 WHERE id_kontak="'.$id_kontak.'"');
+        return $query;
+    }
+
+    public function addKontak($id)
+    {
+        $data = array(
+                'ID_KONTAK'=>$id,
+                'ID_INDIKATOR'=>3
+            );
+        $query = $this->db->insert('kontak_indikator', $data);
+        return $query;
     }
 
 }

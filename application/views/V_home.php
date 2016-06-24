@@ -53,7 +53,7 @@
                         </table>    
                     </div>
                     <div class="row">
-                      <a href="<?php echo base_url('apbd/');?>">
+                      <a href="<?php echo base_url('apbd/');?>" class="icon-home">
                         <div class="animated flipInY col-lg-2 col-md-2 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 widget_tally_box">
                         <div class="x_panel">
                           <div class="x_content">
@@ -68,7 +68,7 @@
                         </div>
                       </div>
                       </a>
-                      <a href="<?php echo base_url('pelabuhan/');?>">
+                      <a href="<?php echo base_url('pelabuhan/');?>" class="icon-home">
                         <div class="col-md-2 col-xs-12 widget_tally_box">
                         <div class="x_panel">
                           <div class="x_content">
@@ -83,7 +83,7 @@
                         </div>
                       </div>
                       </a>
-                      <a href="<?php echo base_url('kelistrikkan/');?>">
+                      <a href="<?php echo base_url('kelistrikkan/');?>" class="icon-home">
                         <div class="col-md-2 col-xs-12 widget_tally_box">
                         <div class="x_panel">
                           <div class="x_content">
@@ -98,7 +98,7 @@
                         </div>
                       </div>
                       </a>
-                      <a href="<?php echo base_url('kendaraan/');?>">
+                      <a href="<?php echo base_url('kendaraan/');?>" class="icon-home">
                         <div class="col-md-2 col-xs-12 widget_tally_box">
                         <div class="x_panel">
                           <div class="x_content">
@@ -113,7 +113,7 @@
                         </div>
                       </div>
                       </a>
-                      <a href="<?php echo base_url('penerbangan/');?>">
+                      <a href="<?php echo base_url('penerbangan/');?>" class="icon-home">
                         <div class="col-md-2 col-xs-12 widget_tally_box">
                         <div class="x_panel">
                           <div class="x_content">

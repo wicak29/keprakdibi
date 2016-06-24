@@ -4842,3 +4842,8 @@ ul.notifications {
     text-align: center;
     margin-bottom: 50px;
 }
+
+.icon-home:hover
+{
+    color:#1ABB9C;
+}

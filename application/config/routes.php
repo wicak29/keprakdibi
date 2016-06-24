@@ -74,5 +74,10 @@ $route['pelabuhan/(:any)'] = 'pelabuhan/C_pelabuhan/$1';
 $route['kelistrikan'] = 'kelistrikan/C_kelistrikan';
 $route['kelistrikan/filter'] = 'kelistrikan/C_filter';
 $route['kelistrikan/filter/(:any)'] = 'kelistrikan/C_filter/$1';
+$route['kelistrikan/hapus'] = 'kelistrikan/C_delete';
+$route['kelistrikan/hapus/(:any)'] = 'kelistrikan/C_delete/$1';
+$route['kelistrikan/update'] = 'kelistrikan/C_update';
+$route['kelistrikan/update/(:any)'] = 'kelistrikan/C_update/$1';
+$route['kelistrikan/(:any)'] = 'kelistrikan/C_kelistrikan/$1';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
