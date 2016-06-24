@@ -97,7 +97,7 @@ class C_update extends CI_Controller
             $this->M_update->updateNilai($i+1, $rute, $tahun, $bulan, $update);
         }
  
-        redirect(base_url('penerbangan/C_update/'));
+        redirect(base_url('penerbangan/update/'));
     }
 
 }

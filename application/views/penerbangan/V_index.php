@@ -45,7 +45,7 @@
 
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="tab-uraian" aria-labelledby="profile-tab">
-                          <form action="<?php echo base_url();?>penerbangan/C_penerbangan/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                          <form action="<?php echo base_url();?>penerbangan/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data Uraian Penerbangan</h3>
                             <br>
                             <div class="form-group">
@@ -63,7 +63,7 @@
                           </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="tab-datapenerbangan" aria-labelledby="home-tab">
-                          <form action="<?php echo base_url();?>penerbangan/C_penerbangan/insertDataPenerbangan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                          <form action="<?php echo base_url();?>penerbangan/insertDataPenerbangan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Import Data Penerbangan Provinsi Bali</h3>
                             <br>
                             

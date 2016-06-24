@@ -16,7 +16,7 @@
                   </div>
                   <div class="x_content">
                     <div class="row">
-                      <form action="<?php echo base_url();?>penerbangan/C_filter/filterDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
+                      <form action="<?php echo base_url();?>penerbangan/filter/filterDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                           <label for="ex3">Pilih Entitas : </label>
                           <select name="entitas" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">

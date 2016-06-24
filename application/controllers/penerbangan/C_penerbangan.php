@@ -90,7 +90,7 @@ class C_penerbangan extends CI_Controller
             }
             
         delete_files('./temp_upload/');
-        redirect(base_url('/penerbangan/C_penerbangan/'));
+        redirect(base_url('/penerbangan/'));
     }
 
     public function insertDataPenerbangan()
@@ -171,7 +171,7 @@ class C_penerbangan extends CI_Controller
             $this->session->set_flashdata('notif', 3);
          }
         delete_files('./temp_upload/');
-        redirect(base_url('penerbangan/C_penerbangan/'));
+        redirect(base_url('penerbangan/'));
     }
 
     public function deleteKontak($id)

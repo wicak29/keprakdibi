@@ -72,7 +72,7 @@ class C_delete extends CI_Controller
 
         }
         //print_r($data);
-        redirect('penerbangan/C_delete/');
+        redirect('penerbangan/hapus/');
 
     }
 

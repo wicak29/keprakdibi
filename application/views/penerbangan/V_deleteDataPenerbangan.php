@@ -10,7 +10,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>penerbangan/C_delete/filterHapusDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>penerbangan/hapus/filterHapusDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
                       <div class="form-group">
                        
                       </div>
@@ -20,7 +20,7 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <form action="<?php echo base_url();?>penerbangan/C_delete/deleteDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>penerbangan/hapus/deleteDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
