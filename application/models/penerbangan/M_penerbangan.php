@@ -109,4 +109,40 @@ class M_penerbangan extends CI_Model
         return $query->result_array();
     }
 
+    public function getDetailKontak()
+    {
+        $result = $this->db->query('SELECT * FROM `kontak`, indikator, kontak_indikator WHERE indikator.ID_INDIKATOR = 5 AND kontak_indikator.ID_INDIKATOR = indikator.ID_INDIKATOR AND kontak_indikator.ID_KONTAK = kontak.ID_KONTAK');
+        return $result->result_array();
+    }
+
+    public function getKontakNotPenerbangan()
+    {
+        $result = $this->db->query('SELECT * FROM kontak WHERE kontak.ID_KONTAK NOT IN (SELECT kontak_indikator.ID_KONTAK FROM kontak, indikator, kontak_indikator WHERE indikator.ID_INDIKATOR =5 AND indikator.ID_INDIKATOR = kontak_indikator.ID_INDIKATOR AND kontak_indikator.ID_KONTAK = kontak_indikator.ID_KONTAK)');
+        return $result->result_array();
+    }
+
+    public function deleteKontak($id)
+    {
+        $this->db->where('ID_KONTAK', $id);
+        $this->db->where('ID_INDIKATOR', 5);
+        $this->db->delete('kontak_indikator'); 
+    }
+
+    public function updateDataKontak($id_kontak)
+    {
+        $query = $this->db->query('UPDATE data_penerbangan SET id_kontak=1 WHERE id_kontak="'.$id_kontak.'"');
+        return $query;
+    }
+
+    public function addKontak($id)
+    {
+        $data = array(
+                'ID_KONTAK'=>$id,
+                'ID_INDIKATOR'=>5
+            );
+        $query = $this->db->insert('kontak_indikator', $data);
+        return $query;
+    }
+
+
 }

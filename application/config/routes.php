@@ -69,7 +69,6 @@ $route['pelabuhan/update'] = 'pelabuhan/C_update';
 $route['pelabuhan/update/(:any)'] = 'pelabuhan/C_update/$1';
 $route['pelabuhan/(:any)'] = 'pelabuhan/C_pelabuhan/$1';
 
-
 //KELISTRIKAN
 $route['kelistrikan'] = 'kelistrikan/C_kelistrikan';
 $route['kelistrikan/filter'] = 'kelistrikan/C_filter';
@@ -89,5 +88,15 @@ $route['kendaraan/hapus/(:any)'] = 'kendaraan/C_delete/$1';
 $route['kendaraan/update'] = 'kendaraan/C_update';
 $route['kendaraan/update/(:any)'] = 'kendaraan/C_update/$1';
 $route['kendaraan/(:any)'] = 'kendaraan/C_kendaraan/$1';
+
+//PENERBANGAN
+$route['penerbangan'] = 'penerbangan/C_penerbangan';
+$route['penerbangan/filter'] = 'penerbangan/C_filter';
+$route['penerbangan/filter/(:any)'] = 'penerbangan/C_filter/$1';
+$route['penerbangan/hapus'] = 'penerbangan/C_delete';
+$route['penerbangan/hapus/(:any)'] = 'penerbangan/C_delete/$1';
+$route['penerbangan/update'] = 'penerbangan/C_update';
+$route['penerbangan/update/(:any)'] = 'penerbangan/C_update/$1';
+$route['penerbangan/(:any)'] = 'penerbangan/C_penerbangan/$1';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

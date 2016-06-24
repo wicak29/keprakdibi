@@ -14,7 +14,7 @@ class C_penerbangan extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -173,5 +173,77 @@ class C_penerbangan extends CI_Controller
         delete_files('./temp_upload/');
         redirect(base_url('penerbangan/C_penerbangan/'));
     }
+
+    public function deleteKontak($id)
+    {
+        $update = $this->M_penerbangan->updateDataKontak($id);
+        $result = $this->M_penerbangan->deleteKontak($id);
+        redirect('penerbangan/viewLihatKontak');
+    }
+
+    public function viewLihatKontak()
+    {
+        $data['title'] = "Daftar Kontak APBD";
+        $data['list_kontak'] = $this->M_penerbangan->getDetailKontak();
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('penerbangan/V_topNavPenerbangan');
+        $this->load->view('penerbangan/V_lihatKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function addKontakToPenerbangan()
+    {
+        $data['kontak'] = $this->input->post('id_kontak');
+        $result = $this->M_penerbangan->addKontak($data['kontak']);
+        if ($result)
+        {
+            $this->session->set_flashdata('notif', 1);
+        }
+        else $this->session->set_flashdata('notif', 2);
+        redirect('penerbangan/viewLihatKontak');
+    }
+
+    public function viewTambahKontak()
+    {
+        $data['title'] = "Tambah Kontak Penerbangan";
+        $data['list_kontak'] = $this->M_penerbangan->getKontakNotPenerbangan();
+
+        $this->load->view('V_head', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('penerbangan/V_topNavPenerbangan');
+        $this->load->view('penerbangan/V_tambahKontak');
+        $this->load->view('V_footer');
+    }
+
+    public function viewHapusKontak()
+    {
+        $data['title'] = "Hapus Kontak Penerbangan";
+
+        $data['list'] = $this->M_penerbangan->getDetailKontak();
+        // print_r($data['list']);
+        $this->load->view('V_head_table', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('penerbangan/V_topNavPenerbangan');
+        $this->load->view('penerbangan/V_hapusKontak');
+        $this->load->view('V_footer_table');
+    }
+
+    public function hapusKontakBanyak() 
+    {
+        $data = $this->input->post('data');
+        
+        for ($i=0; $i<sizeof($data); $i++)
+        {
+            $piece = explode("#", $data[$i]);
+            $id_kontak = $piece[0];
+            
+            $update = $this->M_penerbangan->updateDataKontak($id_kontak);
+            $result = $this->M_penerbangan->deleteKontak($id_kontak);
+        }
+        redirect('penerbangan/viewLihatKontak');
+
+    }
+
 
 }

@@ -19,6 +19,14 @@
           </ul>
         </li>
         <!-- <li><a href="<?php echo base_url('kendaraan/C_filter/viewLihatGrafikBulan');?>">Grafik</a></li> -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kontak <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo base_url('penerbangan/viewLihatKontak');?>">Lihat Kontak Penerbangan</a></li>
+            <li><a href="<?php echo base_url('penerbangan/viewTambahKontak');?>">Tambah Kontak Penerbangan </a></li>
+            <li><a href="<?php echo base_url('penerbangan/viewHapusKontak');?>">Hapus Kontak Penerbangan </a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">
