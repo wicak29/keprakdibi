@@ -100,15 +100,16 @@
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
-                        <?php foreach ($uraian as $r) { ?>
+                        <?php if(sizeof($uraian)==41){
+                        for ($r=0; $r<41; $r++) { ?>
                           <tr>
-                            <td ><?php echo $r['URAIAN'] ?></td>
-                            <td ><?php echo $r['APBD'] ?></td>
-                            <td ><?php echo $r['APBD_P'] ?></td>
-                            <td ><?php echo $r['NILAI'] ?></td>
-                            <td ><?php echo $r['PERSENTASE'] ?> %</td>
+                            <td ><?php echo $uraian[$r]['URAIAN'] ?></td>
+                            <td ><?php echo $plafon[$r]['APBD'] ?></td>
+                            <td ><?php echo $plafon[$r]['APBD_P'] ?></td>
+                            <td ><?php echo $uraian[$r]['NILAI'] ?></td>
+                            <td ><?php echo $uraian[$r]['PERSENTASE'] ?> %</td>
                           </tr>
-                        <?php } ?>
+                        <?php }} ?>
                       </tbody>
                     </table>
                   </div>
@@ -129,8 +130,8 @@
                                 for ($r=0; $r<41; $r++) { ?>
                                   <tr>
                                     <td ><?php echo $all_uraian[$r]['URAIAN']; ?></td>
-                                    <td ><?php echo $uraian[$r]['APBD'] ?></td>
-                                    <td ><?php echo $uraian[$r]['APBD_P'] ?></td>
+                                    <td ><?php echo $plafon[$r]['APBD'] ?></td>
+                                    <td ><?php echo $plafon[$r]['APBD_P'] ?></td>
                                     <td ><?php echo $nonkumulatif[0][$r]['NILAI'] ?></td>
                                     <!-- <td ><?php echo $nonkumulatif[1][$r]['NILAI'] ?></td>
                                     <td ><?php echo $nonkumulatif[2][$r]['NILAI'] ?></td>

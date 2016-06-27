@@ -86,7 +86,16 @@ class C_filter extends CI_Controller
         if (!$bulan) $bulan = "Bulan";
         if (!$tahun) $tahun = "Tahun";
 
-        $data['uraian'] = $this->M_filter->getDatabyProvTahunPeriode($bulan,$tahun);
+        $data['uraian'] = $this->M_filter->getUraianDatabyProvTahunPeriode($bulan, $tahun);
+        $data['plafon'] = $this->M_filter->getPlafonDatabyProvTahunPeriode($bulan, $tahun);
+        if(!$data['plafon']){
+            for($i=0; $i<41; $i++){
+                $plafon=array('APBD'=>"data tidak ada", 'APBD_P'=>"data tidak ada");
+                //$plafon2=();
+                array_push($data['plafon'], $plafon);
+                //array_push($data['plafon'], $plafon2);
+            }
+        }
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
         if(!$data['uraian']) $data['uraian'] = array();

@@ -101,6 +101,29 @@ class M_filter extends CI_Model
         return $query->result_array();
         
     }
+        public function getUraianDatabyProvTahunPeriode($bulan, $tahun)
+    {
+        $query = $this->db->query('SELECT uraian_apbd.URAIAN as URAIAN, data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE
+                                    FROM apbd, data_apbd, uraian_apbd
+                                    WHERE data_apbd.ID_DAERAH = 1 AND data_apbd.TAHUN = "'.$tahun.'" AND data_apbd.ID_URAIAN = apbd.ID_URAIAN 
+                                    AND data_apbd.PERIODE = "'.$bulan.'" AND apbd.TAHUN = data_apbd.TAHUN AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN 
+                                    AND data_apbd.ID_URAIAN = apbd.ID_URAIAN');
+
+        return $query->result_array();
+        
+    }
+    public function getPlafonDatabyProvTahunPeriode($bulan, $tahun)
+    {
+        $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P
+                                    FROM apbd, data_apbd, uraian_apbd
+                                    WHERE apbd.ID_DAERAH = 1 AND apbd.TAHUN = "'.$tahun.'" AND data_apbd.ID_URAIAN = apbd.ID_URAIAN 
+                                     AND apbd.TAHUN = data_apbd.TAHUN AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN 
+                                    AND data_apbd.ID_URAIAN = apbd.ID_URAIAN');
+
+        return $query->result_array();
+        
+    }
+
 
     public function getDatabyKabTahunPeriode($daerah, $tahun)
     {
