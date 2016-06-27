@@ -78,8 +78,8 @@
                       <thead>
                         <tr>
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Plafon</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Plafon Perubahan</th>
                           <th colspan="2" name="bulan" scope="colgroup" style="text-align: center;" value="<?php echo $bulan ?>"><?php echo $bulan ?></th>
                         </tr>
                         <tr>

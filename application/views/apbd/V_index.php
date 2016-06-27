@@ -32,7 +32,7 @@
                   <div class="x_content">
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
                       <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#tab-apbdp" role="tab" id="apbdp-tab" data-toggle="tab" aria-expanded="true">APDBP</a>
+                        <li role="presentation" class="active"><a href="#tab-apbdp" role="tab" id="apbdp-tab" data-toggle="tab" aria-expanded="true">Plafon</a>
                         </li>
                         <li role="presentation" class="" style="display:none;"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
                         </li>
@@ -312,7 +312,7 @@
                        
                         <div role="tabpanel" class="tab-pane fade active in" id="tab-apbdp" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDP/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data Plaffon Anggaran per Tahun</h3>
+                            <h3>Import Data Plafon Anggaran per Tahun</h3>
                             <br>
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Daerah <span class="required">*</span>
@@ -376,7 +376,7 @@
                           <br>
                           <div class="ln_solid"></div>
                           <div>
-                            <h3>Data APBD P yang Telah di Import</h3>
+                            <h3>Data Plafon Anggaran yang telah di Import</h3>
                             <table class="table table-striped table-bordered">
                               <thead>
                                 <tr>

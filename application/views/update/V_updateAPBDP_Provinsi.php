@@ -6,7 +6,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12" style="margin-right:auto; margin-left:auto;float:none;">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h2>Update Data APBD P Provinsi Bali</h2>
+                    <h2>Update Data Plafon Anggaran Provinsi Bali</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
                         <a href="<?php echo base_url();?>C_update" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
@@ -63,8 +63,8 @@
                       <thead>
                         <tr>
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">Uraian</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">APBD P</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Plafon</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Plafon Perubahan</th>
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
@@ -89,7 +89,7 @@
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
                           </button>
-                          <h4 class="modal-title" id="myModalLabel2">UPDATE DATA APBDP PROVINSI</h4>
+                          <h4 class="modal-title" id="myModalLabel2">UPDATE DATA PLAFON PROVINSI</h4>
                         </div>
                         <div class="modal-body">
                           <h4>Apakah Anda yakin ingin menghapus data yang dipilih?</h4>
