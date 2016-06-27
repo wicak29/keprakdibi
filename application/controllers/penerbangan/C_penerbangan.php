@@ -28,11 +28,11 @@ class C_penerbangan extends CI_Controller
         $data['list_pic'] = $this->M_penerbangan->getListPIC();
         //$data['list_data_kendaraan'] = $this->M_penerbangan->getListDataKendaraan();
         if(!$data['list_data_penerbangan']) $data['list_data_penerbangan'] = array();
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('penerbangan/V_topNavPenerbangan');
         $this->load->view('penerbangan/V_index');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function insertUraian()

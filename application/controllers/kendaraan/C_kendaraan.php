@@ -28,11 +28,11 @@ class C_kendaraan extends CI_Controller
         $data['list_pic'] = $this->M_kendaraan->getListPIC();
         $data['list_data_kendaraan'] = $this->M_kendaraan->getListDataKendaraan();
         if(!$data['list_data_kendaraan']) $data['list_data_kendaraan'] = array();
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('kendaraan/V_topNavKendaraan');
         $this->load->view('kendaraan/V_index');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function insertUraian()

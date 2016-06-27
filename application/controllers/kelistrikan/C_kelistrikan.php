@@ -26,11 +26,11 @@ class C_kelistrikan extends CI_Controller
 
         $data['list_pic'] = $this->M_kelistrikan->getListPIC();
         $data['list_data_kelistrikan'] = $this->M_kelistrikan->getListDataKelistrikan();
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('kelistrikan/V_topNavKelistrikan');
         $this->load->view('kelistrikan/V_index');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function viewImportExcel()
@@ -41,11 +41,11 @@ class C_kelistrikan extends CI_Controller
 
         $data['list_pic'] = $this->M_kelistrikan->getListPIC();
         $data['list_data_kelistrikan'] = $this->M_kelistrikan->getListDataKelistrikan();
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('kelistrikan/V_topNavKelistrikan');
         $this->load->view('kelistrikan/V_index');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
     public function insertUraian()
     {

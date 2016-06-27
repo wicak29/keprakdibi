@@ -22,7 +22,6 @@
                             <option value="Provinsi">Provinsi</option>
                             <option value="Kab_Kota">Kabupaten/Kota</option>
                             <option value="apbdp">Plafon Anggaran</option>
-                            <option value="kontak">Kontak</option>
                             
                           </select>
                         </div>

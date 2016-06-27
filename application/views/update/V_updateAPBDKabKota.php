@@ -1,5 +1,13 @@
         <!-- page content -->
         <div class="right_col" role="main" style="margin-left: 0px;">
+          
+           <!-- ALERTS -->
+          <div id="plafonKosong" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal Muat</strong> Silahkan cek kembali DATA PLAFON ANGGARAN DAERAH di tahun yang dipilih telah ADA.
+          </div> 
+          <!-- END ALERTS -->
+
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
@@ -105,7 +113,7 @@
                         <?php } ?>
                       </tbody>
                     </table>
-                    <?php if(!$data_apbd) { ?>
+                    <?php if($data_apbd) { ?>
                    <button id="checkBtn" type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Update</button>
                     <?php } ?>
 
@@ -138,6 +146,21 @@
           </div>
         </div>
         <!-- /page content -->
+        <!-- SCRIPT ALERT -->
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+          <?php if ($this->session->flashdata('notif')==1) 
+          { ?>
+            $('#plafonKosong').show();
+            <?php
+          } 
+
+          ?>
+
+        });
+        </script>
+
 
         <!-- DATA TABLES-->
         <script>

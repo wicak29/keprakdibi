@@ -31,6 +31,7 @@ class C_update extends CI_Controller
         $data['periode'] = "periode";
         $data['kabkota'] = "kabkota";
         $data['tahun'] = "Tahun";
+        //$this->session->flashdata('notif');
         $data['data_apbd'] = array();
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
@@ -87,6 +88,9 @@ class C_update extends CI_Controller
 
         if (!$bulan) $bulan = "Bulan";
 
+        $data['plafon'] = $this->M_update->getNilaiAPBDP(1, $tahun);
+        if(!$data['plafon']) $this->session->set_flashdata('notif', 1);
+
         $data['uraian'] = $this->M_update->getDatabyProvTahunPeriode($bulan,$tahun,1);
         $data['tahun'] = $tahun;
         if(!$tahun) $data['tahun'] = "Tahun";
@@ -115,15 +119,24 @@ class C_update extends CI_Controller
         $this->session->set_flashdata('tahun2',$data['tahun']);
         $this->session->set_flashdata('bulan2',$data['periode']);
         $this->session->set_flashdata('kabkota',$kabkota);
+
+        $data['plafon'] = $this->M_update->getNilaiAPBDP($kabkota, $data['tahun']);
+        //if(!$data['plafon']) $this->session->set_flashdata('notif', 1);
         
         $data['data_apbd'] = $this->M_update->getDatabyKabTahunPeriode($kabkota, $data['tahun'], $data['periode']);
-        //print_r($data['data_apbd']);
-
-        $this->load->view('V_head_table', $data);
-        $this->load->view('V_sidebar');
-        $this->load->view('V_topNav');
-        $this->load->view('update/V_updateAPBDKabKota');
-        $this->load->view('V_footer_table');
+        $datadaerah = $this->M_update->getDataKabTahunPeriode($kabkota, $data['tahun'], $data['periode']);
+        
+        if($datadaerah && !$data['plafon']) {
+            $this->session->set_flashdata('notif', 1);
+            redirect('apbd/update/viewUpdateDataRealisasiKab');
+        }
+        else {
+            $this->load->view('V_head_table', $data);
+            $this->load->view('V_sidebar');
+            $this->load->view('V_topNav');
+            $this->load->view('update/V_updateAPBDKabKota');
+            $this->load->view('V_footer_table');
+        }
     }
 
     public function filterKabAPBDP()
@@ -132,7 +145,6 @@ class C_update extends CI_Controller
         $kabkota = $this->input->post('kabkota');
 
         $data['tahun'] = $this->input->post('tahun');
-        //$data['periode'] = $this->input->post('periode');
         
         $data['kabkota'] = $this->M_update->getDaerah($kabkota);
         $this->load->library('session');
@@ -140,6 +152,7 @@ class C_update extends CI_Controller
         $this->session->set_flashdata('kabkota',$kabkota);
         
         $data['uraian'] = $this->M_update->getNilaiAPBDP($kabkota, $data['tahun']);
+        //if(!$data['uraian']) $this->session->set_flashdata('notif', 1);
         //print_r($data['data_apbd']);
 
         $this->load->view('V_head_table', $data);

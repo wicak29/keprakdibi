@@ -27,11 +27,11 @@ class C_pelabuhan extends CI_Controller
         $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
         $data['list_pic'] = $this->M_pelabuhan->getListPICPelabuhan();
         $data['list_data_pelabuhan'] = $this->M_pelabuhan->getListDataPelabuhan();
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('pelabuhan/V_topNavPelabuhan');
         $this->load->view('pelabuhan/V_index');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function viewImportExcel()
@@ -43,11 +43,11 @@ class C_pelabuhan extends CI_Controller
         $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
         $data['list_pic'] = $this->M_pelabuhan->getListPICPelabuhan();
         $data['list_data_pelabuhan'] = $this->M_pelabuhan->getListDataPelabuhan();
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('pelabuhan/V_topNavPelabuhan');
         $this->load->view('pelabuhan/V_index');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function insertUraian()

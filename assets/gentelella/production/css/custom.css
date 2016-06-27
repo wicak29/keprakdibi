@@ -4851,6 +4851,10 @@ ul.notifications {
 {
     display: none;
 }
+#plafonKosong
+{
+    display: none;
+}
 .icon-home:hover
 {
     color:#1ABB9C;
