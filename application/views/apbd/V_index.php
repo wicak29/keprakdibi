@@ -159,7 +159,7 @@
                           <div class="ln_solid"></div>
                           <div>
                             <h3>Data Provinsi yang Telah di Import</h3>
-                            <table id="" class="table table-striped table-bordered">
+                            <table id="datatable1" class="table table-striped table-bordered" style="width:100%;">
                             <thead>
                               <tr>
                                 <th style="vertical-align: middle;text-align: center;">No</th>
@@ -297,7 +297,7 @@
                           <div class="ln_solid"></div>
                           <div>
                             <h3>Data Kabupaten/Kota yang Telah di Import</h3>
-                            <table id="" class="table table-striped table-bordered">
+                            <table id="datatable2" class="table table-striped table-bordered" style="width:100%;">
                               <thead>
                                 <tr>
                                   <th style="vertical-align: middle;text-align: center;">No</th>
@@ -319,9 +319,6 @@
                                     <td ><?php echo $r['TAHUN'] ?></td>
                                     <td ><?php echo $r['INSTANSI'] ?></td>
                                     <td ><?php echo $r['PIC'] ?></td>
-                                    
-                                    <!-- <td ><?//php echo $r['NILAI'] ?></td> -->
-                                    
                                   </tr>
                                   <?php 
                                   $no++;
@@ -411,7 +408,7 @@
                           <div class="ln_solid"></div>
                           <div>
                             <h3>Data Plafon Anggaran yang telah di Import</h3>
-                            <table class="table table-striped table-bordered">
+                            <table id="datatable3" class="table table-striped table-bordered" style="width:100%;">
                               <thead>
                                 <tr>
                                   <th style="vertical-align: middle;text-align: center;">No</th>
@@ -449,6 +446,9 @@
         <script type="text/javascript">
         $(document).ready(function()
         {
+          $('#datatable1').dataTable();
+          $('#datatable2').dataTable();
+          $('#datatable3').dataTable();
           <?php if ($this->session->flashdata('notif')==1) 
           { ?>
             $('#sukses-tambah').show();
