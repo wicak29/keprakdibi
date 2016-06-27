@@ -38,6 +38,14 @@
                               <option value="2020">2020</option>
                               <option value="2021">2021</option>
                               <option value="2022">2022</option>
+                              <option value="2023">2023</option>
+                              <option value="2024">2024</option>
+                              <option value="2025">2025</option>
+                              <option value="2026">2026</option>
+                              <option value="2027">2027</option>
+                              <option value="2028">2028</option>
+                              <option value="2029">2029</option>
+                              <option value="2030">2030</option>
                             </select>
                             <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                               <option value="" selected disabled>Pilih bulan</option>
@@ -60,7 +68,7 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Realisasi Kendaraan </h3>
+                       <h3 align="center">Data Pertumbuhan Kendaraan </h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
@@ -69,11 +77,17 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%;">
                       <thead>
                         <tr>
-                          <th style="vertical-align: middle;text-align: center;">No.</th>
-                          <th style="vertical-align: middle;text-align: center;">Kode UPT</th>
-                          <th style="vertical-align: middle;text-align: center;">Nama UPT</th>
-                          <th style="vertical-align: middle;text-align: center;">Jenis</th>
-                          <th style="vertical-align: middle;text-align: center;">Jumlah</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">No.</th>
+                          <!-- <th style="vertical-align: middle;text-align: center;">Kode UPT</th> -->
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Nama UPT</th>
+                          <th colspan="2" style="vertical-align: middle;text-align: center;">Jenis Kendaraan</th>
+                          <th colspan="2" style="vertical-align: middle;text-align: center;">Growth</th>
+                        </tr>
+                        <tr>
+                          <th style="vertical-align: middle;text-align: center;">Mobil (Unit)</th>
+                          <th style="vertical-align: middle;text-align: center;">Motor (Unit)</th>
+                          <th style="vertical-align: middle;text-align: center;">Mobil (%)</th>
+                          <th style="vertical-align: middle;text-align: center;">Motor (%)</th>
                         </tr>
                       </thead>
                       <tbody id="tabelApbd">
@@ -81,21 +95,24 @@
                          $j=0;
                          $k=0;
                          if(sizeof($kendaraan)==18){
-                         for($i=0; $i<18; $i++) { 
-                            if($k == 2){$k = 0;$j++;}
-                            $k++;?> 
+                         for($i=0; $i<9; $i++) { 
+                            ?> 
                           <tr>
                             <td ><?php echo $i+1 ?></td>
-                            <td ><?php echo $uraian[$j]['KODE_UPT'] ?></td>
-                            <td ><?php echo $uraian[$j]['NAMA_UPT'] ?></td>
-                            <td ><?php echo $kendaraan[$i]['JENIS'] ?></td>
-                            <td ><?php echo $kendaraan[$i]['NILAI'] ?></td>
+                            <!-- <td ><?php echo $uraian[$j]['KODE_UPT'] ?></td> -->
+                            <td ><?php echo $uraian[$i]['NAMA_UPT'] ?></td>
+                            <td ><?php echo $kendaraan[$i*2]['NILAI'] ?></td>
+                            <td ><?php echo $kendaraan[$i*2+1]['NILAI'] ?></td>
+                            <td ><?php echo $growthMotor[$i] ?></td>
+                            <td ><?php echo $growthMobil[$i] ?></td>
                             
                           </tr>
-                         <?php } } ?>
+                         <?php }} ?>
                       </tbody>
                     </table>
                   </div>
+                  <h4>Keterangan : </h4>
+                  <h5>***) Tidak ada data tahun sebelumnya.</h5>
                 </div>
 
               </div>

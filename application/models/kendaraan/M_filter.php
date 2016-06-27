@@ -24,11 +24,12 @@ class M_filter extends CI_Model
         return $query->result_array(); 
     }
 
-    public function getNamaKategoriById($id)
-    {
-        $this->db->select('KATEGORI_PELANGGAN');
-        $result = $this->db->get_where('kategori_pelanggan',array('ID_KATEGORI'=>$id))->row_array();
-        return $result['KATEGORI_PELANGGAN'];
+    public function getNilaiKendaraanbyPeriode($jenis, $tahun, $bulan){
+        $query = $this->db->query('SELECT NILAI 
+                                    FROM `data_kendaraan`
+                                    WHERE BULAN = "'.$bulan.'" AND TAHUN = "'.$tahun.'" AND JENIS LIKE "'.$jenis.'%"
+                                    ');
+        return $query->result_array();
     }
 
     public function getNilaiByKategori($jenis, $tahun, $bulan, $upt)

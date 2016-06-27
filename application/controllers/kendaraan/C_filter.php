@@ -42,7 +42,7 @@ class C_filter extends CI_Controller
         $data['bulan'] = $bulan;
 
         $data['uraian'] = $this->M_filter->getUraianKendaraan();
-        //array_push($data['data_listrik'], $uraian);
+
         $data['kendaraan'] = $this->M_filter->getListKendaraan($tahun, $bulan);
 
         if(!$data['kendaraan']){
@@ -50,8 +50,46 @@ class C_filter extends CI_Controller
             $data['uraian'] = array();
         }
 
-        //print_r($uraian);
-        //print_r($list);
+        $sepedaMotor1 = array();
+        $sepedaMotor2 = array();
+        $growthMotor = array();
+        $growthMobil = array();
+        if($tahun!=2007){
+            //ambil data motor
+            $sepedaMotor1 = $this->M_filter->getNilaiKendaraanbyPeriode('Sepeda', $tahun, $bulan);
+            $sepedaMotor2 = $this->M_filter->getNilaiKendaraanbyPeriode('Sepeda', $tahun-1, $bulan);
+            if($sepedaMotor2 && $sepedaMotor1){
+                for($i=0; $i<9; $i++){
+                    $dataGrowth = ($sepedaMotor1[$i]['NILAI']-$sepedaMotor2[$i]['NILAI'])/$sepedaMotor2[$i]['NILAI']*100;
+                    array_push($growthMotor, $dataGrowth);
+                }   
+            }
+            for($i=0; $i<9; $i++){
+                array_push($growthMotor, "***");
+            }  
+
+            //ambil data mobil
+            $Mobil1 = $this->M_filter->getNilaiKendaraanbyPeriode('Mobil', $tahun, $bulan);
+            $Mobil2 = $this->M_filter->getNilaiKendaraanbyPeriode('Mobil', $tahun-1, $bulan);
+            if($Mobil2 && $Mobil1){
+                for($i=0; $i<9; $i++){
+                    $dataGrowth = ($Mobil1[$i]['NILAI']-$Mobil2[$i]['NILAI'])/$Mobil2[$i]['NILAI']*100;
+                    array_push($growthMobil, $dataGrowth);
+                }   
+            }
+            for($i=0; $i<9; $i++){
+                array_push($growthMobil, "***");
+            } 
+        }
+        else{
+            for($i=0; $i<9; $i++){
+                array_push($growthMotor, 0);
+                array_push($growthMobil, 0);
+            }   
+        }
+ 
+        $data['growthMotor'] = $growthMotor;
+        $data['growthMobil'] = $growthMobil; 
     
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
