@@ -64,7 +64,7 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Realisasi Kelistrikan </h3>
+                       <h3 align="center">Data Perkembangan Kelistrikan </h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
