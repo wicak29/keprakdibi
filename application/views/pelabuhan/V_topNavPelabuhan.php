@@ -22,9 +22,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kontak <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="<?php echo base_url('pelabuhan/viewLihatKontak');?>">Lihat Kontak APBD</a></li>
-            <li><a href="<?php echo base_url('pelabuhan/viewTambahKontak');?>">Tambah Kontak APBD </a></li>
-            <li><a href="<?php echo base_url('pelabuhan/viewHapusKontak');?>">Hapus Kontak APBD </a></li>
+            <li><a href="<?php echo base_url('pelabuhan/viewLihatKontak');?>">Lihat Kontak Pelabuhan</a></li>
+            <li><a href="<?php echo base_url('pelabuhan/viewTambahKontak');?>">Tambah Kontak Pelabuhan </a></li>
+            <li><a href="<?php echo base_url('pelabuhan/viewHapusKontak');?>">Hapus Kontak Pelabuhan </a></li>
           </ul>
         </li>
       </ul>
