@@ -51,7 +51,6 @@ class M_update extends CI_Model
                                     AND data_apbd.ID_URAIAN = apbd.ID_URAIAN');
 
         return $query->result_array();
-        
     }
 
     public function getDatabyKabTahunPeriode($daerah, $tahun, $periode)
@@ -65,6 +64,18 @@ class M_update extends CI_Model
 
         return $query->result_array();
     }
+
+    public function getDataKabTahunPeriode($daerah, $tahun, $periode)
+    {
+        $query = $this->db->query('SELECT data_apbd.NILAI_REALISASI as NILAI, data_apbd.PERSEN_REALISASI as PERSENTASE
+                                    FROM data_apbd, uraian_apbd
+                                    WHERE data_apbd.ID_DAERAH = '.$daerah.' AND data_apbd.TAHUN = "'.$tahun.'" 
+                                    AND data_apbd.PERIODE = "'.$periode.'" AND uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN 
+                                    ');
+
+        return $query->result_array();
+    }
+
     public function getCompareDaerah($tahun,$kabkota,$periode)
     {
         $hasil=array();

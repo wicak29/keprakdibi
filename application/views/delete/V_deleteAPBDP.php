@@ -6,7 +6,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12" style="margin-right:auto; margin-left:auto;float:none;">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h2>Hapus APBD/APBD PErubahan</h2>
+                    <h2>Hapus Plafon Anggaran</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
                         <a href="<?php echo base_url();?>C_delete" class=""><i class="fa fa-arrow-left"></i> Kembali</a>

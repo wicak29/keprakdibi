@@ -31,7 +31,7 @@
                           <option value="10">Kota. Denpasar</option>
                         </select>
                         <label for="ex3">Pilih Tahun : </label>
-                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
+                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
                                   <option value="2008">2008</option>
@@ -104,7 +104,7 @@
                           <h4 class="modal-title" id="myModalLabel2">UPDATE DATA PLAFON KAB KOTA</h4>
                         </div>
                         <div class="modal-body">
-                          <h4>Apakah Anda yakin ingin menghapus data yang dipilih?</h4>
+                          <h4>Apakah Anda yakin ingin memperbarui data yang dipilih?</h4>
                         </div>
                         <div class="modal-footer">
                           <input type="submit" class="btn btn-success" value="Iya" style="margin: 0;"/>

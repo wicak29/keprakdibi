@@ -1,5 +1,13 @@
         <!-- page content -->
         <div class="right_col" role="main" style="margin-left: 0px;">
+          
+           <!-- ALERTS -->
+          <div id="plafonKosong" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal Muat</strong> Silahkan cek kembali DATA PLAFON ANGGARAN DAERAH di tahun yang dipilih telah ADA.
+          </div> 
+          <!-- END ALERTS -->
+
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
@@ -31,7 +39,7 @@
                           <option value="10">Kota. Denpasar</option>
                         </select>
                         <label for="ex3">Pilih Periode : </label>
-                        <select name="periode" class="form-control" tabindex="-1" style="margin-left:10px;">
+                        <select name="periode" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih Triwulan</option>
                             <option value="Triwulan_1">Triwulan 1</option>
                             <option value="Triwulan_2">Triwulan 2</option>
@@ -39,7 +47,7 @@
                             <option value="Triwulan_4">Triwulan 4</option>
                         </select>
                         <label for="ex3">Pilih Tahun : </label>
-                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
+                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
                                   <option value="2008">2008</option>
@@ -105,7 +113,7 @@
                         <?php } ?>
                       </tbody>
                     </table>
-                    <?php if(!$data_apbd) { ?>
+                    <?php if($data_apbd) { ?>
                    <button id="checkBtn" type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Update</button>
                     <?php } ?>
 
@@ -119,7 +127,7 @@
                           <h4 class="modal-title" id="myModalLabel2">UPDATE DATA APBD KAB KOTA</h4>
                         </div>
                         <div class="modal-body">
-                          <h4>Apakah Anda yakin ingin menghapus data yang dipilih?</h4>
+                          <h4>Apakah Anda yakin ingin memperbarui data yang dipilih?</h4>
                         </div>
                         <div class="modal-footer">
                           <input type="submit" class="btn btn-success" value="Iya" style="margin: 0;"/>
@@ -138,6 +146,21 @@
           </div>
         </div>
         <!-- /page content -->
+        <!-- SCRIPT ALERT -->
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+          <?php if ($this->session->flashdata('notif')==1) 
+          { ?>
+            $('#plafonKosong').show();
+            <?php
+          } 
+
+          ?>
+
+        });
+        </script>
+
 
         <!-- DATA TABLES-->
         <script>

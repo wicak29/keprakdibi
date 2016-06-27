@@ -124,7 +124,7 @@
                           <h4 class="modal-title" id="myModalLabel2">UPDATE DATA PELABUHAN</h4>
                         </div>
                         <div class="modal-body">
-                          <h4>Apakah Anda yakin ingin menghapus data yang dipilih?</h4>
+                          <h4>Apakah Anda yakin ingin memperbarui data yang dipilih?</h4>
                         </div>
                         <div class="modal-footer">
                           <input type="submit" class="btn btn-success" value="Iya" style="margin: 0;"/>
