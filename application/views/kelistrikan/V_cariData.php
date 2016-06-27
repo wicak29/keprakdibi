@@ -41,12 +41,7 @@
                                   <option value="2028">2028</option>
                                   <option value="2029">2029</option>
                                   <option value="2030">2030</option>
-                                  <option value="2031">2031</option>
-                                  <option value="2032">2032</option>
-                                  <option value="2033">2033</option>
-                                  <option value="2034">2034</option>
-                                  <option value="2035">2035</option>
-                                  <option value="2036">2036</option>
+                                  
                             </select>
                             <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                               <option value="" selected disabled>Pilih bulan</option>
@@ -69,7 +64,7 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Realisasi Kelistrikan </h3>
+                       <h3 align="center">Data Perkembangan Kelistrikan </h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
@@ -81,7 +76,7 @@
                           <th style="vertical-align: middle;text-align: center;">No.</th>
                           <th style="vertical-align: middle;text-align: center;">Kategori Pelanggan</th>
                           <th style="vertical-align: middle;text-align: center;">Harga Jual (RP per Kwh)</th>
-                          <th style="vertical-align: middle;text-align: center;">Jumlah Pelanggan</th>
+                          <th style="vertical-align: middle;text-align: center;">Pelanggan</th>
                           <th style="vertical-align: middle;text-align: center;">Jumlah Konsumsi (Kwh)</th>
                         </tr>
                       </thead>
@@ -101,7 +96,7 @@
                          <?php $j++;} ?>
                          <tr>
                             <td ><?php echo $j ?></td>
-                            <td >Rata-rata penggunaan</td>
+                            <td >Rata-rata</td>
                             <td ><?php echo ($data_listrik[1][0]['NILAI']+$data_listrik[1][1]['NILAI']+$data_listrik[1][2]['NILAI']+$data_listrik[1][3]['NILAI']+$data_listrik[1][4]['NILAI'])/5 ?></td>
                             <td ><?php echo ($data_listrik[2][0]['NILAI']+$data_listrik[2][1]['NILAI']+$data_listrik[2][2]['NILAI']+$data_listrik[2][3]['NILAI']+$data_listrik[2][4]['NILAI'])/5 ?></td>
                             <td ><?php echo ($data_listrik[3][0]['NILAI']+$data_listrik[3][1]['NILAI']+$data_listrik[3][2]['NILAI']+$data_listrik[3][3]['NILAI']+$data_listrik[3][4]['NILAI'])/5 ?></td>
