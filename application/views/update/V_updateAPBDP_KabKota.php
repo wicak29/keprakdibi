@@ -31,7 +31,7 @@
                           <option value="10">Kota. Denpasar</option>
                         </select>
                         <label for="ex3">Pilih Tahun : </label>
-                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
+                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
                                   <option value="2008">2008</option>

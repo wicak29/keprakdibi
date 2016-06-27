@@ -26,7 +26,7 @@
                     <form action="<?php echo base_url();?>C_update/viewUpdateDataRealisasiProv/" method="post" enctype="multipart/form-data" class="form-inline">
                       <div class="form-group">
                         <label for="ex3">Pilih Tahun : </label>
-                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
+                        <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
                             <option value="2008">2008</option>
@@ -53,7 +53,7 @@
                             <option value="2029">2029</option>
                             <option value="2030">2030</option>
                           </select>
-                          <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;">
+                          <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih bulan</option>
                             <option value="Januari">Januari</option>
                             <option value="Februari">Februari</option>
