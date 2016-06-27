@@ -35,6 +35,13 @@ class C_kendaraan extends CI_Controller
         $this->load->view('V_footer_table');
     }
 
+    public function downloadFormatImport()
+    {      
+        $this->load->helper('download');
+        $data = file_get_contents(base_url('assets/format_input/Format-Input-Data-Kendaraan.xlsx')); 
+        force_download('Format-Input-Data-Kendaraan.xlsx',$data);
+    }
+
     public function insertUraian()
     {
         $fileName = time().$_FILES['file']['name'];

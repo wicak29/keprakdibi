@@ -64,7 +64,11 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="tab-datapenerbangan" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>penerbangan/insertDataPenerbangan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data Penerbangan Provinsi Bali</h3>
+                            <h3>Import Data Penerbangan Provinsi Bali
+                              <a href="<?php echo base_url(); ?>penerbangan/downloadFormatImport" class="pull-right" style="padding:0px;">
+                                <button type="button" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Format File Import</button>
+                              </a>
+                            </h3>
                             <br>
                             
 

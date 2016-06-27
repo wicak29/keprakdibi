@@ -7,7 +7,7 @@
         <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
       </div>
       <ul class="nav navbar-nav navbar-left">
-        <li><h3 style="line-height:1.5; margin-right:10px; margin-left:-5px;font-weight: bold; color : #1ABB9C;"><a href="<?php echo base_url('apbd');?>">HOME</a></h3></li>
+        <li><h3 style="line-height:1.5; margin-right:10px; margin-left:-5px;font-weight: bold; color : #1ABB9C;"><a href="<?php echo base_url('home');?>">HOME</a></h3></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">

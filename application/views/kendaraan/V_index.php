@@ -64,10 +64,12 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="tab-datakendaraan" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>kendaraan/insertDataKendaraan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data Kendaraan Baru Provinsi Bali</h3>
+                            <h3>Import Data Kendaraan Baru Provinsi Bali
+                              <a href="<?php echo base_url(); ?>kendaraan/downloadFormatImport" class="pull-right" style="padding:0px;">
+                                <button type="button" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Format File Import</button>
+                              </a>
+                            </h3>
                             <br>
-                            
-
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
                               </label>

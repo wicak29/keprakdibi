@@ -9,6 +9,7 @@ class C_pelabuhan extends CI_Controller
         $this->load->helper("file");
         $this->load->library(array('PHPExcel','PHPExcel/IOFactory'));
         $this->load->model('pelabuhan/M_pelabuhan');
+        $this->load->helper(array('url','download'));
 
         //AUTENTIKASI
         $login = $this->session->userdata('username');
@@ -49,6 +50,12 @@ class C_pelabuhan extends CI_Controller
         $this->load->view('pelabuhan/V_index');
         $this->load->view('V_footer_table');
     }
+
+    public function downloadFormatImport()
+    {            
+        $data = file_get_contents(base_url('assets/format_input/Format-Input-Data-Arus-Bongkar-Muat-Pelabuhan.xlsx')); 
+        force_download('Format-Input-Data-Arus-Bongkar-Muat-Pelabuhan.xlsx',$data);
+    } 
 
     public function insertUraian()
     {

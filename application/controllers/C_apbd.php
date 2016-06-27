@@ -54,6 +54,20 @@ class C_apbd extends CI_Controller
         $this->load->view('V_footer_table');
     }
 
+    public function downloadFormatImportPlafon()
+    {     
+        $this->load->helper('download');
+        $data = file_get_contents(base_url('assets/format_input/Format-Input-Plafon-Anggaran.xlsx')); 
+        force_download('Format-Input-Plafon-Anggaran.xlsx',$data);
+    }
+
+    public function downloadFormatImportRealisasi()
+    {            
+        $this->load->helper('download');
+        $data = file_get_contents(base_url('assets/format_input/Format-Input-Nilai-Realisasi-APBD.xlsx')); 
+        force_download('Format-Input-Nilai Realisasi-APBD.xlsx',$data);
+    } 
+
     public function viewRekapAPBD()
     {
         $data['uraian'] = $this->input->post('uraian');

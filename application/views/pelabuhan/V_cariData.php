@@ -7,11 +7,6 @@
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
                     <h2>Cari Data Pelabuhan</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li>
-                        <a href="<?php echo base_url();?>pelabuhan/filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
-                      </li>
-                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">

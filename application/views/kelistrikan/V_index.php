@@ -37,7 +37,7 @@
                         </li> -->
                         <li role="presentation" class="active"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab-datapelabuhan" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Data Kelistrikan</a>
+                        <li role="presentation" class=""><a href="#tab-datakelistrikan" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Data Kelistrikan</a>
                         </li>
                         <!-- <li role="presentation" class=""><a href="#tab-kabupaten" role="tab" id="kabupaten-tab" data-toggle="tab" aria-expanded="false">Kabupaten/Kota</a>
                         </li> -->
@@ -62,12 +62,14 @@
                               </div>
                           </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade in" id="tab-datapelabuhan" aria-labelledby="home-tab">
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-datakelistrikan" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>kelistrikan/insertDataKelistrikan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data Kelistrikan Provinsi Bali</h3>
+                            <h3>Import Data Kelistrikan Provinsi Bali
+                              <a href="<?php echo base_url(); ?>kelistrikan/downloadFormatImport" class="pull-right" style="padding:0px;">
+                                <button type="button" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Format File Import</button>
+                              </a>
+                            </h3>
                             <br>
-                            
-
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
                               </label>

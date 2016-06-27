@@ -83,7 +83,7 @@
                         </div>
                       </div>
                       </a>
-                      <a href="<?php echo base_url('kelistrikkan/');?>" class="icon-home">
+                      <a href="<?php echo base_url('kelistrikan/');?>" class="icon-home">
                         <div class="col-md-2 col-xs-12 widget_tally_box">
                         <div class="x_panel">
                           <div class="x_content">

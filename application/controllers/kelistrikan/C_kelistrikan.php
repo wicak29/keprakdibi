@@ -47,6 +47,14 @@ class C_kelistrikan extends CI_Controller
         $this->load->view('kelistrikan/V_index');
         $this->load->view('V_footer_table');
     }
+
+    public function downloadFormatImport()
+    {      
+        $this->load->helper('download');
+        $data = file_get_contents(base_url('assets/format_input/Format-Input-Data-Kelistrikan.xlsx')); 
+        force_download('Format-Input-Data-Kelistrikan.xlsx',$data);
+    }
+
     public function insertUraian()
     {
         $fileName = time().$_FILES['file']['name'];

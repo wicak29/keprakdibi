@@ -63,7 +63,11 @@
                         </div>
                         <div role="tabpanel" class="tab-pane fade in" id="tab-provinsi" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyProvinsi/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data APBD Provinsi Bali</h3>
+                            <h3>Import Data APBD Provinsi Bali
+                              <a href="<?php echo base_url(); ?>apbd/downloadFormatImportRealisasi" class="pull-right" style="padding:0px;">
+                                <button type="button" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Format File Import</button>
+                              </a>
+                            </h3>
                             <br>
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
@@ -187,7 +191,11 @@
 
                         <div role="tabpanel" class="tab-pane fade" id="tab-kabupaten" aria-labelledby="profile-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyKabKota/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data APBD Kabupaten/Kota</h3>
+                            <h3>Import Data APBD Kabupaten/Kota
+                              <a href="<?php echo base_url(); ?>apbd/downloadFormatImportRealisasi" class="pull-right" style="padding:0px;">
+                                <button type="button" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Format File Import</button>
+                              </a>
+                            </h3>
                             <br>
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Person In Charge <span class="required">*</span>
@@ -312,7 +320,11 @@
                        
                         <div role="tabpanel" class="tab-pane fade active in" id="tab-apbdp" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>C_apbd/insertDataAPBDP/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
-                            <h3>Import Data Plafon Anggaran per Tahun</h3>
+                            <h3>Import Data Plafon Anggaran per Tahun
+                              <a href="<?php echo base_url(); ?>apbd/downloadFormatImportPlafon" class="pull-right" style="padding:0px;">
+                                <button type="button" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Format File Import</button>
+                              </a>
+                            </h3>
                             <br>
                             <div class="form-group">
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Daerah <span class="required">*</span>
