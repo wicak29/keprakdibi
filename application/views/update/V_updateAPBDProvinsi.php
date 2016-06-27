@@ -1,5 +1,13 @@
         <!-- page content -->
         <div class="right_col" role="main" style="margin-left: 0px;">
+
+          <!-- ALERTS -->
+          <div id="plafonKosong" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal Muat</strong> Silahkan cek kembali DATA PLAFON ANGGARAN di tahun yang dipilih telah ADA.
+          </div> 
+          <!-- END ALERTS -->
+
           <div class="">
             <div class="clearfix"></div>
             <div class="row">
@@ -21,29 +29,29 @@
                         <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;">
                             <option value="" selected disabled>Pilih tahun</option>
                             <option value="2007">2007</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2018">2018</option>
-                                  <option value="2019">2019</option>
-                                  <option value="2020">2020</option>
-                                  <option value="2021">2021</option>
-                                  <option value="2022">2022</option>
-                                  <option value="2023">2023</option>
-                                  <option value="2024">2024</option>
-                                  <option value="2025">2025</option>
-                                  <option value="2026">2026</option>
-                                  <option value="2027">2027</option>
-                                  <option value="2028">2028</option>
-                                  <option value="2029">2029</option>
-                                  <option value="2030">2030</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
                           </select>
                           <select name="bulan" class="form-control" tabindex="-1" style="margin-left:10px;">
                             <option value="" selected disabled>Pilih bulan</option>
@@ -131,6 +139,20 @@
           </div>
         </div>
         <!-- /page content -->
+
+        <!-- SCRIPT ALERT -->
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+          <?php if ($this->session->flashdata('notif')==1) 
+          { ?>
+            $('#plafonKosong').show();
+            <?php
+          } 
+          ?>
+
+        });
+        </script>
 
         <!-- DATA TABLES-->
         <script>

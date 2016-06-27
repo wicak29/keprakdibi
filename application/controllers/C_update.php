@@ -89,7 +89,7 @@ class C_update extends CI_Controller
         if (!$bulan) $bulan = "Bulan";
 
         $data['plafon'] = $this->M_update->getNilaiAPBDP(1, $tahun);
-        if(!$data['plafon']) $this->session->set_flashdata('notif', 1);
+        //if(!$data['plafon']) $this->session->set_flashdata('notif', 1);
 
         $data['uraian'] = $this->M_update->getDatabyProvTahunPeriode($bulan,$tahun,1);
         $data['tahun'] = $tahun;
@@ -97,6 +97,13 @@ class C_update extends CI_Controller
         
         $data['bulan'] = $bulan;
         if(!$data['uraian']) $data['uraian'] = array();
+
+        $datadaerah = $this->M_update->getDataKabTahunPeriode(1, $data['tahun'], $data['bulan']);
+        
+        if($datadaerah && !$data['plafon']) {
+            $this->session->set_flashdata('notif', 1);
+            redirect('apbd/update/viewUpdateDataRealisasiProv');
+        }
         
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
