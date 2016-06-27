@@ -6,32 +6,20 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h2>Rekap Penerbangan Pertahun</h2>
+                    <h2>Rekap Kelistrikan Pertahun</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div>
-                      <form id="demo-form" action="<?php echo base_url();?>penerbangan/viewRekapPenerbangan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                      <form id="demo-form" action="<?php echo base_url();?>kelistrikan/viewRekapKelistrikan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                         <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ex3">Rute :</label>
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ex3">Aspek :</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="rute" class="form-control" required="required">
-                              <option value="" selected disabled>Pilih Rute</option>
-                              <option value="Domestik">Domestik</option>
-                              <option value="Internasional">Internasional</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ex3">Kategori :</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select name="kategori" class="form-control" required="required">
-                              <option value="" selected disabled>Pilih Kategori</option>
-                              <option value="Pesawat">Pesawat</option>
-                              <option value="Penumpang">Penumpang</option>
-                              <option value="Bagasi">Bagasi</option>
-                              <option value="Cargo">Cargo</option>
-                              <option value="Pos">Pos</option>
+                            <select name="aspek" class="form-control" required="required">
+                              <option value="" selected disabled>Pilih Aspek</option>
+                              <option value="1">Harga Jual (Rp per Kwh)</option>
+                              <option value="2">Jumlah Pelanggan</option>
+                              <option value="3">Jumlah Konsumsi (Kwh)</option>
                             </select>
                           </div>
                         </div>
@@ -79,39 +67,36 @@
 
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in" id="tab-data" aria-labelledby="profile-tab">
-                          <h3 align="center">Rekapitulasi Penerbangan <?php 
-                            if ($rute) echo $rute." ";
-                            if ($kategori) echo $kategori;
-                            else echo "_"; ?> Tahun <?php echo $tahun;?></h3>
+                          <h3 align="center">Rekapitulasi Kelistrikan Tahun <?php echo $tahun." (".$nama_aspek.")";?> </h3>
                           <table class="table table-striped table-bordered datatable-buttons" style="width:100%;">
                             <thead>
                               <tr>
                                 <th rowspan="2" style="vertical-align: middle;text-align: center;">No</th>
-                                <th rowspan="2" style="vertical-align: middle;text-align: center;">Aktivitas</th>
+                                <th rowspan="2" style="vertical-align: middle;text-align: center;">Kategori Pelanggan</th>
                                 <th colspan="12" scope="colgroup" style="text-align: center;">Tahun <?php echo $tahun; ?></th>
                               </tr>
                               <tr>
-                                <th scope="col" style="text-align: center;">1</th>
-                                <th scope="col" style="text-align: center;">2</th>
-                                <th scope="col" style="text-align: center;">3</th>
-                                <th scope="col" style="text-align: center;">4</th>
-                                <th scope="col" style="text-align: center;">5</th>
-                                <th scope="col" style="text-align: center;">6</th>
-                                <th scope="col" style="text-align: center;">7</th>
-                                <th scope="col" style="text-align: center;">8</th>
-                                <th scope="col" style="text-align: center;">9</th>
-                                <th scope="col" style="text-align: center;">10</th>
-                                <th scope="col" style="text-align: center;">11</th>
-                                <th scope="col" style="text-align: center;">12</th>
+                                <th scope="col" style="text-align: center;">Jan</th>
+                                <th scope="col" style="text-align: center;">Feb</th>
+                                <th scope="col" style="text-align: center;">Mar</th>
+                                <th scope="col" style="text-align: center;">Apr</th>
+                                <th scope="col" style="text-align: center;">Mei</th>
+                                <th scope="col" style="text-align: center;">Jun</th>
+                                <th scope="col" style="text-align: center;">Jul</th>
+                                <th scope="col" style="text-align: center;">Agu</th>
+                                <th scope="col" style="text-align: center;">Sep</th>
+                                <th scope="col" style="text-align: center;">Okt</th>
+                                <th scope="col" style="text-align: center;">Nov</th>
+                                <th scope="col" style="text-align: center;">Des</th>
                               </tr>
                             </thead>
                             <tbody id="tabelApbd">
                               <?php 
                                 $no = 1;
-                                for ($r=0; $r<3; $r++) { ?>
+                                for ($r=0; $r<5; $r++) { ?>
                                   <tr>
                                     <td><?php echo $no; ?></td>
-                                    <td ><?php echo $nilai_tabel[$r][12]; ?></td>
+                                    <td ><?php echo $nilai_tabel[$r][12]?></td>
                                     <td ><?php echo $nilai_tabel[$r][0]; ?></td>
                                     <td ><?php echo $nilai_tabel[$r][1];?></td>
                                     <td ><?php echo $nilai_tabel[$r][2];?></td>
@@ -363,7 +348,7 @@
 
         echartLine.setOption({
           title: {
-            text: <?php echo '"GRAFIK REKAPITULASI PENERBANGAN '.$rute.' '.$kategori.' TAHUN '.$tahun.'",'; ?>
+            text: <?php echo '"GRAFIK REKAP KELISTRIKAN TAHUN '.$tahun.' ('.$nama_aspek.')",'; ?>
             subtext: ''
           },
           tooltip: {

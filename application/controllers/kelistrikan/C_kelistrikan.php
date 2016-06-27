@@ -158,6 +158,80 @@ class C_kelistrikan extends CI_Controller
         redirect(base_url('kelistrikan/viewImportExcel'));
     }
 
+    public function viewRekapKelistrikan()
+    {
+        $this->load->model('kelistrikan/M_filter');
+        $data['tahun'] = $this->input->post('tahun');
+        $data['aspek'] = $this->input->post('aspek');
+        $bulan = array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+        
+        if ($data['aspek']) 
+        {
+            $data['nama_aspek'] = $this->M_filter->getAspekById($data['aspek']);
+        }
+        // LIST DATA PADA TABEL
+        $data['nilai_tabel'] = array();
+        for ($i = 1; $i <= 5; $i++) 
+        {
+            $nama_kategori = $this->M_filter->getNamaKategoriById($i);
+            
+            $listNilaiBulan = array();
+            foreach ($bulan as $j)                
+            {
+                $result = $this->M_kelistrikan->getNilaiPerBulan($i, $data['tahun'], $j, $data['aspek']);
+                if (!$result) $result=0;
+                else $result = $result[0]['NILAI'];
+                array_push($listNilaiBulan, $result);
+            }
+            array_push($listNilaiBulan, $nama_kategori);
+            array_push($data['nilai_tabel'], $listNilaiBulan);
+        }
+        // print_r($data['nilai_tabel']);
+        // return;
+        //END LIST DATA PAD TABEL
+        
+        $data['finalResult'] = array();
+        for ($i=1; $i<=5; $i++)
+        {
+            $data['listUraian'] = array();
+            $data['list_nilai']="";
+            $nama_kategori = $this->M_filter->getNamaKategoriById($i);
+            array_push($data['listUraian'], $nama_kategori);
+
+            $pos = 0;
+            foreach ($bulan as $d)
+            {
+                $nilai = $this->M_kelistrikan->getNilaiPerBulan($i, $data['tahun'], $d, $data['aspek']);
+                // print_r($nilai);
+                if ($nilai)
+                {
+                    if ($pos  != 11)
+                        $data['list_nilai'] .= $nilai[0]['NILAI'].",";
+                    else
+                        $data['list_nilai'] .= $nilai[0]['NILAI']."";
+                }
+                else
+                {
+                    if ($pos != 11)
+                        $data['list_nilai'] .= "0,";
+                    else
+                        $data['list_nilai'] .= "0";
+                }
+                $pos++;
+            }
+            array_push($data['listUraian'], $data['list_nilai']);
+            array_push($data['finalResult'], $data['listUraian']);
+        }        
+        // print_r($data['finalResult']);
+
+        $data['title'] = "Rekap Kelistrikan";
+        $this->load->view('V_headChartTable', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('kelistrikan/V_topNavKelistrikan');
+        $this->load->view('kelistrikan/V_rekapKelistrikan');
+        $this->load->view('V_footerChartTable'); 
+    }
+
     public function deleteKontak($id)
     {
         $update = $this->M_kelistrikan->updateDataKontak($id);

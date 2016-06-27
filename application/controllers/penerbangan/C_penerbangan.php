@@ -168,7 +168,7 @@ class C_penerbangan extends CI_Controller
 
     public function viewLihatKontak()
     {
-        $data['title'] = "Daftar Kontak APBD";
+        $data['title'] = "Daftar Kontak Kelistrikan";
         $data['list_kontak'] = $this->M_penerbangan->getDetailKontak();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');
@@ -329,7 +329,7 @@ class C_penerbangan extends CI_Controller
         }        
         // print_r($data['finalResult']);
 
-        $data['title'] = "Rekap APBD";
+        $data['title'] = "Rekap Kelistrikan";
         $this->load->view('V_headChartTable', $data);
         $this->load->view('V_sidebar');
         $this->load->view('penerbangan/V_topNavPenerbangan');

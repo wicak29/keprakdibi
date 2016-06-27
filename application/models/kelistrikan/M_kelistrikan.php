@@ -61,6 +61,13 @@ class M_kelistrikan extends CI_Model
         return $query->result_array();
     }
 
+    public function getNilaiPerBulan($kategori, $tahun, $bulan, $aspek)
+    {
+        $this->db->select('NILAI');
+        $result = $this->db->get_where('data_kelistrikan', array('ID_KATEGORI'=>$kategori, 'ID_ASPEK'=>$aspek, 'TAHUN'=>$tahun, 'BULAN'=>$bulan));
+        return $result->result_array();
+    }
+
     public function getDetailKontak()
     {
         $result = $this->db->query('SELECT * FROM `kontak`, indikator, kontak_indikator WHERE indikator.ID_INDIKATOR = 3 AND kontak_indikator.ID_INDIKATOR = indikator.ID_INDIKATOR AND kontak_indikator.ID_KONTAK = kontak.ID_KONTAK');

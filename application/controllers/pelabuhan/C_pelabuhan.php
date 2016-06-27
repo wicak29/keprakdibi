@@ -227,7 +227,7 @@ class C_pelabuhan extends CI_Controller
         }        
         // print_r($data['finalResult']);
 
-        $data['title'] = "Rekap APBD";
+        $data['title'] = "Rekap Pelabuhan";
         $this->load->view('V_headChartTable', $data);
         $this->load->view('V_sidebar');
         $this->load->view('pelabuhan/V_topNavPelabuhan');
@@ -244,7 +244,7 @@ class C_pelabuhan extends CI_Controller
 
     public function viewLihatKontak()
     {
-        $data['title'] = "Daftar Kontak APBD";
+        $data['title'] = "Daftar Kontak Pelabuhan";
         $data['list_kontak'] = $this->M_pelabuhan->getDetailKontak();
         $this->load->view('V_head', $data);
         $this->load->view('V_sidebar');

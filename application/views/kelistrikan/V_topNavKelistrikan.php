@@ -13,8 +13,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kelola Data <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Rekap Kelistrikan</a></li>
-            <!-- <li><a href="<?php echo base_url('C_filter/');?>">Cari Data</a></li> --> 
+            <li><a href="<?php echo base_url('kelistrikan/viewRekapKelistrikan/');?>">Rekap Kelistrikan</a></li>
             <li><a href="<?php echo base_url('kelistrikan/hapus/');?>">Hapus Data</a></li>
             <li><a href="<?php echo base_url('kelistrikan/update/');?>">Update Data</a></li>
           </ul>
