@@ -375,8 +375,21 @@ class C_filter extends CI_Controller
 
         $data['periode'] = $this->M_filter->getAllPeriode($kabkota, $data['tahun']);
 
-        $data['data_apbd'] = $this->M_filter->getDatabyKabTahunPeriode($kabkota, $data['tahun']);
+        $data['data_apbd'] = $this->M_filter->getUraianDatabyKabTahunPeriode($kabkota, $data['tahun']);
         $data['all_uraian'] = $this->M_filter->getAllUraian();
+        //print_r($data['data_apbd']);
+
+        $data['plafon'] = $this->M_filter->getPlafonDatabyKabTahunPeriode($kabkota, $data['tahun']);
+
+        if(!$data['plafon']){
+            for($i=0; $i<41; $i++){
+                $plafon=array('APBD'=>"data tidak ada", 'APBD_P'=>"data tidak ada");
+                //$plafon2=();
+                array_push($data['plafon'], $plafon);
+                //array_push($data['plafon'], $plafon2);
+            }
+        }
+        //print_r($data['plafon']);
 
         $temp2 = array();
         $temp3 = array();
