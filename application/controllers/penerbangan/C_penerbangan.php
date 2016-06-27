@@ -35,21 +35,6 @@ class C_penerbangan extends CI_Controller
         $this->load->view('V_footer');
     }
 
-    // public function viewImportExcel()
-    // {
-    //     $this->load->model('kelistrikan/M_kelistrikan');
-
-    //     $data['title'] = "Kelistrikan";
-
-    //     // $data['list_pelabuhan'] = $this->M_pelabuhan->getListPelabuhan();
-    //     $data['list_pic'] = $this->M_kelistrikan->getListPIC();
-    //     $data['list_data_kelistrikan'] = $this->M_kelistrikan->getListDataKelistrikan();
-    //     $this->load->view('V_head', $data);
-    //     $this->load->view('V_sidebar');
-    //     $this->load->view('kelistrikan/V_topNavKelistrikan');
-    //     $this->load->view('kelistrikan/V_index');
-    //     $this->load->view('V_footer');
-    // }
     public function insertUraian()
     {
         $fileName = time().$_FILES['file']['name'];
@@ -245,5 +230,108 @@ class C_penerbangan extends CI_Controller
 
     }
 
+    public function viewRekapPenerbangan()
+    {
+        $this->load->model('penerbangan/M_filter');
+        $data['list_entitas'] = $this->M_filter->getEntitas();
+        $data['rute'] = $this->input->post('rute');
+        $data['kategori'] = $this->input->post('kategori');
+        $data['tahun'] = $this->input->post('tahun');
+        $bulan = array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+        
+        if (!$data['kategori']) $entitas = array();
+        // print_r($data['kategori']);
+
+        if ($data['kategori']=="Pesawat")
+        {
+            $entitas = array('1', '2', '3');
+        }
+        elseif ($data['kategori']=="Penumpang") 
+        {
+            $entitas = array('4', '5', '6');
+        }
+        elseif ($data['kategori']=="Bagasi") 
+        {
+            $entitas = array('7', '8', '9');
+        }
+        elseif ($data['kategori']=="Cargo")
+        {
+            $entitas = array('10', '11', '12');
+        }
+        elseif ($data['kategori']=="Pos")
+        {
+            $entitas = array('13', '14', '15');
+        }
+        
+        // LIST DATA PADA TABEL
+        $data['nilai_tabel'] = array();
+        // print_r(sizeof($entitas));
+        if ($data['kategori'])
+        {
+            for ($i = 1; $i <= 3; $i++) 
+            {
+                if ($i==1) $akt = "Datang";
+                elseif ($i==2) $akt = "Berangkat";
+                elseif ($i==3) $akt = "Transit";
+
+                $listNilaiBulan = array();
+                foreach ($bulan as $j)                
+                {
+                    $result = $this->M_penerbangan->getNilaiPerBulan($entitas[$i-1], $data['tahun'], $j, $data['rute']);
+                    if (!$result) $result=0;
+                    else $result = $result[0]['NILAI'];
+                    array_push($listNilaiBulan, $result);
+                }
+                array_push($listNilaiBulan, $akt);
+                array_push($data['nilai_tabel'], $listNilaiBulan);
+            }
+            // print_r($data['nilai_tabel']);
+        }   
+        // return;
+        //END LIST DATA PAD TABEL
+        
+        $data['finalResult'] = array();
+        for ($i=1; $i<=3; $i++)
+        {
+            $data['listUraian'] = array();
+            $data['list_nilai']="";
+            if ($i==1) $akt = "Datang";
+            elseif ($i==2) $akt = "Berangkat";
+            elseif ($i==3) $akt = "Transit";
+            array_push($data['listUraian'], $akt);
+
+            $pos = 0;
+            foreach ($bulan as $d)
+            {
+                $nilai = $this->M_penerbangan->getNilaiPerBulan($entitas[$i-1], $data['tahun'], $d, $data['rute']);
+                // print_r($nilai);
+                if ($nilai)
+                {
+                    if ($pos  != 11)
+                        $data['list_nilai'] .= $nilai[0]['NILAI'].",";
+                    else
+                        $data['list_nilai'] .= $nilai[0]['NILAI']."";
+                }
+                else
+                {
+                    if ($pos != 11)
+                        $data['list_nilai'] .= "0,";
+                    else
+                        $data['list_nilai'] .= "0";
+                }
+                $pos++;
+            }
+            array_push($data['listUraian'], $data['list_nilai']);
+            array_push($data['finalResult'], $data['listUraian']);
+        }        
+        // print_r($data['finalResult']);
+
+        $data['title'] = "Rekap APBD";
+        $this->load->view('V_headChartTable', $data);
+        $this->load->view('V_sidebar');
+        $this->load->view('penerbangan/V_topNavPenerbangan');
+        $this->load->view('penerbangan/V_rekapPenerbangan');
+        $this->load->view('V_footerChartTable'); 
+    }
 
 }

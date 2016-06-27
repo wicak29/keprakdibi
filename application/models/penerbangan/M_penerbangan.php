@@ -98,11 +98,13 @@ class M_penerbangan extends CI_Model
         return $query;
     }
 
-    public function getListDataKendaraan(){
-        $query = $this->db->query('SELECT DISTINCT data_kendaraan.BULAN as BULAN, data_kendaraan.TAHUN as TAHUN, kontak.NAMA_INSTANSI as NAMA_INSTANSI, kontak.PIC as PIC FROM `data_kendaraan`,`kontak` 
-            WHERE data_kendaraan.ID_KONTAK=kontak.ID_KONTAK');
-        return $query->result_array();
+    public function getNilaiPerBulan($entitas, $tahun, $bulan, $rute)
+    {
+        $this->db->select('NILAI');
+        $result = $this->db->get_where('data_penerbangan', array('ID_ENTITAS'=>$entitas, 'TAHUN'=>$tahun, 'BULAN'=>$bulan, 'RUTE'=>$rute));
+        return $result->result_array();
     }
+
     public function getListDataPenerbangan(){
         $query = $this->db->query('SELECT DISTINCT data_penerbangan.BULAN as BULAN, data_penerbangan.TAHUN as TAHUN, kontak.NAMA_INSTANSI as NAMA_INSTANSI, kontak.PIC as PIC FROM `data_penerbangan`,`kontak` 
             WHERE data_penerbangan.ID_KONTAK=kontak.ID_KONTAK');
