@@ -17,7 +17,11 @@
               <div class="col-md-12 col-sm-12 col-xs-12" style="margin-right:auto; margin-left:auto;float:none;">
                 <div class="x_panel" style="min-height:538px;">
                   <div class="x_title">
-                    <h2>List User</h2>
+                    <h3>List User
+                      <a href="<?php echo base_url('C_admin/viewTambahUser');?>" class="pull-right" style="padding:0px;">
+                        <button type="button" class="btn btn-info btn-sm"><i class="fa fa-plus"></i> Tambah User</button>
+                      </a>
+                    </h3>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">

@@ -8,13 +8,13 @@
       </div>
       <ul class="nav navbar-nav navbar-left">
         <li><h3 style="line-height:1.5; margin-right:10px; margin-left:-5px;font-weight: bold; color : #1ABB9C;"><a href="<?php echo base_url('apbd');?>">ADMIN</a></h3></li>
-        <li class="dropdown">
+        <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">User <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo base_url('C_admin/');?>">Lihat User</a></li>
             <li><a href="<?php echo base_url('C_admin/viewTambahUser');?>">Tambah User</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">
