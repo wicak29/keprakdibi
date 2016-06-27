@@ -301,28 +301,31 @@ class C_penerbangan extends CI_Controller
             array_push($data['listUraian'], $akt);
 
             $pos = 0;
-            foreach ($bulan as $d)
+            if ($data['kategori'])
             {
-                $nilai = $this->M_penerbangan->getNilaiPerBulan($entitas[$i-1], $data['tahun'], $d, $data['rute']);
-                // print_r($nilai);
-                if ($nilai)
+                foreach ($bulan as $d)
                 {
-                    if ($pos  != 11)
-                        $data['list_nilai'] .= $nilai[0]['NILAI'].",";
+                    $nilai = $this->M_penerbangan->getNilaiPerBulan($entitas[$i-1], $data['tahun'], $d, $data['rute']);
+                    // print_r($nilai);
+                    if ($nilai)
+                    {
+                        if ($pos  != 11)
+                            $data['list_nilai'] .= $nilai[0]['NILAI'].",";
+                        else
+                            $data['list_nilai'] .= $nilai[0]['NILAI']."";
+                    }
                     else
-                        $data['list_nilai'] .= $nilai[0]['NILAI']."";
+                    {
+                        if ($pos != 11)
+                            $data['list_nilai'] .= "0,";
+                        else
+                            $data['list_nilai'] .= "0";
+                    }
+                    $pos++;
                 }
-                else
-                {
-                    if ($pos != 11)
-                        $data['list_nilai'] .= "0,";
-                    else
-                        $data['list_nilai'] .= "0";
-                }
-                $pos++;
+                array_push($data['listUraian'], $data['list_nilai']);
+                array_push($data['finalResult'], $data['listUraian']);
             }
-            array_push($data['listUraian'], $data['list_nilai']);
-            array_push($data['finalResult'], $data['listUraian']);
         }        
         // print_r($data['finalResult']);
 
