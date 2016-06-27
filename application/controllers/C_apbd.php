@@ -29,11 +29,11 @@ class C_apbd extends CI_Controller
         $data['list_pic'] = $this->M_apbd->getListPICApbd();
         // print_r($data['list_pic']);
         // return;
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_index');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function viewImportExcel()
@@ -47,11 +47,11 @@ class C_apbd extends CI_Controller
         $data['list_pic'] = $this->M_apbd->getListPICApbd();
         // print_r($data['list_pic']);
         // return;
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
         $this->load->view('apbd/V_index');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function viewRekapAPBD()

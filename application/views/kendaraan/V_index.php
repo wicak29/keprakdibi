@@ -157,7 +157,7 @@
                           <div class="ln_solid"></div>
                           <div>
                             <h3>Data kendaraan yang Telah di Import</h3>
-                            <table id="" class="table table-striped table-bordered">
+                            <table id="datatable" class="table table-striped table-bordered" style="width:100%;">
                             <thead>
                               <tr>
                                 <th style="vertical-align: middle;text-align: center;">No</th>
@@ -199,6 +199,7 @@
         <script type="text/javascript">
         $(document).ready(function()
         {
+          $('#datatable').dataTable();
           <?php if ($this->session->flashdata('notif')==1) 
           { ?>
             $('#sukses-tambah').show();

@@ -251,18 +251,28 @@
         <!-- /page content -->
 
         <script type="text/javascript">
-        $(document).ready(function () {
-            $('#checkBtn').click(function() {
-              checked = $("input[type=checkbox]:checked").length;
+        $(document).ready(function () 
+        {
+          $('#checkBtn').click(function() 
+          {
+            checked = $("input[type=checkbox]:checked").length;
 
-              if(!checked) {
-                alert("Anda belum memilih uraian!");
-                return false;
-              }
+            if(!checked) 
+            {
+              alert("Anda belum memilih uraian!");
+              return false;
+            }
+          });
 
-            });
+          $('input[class=uraian-checkbox]').on('change', function (e) 
+          {
+            if ($('input[class=uraian-checkbox]:checked').length > 5) 
+            {
+              $(this).prop('checked', false);
+              alert("Maksimal Pilih 5");
+            }
+          });
         });
-
       </script>
 
         <script>
