@@ -91,7 +91,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="kategori">
                             <option value="" selected disabled>Pilih Kategori</option>
-                            <option value="apbdp">APBD dan APBD P</option>
+                            <option value="apbdp">Plafon Anggaran</option>
                             <option value="realisasi">Nilai Realisasi</option>
                             
                           </select>

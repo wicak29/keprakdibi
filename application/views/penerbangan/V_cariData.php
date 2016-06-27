@@ -71,7 +71,7 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Penerbangan Entitas <?php echo $entitas?></h3>
+                       <h3 align="center">Data Penerbangan <?php echo $entitas?></h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
@@ -81,7 +81,7 @@
                       <thead>
                         <tr>
                           <th rowspan="2" style="vertical-align: middle;text-align: center;">No.</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Entitas</th>
+                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Kategori</th>
                           <th colspan="3" style="vertical-align: middle;text-align: center;">Domestik</th>
                           <th colspan="3" style="vertical-align: middle;text-align: center;">Internasional</th>
                         </tr>
