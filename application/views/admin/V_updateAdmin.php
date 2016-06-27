@@ -46,7 +46,27 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <input type="submit" class="btn btn-warning" value="Update"/>
+                         <button id="checkBtn" type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Update</button>
+                        </div>
+                      </div>
+                      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">
+
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                              </button>
+                              <h4 class="modal-title" id="myModalLabel2">UPDATE DATA USER</h4>
+                            </div>
+                            <div class="modal-body">
+                              <h4>Apakah Anda yakin ingin memperbarui data yang dipilih?</h4>
+                            </div>
+                            <div class="modal-footer">
+                              <input type="submit" class="btn btn-success" value="Iya" style="margin: 0;"/>
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
+                            </div>
+
+                          </div>
                         </div>
                       </div>
                     </form>
