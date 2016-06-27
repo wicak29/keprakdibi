@@ -24,17 +24,17 @@ class M_filter extends CI_Model
         return $query->result_array(); 
     }
 
-    public function getNilaiByKategori($jenis, $tahun, $bulan, $upt)
+    public function getNilaiByKategori($entitas, $tahun, $bulan, $rute)
     {
         $this->db->select('NILAI');
-        $result = $this->db->get_where('data_kendaraan', array('JENIS'=>$jenis, 'TAHUN'=>$tahun, 'BULAN'=>$bulan, 'KODE_UPT'=>$upt));
+        $result = $this->db->get_where('data_penerbangan', array('ID_ENTITAS'=>$entitas, 'TAHUN'=>$tahun, 'BULAN'=>$bulan, 'RUTE'=>$rute));
         return $result->result_array();
     }
 
-    public function getUptById($id)
+    public function getEntitasById($id)
     {
-        $this->db->select('NAMA_UPT');
-        $result = $this->db->get_where('upt', array('KODE_UPT'=>$id))->row_array();
-        return $result['NAMA_UPT'];
+        $this->db->select('NAMA_ENTITAS, AKTIVITAS');
+        $result = $this->db->get_where('entitas', array('ID_ENTITAS'=>$id))->row_array();
+        return $result;
     }
 }

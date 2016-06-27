@@ -11,18 +11,14 @@
           </div>
           <div class="x_content">
             <div style="margin-bottom:50px;">
-              <form id="demo-form" action="<?php echo base_url();?>pelabuhan/filter/viewLihatGrafikBulan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+              <form id="demo-form" action="<?php echo base_url();?>penerbangan/filter/viewLihatGrafikBulan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                 <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Pelabuhan :</label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Rute :</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <select name="pelabuhan" class="form-control" required="required">
-                      <option value="" selected disabled>Pilih Pelabuhan</option>
-                      <?php
-                        foreach ($pelabuhan as $p) 
-                        {
-                          echo '<option value="'.$p['ID_PELABUHAN'].'">'.$p['PELABUHAN'].'</option>';
-                        }
-                      ?>
+                  <select name="rute" class="form-control" required="required">
+                      <option value="" selected disabled>Pilih Rute</option>
+                      <option value="Domestik">Domestik</option>
+                      <option value="Internasional">Internasional</option>
                     </select>
                   </div>
                 </div>
@@ -46,6 +42,29 @@
                     </select>
                   </div>
                 </div>
+                <!-- <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Bulan :</label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                  <select name="kategori" class="form-control" required="required">
+                      <option value="" selected disabled>Pilih Kategori</option>
+                      <option value="1">Pesawat - Datang</option>
+                      <option value="2">Pesawat - Berangkat</option>
+                      <option value="3">Pesawat - Transit</option>
+                      <option value="4">Penumpang - Datang</option>
+                      <option value="5">Penumpang - Berangkat</option>
+                      <option value="6">Penumpang - Transit</option>
+                      <option value="7">Bagasi - Datang</option>
+                      <option value="8">Bagasi - Brangkat</option>
+                      <option value="9">Bagasi - Transit</option>
+                      <option value="10">Cargo - Datang</option>
+                      <option value="11">Cargo - Berangkat</option>
+                      <option value="12">Cargo - Transit</option>
+                      <option value="13">Pos - Datang</option>
+                      <option value="14">Pos - Berangkat</option>
+                      <option value="15">Pos - Transit</option>
+                    </select>
+                  </div>
+                </div> -->
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tahun :</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -59,22 +78,18 @@
                         <br />
                         <input type="checkbox" name="tahun[]" value="2010" class="single-checkbox" /> 2010
                         <br />
-                      </p>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                      <p style="padding: 5px;">
                         <input type="checkbox" name="tahun[]" value="2011" class="single-checkbox" /> 2011
                         <br />
                         <input type="checkbox" name="tahun[]" value="2012" class="single-checkbox" /> 2012
                         <br />
-                        <input type="checkbox" name="tahun[]" value="2013" class="single-checkbox" /> 2013
-                        <br />
-                        <input type="checkbox" name="tahun[]" value="2014" class="single-checkbox" /> 2014
-                        <br />
                       </p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                       <p style="padding: 5px;">
+                        <input type="checkbox" name="tahun[]" value="2013" class="single-checkbox" /> 2013
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2014" class="single-checkbox" /> 2014
+                        <br />
                         <input type="checkbox" name="tahun[]" value="2015" class="single-checkbox" /> 2015
                         <br />
                         <input type="checkbox" name="tahun[]" value="2016" class="single-checkbox"/> 2016
@@ -95,43 +110,75 @@
                         <br />
                         <input type="checkbox" name="tahun[]" value="2022" class="single-checkbox"/> 2022
                         <br />
+                        <input type="checkbox" name="tahun[]" value="2023" class="single-checkbox"/> 2023
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2024" class="single-checkbox"/> 2024
+                        <br />
+                      </p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                      <p style="padding: 5px;">
+                        <input type="checkbox" name="tahun[]" value="2025" class="single-checkbox"/> 2025
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2026" class="single-checkbox"/> 2026
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2027" class="single-checkbox"/> 2027
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2028" class="single-checkbox"/> 2028
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2029" class="single-checkbox"/> 2029
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2030" class="single-checkbox"/> 2030
+                        <br />
                       </p>
                     </div>
                   </select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Uraian :</label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kategori :</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <p style="padding: 5px;">
-                        <input type="checkbox" name="uraian[]" value="1" class="uraian-checkbox"/> ARUS KAPAL (UNIT)
+                        <input type="checkbox" name="entitas[]" value="1" class="entitas-checkbox"/> PESAWAT - DATANG
                         <br />
-                        <input type="checkbox" name="uraian[]" value="2" class="uraian-checkbox"/> ARUS KAPAL (GT)
+                        <input type="checkbox" name="entitas[]" value="2" class="entitas-checkbox"/> PESAWAT - BERANGKAT
+                        <br />
+                        <input type="checkbox" name="entitas[]" value="3" class="entitas-checkbox"/> PESAWAT - TRANSIT
                         <br />
                       </p>
                       <p style="padding: 5px;">
-                        <input type="checkbox" name="uraian[]" value="3" class="uraian-checkbox"/> ARUS BARANG (TON)
+                        <input type="checkbox" name="entitas[]" value="4" class="entitas-checkbox"/> PENUMPANG - DATANG
                         <br />
-                        <input type="checkbox" name="uraian[]" value="4" class="uraian-checkbox"/> ARUS BARANG (M3)
+                        <input type="checkbox" name="entitas[]" value="5" class="entitas-checkbox"/> PENUMPANG - BERANGKAT
                         <br />
-                        <input type="checkbox" name="uraian[]" value="5" class="uraian-checkbox"/> ARUS BARANG (TON/LTR)
+                        <input type="checkbox" name="entitas[]" value="6" class="entitas-checkbox"/> PENUMPANG - TRANSIT
+                        <br />
+                      </p>
+                      <p style="padding: 5px;">
+                        <input type="checkbox" name="entitas[]" value="7" class="entitas-checkbox"/> BAGASI - DATANG
+                        <br />
+                        <input type="checkbox" name="entitas[]" value="8" class="entitas-checkbox"/> BAGASI - BERANGKAT
+                        <br />
+                        <input type="checkbox" name="entitas[]" value="9" class="entitas-checkbox"/> BAGASI - TRANSIT
                         <br />
                       </p>
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                       <p style="padding: 5px;">
-                        <input type="checkbox" name="uraian[]" value="6" class="uraian-checkbox"/> ARUS PETIKEMAS (BOX)
+                        <input type="checkbox" name="entitas[]" value="10" class="entitas-checkbox"/> CARGO - DATANG
                         <br />
-                        <input type="checkbox" name="uraian[]" value="7" class="uraian-checkbox"/> ARUS PETIKEMAS (TEUS)
+                        <input type="checkbox" name="entitas[]" value="11" class="entitas-checkbox"/> CARGO - BERANGKAT
                         <br />
-                        <input type="checkbox" name="uraian[]" value="8" class="uraian-checkbox"/> ARUS PETIKEMAS (TON)
+                        <input type="checkbox" name="entitas[]" value="12" class="entitas-checkbox"/> CARGO - TRANSIT
                         <br />
                       </p>
                       <p style="padding: 5px;">
-                        <input type="checkbox" name="uraian[]" value="9" class="uraian-checkbox"/> ARUS PENUMPANG DALAM NEGERI
+                        <input type="checkbox" name="entitas[]" value="13" class="entitas-checkbox"/> POS - DATANG
                         <br />
-                        <input type="checkbox" name="uraian[]" value="10" class="uraian-checkbox"/> ARUS PENUMPANG LUAR NEGERI
+                        <input type="checkbox" name="entitas[]" value="14" class="entitas-checkbox"/> POS - BERANGKAT
+                        <br />
+                        <input type="checkbox" name="entitas[]" value="15" class="entitas-checkbox"/> POS - TRANSIT
                         <br />
                       </p>
                     </div>
@@ -164,8 +211,8 @@
       }
   });
 
-  $('input[class=uraian-checkbox]').on('change', function (e) {
-    if ($('input[class=uraian-checkbox]:checked').length > 5) {
+  $('input[class=entitas-checkbox]').on('change', function (e) {
+    if ($('input[class=entitas-checkbox]:checked').length > 5) {
         $(this).prop('checked', false);
         alert("Maksimal Pilih 5");
     }
@@ -389,7 +436,7 @@
 
       echartLine.setOption({
         title: {
-          text: <?php echo '"Grafik Pelabuhan '.$nama_pelabuhan.' Bulan '.$periode.'",'; ?>
+          text: <?php echo '"Grafik Penerbangan Bulan '.$periode.'",'; ?>
           subtext: ''
         },
         tooltip: {
