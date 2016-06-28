@@ -67,7 +67,9 @@
 
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in" id="tab-data" aria-labelledby="profile-tab">
+                          <?php if($aspek){?>
                           <h3 align="center">Rekapitulasi Kelistrikan Tahun <?php echo $tahun." (".$nama_aspek.")";?> </h3>
+                          <?php }?>
                           <table class="table table-striped table-bordered datatable-buttons" style="width:100%;">
                             <thead>
                               <tr>
