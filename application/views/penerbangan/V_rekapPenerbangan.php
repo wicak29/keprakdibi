@@ -79,10 +79,12 @@
 
                       <div id="myTabContent" class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in" id="tab-data" aria-labelledby="profile-tab">
+                          <?php if($tahun){?>
                           <h3 align="center">Rekapitulasi Penerbangan <?php 
                             if ($rute) echo $rute." ";
                             if ($kategori) echo $kategori;
                             else echo "_"; ?> Tahun <?php echo $tahun;?></h3>
+                          <?php }?>
                           <table class="table table-striped table-bordered datatable-buttons" style="width:100%;">
                             <thead>
                               <tr>
@@ -108,6 +110,7 @@
                             <tbody id="tabelApbd">
                               <?php 
                                 $no = 1;
+                                if(sizeof($nilai_tabel)==3){
                                 for ($r=0; $r<3; $r++) { ?>
                                   <tr>
                                     <td><?php echo $no; ?></td>
@@ -125,7 +128,7 @@
                                     <td ><?php echo $nilai_tabel[$r][10];?></td>
                                     <td ><?php echo $nilai_tabel[$r][11];?></td>
                                   </tr>
-                              <?php $no++; } ?>
+                              <?php $no++; }} ?>
                             </tbody>
                           </table>      
                         </div>
