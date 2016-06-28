@@ -126,7 +126,7 @@
                               </tr>
                             </thead>
                             <tbody id="tabelApbd">
-                              <?php if(sizeof($all_uraian)==41){
+                              <?php if(sizeof($nonkumulatif[0])==41){
                                 for ($r=0; $r<41; $r++) { ?>
                                   <tr>
                                     <td ><?php echo $all_uraian[$r]['URAIAN']; ?></td>
