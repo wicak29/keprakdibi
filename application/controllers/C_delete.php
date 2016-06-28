@@ -193,6 +193,30 @@ class C_delete extends CI_Controller
 
     }
 
+    public function deleteKontak($id)
+    {
+        $isExist = $this->M_delete->cekKontak($id);
+        if ($isExist)
+        {
+            $this->session->set_flashdata('notif', 5);
+            redirect('C_pic/viewLihatPic');
+            return;
+        }
+
+        $result1 = $this->M_delete->deleteKontakDiIndikator($id);
+        $result2 = $this->M_delete->deleteDataKontak($id);       
+
+        if ($result1 && $result2)
+        {
+            $this->session->set_flashdata('notif', 3);
+        }
+        else
+        {
+            $this->session->set_flashdata('notif', 4);
+        }
+        redirect('C_pic/viewLihatPic');
+    }
+
 
     public function filterKab()
     {

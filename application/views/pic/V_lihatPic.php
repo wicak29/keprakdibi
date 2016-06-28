@@ -10,6 +10,18 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
             <strong>Gagal!</strong> Kontak gagal disimpan ke database!
           </div>
+          <div id="sukses-hapus" class="alert alert-success alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Berhasil!</strong> Kontak berhasil di hapus dari database!
+          </div>    
+          <div id="gagal-hapus" class="alert alert-danger alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal!</strong> Kontak gagal di hapus dari database!
+          </div>
+          <div id="warning-hapus" class="alert alert-warning alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Warning!</strong> Kontak menjadi PIC di Indikator, kontak tidak bisa dihapus!
+          </div>
           <!-- END ALERTS -->
 
           <div class="">
@@ -53,14 +65,16 @@
                                 <div class="col-xs-12 col-sm-9 emphasis">
                                 </div>
                                 <div class="col-xs-12 col-sm-3 emphasis">
-                                  <a href="<?php echo base_url();?>C_pic/viewUpdatePic/<?php echo $pic['ID_KONTAK']; ?>"
+                                  <a href="<?php echo base_url();?>C_pic/viewUpdatePic/<?php echo $pic['ID_KONTAK']; ?>">
                                     <button class="btn btn-success btn-xs" data-toggle="tooltip" title="Edit Kontak"> 
                                     <i class="fa fa-edit"> </i> 
                                     </button>
                                   </a>
-                                  <button class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus Kontak">
-                                    <i class="fa fa-trash"></i>
-                                  </button>
+                                  <a href="<?php echo base_url();?>C_delete/deleteKontak/<?php echo $pic['ID_KONTAK']; ?>">
+                                    <button class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus Kontak">
+                                      <i class="fa fa-trash"></i>
+                                    </button>
+                                  </a>
                                 </div>
                               </div>
                             </div>
@@ -79,3 +93,35 @@
           </div>
         </div>
         <!-- /INSERT KE APBD -->
+
+        <script type="text/javascript">
+        $(document).ready(function()
+        {
+          <?php if ($this->session->flashdata('notif')==3) 
+          { ?>
+            $('#sukses-hapus').show();
+            <?php
+          } 
+          else if ($this->session->flashdata('notif')==4)
+          { ?>
+            $('#gagal-hapus').show();
+            <?php
+          }
+          else if ($this->session->flashdata('notif')==5)
+          { ?>
+            $('#warning-hapus').show();
+            <?php
+          }
+          else if ($this->session->flashdata('notif')==1)
+          { ?>
+            $('#sukses-tambah').show();
+            <?php
+          }
+          else if ($this->session->flashdata('notif')==2)
+          { ?>
+            $('#gagal-tambah').show();
+            <?php
+          }
+          ?>
+        });
+        </script>
