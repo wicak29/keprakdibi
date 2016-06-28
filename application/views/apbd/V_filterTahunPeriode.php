@@ -78,7 +78,7 @@
                           </form>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab-kabupaten" aria-labelledby="profile-tab">
-                          <form action="<?php echo base_url();?>C_apbd/insertDataAPBDbyKabKota/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+                          <form action="<?php echo base_url();?>apbd/insertDataAPBDbyKabKota/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data APBD Kabupaten/Kota</h3>
                             <br>
                             <div class="form-group">

@@ -53,7 +53,7 @@
                                 <div class="col-xs-12 col-sm-10 emphasis">
                                 </div>
                                 <div class="col-xs-12 col-sm-2 emphasis">
-                                  <a href="<?php echo base_url();?>C_apbd/deleteKontak/<?php echo $pic['ID_KONTAK']; ?>"
+                                  <a href="<?php echo base_url();?>apbd/deleteKontak/<?php echo $pic['ID_KONTAK']; ?>"
                                     <button class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus dari APBD"> 
                                     <i class="fa fa-trash"> </i> 
                                     </button>

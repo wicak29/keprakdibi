@@ -13,7 +13,7 @@ class C_filter extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
     public function index()
@@ -59,10 +59,10 @@ class C_filter extends CI_Controller
 
         //$result = $this->M_filter->cariFilter($daerah,$tahun);
         if ($kategori== 'Provinsi'){
-            redirect('C_filter/lihatFilterProvinsi');
+            redirect('apbd/filter/lihatFilterProvinsi');
         }
         else{
-            redirect('C_filter/viewDataKab');
+            redirect('apbd/filter/viewDataKab');
         }
     }
 

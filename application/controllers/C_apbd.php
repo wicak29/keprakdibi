@@ -14,7 +14,7 @@ class C_apbd extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
 
@@ -194,7 +194,7 @@ class C_apbd extends CI_Controller
             }
             
         delete_files('./temp_upload/');
-        redirect(base_url('C_apbd/viewImportExcel'));
+        redirect(base_url('apbd/viewImportExcel'));
     }
     public function importExcel()
     {
@@ -238,7 +238,7 @@ class C_apbd extends CI_Controller
                 $this->M_apbd->tambahNilai($rowData);
             }
         delete_files('./temp_upload/');
-        redirect(base_url('C_apbd/viewImportExcel'));
+        redirect(base_url('apbd/viewImportExcel'));
     }
 
     public function insertIntoAPBD()
@@ -283,7 +283,7 @@ class C_apbd extends CI_Controller
                 $this->M_apbd->tambahUraian($rowData);
             }
         delete_files('./temp_upload/');
-        redirect(base_url('C_apbd/viewImportExcel'));
+        redirect(base_url('apbd/viewImportExcel'));
     }
 
     public function insertDataAPBDbyProvinsi()
@@ -358,7 +358,7 @@ class C_apbd extends CI_Controller
                 $this->session->set_flashdata('notif', 3);
             }
             delete_files('./temp_upload/');
-            redirect(base_url('C_apbd/viewImportExcel'));
+            redirect(base_url('apbd/viewImportExcel'));
     }
     public function insertDataAPBDbyKabKota()
     {
@@ -450,7 +450,7 @@ class C_apbd extends CI_Controller
             //     $this->session->set_flashdata('notif', 1);
             // }
             delete_files('./temp_upload/');
-            redirect(base_url('C_apbd/viewImportExcel'));
+            redirect(base_url('apbd/viewImportExcel'));
     }
 
     public function getUraian($id)
@@ -530,7 +530,7 @@ class C_apbd extends CI_Controller
             
 
             delete_files('./temp_upload/');
-            redirect(base_url('C_apbd/viewImportExcel'));
+            redirect(base_url('apbd/viewImportExcel'));
     }
     public function insertDataAPBDbyDaerah()
     {
@@ -588,7 +588,7 @@ class C_apbd extends CI_Controller
                 $this->session->set_flashdata('notif', 1);
             }
             delete_files('./temp_upload/');
-            redirect(base_url('C_apbd/viewImportExcel'));
+            redirect(base_url('apbd/viewImportExcel'));
     }
 
     public function deleteKontak($id)

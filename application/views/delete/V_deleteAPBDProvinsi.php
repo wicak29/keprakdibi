@@ -9,13 +9,13 @@
                     <h2>Hapus APBD Provinsi</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>C_delete" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="<?php echo base_url();?>apbd/hapus" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>C_delete/deleteDataProv/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>apbd/hapus/deleteDataProv/" method="post" enctype="multipart/form-data" class="form-inline">
                 
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>

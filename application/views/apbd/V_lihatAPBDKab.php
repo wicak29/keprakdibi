@@ -9,13 +9,13 @@
                     <h2>Cari Data Kabupaten/Kota</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>C_filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="<?php echo base_url();?>apbd/filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>C_filter/filterKab/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <form action="<?php echo base_url();?>apbd/filter/filterKab/" method="post" enctype="multipart/form-data" class="form-inline">
                     <form class="form-inline">
                       <div class="form-group">
                         <label for="ex3">Pilih Tahun : </label>

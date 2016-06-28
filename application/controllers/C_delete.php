@@ -12,7 +12,7 @@ class C_delete extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
     public function index()
@@ -67,16 +67,16 @@ class C_delete extends CI_Controller
         
         $kategori= $this->input->post('kategori');
         if ($kategori == 'Provinsi'){
-            redirect('C_delete/viewDeleteDataProv');
+            redirect('apbd/hapus/viewDeleteDataProv');
         }
         elseif($kategori == 'Kab_Kota'){
-            redirect('C_delete/viewDeleteDataKab');
+            redirect('apbd/hapus/viewDeleteDataKab');
         }
         elseif($kategori == 'kontak'){
-            redirect('C_delete/viewDeleteDataKontak');
+            redirect('apbd/hapus/viewDeleteDataKontak');
         }
         else{
-            redirect('C_delete/viewDeleteDataAPBDP');
+            redirect('apbd/hapus/viewDeleteDataAPBDP');
         }
       
     }
@@ -125,7 +125,7 @@ class C_delete extends CI_Controller
 
         }
         //print_r($data);
-        redirect('C_delete/viewDeleteDataProv');
+        redirect('apbd/hapus/viewDeleteDataProv');
 
     }
 
@@ -147,7 +147,7 @@ class C_delete extends CI_Controller
 
         }
         //print_r($data);
-        redirect('C_delete/viewDeleteDataAPBDP');
+        redirect('apbd/hapus/viewDeleteDataAPBDP');
 
     }
     public function deleteDataKontak() 
@@ -166,7 +166,7 @@ class C_delete extends CI_Controller
             if ($isExist)
             {
                 $this->session->set_flashdata('notif', 3);
-                redirect('C_delete/viewDeleteDataKontak');
+                redirect('apbd/hapus/viewDeleteDataKontak');
                 return;
             }
         }
@@ -189,7 +189,7 @@ class C_delete extends CI_Controller
         {
             $this->session->set_flashdata('notif', 2);
         }
-        redirect('C_delete/viewDeleteDataKontak');
+        redirect('apbd/hapus/viewDeleteDataKontak');
 
     }
 
@@ -261,7 +261,7 @@ class C_delete extends CI_Controller
         //print_r($data);
         //$data['kabkota'] = $this->M_delete->getDaerah($kabkota);
 
-        redirect('C_delete/viewDeleteDataKab');
+        redirect('apbd/hapus/viewDeleteDataKab');
 
     }
 }

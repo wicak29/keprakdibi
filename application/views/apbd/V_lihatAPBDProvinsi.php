@@ -9,14 +9,14 @@
                     <h2>Cari Data Provinsi</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li>
-                        <a href="<?php echo base_url();?>C_filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
+                        <a href="<?php echo base_url();?>apbd/filter" class=""><i class="fa fa-arrow-left"></i> Kembali</a>
                       </li>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="row">
-                      <form action="<?php echo base_url();?>C_filter/lihatFilterProvinsi/" method="post" enctype="multipart/form-data" class="form-inline">
+                      <form action="<?php echo base_url();?>apbd/filter/lihatFilterProvinsi/" method="post" enctype="multipart/form-data" class="form-inline">
                         <div class="form-group">
                           <label for="ex3">Pilih Tahun : </label>
                           <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">

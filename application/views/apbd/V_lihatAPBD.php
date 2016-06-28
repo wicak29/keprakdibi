@@ -11,7 +11,7 @@
                   </div>
                   <div class="x_content">
                     <div>
-                      <form id="demo-form" action="<?php echo base_url();?>C_apbd/viewRekapAPBD" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                      <form id="demo-form" action="<?php echo base_url();?>apbd/viewRekapAPBD" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                         <div class="form-group">
                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ex3">Tahun :</label>
                           <div class="col-md-6 col-sm-6 col-xs-12">

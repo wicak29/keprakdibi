@@ -23,7 +23,7 @@
                   </div>
                   <div class="x_content">
                     <br>
-                    <form action="<?php echo base_url();?>C_apbd/addKontakToApbd" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
+                    <form action="<?php echo base_url();?>apbd/addKontakToApbd" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Kontak <span class="required">*</span>
                         </label>
