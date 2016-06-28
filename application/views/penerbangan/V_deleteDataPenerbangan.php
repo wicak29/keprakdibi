@@ -10,21 +10,14 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>penerbangan/hapus/filterHapusDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
-                      <div class="form-group">
-                       
-                      </div>
-                    </form>
-                    
-                    <div class="ln_solid"></div>
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
                     <form action="<?php echo base_url();?>penerbangan/hapus/deleteDataPenerbangan/" method="post" enctype="multipart/form-data" class="form-inline">
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                    <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Pilih</th>
+                          <th style="vertical-align: middle;text-align: center;">Pilih</th>
                           
                                 
                           <th style="vertical-align: middle;text-align: center;">Periode</th>
@@ -94,49 +87,9 @@
 
         <!-- DATA TABLES-->
         <script>
-      $(document).ready(function() {
-        var handleDataTableButtons = function() {
-          if ($("#datatable-buttons").length) {
-            $("#datatable-buttons").DataTable({
-              dom: "Bfrtip",
-              buttons: [
-                {
-                  extend: "copy",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "csv",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "excel",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "pdfHtml5",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "print",
-                  className: "btn-sm"
-                },
-              ],
-              responsive: true,
-              order: [],
-              paging: false
-            });
-          }
-        };
-
-        TableManageButtons = function() {
-          "use strict";
-          return {
-            init: function() {
-              handleDataTableButtons();
-            }
-          };
-        }();
-        TableManageButtons.init();
+      $(document).ready(function() 
+      {
+        $("#datatable").DataTable();
       });
     </script>
     <!-- /Datatables -->

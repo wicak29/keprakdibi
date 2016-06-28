@@ -19,9 +19,9 @@
                       <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                           <tr>
-                            <th rowspan="2" style="vertical-align: middle;text-align: center;">Pilih</th>
-                            <th rowspan="2" style="vertical-align: middle;text-align: center;">Data Daerah</th>
-                            <th rowspan="2" style="vertical-align: middle;text-align: center;">Tahun</th>
+                            <th style="vertical-align: middle;text-align: center;">Pilih</th>
+                            <th style="vertical-align: middle;text-align: center;">Data Daerah</th>
+                            <th style="vertical-align: middle;text-align: center;">Tahun</th>
                           </tr>
                         </thead>
                         <tbody id="">                        
@@ -81,12 +81,12 @@
       });
       </script>
 
-        <!-- DATA TABLES-->
-        <script>
+      <!-- DATA TABLES-->
+      <script>
       $(document).ready(function() 
       {
-        $('#datatable').dataTable();
+        $('#datatable').dataTable();  
       });
-    </script>
-    <!-- /Datatables -->
+      </script>
+      <!-- /Datatables -->
        

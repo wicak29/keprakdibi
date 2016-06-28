@@ -17,20 +17,20 @@
                   <div class="x_content">
                     <form action="<?php echo base_url();?>apbd/hapus/deleteDataProv/" method="post" enctype="multipart/form-data" class="form-inline">
                 
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                    <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Pilih</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Data Daerah</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Periode</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Tahun</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">Nama Instansi</th>
-                          <th rowspan="2" style="vertical-align: middle;text-align: center;">P.I.C.</th>
+                          <th style="vertical-align: middle;text-align: center;">Pilih</th>
+                          <th style="vertical-align: middle;text-align: center;">Data Daerah</th>
+                          <th style="vertical-align: middle;text-align: center;">Periode</th>
+                          <th style="vertical-align: middle;text-align: center;">Tahun</th>
+                          <th style="vertical-align: middle;text-align: center;">Nama Instansi</th>
+                          <th style="vertical-align: middle;text-align: center;">P.I.C.</th>
                           
                         </tr>
                         
                       </thead>
-                      <tbody id="tabelApbd">                        
+                      <tbody id="tabelhapus">                        
                         <?php foreach ($list as $r) { ?>
                           <tr>
                             <td><input type="checkbox" name="data[]" value="1#<?php echo $r['PERIODE']?>#<?php echo $r['TAHUN'] ?>#<?php echo $r['INSTANSI'] ?>#<?php echo $r['PIC'] ?>#<?php echo $r['ID_KONTAK'] ?>" class="single-checkbox" /></td>
@@ -46,7 +46,6 @@
                         <?php } ?>
                       </tbody>
                     </table>
-
                   <button id="checkBtn" type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Hapus</button>
                   <!-- Small modal -->
                   <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
@@ -94,51 +93,11 @@
       });
       </script>
       
-        <!-- DATA TABLES-->
-        <script>
-      $(document).ready(function() {
-        var handleDataTableButtons = function() {
-          if ($("#datatable-buttons").length) {
-            $("#datatable-buttons").DataTable({
-              dom: "Bfrtip",
-              buttons: [
-                {
-                  extend: "copy",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "csv",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "excel",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "pdfHtml5",
-                  className: "btn-sm"
-                },
-                {
-                  extend: "print",
-                  className: "btn-sm"
-                },
-              ],
-              responsive: true,
-              order: [],
-              paging: false
-            });
-          }
-        };
-
-        TableManageButtons = function() {
-          "use strict";
-          return {
-            init: function() {
-              handleDataTableButtons();
-            }
-          };
-        }();
-        TableManageButtons.init();
+        <!-- Datatables -->
+    <script>
+      $(document).ready(function() 
+      {        
+        $('#datatable').dataTable();
       });
     </script>
     <!-- /Datatables -->

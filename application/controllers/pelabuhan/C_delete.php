@@ -25,11 +25,11 @@ class C_delete extends CI_Controller
         $data['list'] = array();
         //print_r($data['list_pelabuhan']);
 
-        $this->load->view('V_head', $data);
+        $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('pelabuhan/V_topNavPelabuhan');
         $this->load->view('pelabuhan/V_deleteDataPelabuhan');
-        $this->load->view('V_footer');
+        $this->load->view('V_footer_table');
     }
 
     public function filterHapusDataPelabuhan()

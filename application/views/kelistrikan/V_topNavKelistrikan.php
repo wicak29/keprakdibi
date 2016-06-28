@@ -31,7 +31,7 @@
       <ul class="nav navbar-nav navbar-right" style="width:auto;">
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="<?php echo base_url('assets');?>/gentelella/production/images/mayu.jpg" alt="">Hi, 
+            <img src="<?php echo base_url('assets');?>/gentelella/production/images/user.png" alt="">Hi, 
             <?php
               $var = $this->session->userdata;
               echo $var['username'];
