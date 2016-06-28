@@ -59,22 +59,18 @@
                         <br />
                         <input type="checkbox" name="tahun[]" value="2010" class="single-checkbox" /> 2010
                         <br />
-                      </p>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                      <p style="padding: 5px;">
                         <input type="checkbox" name="tahun[]" value="2011" class="single-checkbox" /> 2011
                         <br />
                         <input type="checkbox" name="tahun[]" value="2012" class="single-checkbox" /> 2012
                         <br />
-                        <input type="checkbox" name="tahun[]" value="2013" class="single-checkbox" /> 2013
-                        <br />
-                        <input type="checkbox" name="tahun[]" value="2014" class="single-checkbox" /> 2014
-                        <br />
                       </p>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-6">
                       <p style="padding: 5px;">
+                        <input type="checkbox" name="tahun[]" value="2013" class="single-checkbox" /> 2013
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2014" class="single-checkbox" /> 2014
+                        <br />
                         <input type="checkbox" name="tahun[]" value="2015" class="single-checkbox" /> 2015
                         <br />
                         <input type="checkbox" name="tahun[]" value="2016" class="single-checkbox"/> 2016
@@ -94,6 +90,26 @@
                         <input type="checkbox" name="tahun[]" value="2021" class="single-checkbox"/> 2021
                         <br />
                         <input type="checkbox" name="tahun[]" value="2022" class="single-checkbox"/> 2022
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2023" class="single-checkbox"/> 2023
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2024" class="single-checkbox"/> 2024
+                        <br />
+                      </p>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                      <p style="padding: 5px;">
+                        <input type="checkbox" name="tahun[]" value="2025" class="single-checkbox"/> 2025
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2026" class="single-checkbox"/> 2026
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2027" class="single-checkbox"/> 2027
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2028" class="single-checkbox"/> 2028
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2029" class="single-checkbox"/> 2029
+                        <br />
+                        <input type="checkbox" name="tahun[]" value="2030" class="single-checkbox"/> 2030
                         <br />
                       </p>
                     </div>

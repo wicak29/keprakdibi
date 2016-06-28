@@ -44,7 +44,7 @@
                       </ul>
 
                       <div id="myTabContent" class="tab-content">
-                        <div role="tabpanel" class="tab-pane fade in active" id="tab-uraian" aria-labelledby="profile-tab">
+                        <div role="tabpanel" class="tab-pane fade in" id="tab-uraian" aria-labelledby="profile-tab">
                           <form action="<?php echo base_url();?>kendaraan/insertUraian/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Data Uraian Kendaraan</h3>
                             <br>
@@ -62,7 +62,7 @@
                               </div>
                           </form>
                         </div>
-                        <div role="tabpanel" class="tab-pane fade in" id="tab-datakendaraan" aria-labelledby="home-tab">
+                        <div role="tabpanel" class="tab-pane fade in active" id="tab-datakendaraan" aria-labelledby="home-tab">
                           <form action="<?php echo base_url();?>kendaraan/insertDataKendaraan/" method="post" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
                             <h3>Import Data Kendaraan Baru Provinsi Bali
                               <a href="<?php echo base_url(); ?>kendaraan/downloadFormatImport" class="pull-right" style="padding:0px;">
