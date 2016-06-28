@@ -35,9 +35,9 @@
                       <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                        <!--  <li role="presentation" class="active"><a href="#tab-apbdp" role="tab" id="apbdp-tab" data-toggle="tab" aria-expanded="true">APDBP</a>
                         </li> -->
-                        <li role="presentation" class="active"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
+                        <li role="presentation" class="" style="display:none;"><a href="#tab-uraian" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Uraian</a>
                         </li>
-                        <li role="presentation" class=""><a href="#tab-datapelabuhan" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Data Pelabuhan</a>
+                        <li role="presentation" class="active"><a href="#tab-datapelabuhan" id="provinsi-tab" role="tab" data-toggle="tab" aria-expanded="false">Data Pelabuhan</a>
                         </li>
                         <!-- <li role="presentation" class=""><a href="#tab-kabupaten" role="tab" id="kabupaten-tab" data-toggle="tab" aria-expanded="false">Kabupaten/Kota</a>
                         </li> -->
