@@ -44,4 +44,14 @@ class M_filter extends CI_Model
         $result = $this->db->get_where('aspek', array('ID_ASPEK'=>$id))->row_array();
         return $result['ASPEK'];
     }
+
+    public function getDataSpesifikPIC($tahun, $bulan)
+    {
+        $query = $this->db->query('SELECT DISTINCT kontak.*
+                                   FROM `data_kelistrikan`, `kontak`
+                                    WHERE data_kelistrikan.TAHUN="'.$tahun.'" AND data_kelistrikan.BULAN="'.$bulan.'"
+                                    AND data_kelistrikan.ID_KONTAK = kontak.ID_KONTAK
+                                    ');
+        return $query->result_array();
+    }
 }

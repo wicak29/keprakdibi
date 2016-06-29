@@ -24,7 +24,6 @@ class M_filter extends CI_Model
                                     AND data_apbd.ID_KONTAK = kontak.ID_KONTAK
                                     ');
         return $query->result_array();
-
     }
 
     public function getFilter()

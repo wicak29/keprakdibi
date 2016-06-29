@@ -37,4 +37,13 @@ class M_filter extends CI_Model
         $result = $this->db->get_where('entitas', array('ID_ENTITAS'=>$id))->row_array();
         return $result;
     }
+
+    public function getDataSpesifikPIC($tahun, $bulan){
+        $query = $this->db->query('SELECT DISTINCT kontak.*
+                                   FROM `data_penerbangan`, `kontak`
+                                    WHERE data_penerbangan.TAHUN="'.$tahun.'" AND data_penerbangan.BULAN="'.$bulan.'"
+                                    AND data_penerbangan.ID_KONTAK = kontak.ID_KONTAK
+                                    ');
+        return $query->result_array();
+    }
 }

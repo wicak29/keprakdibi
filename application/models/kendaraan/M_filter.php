@@ -45,4 +45,13 @@ class M_filter extends CI_Model
         $result = $this->db->get_where('upt', array('KODE_UPT'=>$id))->row_array();
         return $result['NAMA_UPT'];
     }
+
+    public function getDataSpesifikPIC($tahun, $bulan){
+        $query = $this->db->query('SELECT DISTINCT kontak.*
+                                   FROM `data_kendaraan`, `kontak`
+                                    WHERE data_kendaraan.TAHUN="'.$tahun.'" AND data_kendaraan.BULAN="'.$bulan.'"
+                                    AND data_kendaraan.ID_KONTAK = kontak.ID_KONTAK
+                                    ');
+        return $query->result_array();
+    }
 }
