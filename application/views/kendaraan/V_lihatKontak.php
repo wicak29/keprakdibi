@@ -4,11 +4,11 @@
           <!-- ALERTS -->
           <div id="sukses-tambah" class="alert alert-success alert-dismissible fade in" style="margin-top:70px;">
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
-            <strong>Berhasil!</strong> Kontak berhasil ditambah ke APBD.
+            <strong>Berhasil!</strong> Kontak berhasil ditambah ke Kendaraan.
           </div>    
           <div id="gagal-tambah" class="alert alert-danger alert-dismissible fade in" style="margin-top:70px;">
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
-            <strong>Gagal!</strong> Kontak gagal ditambah ke APBD!
+            <strong>Gagal!</strong> Kontak gagal ditambah ke Kendaraan!
           </div>
           <!-- END ALERTS -->
 
