@@ -16,16 +16,6 @@ class M_filter extends CI_Model
         $result = $this->db->get('kontak');
         return $result;
     }
-
-    public function getDataSpesifikPIC($tahun, $bulan, $daerah){
-        $query = $this->db->query('SELECT DISTINCT kontak.*
-                                   FROM `data_apbd`, `kontak`
-                                    WHERE data_apbd.ID_DAERAH ='.$daerah.' AND data_apbd.TAHUN="'.$tahun.'" AND data_apbd.PERIODE="'.$bulan.'"
-                                    AND data_apbd.ID_KONTAK = kontak.ID_KONTAK
-                                    ');
-        return $query->result_array();
-    }
-
     public function getFilter()
     {
         $this->db->select('ID_DAERAH, NAMA_DAERAH');
@@ -125,8 +115,8 @@ class M_filter extends CI_Model
     public function getPlafonDatabyProvTahunPeriode($tahun)
     {
         $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P
-                                    FROM apbd, data_apbd, uraian_apbd
-                                    WHERE apbd.ID_DAERAH = 1 AND apbd.TAHUN = "'.$tahun.'"');
+                                    FROM apbd
+                                    WHERE apbd.ID_DAERAH = 1 AND apbd.TAHUN = "'.$tahun.'" ');
 
         return $query->result_array();
         

@@ -87,7 +87,7 @@ class C_filter extends CI_Controller
         if (!$tahun) $tahun = "Tahun";
 
         $data['uraian'] = $this->M_filter->getUraianDatabyProvTahunPeriode($bulan, $tahun);
-        $data['plafon'] = $this->M_filter->getPlafonDatabyProvTahunPeriode($bulan, $tahun);
+        $data['plafon'] = $this->M_filter->getPlafonDatabyProvTahunPeriode($tahun);
         if(!$data['plafon']){
             for($i=0; $i<41; $i++){
                 $plafon=array('APBD'=>"data tidak ada", 'APBD_P'=>"data tidak ada");
@@ -96,6 +96,20 @@ class C_filter extends CI_Controller
                 //array_push($data['plafon'], $plafon2);
             }
         }
+        //print_r($data['uraian']);
+        //print_r($data['plafon']);
+
+        if(!$data['uraian']){
+            for($i=0; $i<41; $i++){
+                $uraian=array('NILAI'=>"data tidak ada", 'PERSENTASE'=>"data tidak ada");
+                //$plafon2=();
+                array_push($data['uraian'], $uraian);
+                //array_push($data['plafon'], $plafon2);
+            }
+        }
+        //print_r($uraian)
+
+        
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
         if(!$data['uraian']) $data['uraian'] = array();
