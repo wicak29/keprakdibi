@@ -12,7 +12,7 @@ class C_update extends CI_Controller
         $login = $this->session->userdata('username');
         if (!$login) 
         {
-            redirect('C_auth');
+            redirect('login');
         }
     }
     public function index()
@@ -196,7 +196,7 @@ class C_update extends CI_Controller
         }
         
         //$this->M_update->updateNilai($data);
-        redirect('C_update/viewUpdateDataRealisasiProv');
+        redirect('apbd/update/viewUpdateDataRealisasiProv');
         //return;
     }
 
@@ -230,7 +230,7 @@ class C_update extends CI_Controller
             $this->M_update->updateNilai($i+1, $data, $tahun, $bulan, $kabkota);
 
         }
-        redirect('C_update/viewUpdateDataRealisasiKab');
+        redirect('apbd/update/viewUpdateDataRealisasiKab');
         //return;
     }
 
@@ -290,7 +290,7 @@ class C_update extends CI_Controller
             );
             $this->M_update->updateNilai($dataUpdate[$i]['URAIAN'], $data, $tahun, $dataUpdate[$i]['PERIODE'], 1);
         }
-        redirect('C_update/viewUpdateDataAPBDPProv');
+        redirect('apbd/update/viewUpdateDataAPBDPProv');
     }
 
     public function updateDataNilaiAPBDPKab() {
@@ -329,7 +329,7 @@ class C_update extends CI_Controller
             );
             $this->M_update->updateNilai($dataUpdate[$i]['URAIAN'], $data, $tahun, $dataUpdate[$i]['PERIODE'], $kabkota);
         }
-        redirect('C_update/viewUpdateDataAPBDPKab');
+        redirect('apbd/update/viewUpdateDataAPBDPKab');
     }
 
 }
