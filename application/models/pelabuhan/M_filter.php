@@ -17,6 +17,15 @@ class M_filter extends CI_Model
         return $result->result_array();
     }
 
+    public function getDataSpesifikPIC($tahun, $bulan){
+        $query = $this->db->query('SELECT DISTINCT kontak.*
+                                   FROM `data_pelabuhan`, `kontak`
+                                    WHERE data_pelabuhan.TAHUN="'.$tahun.'" AND data_pelabuhan.BULAN="'.$bulan.'"
+                                    AND data_pelabuhan.ID_KONTAK = kontak.ID_KONTAK
+                                    ');
+        return $query->result_array();
+    }
+
     public function getNamaPelabuhanById($id)
     {
         $this->db->select('PELABUHAN');

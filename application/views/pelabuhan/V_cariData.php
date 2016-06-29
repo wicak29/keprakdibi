@@ -75,7 +75,8 @@
                     </div>                    
                     <div class="ln_solid"></div>
                      <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
-                       <h3 align="center">Data Realisasi Pelabuhan <?php echo $tabel_title['PELABUHAN']?> </h3>
+                      <button id="checkBtn" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Lihat PIC</button>
+                      <br><br><h3 align="center">Data Realisasi Pelabuhan <?php echo $tabel_title['PELABUHAN']?> </h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                      <?php } ?>
                     <!-- <p class="text-muted font-13 m-b-30">
@@ -105,6 +106,35 @@
                          <?php $i++;} ?>
                       </tbody>
                     </table>
+                    <!-- Small modal -->
+                      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">
+
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                              </button>
+                              <h4 class="modal-title" id="myModalLabel2">Detail Kontak</h4>
+                            </div>
+                             <div class="modal-body">
+
+                              <h2 style="color: #2A3F54; text-transform: uppercase;"><?php echo $data_pic[0]['PIC']?></h2>
+                              <ul class="list-unstyled">
+                                <li><i class="fa fa-building"></i> <?php echo $data_pic[0]['NAMA_INSTANSI']?></li>
+                                <li><i class="fa fa-home"></i> <?php echo $data_pic[0]['ALAMAT']?></li>
+                                <li><i class="fa fa-phone"></i> <?php echo $data_pic[0]['NO_TELEPON']?></li>
+                                <li><i class="fa fa-envelope"></i> <?php echo $data_pic[0]['EMAIL']?></li>
+                                <li><i class="fa fa-smile-o"></i> <?php echo $data_pic[0]['PREFERRED_CONTACT']?></li>
+                              </ul>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /modals -->
                   </div>
                 </div>
 
