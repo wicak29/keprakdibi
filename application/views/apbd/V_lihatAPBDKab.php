@@ -33,30 +33,30 @@
                           </select>
                         <select name="tahun" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih tahun</option>
-                                  <option value="2007">2007</option>
-                                  <option value="2008">2008</option>
-                                  <option value="2009">2009</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2018">2018</option>
-                                  <option value="2019">2019</option>
-                                  <option value="2020">2020</option>
-                                  <option value="2021">2021</option>
-                                  <option value="2022">2022</option>
-                                  <option value="2023">2023</option>
-                                  <option value="2024">2024</option>
-                                  <option value="2025">2025</option>
-                                  <option value="2026">2026</option>
-                                  <option value="2027">2027</option>
-                                  <option value="2028">2028</option>
-                                  <option value="2029">2029</option>
-                                  <option value="2030">2030</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
                                   
                           </select>
                           <input type="submit" class="btn btn-primary" style="margin:0 0 0 10px;" value="Cari"/>
@@ -65,6 +65,7 @@
                     
                     <div class="ln_solid"></div>
                     <?php if($kabkota!="nama_daerah" && $tahun!="Tahun") { ?>
+                      <button id="checkBtn" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Lihat PIC</button>
                       <h3 align="center">Data Realisasi APBD <?php echo $kabkota['NAMA_DAERAH']?></h3>
                       <h3 align="center">Tahun <?php echo $tahun?></h3>
                     <?php } ?>
@@ -197,6 +198,38 @@
                         <!-- END TAB PANEL -->
                       </div>
                       <!-- END TAB CONTENT -->
+                      <!-- Small modal -->
+                      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">
+
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                              </button>
+                              <h4 class="modal-title" id="myModalLabel2">Detail Kontak</h4>
+                            </div>
+                            <div class="modal-body">
+                              <?php for($i=0; $i<4; $i++){ ?>
+                              <h2 style="color: #2A3F54; text-transform: uppercase;"> Triwulan <?php echo $i+1?></h2>
+                              <h2 style="color: #2A3F54; text-transform: uppercase;"><?php echo $data_pic[$i][0]['PIC']?></h2>
+                              <ul class="list-unstyled">
+                                <li><i class="fa fa-building"></i> <?php echo $data_pic[$i][0]['NAMA_INSTANSI']?></li>
+                                <li><i class="fa fa-home"></i> <?php echo $data_pic[$i][0]['ALAMAT']?></li>
+                                <li><i class="fa fa-phone"></i> <?php echo $data_pic[$i][0]['NO_TELEPON']?></li>
+                                <li><i class="fa fa-envelope"></i> <?php echo $data_pic[$i][0]['EMAIL']?></li>
+                                <li><i class="fa fa-smile-o"></i> <?php echo $data_pic[$i][0]['PREFERRED_CONTACT']?></li>
+                              </ul>
+                              <br>
+                              <?php }?>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /modals -->
                     </div>
                   </div>
                 </div>
