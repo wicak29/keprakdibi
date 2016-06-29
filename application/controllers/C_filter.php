@@ -87,7 +87,7 @@ class C_filter extends CI_Controller
         if (!$tahun) $tahun = "Tahun";
 
         $data['uraian'] = $this->M_filter->getUraianDatabyProvTahunPeriode($bulan, $tahun);
-        $data['plafon'] = $this->M_filter->getPlafonDatabyProvTahunPeriode($bulan, $tahun);
+        $data['plafon'] = $this->M_filter->getPlafonDatabyProvTahunPeriode($tahun);
         if(!$data['plafon']){
             for($i=0; $i<41; $i++){
                 $plafon=array('APBD'=>"data tidak ada", 'APBD_P'=>"data tidak ada");
@@ -96,6 +96,20 @@ class C_filter extends CI_Controller
                 //array_push($data['plafon'], $plafon2);
             }
         }
+        //print_r($data['uraian']);
+        //print_r($data['plafon']);
+
+        if(!$data['uraian']){
+            for($i=0; $i<41; $i++){
+                $uraian=array('NILAI'=>"data tidak ada", 'PERSENTASE'=>"data tidak ada");
+                //$plafon2=();
+                array_push($data['uraian'], $uraian);
+                //array_push($data['plafon'], $plafon2);
+            }
+        }
+        //print_r($uraian)
+
+        
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
         if(!$data['uraian']) $data['uraian'] = array();
@@ -356,19 +370,7 @@ class C_filter extends CI_Controller
             array_push($data['nonkumulatif'], $desember);
         }
 
-        $data['data_pic'] = $this->M_filter->getDataSpesifikPIC($tahun, $bulan, 1);
-        //print_r($data['data_pic']);
-        if(!$data['data_pic']){
-            $data_pic = array(
-                'NAMA_INSTANSI' => 'Tidak ada data',
-                'NO_TELEPON' => 'Tidak ada data',
-                'EMAIL'=> 'Tidak ada data',
-                'ALAMAT'=> 'Tidak ada data',
-                'PIC'=> 'Tidak ada data',
-                'PREFERRED_CONTACT'=> 'Tidak ada data'
-            );
-            array_push($data['data_pic'], $data_pic);
-        }
+
         
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
@@ -469,29 +471,7 @@ class C_filter extends CI_Controller
         array_push($data['nonkumulatif'], $temp2);
         array_push($data['nonkumulatif'], $temp3);
         array_push($data['nonkumulatif'], $temp4);
-
-        $data['data_pic'] = array();
-        $period = array("Triwulan_1", "Triwulan_2", "Triwulan_3", "Triwulan_4");
-        for($i=0; $i<4; $i++){
-            $data_pic = $this->M_filter->getDataSpesifikPIC($data['tahun'], $period[$i], $kabkota);
-            
-            if(!$data_pic){
-                $data_temp = array();
-                $data_pic = array(
-                    'NAMA_INSTANSI' => 'Tidak ada data',
-                    'NO_TELEPON' => 'Tidak ada data',
-                    'EMAIL'=> 'Tidak ada data',
-                    'ALAMAT'=> 'Tidak ada data',
-                    'PIC'=> 'Tidak ada data',
-                    'PREFERRED_CONTACT'=> 'Tidak ada data'
-                );
-                array_push($data_temp, $data_pic);
-                array_push($data['data_pic'], $data_temp);
-            }
-            else{
-                array_push($data['data_pic'], $data_pic);
-            }
-        }
+        //print_r($data['nonkumulatif']);
 
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
