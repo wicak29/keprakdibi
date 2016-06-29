@@ -469,13 +469,12 @@ class C_filter extends CI_Controller
         array_push($data['nonkumulatif'], $temp2);
         array_push($data['nonkumulatif'], $temp3);
         array_push($data['nonkumulatif'], $temp4);
-        //print_r($data['nonkumulatif']);
+
         $data['data_pic'] = array();
         $period = array("Triwulan_1", "Triwulan_2", "Triwulan_3", "Triwulan_4");
         for($i=0; $i<4; $i++){
             $data_pic = $this->M_filter->getDataSpesifikPIC($data['tahun'], $period[$i], $kabkota);
-            array_push($data['data_pic'], $data_pic);
-            //print_r($data_pic);
+            
             if(!$data_pic){
                 $data_temp = array();
                 $data_pic = array(
@@ -489,10 +488,11 @@ class C_filter extends CI_Controller
                 array_push($data_temp, $data_pic);
                 array_push($data['data_pic'], $data_temp);
             }
+            else{
+                array_push($data['data_pic'], $data_pic);
+            }
         }
-        
-        //print_r($data['data_pic']);
-        //print_r($period);
+
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');
         $this->load->view('V_topNav');
