@@ -68,6 +68,7 @@
                     </div>                    
                     <div class="ln_solid"></div>
                     <?php if($bulan!="Bulan" && $tahun!="Tahun") { ?>
+                      <button id="checkBtn" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target=".bs-example-modal-sm" style="float:right;">Lihat PIC</button>
                       <h3 align="center">Data Realisasi APBD Prov. Bali</h3>
                       <h3 align="center">Bulan <?php echo $bulan?> Tahun <?php echo $tahun?></h3>
                     <?php } ?>
@@ -144,6 +145,33 @@
                         <!-- END TAB PANEL -->
                       </div>
                       <!-- END TAB CONTENT -->
+                      <!-- Small modal -->
+                      <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">
+
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                              </button>
+                              <h4 class="modal-title" id="myModalLabel2">Detail Kontak</h4>
+                            </div>
+                            <div class="modal-body">
+                              <h2 style="color: #2A3F54; text-transform: uppercase;">NAMA</h2>
+                              <ul class="list-unstyled">
+                                <li><i class="fa fa-building"></i> Alamat</li>
+                                <li><i class="fa fa-phone"></i> 0819821817</li>
+                                <li><i class="fa fa-envelope"></i> Email</li>
+                                <li><i class="fa fa-smile-o"></i> Kontak</li>
+                              </ul>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /modals -->
 
 
                 </div>
