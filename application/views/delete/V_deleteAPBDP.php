@@ -15,7 +15,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <form action="<?php echo base_url();?>hapus/deleteDataAPBDP/" method="post" enctype="multipart/form-data" class="form-inline">                
+                    <form action="<?php echo base_url();?>apbd/hapus/deleteDataAPBDP/" method="post" enctype="multipart/form-data" class="form-inline">                
                       <table id="datatable" class="table table-striped table-bordered">
                         <thead>
                           <tr>
