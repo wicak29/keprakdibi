@@ -355,6 +355,20 @@ class C_filter extends CI_Controller
         elseif ($bulan=="Desember") {
             array_push($data['nonkumulatif'], $desember);
         }
+
+        $data['data_pic'] = $this->M_filter->getDataSpesifikPIC($tahun, $bulan, 1);
+        //print_r($data['data_pic']);
+        if(!$data['data_pic']){
+            $data_pic = array(
+                'NAMA_INSTANSI' => 'Tidak ada data',
+                'NO_TELEPON' => 'Tidak ada data',
+                'EMAIL'=> 'Tidak ada data',
+                'ALAMAT'=> 'Tidak ada data',
+                'PIC'=> 'Tidak ada data',
+                'PREFERRED_CONTACT'=> 'Tidak ada data'
+            );
+            array_push($data['data_pic'], $data_pic);
+        }
         
         $this->load->view('V_head_table', $data);
         $this->load->view('V_sidebar');

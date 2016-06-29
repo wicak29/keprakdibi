@@ -156,12 +156,13 @@
                               <h4 class="modal-title" id="myModalLabel2">Detail Kontak</h4>
                             </div>
                             <div class="modal-body">
-                              <h2 style="color: #2A3F54; text-transform: uppercase;">NAMA</h2>
+                              <h2 style="color: #2A3F54; text-transform: uppercase;"><?php echo $data_pic[0]['PIC']?></h2>
                               <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Alamat</li>
-                                <li><i class="fa fa-phone"></i> 0819821817</li>
-                                <li><i class="fa fa-envelope"></i> Email</li>
-                                <li><i class="fa fa-smile-o"></i> Kontak</li>
+                                <li><i class="fa fa-building"></i> <?php echo $data_pic[0]['NAMA_INSTANSI']?></li>
+                                <li><i class="fa fa-home"></i> <?php echo $data_pic[0]['ALAMAT']?></li>
+                                <li><i class="fa fa-phone"></i> <?php echo $data_pic[0]['NO_TELEPON']?></li>
+                                <li><i class="fa fa-envelope"></i> <?php echo $data_pic[0]['EMAIL']?></li>
+                                <li><i class="fa fa-smile-o"></i> <?php echo $data_pic[0]['PREFERRED_CONTACT']?></li>
                               </ul>
                             </div>
                             <div class="modal-footer">
