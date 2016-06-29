@@ -75,6 +75,7 @@
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control" name="id_kontak" required="required">
                                   <option value="" selected disabled>Pilih PIC</option>
+                                  <option value="1">Unknown</option>
                                   <?php
                                     foreach ($list_pic as $pic) 
                                     {

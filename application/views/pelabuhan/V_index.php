@@ -76,6 +76,7 @@
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control" name="id_pelabuhan" required="required">
                                   <option value="" selected disabled>Pilih Pelabuhan</option>
+                                  <option value="1">Unknown</option>
                                   <?php
                                     foreach ($list_pelabuhan as $pelabuhan) 
                                     {
