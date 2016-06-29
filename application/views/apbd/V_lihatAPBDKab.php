@@ -113,7 +113,6 @@
                               <?php 
 
                                 if($j=sizeof($data_apbd)){
-                                  print_r($j);
                                 for ($i=0; $i < 41; $i++) { 
                                 ?>
                                 <tr>
