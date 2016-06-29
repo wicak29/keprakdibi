@@ -26,7 +26,7 @@
                       <div class="col-md-12 col-sm-12 col-xs-12"></div>
                       <div class="col-md-12 col-sm-12 col-xs-12"></div>
                       <?php
-                      $imgu = "http://localhost/keprakdibi/assets/gentelella/production/images/user.png";
+                      $imgu = base_url('assets/gentelella/production/images/user.png');
                       foreach ($list_kontak as $pic) 
                         if ($pic['ID_KONTAK']!=1)
                       {
