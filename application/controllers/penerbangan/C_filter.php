@@ -33,7 +33,7 @@ class C_filter extends CI_Controller
 
     public function filterDataPenerbangan()
     {
-        $data['title'] = "Cari Data Kelistrikan";
+        $data['title'] = "Cari Data Penerbangan";
 
         $tahun = $this->input->post('tahun');
         $bulan = $this->input->post('bulan');

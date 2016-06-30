@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-2 emphasis">
                                   <a href="<?php echo base_url();?>pelabuhan/deleteKontak/<?php echo $pic['ID_KONTAK']; ?>"
-                                    <button class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus dari APBD"> 
+                                    <button class="btn btn-danger btn-xs" data-toggle="tooltip" title="Hapus dari Pelabuhan"> 
                                     <i class="fa fa-trash"> </i> 
                                     </button>
                                   </a>

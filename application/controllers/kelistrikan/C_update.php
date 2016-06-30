@@ -35,7 +35,7 @@ class C_update extends CI_Controller
     public function filterDataKelistrikan()
     {
         //$this->load->model('pelabuhan/M_pelabuhan');
-        $data['title'] = "Update Data Pelabuhan";
+        $data['title'] = "Update Data Kelistrikan";
 
         $nilai = array();
         //$nilai = $this->input->post('nilai');
@@ -74,7 +74,7 @@ class C_update extends CI_Controller
 
     public function updateDataKelistrikan()
     {
-        $data['title'] = "Update Data Pelabuhan";
+        $data['title'] = "Update Data Kelistrikan";
 
         $nilai = array();
         //$nilai = $this->input->post('nilai');

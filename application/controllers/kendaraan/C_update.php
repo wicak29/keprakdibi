@@ -33,7 +33,7 @@ class C_update extends CI_Controller
 
     public function filterDataKendaraan()
     {
-        $data['title'] = "Cari Data Kelistrikan";
+        $data['title'] = "Cari Data Kendaraan";
 
         $tahun = $this->input->post('tahun');
         $bulan = $this->input->post('bulan');
@@ -122,7 +122,7 @@ class C_update extends CI_Controller
 
     public function viewLihatGrafikBulan()
     {
-        $data['title'] = "Grafik Pelabuhan Berdasarkan Bulan Pertahun";
+        $data['title'] = "Grafik Kendaraan Berdasarkan Bulan Pertahun";
         $data['periode']= $this->input->post('bulan');
         $data['tahun'] = $this->input->post('tahun');
         $data['uraian'] = $this->input->post('uraian');
