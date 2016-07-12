@@ -18,6 +18,10 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
             <strong>Gagal!</strong> Data APBD/APBD Perubahan untuk tahun yang dipilih BELUM ADA!
           </div>
+          <div id="gagal-format" class="alert alert-danger alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal!</strong> Format file yang import tidak sesuai dengan ketentuan!
+          </div>
           <!-- END ALERTS -->
 
           <div class="">
@@ -204,6 +208,7 @@
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <select class="form-control" name="id_kontak" required="required">
                                   <option value="" selected disabled>Pilih PIC</option>
+                                  <option value="1">Unknown</option>
                                   <?php
                                     foreach ($list_pic as $pic) 
                                     {
@@ -468,6 +473,11 @@
           else if ($this->session->flashdata('notif')==4)
           { ?>
             $('#gagal-apbdp').show();
+            <?php
+          }
+          else if ($this->session->flashdata('notif')==5)
+          { ?>
+            $('#gagal-format').show();
             <?php
           }
 

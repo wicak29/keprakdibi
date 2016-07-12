@@ -19,6 +19,10 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
             <strong>Gagal!</strong> Data APBD/APBD Perubahan untuk tahun yang dipilih BELUM ADA!
           </div>
+          <div id="gagal-format" class="alert alert-danger alert-dismissible fade in" style="margin-top:70px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">×</span></a>
+            <strong>Gagal!</strong> Format file yang import tidak sesuai dengan ketentuan!
+          </div>
           <!-- END ALERTS -->
 
           <div class="">
@@ -224,6 +228,11 @@
           else if ($this->session->flashdata('notif')==4)
           { ?>
             $('#gagal-apbdp').show();
+            <?php
+          }
+          else if ($this->session->flashdata('notif')==5)
+          { ?>
+            $('#gagal-format').show();
             <?php
           }
 

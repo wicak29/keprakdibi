@@ -133,6 +133,18 @@ class C_kelistrikan extends CI_Controller
             }
  
         $sheet = $objPHPExcel->getSheet(0);
+
+        //CEK FORMAT INPUT 
+        $cekFormat = $sheet->rangeToArray('B' . 6 . ':' . 'E' . 6, NULL, TRUE, FALSE);
+        // print_r($cekFormat);
+        // return;
+        if ($cekFormat[0][0]!="Kategori Pelanggan" AND $cekFormat[0][1]!="Harga Jual (Rp/ Per Kwh)" AND $cekFormat[0][2]!="Jumlah Pelanggan" AND $cekFormat[0][3]!="Jumlah Konsumsi (Kwh)")
+        {
+            $this->session->set_flashdata('notif', 5);
+            delete_files('./temp_upload/');
+            redirect(base_url('kelistrikan/viewImportExcel'));
+        }
+
         $highestRow = $sheet->getHighestRow();
         $highestColumn = $sheet->getHighestColumn();      
         $rowData = array();

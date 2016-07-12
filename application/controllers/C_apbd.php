@@ -321,6 +321,16 @@ class C_apbd extends CI_Controller
  
             $sheet = $objPHPExcel->getSheet(0);
             //$sheet->getStyle('B3:J33')->getNumberFormat()->setFormatCode('text');
+
+            //CEK FORMAT INPUT 
+            $cekFormat = $sheet->rangeToArray('B' . 5 , NULL, TRUE, FALSE);
+            if ($cekFormat[0][0]!="Realisasi APBD")
+            {
+                $this->session->set_flashdata('notif', 5);
+                delete_files('./temp_upload/');
+                redirect(base_url('apbd/viewImportExcel'));
+            }
+
             $highestRow = $sheet->getHighestRow();
             $highestColumn = $sheet->getHighestColumn();
            
@@ -395,6 +405,16 @@ class C_apbd extends CI_Controller
  
             $sheet = $objPHPExcel->getSheet(0);
             //$sheet->getStyle('B3:J')->getNumberFormat()->setFormatCode('text');
+
+            //CEK FORMAT INPUT 
+            $cekFormat = $sheet->rangeToArray('B' . 5 , NULL, TRUE, FALSE);
+            if ($cekFormat[0][0]!="Realisasi APBD")
+            {
+                $this->session->set_flashdata('notif', 5);
+                delete_files('./temp_upload/');
+                redirect(base_url('apbd/viewImportExcel'));
+            }
+
             $highestRow = $sheet->getHighestRow();
             $highestColumn = $sheet->getHighestColumn();
             //echo $highestRow;
@@ -496,10 +516,21 @@ class C_apbd extends CI_Controller
             $highestColumn = $sheet->getHighestColumn();
             //echo $highestRow;
             //echo $highestColumn;
+
+            //CEK FORMAT INPUT 
+            $cekFormat = $sheet->rangeToArray('B' . 5 . ':' . 'C' . 5, NULL, TRUE, FALSE);
+            if ($cekFormat[0][0]!="Plafon Anggaran Awal" AND $cekFormat[0][1]!="Plafon Anggaran Akhir")
+            {
+                $this->session->set_flashdata('notif', 5);
+                delete_files('./temp_upload/');
+                redirect(base_url('apbd/viewImportExcel'));
+            }
+
             $ErrorHandling = array();
             $ErrorHandling = $this->M_apbd->getAPBDPError($daerah, $tahun);
             $rowData = array();
             //print_r($ErrorHandling);
+
             if (empty($ErrorHandling)){
                 //echo "wow";
                 //$this->session->set_flashdata('notif', 1);

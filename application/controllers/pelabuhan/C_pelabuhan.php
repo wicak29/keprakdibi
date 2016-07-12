@@ -136,6 +136,18 @@ class C_pelabuhan extends CI_Controller
             }
  
         $sheet = $objPHPExcel->getSheet(0);
+
+        //CEK FORMAT INPUT 
+        $cekFormat = $sheet->rangeToArray('B' . 6 . ':' . 'D' . 6, NULL, TRUE, FALSE);
+        // print_r($cekFormat);
+        // return;
+        if ($cekFormat[0][0]!="Jenis Data" AND $cekFormat[0][1]!="Satuan " AND $cekFormat[0][2]!="Realisasi ")
+        {
+            $this->session->set_flashdata('notif', 5);
+            delete_files('./temp_upload/');
+            redirect(base_url('pelabuhan/viewImportExcel'));
+        }
+
         $highestRow = $sheet->getHighestRow();
         $highestColumn = $sheet->getHighestColumn();      
         $rowData = array();

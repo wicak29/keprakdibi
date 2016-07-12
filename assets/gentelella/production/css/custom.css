@@ -4851,6 +4851,12 @@ ul.notifications {
 {
     display: none;
 }
+
+#gagal-format
+{
+    display: none;
+}
+
 #plafonKosong
 {
     display: none;

@@ -93,18 +93,18 @@
                                 <th colspan="12" scope="colgroup" style="text-align: center;">Tahun <?php echo $tahun; ?></th>
                               </tr>
                               <tr>
-                                <th scope="col" style="text-align: center;">1</th>
-                                <th scope="col" style="text-align: center;">2</th>
-                                <th scope="col" style="text-align: center;">3</th>
-                                <th scope="col" style="text-align: center;">4</th>
-                                <th scope="col" style="text-align: center;">5</th>
-                                <th scope="col" style="text-align: center;">6</th>
-                                <th scope="col" style="text-align: center;">7</th>
-                                <th scope="col" style="text-align: center;">8</th>
-                                <th scope="col" style="text-align: center;">9</th>
-                                <th scope="col" style="text-align: center;">10</th>
-                                <th scope="col" style="text-align: center;">11</th>
-                                <th scope="col" style="text-align: center;">12</th>
+                                <th scope="col" style="text-align: center;">JAN</th>
+                                <th scope="col" style="text-align: center;">FEB</th>
+                                <th scope="col" style="text-align: center;">MAR</th>
+                                <th scope="col" style="text-align: center;">APR</th>
+                                <th scope="col" style="text-align: center;">MEI</th>
+                                <th scope="col" style="text-align: center;">JUN</th>
+                                <th scope="col" style="text-align: center;">JUL</th>
+                                <th scope="col" style="text-align: center;">AGU</th>
+                                <th scope="col" style="text-align: center;">SEP</th>
+                                <th scope="col" style="text-align: center;">OKT</th>
+                                <th scope="col" style="text-align: center;">NOV</th>
+                                <th scope="col" style="text-align: center;">DES</th>
                               </tr>
                             </thead>
                             <tbody id="tabelApbd">

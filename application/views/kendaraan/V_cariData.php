@@ -106,9 +106,8 @@
                             <td ><?php echo $uraian[$i]['NAMA_UPT'] ?></td>
                             <td ><?php echo $kendaraan[$i*2]['NILAI'] ?></td>
                             <td ><?php echo $kendaraan[$i*2+1]['NILAI'] ?></td>
-                            <td ><?php echo $growthMotor[$i] ?></td>
                             <td ><?php echo $growthMobil[$i] ?></td>
-                            
+                            <td ><?php echo $growthMotor[$i] ?></td>
                           </tr>
                          <?php }} ?>
                       </tbody>

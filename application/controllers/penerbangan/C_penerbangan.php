@@ -119,6 +119,18 @@ class C_penerbangan extends CI_Controller
             }
  
         $sheet = $objPHPExcel->getSheet(0);
+
+        //CEK FORMAT INPUT 
+        $cekFormat = $sheet->rangeToArray('B' . 6 . ':' . 'AB' . 6, NULL, TRUE, FALSE);
+        // print_r($cekFormat);
+        // return;
+        if ($cekFormat[0][0]!="Bulan" AND $cekFormat[0][1]!="Tahun " AND $cekFormat[0][2]!="Pesawat" AND $cekFormat[0][8]!="Penumpang" AND $cekFormat[0][14]!="Bagasi" AND $cekFormat[0][20]!="Kargo" AND $cekFormat[0][26]!="Pos")
+        {
+            $this->session->set_flashdata('notif', 5);
+            delete_files('./temp_upload/');
+            redirect(base_url('penerbangan/'));
+        }
+
         $highestRow = $sheet->getHighestRow();
         $highestColumn = $sheet->getHighestColumn();      
         $rowData = array();

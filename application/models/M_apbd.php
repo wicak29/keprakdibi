@@ -209,7 +209,8 @@ class M_apbd extends CI_Model
     }
 
 
-    public function tambahNilaiAPBDPbyTahun($dataarray, $tahun, $dataAPBD, $daerah){
+    public function tambahNilaiAPBDPbyTahun($dataarray, $tahun, $dataAPBD, $daerah)
+    {
         for($i=0;$i<count($dataarray);$i++){   
             $data = array(
                 //'dump'=>$dataarray[$i][5],

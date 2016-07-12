@@ -119,6 +119,18 @@ class C_kendaraan extends CI_Controller
             }
  
         $sheet = $objPHPExcel->getSheet(0);
+
+        //CEK FORMAT INPUT 
+        $cekFormat = $sheet->rangeToArray('A' . 6 . ':' . 'D' . 6, NULL, TRUE, FALSE);
+        // print_r($cekFormat);
+        // return;
+        if ($cekFormat[0][0]!="Kode UPT" AND $cekFormat[0][1]!="Nama UPT" AND $cekFormat[0][2]!="Jenis Kendaraan" AND $cekFormat[0][3]!="Jumlah")
+        {
+            $this->session->set_flashdata('notif', 5);
+            delete_files('./temp_upload/');
+            redirect(base_url('kendaraan/'));
+        }
+
         $highestRow = $sheet->getHighestRow();
         $highestColumn = $sheet->getHighestColumn();      
         $rowData = array();
