@@ -168,17 +168,7 @@ class M_filter extends CI_Model
     public function getPlafonDatabyKabTahunPeriode($daerah, $tahun)
     {
 
-        $query = $this->db->query('SELECT apbd.APBD as APBD, apbd.APBD_P as APBD_P
-                                    
-                                    FROM apbd, data_apbd, uraian_apbd
-                                    WHERE data_apbd.ID_DAERAH = '.$daerah.' AND 
-                                    data_apbd.ID_DAERAH = apbd.ID_DAERAH AND
-                                    apbd.TAHUN = "'.$tahun.'" AND apbd.TAHUN = data_apbd.TAHUN AND
-
-                                    uraian_apbd.ID_URAIAN = data_apbd.ID_URAIAN AND
-                                    data_apbd.ID_URAIAN = apbd.ID_URAIAN
-
-                                    ');
+        $query = $this->db->query('SELECT APBD,APBD_P FROM apbd WHERE apbd.ID_DAERAH = '.$daerah.' AND apbd.TAHUN = "'.$tahun.'"');
 
         return $query->result_array();
     }

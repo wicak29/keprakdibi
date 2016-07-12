@@ -61,7 +61,7 @@
                               <div class="icon"><i class="fa fa-file"></i></div>
                             </div>
                             <h3 class="name_title">APBD</h3>
-                            <p>Short Description</p>
+                            <!-- <p>Short Description</p> -->
                             <!-- <div class="divider"></div> -->
                             <!-- <p>If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.</p> -->
                           </div>
@@ -76,7 +76,7 @@
                               <div class="icon"><i class="fa fa-anchor"></i></div>
                             </div>
                             <h3 class="name_title">Pelabuhan</h3>
-                            <p>Short Description</p>
+                            <!-- <p>Short Description</p> -->
                             <!-- <div class="divider"></div> -->
                             <!-- <p>If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.</p> -->
                           </div>
@@ -91,7 +91,7 @@
                               <div class="icon"><i class="fa fa-bolt"></i></div>
                             </div>
                             <h3 class="name_title">Kelistrikan</h3>
-                            <p>Short Description</p>
+                            <!-- <p>Short Description</p> -->
                             <!-- <div class="divider"></div> -->
                             <!-- <p>If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.</p> -->
                           </div>
@@ -106,7 +106,7 @@
                               <div class="icon"><i class="fa fa-car"></i></div>
                             </div>
                             <h3 class="name_title">Kendaraan</h3>
-                            <p>Short Description</p>
+                            <!-- <p>Short Description</p> -->
                             <!-- <div class="divider"></div> -->
                             <!-- <p>If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.</p> -->
                           </div>
@@ -121,7 +121,7 @@
                               <div class="icon"><i class="fa fa-plane"></i></div>
                             </div>
                             <h3 class="name_title">Penerbangan</h3>
-                            <p>Short Description</p>
+                            <!-- <p>Short Description</p> -->
                             <!-- <div class="divider"></div> -->
                             <!-- <p>If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.</p> -->
                           </div>

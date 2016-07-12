@@ -409,8 +409,10 @@ class C_filter extends CI_Controller
 
         $data['plafon'] = $this->M_filter->getPlafonDatabyKabTahunPeriode($kabkota, $data['tahun']);
 
-        if(!$data['plafon']){
-            for($i=0; $i<41; $i++){
+        if(!$data['plafon'])
+        {
+            for($i=0; $i<41; $i++)
+            {
                 $plafon=array('APBD'=>"data tidak ada", 'APBD_P'=>"data tidak ada");
                 //$plafon2=();
                 array_push($data['plafon'], $plafon);

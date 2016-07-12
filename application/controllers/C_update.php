@@ -272,16 +272,25 @@ class C_update extends CI_Controller
 
         $apbd = $this->M_update->getNilaiAPBDP(1, $tahun);
         $dataUpdate =  $this->M_update->getDataUpdateRealisasi(1, $tahun);
-        //print_r($dataUpdate);
-        //print_r(sizeof($dataUpdate));
+        // print_r($apbd);
+        // print_r($dataUpdate);
+        // print_r(sizeof($dataUpdate));
+        // return;
 
-        for ($i=0; $i<sizeof($dataUpdate); $i++){
+        for ($i=0; $i<sizeof($dataUpdate); $i++)
+        {
 
-            if($apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P']==NULL){
-                $persen = ($dataUpdate[$i]['NILAI']/$apbd[$dataUpdate[$i]['URAIAN']-1]['APBD'])*100;
+            if($apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P']==NULL || $apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P']==0)
+            {
+                if ($apbd[$dataUpdate[$i]['URAIAN']-1]['APBD']!=0)
+                    $persen = ($dataUpdate[$i]['NILAI']/$apbd[$dataUpdate[$i]['URAIAN']-1]['APBD'])*100;
+                else $persen = NULL;
             }
-            else{
-                $persen = ($dataUpdate[$i]['NILAI']/$apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P'])*100;
+            else
+            {
+                if ($apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P']!=0)
+                    $persen = ($dataUpdate[$i]['NILAI']/$apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P'])*100;
+                else $persen = NULL;
             }
 
             $data = array(
@@ -316,11 +325,17 @@ class C_update extends CI_Controller
 
         for ($i=0; $i<sizeof($dataUpdate); $i++){
 
-            if($apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P']==NULL){
-                $persen = ($dataUpdate[$i]['NILAI']/$apbd[$dataUpdate[$i]['URAIAN']-1]['APBD'])*100;
+            if($apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P']==NULL)
+            {
+                if ($apbd[$dataUpdate[$i]['URAIAN']-1]['APBD']!=0)
+                    $persen = ($dataUpdate[$i]['NILAI']/$apbd[$dataUpdate[$i]['URAIAN']-1]['APBD'])*100;
+                else $persen = NULL;
             }
-            else{
-                $persen = ($dataUpdate[$i]['NILAI']/$apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P'])*100;
+            else
+            {
+                if ($apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P']!=0)
+                    $persen = ($dataUpdate[$i]['NILAI']/$apbd[$dataUpdate[$i]['URAIAN']-1]['APBD_P'])*100;
+                else $persen = NULL;
             }
 
             $data = array(
