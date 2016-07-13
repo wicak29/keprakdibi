@@ -19,35 +19,35 @@
                           <thead>
                             <tr>
                               <th>Nama</th>
-                              <th>NIM</th>
                               <th>Jurusan</th>
                               <th>Institusi</th>
+                              <th>Email</th>
                             </tr>
                           </thead>
                           <tbody style="text-align:left;">
                             <tr>
                               <td>I Putu Gede Indra Gunawan</td>
-                              <td>5113100073</td>
                               <td>Teknik Informatika</td>
                               <td>ITS</td>
+                              <td>i.pt.gd.indra.gunawan@gmail.com</td>
                             </tr>
                             <tr>
                               <td>I Putu Dwi Pratama Arijaya</td>
-                              <td>5113100102</td>
                               <td>Teknik Informatika</td>
                               <td>ITS</td>
+                              <td>arijayadwi@gmail.com</td>
                             </tr>
                             <tr>
                               <td>I Gusti Ngurah Adi Wicaksana</td>
-                              <td>5113100110</td>
                               <td>Teknik Informatika</td>
                               <td>ITS</td>
+                              <td>adiwicaksana29@gmail.com</td>
                             </tr>
                             <tr>
                               <td>I Made Kusnanta Bramantya Putra</td>
-                              <td>5213100035</td>
                               <td>Sistem Informasi</td>
                               <td>ITS</td>
+                              <td>kusnantamade@gmail.com</td>
                             </tr>
                           </tbody>
                         </table>    
