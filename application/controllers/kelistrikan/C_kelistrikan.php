@@ -118,7 +118,11 @@ class C_kelistrikan extends CI_Controller
         $pic = $this->input->post('id_kontak');
          
         if(! $this->upload->do_upload('file') )
-        $this->upload->display_errors();
+        {
+            $this->upload->display_errors();
+            $this->session->set_flashdata('notif', 5);
+            redirect(base_url('kelistrikan/viewImportExcel'));
+        }
              
         $media = $this->upload->data('file');
         $inputFileName = './temp_upload/'.$media['file_name'];

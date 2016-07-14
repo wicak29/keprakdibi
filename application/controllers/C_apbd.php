@@ -305,7 +305,11 @@ class C_apbd extends CI_Controller
         $data['list_apbdp'] = $this->M_apbd->getAPBDP($tahun,$daerah);
          
         if(! $this->upload->do_upload('file') )
-        $this->upload->display_errors();
+        {
+            $this->upload->display_errors();
+            $this->session->set_flashdata('notif', 5);
+            redirect(base_url('apbd/viewImportExcel'));
+        }
              
         $media = $this->upload->data('file');
         $inputFileName = './temp_upload/'.$media['file_name'];
@@ -389,7 +393,11 @@ class C_apbd extends CI_Controller
         $data['list_apbdp'] = $this->M_apbd->getAPBDP($tahun,$daerah);
          
         if(! $this->upload->do_upload('file') )
-        $this->upload->display_errors();
+        {
+            $this->upload->display_errors();
+            $this->session->set_flashdata('notif', 5);
+            redirect(base_url('apbd/viewImportExcel'));
+        }
              
         $media = $this->upload->data('file');
         $inputFileName = './temp_upload/'.$media['file_name'];
@@ -496,7 +504,11 @@ class C_apbd extends CI_Controller
        
          
         if(! $this->upload->do_upload('file') )
-        $this->upload->display_errors();
+        {
+            $this->upload->display_errors();
+            $this->session->set_flashdata('notif', 5);
+            redirect(base_url('apbd/viewImportExcel'));
+        }
              
         $media = $this->upload->data('file');
         $inputFileName = './temp_upload/'.$media['file_name'];
