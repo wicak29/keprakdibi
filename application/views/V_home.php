@@ -12,14 +12,8 @@
                   <div class="x_content">
                     <div id="judulHome" class="row">
                       <h1 style="font-weight: bold;">SELAMAT DATANG !</h1>
-                      <p>SIDIBI merupakan aplikasi berbasis web yang digunakan untuk memvisualisasikan data-data indikator nilai ekonomi regional Provinsi Bali <br>sebagai produk kontribusi peserta kerja praktek di Kantor Perwakilan Bank Indonesia Provinsi Bali tahun 2016</p>
-					  
-					  <a href="<?php echo base_url(); ?>C_home/downloadTutorial" class="x_content" style="padding:0px;">
-                                <button type="button" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Download File Tutorial</button>
-                              </a>
-							  
-                      <br>					  
-					  <br>
+                      <p>SIDIBI merupakan aplikasi web yang digunakan untuk memvisualisasikan data-data indikator nilai ekonomi regional Provinsi Bali <br>sebagai produk kontribusi peserta kerja praktek di Kantor Perwakilan Bank Indonesia Provinsi Bali tahun 2016</p>
+                      <br>
                       <p>Tim Penyusun :</p>
                         <table class="table" style="margin: 0 auto; width:50%;">
                           <thead>

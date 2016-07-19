@@ -6,14 +6,14 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel" style="min-height:538px;">
           <div class="x_title">
-            <h2>Grafik Data Kendaraan Per Periode</h2>
+            <h2>Grafik Bulan Tiap Tahun</h2>
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
             <div style="margin-bottom:50px;">
               <form id="demo-form" action="<?php echo base_url();?>kendaraan/filter/viewLihatGrafikBulan" method="post" enctype="multipart/form-data" class="form-horizontal form-label-left">
                 <div class="form-group">
-                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama UPT :</label>
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Aspek :</label>
                   <div class="col-md-6 col-sm-6 col-xs-12">
                   <select name="upt" class="form-control" required="required">
                       <option value="" selected disabled>Pilih UPT</option>

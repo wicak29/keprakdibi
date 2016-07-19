@@ -14,13 +14,6 @@ class C_home extends CI_Controller
             redirect('C_auth');
         }
     }
-	
-	public function downloadTutorial()
-    {   
-		$this->load->helper('download');
-        $data = file_get_contents(base_url('assets/format_input/Tutorial-SIDIBI.pdf')); 
-        force_download('Tutorial-SIDIBI.pdf',$data);
-    }
 
     public function index()
     {
