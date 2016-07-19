@@ -18,7 +18,7 @@
                     <form action="<?php echo base_url();?>apbd/filter/filterKab/" method="post" enctype="multipart/form-data" class="form-inline">
                     <form class="form-inline">
                       <div class="form-group">
-                        <label for="ex3">Pilih Tahun : </label>
+                        <label for="ex3">Pilih Berdasarkan : </label>
                         <select name="kabkota" class="form-control" tabindex="-1" style="margin-left:10px;" required="required">
                             <option value="" selected disabled>Pilih Kabupaten/Kota</option>
                             <option value="2">Badung</option>
