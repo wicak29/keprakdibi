@@ -77,7 +77,7 @@ class C_filter extends CI_Controller
 
     public function viewLihatGrafikBulan()
     {
-        $data['title'] = "Grafik Pelabuhan Berdasarkan Bulan Pertahun";
+        $data['title'] = "Grafik Kelistrikan Berdasarkan Bulan Pertahun";
         $data['periode']= $this->input->post('bulan');
         $data['tahun'] = $this->input->post('tahun');
         $data['uraian'] = $this->input->post('uraian');
